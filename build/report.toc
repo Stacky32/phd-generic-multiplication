@@ -1,0 +1,59 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Representations and Hall algebras of cyclic quivers}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Cyclic quivers}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Hall algebras: finite fields}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}The Ringel-Hall algebra of a cyclic quiver}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}The cyclic flags approach to affine q-Schur algebras.}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Cyclic flags}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Convolution algebras}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Affine q-Schur algebras}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Relation to the Ringel-Hall algebra of a cyclic quiver.}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Quivers with relations for affine q-Schur algebras.}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}quivers with relations}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Exceptional case $n=2$.}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Typical case $n>2$.}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}The poset of orbits and a generic multiplication.}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Poset of orbits}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Preliminary results}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Existence of a maximum}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Associativity}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}The generic algebra}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.6}Multiplication rules}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.7} --- Rough technical results --- }{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.1}reducing to the finite setting}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.2}locally closed orbits}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.3}Associativity of the generic product}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}A realisation of affine zero Schur algebras}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Quivers with relations for the generic algebra.}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Further directions}{25}

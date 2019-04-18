@@ -1,0 +1,3 @@
+Write down the filtration given by a pair of flags, such that the dimensions of the quotients are given by the entries of the matrix of the pair.
+
+In the definition of the convolution algebras, change the name of the space of invariant functions on the double cyclic flag variety from S to the coordinate ring notation.

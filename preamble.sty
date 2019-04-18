@@ -1,0 +1,167 @@
+%\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}
+
+% Preamble for doctoral thesis "A geometric realisation of affine 0-Schur algebras".
+% Author: Tom Crawley, working at University of Bath.
+% Supervisor: Dr Xiuping Su.
+% Funding: EPSRC grant.
+
+% -------------------------------------------- %
+% 				PACKAGES						 %
+% -------------------------------------------- %
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{enumerate}
+\RequirePackage{xcolor}
+\RequirePackage{mathtools}	% included for use of coloneqq.
+
+\usepackage{tikz-cd} % create (commuting) diagrams.
+\usepackage{biblatex}
+
+\addbibresource{references.bib}
+
+% --- unused packages --- %
+
+%\usepackage{extpfeil} 	% for interesting arrows.
+%\usepackage{hyperref} 	% enable navigation hyperlinks
+
+%\usepackage{import}
+%For importing sections, bibliography etc.
+%Usage: \import[path]{filename}
+
+
+% --- SPECIAL COMMANDS --- %
+
+%marker to continue typing:
+\newcommand{\seeyoulater}{ {\color{orange}TO BE CONTINUED.} }
+
+% -------------------------------------------- %
+% 				STYLE AND FORMATTING			 %
+% -------------------------------------------- %
+
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textwidth}{463pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{60pt}
+\setlength{\topmargin}{20pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{650pt}
+\setlength{\footskip}{20pt}
+
+
+% -------------------------------------------- %
+% 				THEOREM ENVIRONMENTS			 %
+% -------------------------------------------- %
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{observation}{Observation}
+
+
+% --------------------------------------------- %
+% 				NOTATION					 	  %
+% --------------------------------------------- %
+
+% COMMON MATHEMATICAL NOTATION
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\field}{\mathbf{k}}
+
+\renewcommand{\epsilon}{\varepsilon}
+
+% SPECIFIC NOTATION
+
+% GROUND RINGS FOR LATTICES:
+% Laurent polynomial ring
+\newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
+% polynomial ring
+\newcommand{\polys}{{\field[\epsilon]}}
+% compact notation:
+\renewcommand{\laurent}{\mathcal{S}}
+\renewcommand{\polys}{\mathcal{R}}
+
+
+% AFFINE FLAG VARIETIES [single, double, triple]
+\newcommand{\flags}{\mathcal{F}}
+\newcommand{\dblflags}{{\flags\!\times\!\flags}}
+\newcommand{\triflags}{{\flags\!\times\!\flags\!\times\!\flags}}
+
+% compositions (of r into n parts)
+\newcommand{\compositions}[1][n,r]{\Lambda(#1)}
+
+% index set for orbits in double flag variety.
+\newcommand{\matrices}[1][n,r]{\Xi(#1)}
+
+% cyclic quivers
+\newcommand{\cyclic}{\Delta}
+
+% quiver for presentation of q schur algebras.
+\newcommand{\presentationquiver}[1][n,r]{\Gamma(#1)}
+
+% ideal of relations for the quiver presentation
+\newcommand{\quiverrelations}[1][n,r]{I(#1)}
+
+
+% VARIOUS SCHUR ALGEBRAS
+
+% classical Schur algebras
+\newcommand{\schur}[1][n,r]{S(#1)}
+% classical affine Schur algebras
+\newcommand{\affineschur}[1][n,r]{\hat{S}(#1)}
+% quantum Schur algebras
+\newcommand{\qschur}[1][n,r]{S_q(#1)}
+% quantum affine Schur algebras
+\newcommand{\affineqschur}[1][n,r]{\hat{S}_q(#1)}
+% affine 0-Schur algebras
+\newcommand{\affinezeroschur}[1][n,r]{\hat{S}_0(#1)}
+% generic affine Schur algebras (realisation of 0-Schur algebras.)
+\newcommand{\generic}[1][n,r]{\hat{G}(#1)}
+%
+% finite type generic Schur algebras may be denoted S_0(n,r) as the isomorphism theorem is known.
+
+% transpose operator
+\newcommand{\transpose}{\top}
+% other possibilities are \top, ...
+
+% --- MORE OPERATORS --- %
+
+%General linear group.
+\DeclareMathOperator{\GL}{GL}
+
+% (linear) span
+\DeclareMathOperator{\SPAN}{span}
+
+% morphism spaces
+\DeclareMathOperator{\HOM}{Hom}
+
+% endomorphism ring
+\DeclareMathOperator{\END}{End}
+
+% automorphism group
+\DeclareMathOperator{\AUT}{Aut}
+
+% extension groups
+\DeclareMathOperator{\EXT}{Ext}
+
+% image
+\DeclareMathOperator{\IM}{im}%image
+
+
+% -------------------------------------------- %
+%				TITLE PAGE						 %
+% -------------------------------------------- %
+
+\author{Tom Crawley} % with Xiuping Su.
+\title{A geometric realisation of affine 0-Schur algebras.}

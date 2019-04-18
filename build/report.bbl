@@ -1,0 +1,1102 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{deng15}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=506eba06351beff1b81b7e72c7946bb6}{%
+           family={B},
+           familyi={B\bibinitperiod},
+           given={Deng.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1fc9feecb71980b514f245edf35284b0}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{fullhash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{bibnamehash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{authorbibnamehash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{authornamehash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{authorfullhash}{558404a13a22a012e7e13fdb8d1018c2}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hall algebras of cyclic quivers and q-deformed Fock spaces}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb arXiv:1507.03064
+      \endverb
+    \endentry
+    \entry{blm90}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=c0045e654cc02cb758bb4563af97ba74}{%
+           family={Beilinson},
+           familyi={B\bibinitperiod},
+           given={A.\bibnamedelimi A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=7f26908bc7b720c82c47d16a07552d89}{%
+           family={Lusztig},
+           familyi={L\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=7882fbc5f190500165ed332cc3638589}{%
+           family={MacPherson},
+           familyi={M\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Duke University Press}%
+      }
+      \strng{namehash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \strng{fullhash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \strng{bibnamehash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \strng{authorbibnamehash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \strng{authornamehash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \strng{authorfullhash}{ef9b14ac3144db9283ac1a6ec367de28}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Duke Mathematical Journal}
+      \field{number}{2}
+      \field{title}{A geometric setting for the quantum deformation of GLn.}
+      \field{volume}{61}
+      \field{year}{1990}
+      \field{pages}{655\bibrangedash 677}
+      \range{pages}{23}
+    \endentry
+    \entry{bongartz96}{article}{}
+      \name{author}{1}{}{%
+        {{hash=c1e2fa46031b667871970acaa898f5f6}{%
+           family={Bongartz},
+           familyi={B\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c1e2fa46031b667871970acaa898f5f6}
+      \strng{fullhash}{c1e2fa46031b667871970acaa898f5f6}
+      \strng{bibnamehash}{c1e2fa46031b667871970acaa898f5f6}
+      \strng{authorbibnamehash}{c1e2fa46031b667871970acaa898f5f6}
+      \strng{authornamehash}{c1e2fa46031b667871970acaa898f5f6}
+      \strng{authorfullhash}{c1e2fa46031b667871970acaa898f5f6}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Mathematics}
+      \field{number}{2}
+      \field{title}{On degenerations and extensions of finite dimensional modules}
+      \field{volume}{121}
+      \field{year}{1996}
+      \field{pages}{245\bibrangedash 287}
+      \range{pages}{43}
+    \endentry
+    \entry{bridgeland13}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e6fcb928bf4856808cacb854d5d6ac03}{%
+           family={Bridgeland},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \strng{fullhash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \strng{bibnamehash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \strng{authorbibnamehash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \strng{authornamehash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \strng{authorfullhash}{e6fcb928bf4856808cacb854d5d6ac03}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{title}{Quantum groups via Hall algebras of complexes}
+      \field{year}{2013}
+      \field{pages}{739\bibrangedash 759}
+      \range{pages}{21}
+    \endentry
+    \entry{chen09}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6055c332a250460c73d42339d7c7af43}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=5fc82183fbd556c3ca15f0c1627e58f6}{%
+           family={Krause},
+           familyi={K\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{da0f567c937c757742eb4daffa5b2eae}
+      \strng{fullhash}{da0f567c937c757742eb4daffa5b2eae}
+      \strng{bibnamehash}{da0f567c937c757742eb4daffa5b2eae}
+      \strng{authorbibnamehash}{da0f567c937c757742eb4daffa5b2eae}
+      \strng{authornamehash}{da0f567c937c757742eb4daffa5b2eae}
+      \strng{authorfullhash}{da0f567c937c757742eb4daffa5b2eae}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:0911.4473}
+      \field{title}{Introduction to coherent sheaves on weighted projective lines}
+      \field{year}{2009}
+    \endentry
+    \entry{crawleyboevey17}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a3bb45e0d45ad6547f5ba13a825a3512}{%
+           family={Crawley-Boevey},
+           familyi={C\bibinithyphendelim B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=ca8b412476b3071c86e0a73ff8fa3739}{%
+           family={Sauter},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{00be05a57acd8880970ab5e42e528a14}
+      \strng{fullhash}{00be05a57acd8880970ab5e42e528a14}
+      \strng{bibnamehash}{00be05a57acd8880970ab5e42e528a14}
+      \strng{authorbibnamehash}{00be05a57acd8880970ab5e42e528a14}
+      \strng{authornamehash}{00be05a57acd8880970ab5e42e528a14}
+      \strng{authorfullhash}{00be05a57acd8880970ab5e42e528a14}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematische Zeitschrift}
+      \field{number}{1-2}
+      \field{title}{On quiver Grassmannians and orbit closures for representation-finite algebras}
+      \field{volume}{285}
+      \field{year}{2017}
+      \field{pages}{367\bibrangedash 395}
+      \range{pages}{29}
+    \endentry
+    \entry{deng12}{book}{}
+      \name{author}{3}{}{%
+        {{hash=6dfcd51ec888babde8974d9686e95294}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1fc9feecb71980b514f245edf35284b0}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=55e4a2025be4371991241f5fb838d04f}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Q.},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \strng{fullhash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \strng{bibnamehash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \strng{authorbibnamehash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \strng{authornamehash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \strng{authorfullhash}{ee61ee00c7e2b2f9063d268afa020d69}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A double Hall algebra approach to affine quantum Schur--Weyl theory}
+      \field{volume}{401}
+      \field{year}{2012}
+    \endentry
+    \entry{deng13}{article}{}
+      \name{author}{3}{}{%
+        {{hash=6dfcd51ec888babde8974d9686e95294}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1fc9feecb71980b514f245edf35284b0}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8bc06787563a28c9efcf4bac2973cbd1}{%
+           family={Mah},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{05f5dd08c84eefda366527c341772ef7}
+      \strng{fullhash}{05f5dd08c84eefda366527c341772ef7}
+      \strng{bibnamehash}{05f5dd08c84eefda366527c341772ef7}
+      \strng{authorbibnamehash}{05f5dd08c84eefda366527c341772ef7}
+      \strng{authornamehash}{05f5dd08c84eefda366527c341772ef7}
+      \strng{authorfullhash}{05f5dd08c84eefda366527c341772ef7}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Contem. Math}
+      \field{title}{Generic extensions and composition monoids of cyclic quivers}
+      \field{volume}{602}
+      \field{year}{2013}
+      \field{pages}{99\bibrangedash 114}
+      \range{pages}{16}
+    \endentry
+    \entry{deng08}{book}{}
+      \name{author}{3}{}{%
+        {{hash=6dfcd51ec888babde8974d9686e95294}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1fc9feecb71980b514f245edf35284b0}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bea4e0db00f0d8fb50b5fac8efacb09a}{%
+           family={Parshall},
+           familyi={P\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \strng{fullhash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \strng{bibnamehash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \strng{authorbibnamehash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \strng{authornamehash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \strng{authorfullhash}{dda01eb32b8fc7f8e45663e70ea23447}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{150}
+      \field{title}{Finite dimensional algebras and quantum groups}
+      \field{year}{2008}
+    \endentry
+    \entry{dengyang12}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6dfcd51ec888babde8974d9686e95294}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=52c4cb519d5a341439218f0e6559ca0d}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {North-Holland}%
+      }
+      \strng{namehash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \strng{fullhash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \strng{bibnamehash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \strng{authorbibnamehash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \strng{authornamehash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \strng{authorfullhash}{ff44938ca6140fe09972f0a6a54e0b17}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Pure and Applied Algebra}
+      \field{number}{6}
+      \field{title}{On 0-Schur algebras}
+      \field{volume}{216}
+      \field{year}{2012}
+      \field{pages}{1253\bibrangedash 1267}
+      \range{pages}{15}
+    \endentry
+    \entry{deng15-01}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=fdc9ff7ac8dca87350e3935cadf1c5c7}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Bangming},
+           giveni={B\bibinitperiod}}}%
+        {{hash=dba2a3d044e1b0d97f7ce6b0d10ac9be}{%
+           family={Ruan},
+           familyi={R\bibinitperiod},
+           given={Shiquan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{85e1d02ae06b525175d796286b47d3b0}
+      \strng{fullhash}{85e1d02ae06b525175d796286b47d3b0}
+      \strng{bibnamehash}{85e1d02ae06b525175d796286b47d3b0}
+      \strng{authorbibnamehash}{85e1d02ae06b525175d796286b47d3b0}
+      \strng{authornamehash}{85e1d02ae06b525175d796286b47d3b0}
+      \strng{authorfullhash}{85e1d02ae06b525175d796286b47d3b0}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hall polynomials for tame type}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb arXiv:1512.03504
+      \endverb
+    \endentry
+    \entry{dipper91}{article}{}
+      \name{author}{2}{}{%
+        {{hash=deee60400101852b774464d5fa30422b}{%
+           family={Dipper},
+           familyi={D\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cd9d7b81e13d74f60966fd18b7dcf94f}{%
+           family={James},
+           familyi={J\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{fullhash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{bibnamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authorbibnamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authornamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authorfullhash}{5893ce4541855a2206aa74e43fe37d58}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the American Mathematical Society}
+      \field{number}{1}
+      \field{title}{q-tensor space and q-Weyl modules}
+      \field{volume}{327}
+      \field{year}{1991}
+      \field{pages}{251\bibrangedash 282}
+      \range{pages}{32}
+    \endentry
+    \entry{dipper89}{article}{}
+      \name{author}{2}{}{%
+        {{hash=deee60400101852b774464d5fa30422b}{%
+           family={Dipper},
+           familyi={D\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cd9d7b81e13d74f60966fd18b7dcf94f}{%
+           family={James},
+           familyi={J\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{fullhash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{bibnamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authorbibnamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authornamehash}{5893ce4541855a2206aa74e43fe37d58}
+      \strng{authorfullhash}{5893ce4541855a2206aa74e43fe37d58}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the London Mathematical Society}
+      \field{number}{1}
+      \field{title}{The q-Schur Algebra}
+      \field{volume}{3}
+      \field{year}{1989}
+      \field{pages}{23\bibrangedash 50}
+      \range{pages}{28}
+    \endentry
+    \entry{doty07}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bba7ec678a67f718432831396e84a31f}{%
+           family={Doty},
+           familyi={D\bibinitperiod},
+           given={S.\bibnamedelimi R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=5d71259e6cb72ca15e3eb993a4b54b4f}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{365f356e79a91295051855a33187c4b3}
+      \strng{fullhash}{365f356e79a91295051855a33187c4b3}
+      \strng{bibnamehash}{365f356e79a91295051855a33187c4b3}
+      \strng{authorbibnamehash}{365f356e79a91295051855a33187c4b3}
+      \strng{authornamehash}{365f356e79a91295051855a33187c4b3}
+      \strng{authorfullhash}{365f356e79a91295051855a33187c4b3}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematische Zeitschrift}
+      \field{number}{2}
+      \field{title}{Presenting affine q-Schur algebras}
+      \field{volume}{256}
+      \field{year}{2007}
+      \field{pages}{311\bibrangedash 345}
+      \range{pages}{35}
+    \endentry
+    \entry{doty02}{article}{}
+      \name{author}{2}{}{%
+        {{hash=334561d04a0a4504bee3890d8b76ac3d}{%
+           family={Doty},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=119931ff12cc092d7676053c47c79080}{%
+           family={Giaquinto},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OUP}%
+      }
+      \strng{namehash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \strng{fullhash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \strng{bibnamehash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \strng{authorbibnamehash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \strng{authornamehash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \strng{authorfullhash}{93c2ccaa3e52c0218e4e1d49b5a0c6d7}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Mathematics Research Notices}
+      \field{number}{36}
+      \field{title}{Presenting Schur algebras}
+      \field{volume}{2002}
+      \field{year}{2002}
+      \field{pages}{1907\bibrangedash 1944}
+      \range{pages}{38}
+    \endentry
+    \entry{dou10}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=1b7e89644a9e140a0b21bf286f458f7f}{%
+           family={Dou},
+           familyi={D\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b4e3e3950abd8d89bd6dd1087a0c875b}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Yong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=048d7d8b7066407722ef07cce9a1ab3f}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{59699324ce5adb73ce4c213bc236e179}
+      \strng{fullhash}{59699324ce5adb73ce4c213bc236e179}
+      \strng{bibnamehash}{59699324ce5adb73ce4c213bc236e179}
+      \strng{authorbibnamehash}{59699324ce5adb73ce4c213bc236e179}
+      \strng{authornamehash}{59699324ce5adb73ce4c213bc236e179}
+      \strng{authorfullhash}{59699324ce5adb73ce4c213bc236e179}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hall algebra approach to Drinfeld's presentation of quantum loop algebras}
+      \field{year}{2010}
+      \verb{eprint}
+      \verb arXiv:1002.1316
+      \endverb
+    \endentry
+    \entry{geng13}{article}{}
+      \name{author}{2}{}{%
+        {{hash=0ca9673127fa3a785a934dc37bcb3ed3}{%
+           family={Geng},
+           familyi={G\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=599bc12d41695c51c46634ab579143b7}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ccb849c1738bd0610a7762f7c66dc148}
+      \strng{fullhash}{ccb849c1738bd0610a7762f7c66dc148}
+      \strng{bibnamehash}{ccb849c1738bd0610a7762f7c66dc148}
+      \strng{authorbibnamehash}{ccb849c1738bd0610a7762f7c66dc148}
+      \strng{authornamehash}{ccb849c1738bd0610a7762f7c66dc148}
+      \strng{authorfullhash}{ccb849c1738bd0610a7762f7c66dc148}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1309.0998}
+      \field{title}{An embedding from the Ringel-Hall algebra to the Bridgeland's Ringel-Hall algebra associated to an algebra with global dimension at most two}
+      \field{year}{2013}
+    \endentry
+    \entry{ginzburg93}{article}{}
+      \name{author}{2}{}{%
+        {{hash=eebea9fbfc7daa7680186f4170ef4982}{%
+           family={Ginzburg},
+           familyi={G\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=d279fd4ba3f7216501bde621ea0c8a6f}{%
+           family={Vasserot},
+           familyi={V\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Hindawi Publishing Corporation}%
+      }
+      \strng{namehash}{a994a8ae477a03c8ebddaf4708263252}
+      \strng{fullhash}{a994a8ae477a03c8ebddaf4708263252}
+      \strng{bibnamehash}{a994a8ae477a03c8ebddaf4708263252}
+      \strng{authorbibnamehash}{a994a8ae477a03c8ebddaf4708263252}
+      \strng{authornamehash}{a994a8ae477a03c8ebddaf4708263252}
+      \strng{authorfullhash}{a994a8ae477a03c8ebddaf4708263252}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Mathematics Research Notices}
+      \field{number}{3}
+      \field{title}{Langlands reciprocity for affine quantum groups of type A n}
+      \field{volume}{1993}
+      \field{year}{1993}
+      \field{pages}{67\bibrangedash 85}
+      \range{pages}{19}
+    \endentry
+    \entry{green96}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5d71259e6cb72ca15e3eb993a4b54b4f}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \strng{fullhash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \strng{bibnamehash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \strng{authorbibnamehash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \strng{authornamehash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \strng{authorfullhash}{5d71259e6cb72ca15e3eb993a4b54b4f}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of algebra}
+      \field{number}{3}
+      \field{title}{q-Schur algebras as quotients of quantized enveloping algebras}
+      \field{volume}{185}
+      \field{year}{1996}
+      \field{pages}{660\bibrangedash 687}
+      \range{pages}{28}
+    \endentry
+    \entry{hubery07}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=130570ad0d7b2e5a7ca79f417f24b20f}{%
+           family={Hubery},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{fullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{bibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorbibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authornamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorfullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hall polynomials for affine quivers}
+      \field{year}{2007}
+      \verb{eprint}
+      \verb arXiv:math/0703178
+      \endverb
+    \endentry
+    \entry{hubery04}{article}{}
+      \name{author}{1}{}{%
+        {{hash=130570ad0d7b2e5a7ca79f417f24b20f}{%
+           family={Hubery},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{fullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{bibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorbibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authornamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorfullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint math/0403206}
+      \field{title}{The composition algebra of an affine quiver}
+      \field{year}{2004}
+    \endentry
+    \entry{humphreys81}{book}{}
+      \name{author}{1}{}{%
+        {{hash=30461310babd473f77d9da674dfaa20f}{%
+           family={Humphreys},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{30461310babd473f77d9da674dfaa20f}
+      \strng{fullhash}{30461310babd473f77d9da674dfaa20f}
+      \strng{bibnamehash}{30461310babd473f77d9da674dfaa20f}
+      \strng{authorbibnamehash}{30461310babd473f77d9da674dfaa20f}
+      \strng{authornamehash}{30461310babd473f77d9da674dfaa20f}
+      \strng{authorfullhash}{30461310babd473f77d9da674dfaa20f}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear Algebraic Groups}
+      \field{year}{1981}
+    \endentry
+    \entry{su15}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bc6c5b7e29ed3613cbe7ff61ee82beed}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=2ee84dc35bc955c69d407a87cf1613f1}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{612d507270d4a4daf35d2d23a04a2efd}
+      \strng{fullhash}{612d507270d4a4daf35d2d23a04a2efd}
+      \strng{bibnamehash}{612d507270d4a4daf35d2d23a04a2efd}
+      \strng{authorbibnamehash}{612d507270d4a4daf35d2d23a04a2efd}
+      \strng{authornamehash}{612d507270d4a4daf35d2d23a04a2efd}
+      \strng{authorfullhash}{612d507270d4a4daf35d2d23a04a2efd}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Pure and Applied Algebra}
+      \field{number}{2}
+      \field{title}{A geometric realisation of 0-Schur and 0-Hecke algebras}
+      \field{volume}{219}
+      \field{year}{2015}
+      \field{pages}{277\bibrangedash 307}
+      \range{pages}{31}
+    \endentry
+    \entry{su17}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bc6c5b7e29ed3613cbe7ff61ee82beed}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=2ee84dc35bc955c69d407a87cf1613f1}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=52c4cb519d5a341439218f0e6559ca0d}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd38be5f854966630c1ffbb419a96c59}
+      \strng{fullhash}{dd38be5f854966630c1ffbb419a96c59}
+      \strng{bibnamehash}{dd38be5f854966630c1ffbb419a96c59}
+      \strng{authorbibnamehash}{dd38be5f854966630c1ffbb419a96c59}
+      \strng{authornamehash}{dd38be5f854966630c1ffbb419a96c59}
+      \strng{authorfullhash}{dd38be5f854966630c1ffbb419a96c59}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1705.06084}
+      \field{title}{Degenerate 0-Schur algebras and Nil-Temperley-Lieb algebras}
+      \field{year}{2017}
+    \endentry
+    \entry{su12}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=641cf1b919f2ddf597e0c05649121e62}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Bernt\bibnamedelima Tore},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=805efe7978773e207490a4877ca890d8}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Xiuping},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \strng{fullhash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \strng{bibnamehash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \strng{authorbibnamehash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \strng{authornamehash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \strng{authorfullhash}{a00b3632fa0a3a60fde3c4cb5e2a23d6}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A geometric realisation of 0-Schur and 0-Hecke algebras}
+      \field{year}{2012}
+      \verb{eprint}
+      \verb arXiv:1207.6769
+      \endverb
+    \endentry
+    \entry{su13}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=641cf1b919f2ddf597e0c05649121e62}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Bernt\bibnamedelima Tore},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=805efe7978773e207490a4877ca890d8}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Xiuping},
+           giveni={X\bibinitperiod}}}%
+        {{hash=60e39f0237e9d4af5e3ba8edea9512d5}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Guiyu},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{637f265d1f9526dc282d1989d2f4feb0}
+      \strng{fullhash}{637f265d1f9526dc282d1989d2f4feb0}
+      \strng{bibnamehash}{637f265d1f9526dc282d1989d2f4feb0}
+      \strng{authorbibnamehash}{637f265d1f9526dc282d1989d2f4feb0}
+      \strng{authornamehash}{637f265d1f9526dc282d1989d2f4feb0}
+      \strng{authorfullhash}{637f265d1f9526dc282d1989d2f4feb0}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Projective modules of 0-Schur algebras}
+      \field{year}{2013}
+      \verb{eprint}
+      \verb arXiv:1312.5487
+      \endverb
+    \endentry
+    \entry{lusztig92}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=7f26908bc7b720c82c47d16a07552d89}{%
+           family={Lusztig},
+           familyi={L\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7f26908bc7b720c82c47d16a07552d89}
+      \strng{fullhash}{7f26908bc7b720c82c47d16a07552d89}
+      \strng{bibnamehash}{7f26908bc7b720c82c47d16a07552d89}
+      \strng{authorbibnamehash}{7f26908bc7b720c82c47d16a07552d89}
+      \strng{authornamehash}{7f26908bc7b720c82c47d16a07552d89}
+      \strng{authorfullhash}{7f26908bc7b720c82c47d16a07552d89}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{New developments in Lie theory and their applications}
+      \field{title}{Introduction to quantized enveloping algebras}
+      \field{year}{1992}
+      \field{pages}{49\bibrangedash 65}
+      \range{pages}{17}
+    \endentry
+    \entry{lusztig99}{article}{}
+      \name{author}{1}{}{%
+        {{hash=93b97abadc9c789d5b31630417674176}{%
+           family={Lusztig},
+           familyi={L\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {International Press of Boston}%
+      }
+      \strng{namehash}{93b97abadc9c789d5b31630417674176}
+      \strng{fullhash}{93b97abadc9c789d5b31630417674176}
+      \strng{bibnamehash}{93b97abadc9c789d5b31630417674176}
+      \strng{authorbibnamehash}{93b97abadc9c789d5b31630417674176}
+      \strng{authornamehash}{93b97abadc9c789d5b31630417674176}
+      \strng{authorfullhash}{93b97abadc9c789d5b31630417674176}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Asian Journal of Mathematics}
+      \field{number}{1}
+      \field{title}{Aperiodicity in quantum affine gln}
+      \field{volume}{3}
+      \field{year}{1999}
+      \field{pages}{147\bibrangedash 178}
+      \range{pages}{32}
+    \endentry
+    \entry{reineke01}{article}{}
+      \name{author}{1}{}{%
+        {{hash=edd752132c4b4adc015fdf0e2a21d2b5}{%
+           family={Reineke},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{fullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{bibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorbibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authornamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorfullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Represent. Theory}
+      \field{title}{Generic extensions and multiplicative bases of quantum groups at q = 0}
+      \field{volume}{5}
+      \field{year}{2001}
+      \field{pages}{147\bibrangedash 163}
+      \range{pages}{17}
+    \endentry
+    \entry{reineke03}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=edd752132c4b4adc015fdf0e2a21d2b5}{%
+           family={Reineke},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{fullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{bibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorbibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authornamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorfullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Studies in memory of I. Schur}
+      \field{title}{Quivers, desingularizations and canonical bases}
+      \field{year}{2003}
+      \field{pages}{325\bibrangedash 344}
+      \range{pages}{20}
+    \endentry
+    \entry{reineke02}{article}{}
+      \name{author}{1}{}{%
+        {{hash=edd752132c4b4adc015fdf0e2a21d2b5}{%
+           family={Reineke},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{fullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{bibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorbibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authornamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorfullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the London Mathematical Society}
+      \field{number}{3}
+      \field{title}{The monoid of families of quiver representations}
+      \field{volume}{84}
+      \field{year}{2002}
+      \field{pages}{663\bibrangedash 685}
+      \range{pages}{23}
+    \endentry
+    \entry{reineke02-01}{article}{}
+      \name{author}{1}{}{%
+        {{hash=edd752132c4b4adc015fdf0e2a21d2b5}{%
+           family={Reineke},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{fullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{bibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorbibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authornamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorfullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint math/0206095}
+      \field{title}{The quantic monoid and degenerate quantized enveloping algebras}
+      \field{year}{2002}
+    \endentry
+    \entry{reineke04}{article}{}
+      \name{author}{1}{}{%
+        {{hash=edd752132c4b4adc015fdf0e2a21d2b5}{%
+           family={Reineke},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{fullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{bibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorbibnamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authornamehash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \strng{authorfullhash}{edd752132c4b4adc015fdf0e2a21d2b5}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Representations of finite dimensional algebras and related topics in Lie theory and geometry}
+      \field{title}{The use of geometric and quantum group techniques for wild quivers}
+      \field{volume}{40}
+      \field{year}{2004}
+      \field{pages}{365\bibrangedash 390}
+      \range{pages}{26}
+    \endentry
+    \entry{ringel90}{article}{}
+      \name{author}{1}{}{%
+        {{hash=aeec55f3ff17a4e7a15f915fe8704b4a}{%
+           family={Ringel},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Institute of Mathematics Polish Academy of Sciences}%
+      }
+      \strng{namehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{fullhash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{bibnamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authorbibnamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authornamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authorfullhash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Banach Center Publications}
+      \field{number}{1}
+      \field{title}{Hall algebras}
+      \field{volume}{26}
+      \field{year}{1990}
+      \field{pages}{433\bibrangedash 447}
+      \range{pages}{15}
+    \endentry
+    \entry{ringel93}{book}{}
+      \name{author}{1}{}{%
+        {{hash=aeec55f3ff17a4e7a15f915fe8704b4a}{%
+           family={Ringel},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Sonderforschungsbereich 343}%
+      }
+      \strng{namehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{fullhash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{bibnamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authorbibnamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authornamehash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \strng{authorfullhash}{aeec55f3ff17a4e7a15f915fe8704b4a}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Hall algebra approach to quantum groups}
+      \field{year}{1993}
+    \endentry
+    \entry{su10}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2ee84dc35bc955c69d407a87cf1613f1}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OUP}%
+      }
+      \strng{namehash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \strng{fullhash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \strng{bibnamehash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \strng{authorbibnamehash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \strng{authornamehash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \strng{authorfullhash}{2ee84dc35bc955c69d407a87cf1613f1}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quarterly journal of mathematics}
+      \field{number}{4}
+      \field{title}{A generic multiplication in quantized Schur algebras}
+      \field{volume}{61}
+      \field{year}{2010}
+      \field{pages}{497\bibrangedash 510}
+      \range{pages}{14}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
