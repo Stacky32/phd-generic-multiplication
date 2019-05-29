@@ -605,8 +605,8 @@ is a complex projective variety, closed under the action of $G_L$.
 \begin{proposition}\label{proposition:existence-maximum}
 Given $A,B\in\matrices$ with $co(A)=ro(B)$, $\Xi_{A,B}$ has a maximum element.
 \end{proposition}
-\begin{proof}
 
+\begin{proof}[Draft of proof]
 The assumption $co(A)=ro(B)$ ensures $\Xi_{A,B}$ is non-empty. The partial order on $\Xi_{A,B}$ is given by the partial order on $\matrices$; where $A'\le A$ if and only if $d_{i,j}(A')\le d_{i,j}(A)$ for all $i,j\in\integers$.
 
 To prove existence of a maximum element in $\Xi_{A,B}$ we will consider the poset of $G$-orbits in $\flags=\flags_\complex(n,r)$ and prove existence of a maximum orbit in $X_{A,B}$ using an open orbits argument. Fix a free $\complex[\epsilon,\epsilon^{-1}]$-module of rank $r$ and write $G=\AUT(V)$. Then $\flags = \flags_\complex(n,r)$ denotes the space of $n$-cyclic flags of $\complex[\epsilon]$-lattices in $V$.
@@ -645,8 +645,43 @@ for any $L''\in\mathcal{O}_C^L$.
 
 \end{proof}
 
+\begin{proof}[Short proof]
+$\Xi_{A,B}$ is nonempty since $co(A)=ro(B)$. For each $i,j\in\integers$, define
+\begin{equation*}
+m_{i,j} = \max_{C\in\Xi_{A,B}} d_{i,j}(C).
+\end{equation*}
+It will be shown that there is a unique element $A\ast B\in \Xi_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$: such an element is neccesarily a maximum in $\Xi_{A,B}$. Assume $\field=\complex$, so $\flags$ is a set of periodic chains of lattices in $V = \complex[\epsilon,\epsilon^{-1}]^r$, $G = \AUT(V) = GL_{r}(\complex[\epsilon,\epsilon^{-1}])$ and so on. Fix $L\in\flags_{ro(A)}$ and assume $N\in\naturals$ is sufficiently large that $X_{A,B}^L\subset \Pi_N$; where
+\begin{equation*}
+\Pi_N = \{L''\in\flags_{co(B)}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
+\end{equation*}
 
-We denote the maximum element of $\Xi_{A,B}$ by $A\ast B$.
+Lusztig notes \cite{lusztig99} that $\Pi_N$ is a projective algebraic variety, closed under the action of $G_L$. Lemma [...] shows that the closure of $X_{A,B}^L$ in $\Pi_N$, denoted $\overline{X_{A,B}^L}$, is irreducible and is therefore a subvariety of $\Pi_N$ which is closed under the action of $G_L$.
+
+For each $i,j\in\integers$, write
+\begin{equation*}
+\mathcal{M}_{i,j} = \{L''\in\overline{X_{A,B}^L}: d_{i,j}(L,L'') = m_{i,j}\}.
+\end{equation*}
+
+$\mathcal{M}_{i,j}$ is nonempty since $d_{i,j}(L,-)$ attains the maximum value $m_{i,j}$ on $X_{A,B}^L$. $\mathcal{M}_{i,j}$ is open in $\overline{X_{A,B}^L}$ since
+\begin{equation*}
+\overline{X_{A,B}^L}\setminus \mathcal{M}_{i,j} = \{L''\in\overline{X_{A,B}^L}: d_{i,j}(L,L'')\le m_{i,j} - 1\}
+\end{equation*}
+and the function
+\begin{equation*}
+d_{i,j}(L,-)\colon\Pi_N\to\integers : L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)
+\end{equation*}
+is lower semicontinuous, by lemma [... : lower semicontinuity].
+
+Lemma [... : open orbit] shows that there is a unique $G_L$-orbit in $X_{A,B}^L$ which is open in $\overline{X_{A,B}^L}$, say $\mathcal{O}_{A\ast B}^L$ for some $A\ast B\in\Xi_{A,B}$. $\mathcal{M}_{i,j}$ intersects the open orbit $\mathcal{O}_{A\ast B}^L$ nontrivially, since $\mathcal{M}_{i,j}$ and $\mathcal{O}_{A\ast B}^L$ are both nonempty and open in the irreducible space $\overline{X_{A,B}^L}$. Moreover, $\mathcal{O}_{A\ast B}^L\subset \mathcal{M}_{i,j}$, since $\mathcal{M}_{i,j}$ is closed under the action of $G_L$. In particular, we have $A\ast B\in \Xi_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$ for each $i,j\in\integers$, which shows $A\ast B$ is a maximum in $\Xi_{A,B}$.
+
+More specifically, we may compute:
+\begin{equation*}
+a_{i,j}(A\ast B) = m_{i,j-1} - m_{i-1,j-1} + m_{i-1,j} - m_{i,j}
+\end{equation*}
+for each $i,j\in\integers$.
+
+\end{proof}
+
 
 \section{Associativity}
 
@@ -741,7 +776,7 @@ E_iFi - F_iE_i + \sum_{\lambda:\lambda_i = 0,\lambda_{i+1}>0} 1_\lambda - \sum_{
 \end{lemma}
 
 
-\section{ --- Rough technical results --- }
+\section{ -- Chapter draft bin -- }
 
 Given $A,B\in\matrices$ and $L\in\flags$, define
 \begin{equation*}
