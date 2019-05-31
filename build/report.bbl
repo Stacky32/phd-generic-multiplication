@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.8 $
+% $ biblatex bbl format version 2.9 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,7 +18,7 @@
 
 
 \refsection{0}
-  \sortlist[entry]{nty/global/}
+  \datalist[entry]{nty/global//global/global}
     \entry{deng15}{misc}{}
       \name{author}{2}{}{%
         {{hash=506eba06351beff1b81b7e72c7946bb6}{%
@@ -34,10 +34,12 @@
       }
       \strng{namehash}{558404a13a22a012e7e13fdb8d1018c2}
       \strng{fullhash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{bibnamehash}{558404a13a22a012e7e13fdb8d1018c2}
+      \strng{authorbibnamehash}{558404a13a22a012e7e13fdb8d1018c2}
       \strng{authornamehash}{558404a13a22a012e7e13fdb8d1018c2}
       \strng{authorfullhash}{558404a13a22a012e7e13fdb8d1018c2}
       \field{sortinit}{B}
-      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Hall algebras of cyclic quivers and q-deformed Fock spaces}
@@ -56,10 +58,12 @@
       }
       \strng{namehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{fullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{bibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorbibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{authornamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{authorfullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \field{sortinit}{H}
-      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Hall polynomials for affine quivers}
@@ -78,10 +82,12 @@
       }
       \strng{namehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{fullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{bibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
+      \strng{authorbibnamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{authornamehash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \strng{authorfullhash}{130570ad0d7b2e5a7ca79f417f24b20f}
       \field{sortinit}{H}
-      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint math/0403206}
@@ -101,10 +107,12 @@
       }
       \strng{namehash}{93b97abadc9c789d5b31630417674176}
       \strng{fullhash}{93b97abadc9c789d5b31630417674176}
+      \strng{bibnamehash}{93b97abadc9c789d5b31630417674176}
+      \strng{authorbibnamehash}{93b97abadc9c789d5b31630417674176}
       \strng{authornamehash}{93b97abadc9c789d5b31630417674176}
       \strng{authorfullhash}{93b97abadc9c789d5b31630417674176}
       \field{sortinit}{L}
-      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Asian Journal of Mathematics}
@@ -115,7 +123,7 @@
       \field{pages}{147\bibrangedash 178}
       \range{pages}{32}
     \endentry
-  \endsortlist
+  \enddatalist
 \endrefsection
 \endinput
 

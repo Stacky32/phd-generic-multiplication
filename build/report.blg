@@ -1,15 +1,15 @@
-[0] Config.pm:354> INFO - This is Biber 2.7
-[0] Config.pm:357> INFO - Logfile is 'build/report.blg'
-[18] biber:303> INFO - === Fri May 31, 2019, 12:20:17
-[31] Biber.pm:359> INFO - Reading 'build/report.bcf'
-[80] Biber.pm:835> INFO - Found 4 citekeys in bib section 0
-[89] Biber.pm:3670> INFO - Processing section 0
-[97] Biber.pm:3840> INFO - Looking for bibtex format file 'references.bib' for section 0
-[98] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[102] bibtex.pm:1292> INFO - Found BibTeX data source 'references.bib'
-[113] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[113] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[114] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[114] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[116] bbl.pm:608> INFO - Writing 'build/report.bbl' with encoding 'ascii'
-[117] bbl.pm:712> INFO - Output to build/report.bbl
+[1] Config.pm:302> INFO - This is Biber 2.9
+[1] Config.pm:305> INFO - Logfile is 'build/report.blg'
+[86] biber:313> INFO - === Fri May 31, 2019, 23:09:08
+[142] Biber.pm:371> INFO - Reading 'build/report.bcf'
+[362] Biber.pm:857> INFO - Found 4 citekeys in bib section 0
+[411] Biber.pm:3981> INFO - Processing section 0
+[439] Biber.pm:4154> INFO - Looking for bibtex format file 'references.bib' for section 0
+[443] bibtex.pm:1468> INFO - LaTeX decoding ...
+[549] bibtex.pm:1294> INFO - Found BibTeX data source 'references.bib'
+[648] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[649] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[649] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[649] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[663] bbl.pm:617> INFO - Writing 'build/report.bbl' with encoding 'ascii'
+[667] bbl.pm:720> INFO - Output to build/report.bbl
