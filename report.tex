@@ -557,39 +557,53 @@ for all $i,j\in\integers$.
 
 \section{Preliminary results}
 
-Given $A,B\in\matrices$, write $Y_{A,B}=\{(L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B\}$.
-\begin{lemma}
-Assume $N\in\naturals$ is chosen sufficiently large that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ whenever $(L,L',L'')\in Y_{A,B}$. Then
+Suppose $A,B\in\matrices$ with $co(A)=ro(B)$. Recall the notation
 \begin{equation*}
-\dim\left(\frac{\epsilon^{-2N}L_0}{L_0''}\right) = d_{nN,0}(A) + d_{nN,0}(B)
+Y_{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B\}
 \end{equation*}
 and
 \begin{equation*}
-\dim\left(\frac{L_0''}{\epsilon^{2N}L_0}\right) = 4Nr - d_{nN,0}(A) - d_{nN,0}(B)
+X_{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags \text{ with } (L,L',L'')\in Y_{A,B}\}.
 \end{equation*}
-for $(L,L'')\in X_{A,B}$
-\end{lemma}
-\begin{proof}
-Given $(L,L'')\in X_{A,B}$, fix $L\in\flags$ such that $(L,L',L'')\in Y_{A,B}$. By choice of $N$,
-\begin{equation*}
-\epsilon^{2N} L_0 \subset \epsilon^N L_0' \subset L_0'' \subset \epsilon^{-N} L_0' \subset \epsilon^{-2N}L_0.
-\end{equation*}
-Then
-\begin{align*}
-\dim\left(\frac{L_0''}{\epsilon^{2N} L_0}\right)
-&= \dim\left(\frac{L_0''}{\epsilon^N L_0'}\right) + \dim\left(\frac{\epsilon^N L_0'}{\epsilon^{2N} L_0}\right)\\
-&= \dim\left(\frac{L_0''}{\epsilon^N L_0'}\right) + \dim\left(\frac{L_0'}{\epsilon^N L_0}\right)\\
-&= d_{nN,0}(A) + d_{nN,0}(B).
-\end{align*}
 
+Note that $X_{A,B}$ is the image of $Y_{A,B}$ under the projection onto the first and last components.
+
+\begin{lemma}
+There is $N\in\naturals$ such that
 \begin{equation*}
-\dim\left(\frac{\epsilon^{-2N}L_0}{L_0''}\right) + \dim\left(\frac{L_0''}{\epsilon^{2N}L_0}\right) = \dim\left(\frac{\epsilon^{-2N}L_0}{\epsilon^{2N}L_0}\right) = 4Nr.
+\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0
 \end{equation*}
-Combining these expressions gives
+whenever $(L,L'')\in X_{A,B}$.
+\end{lemma}
+
+\begin{proof}
+There exist $N_1,N_2\in\naturals$ such that
 \begin{equation*}
-\dim\left(\frac{L_0''}{\epsilon^{2N}L_0}\right) = 4Nr - d_{nN,0}(A) - d_{nN,0}(B).
+\epsilon^{N_1}L_0\subset L_0'\subset \epsilon^{-N_1}L_0
 \end{equation*}
+and
+\begin{equation*}
+\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0',
+\end{equation*}
+whenever $(L,L',L'')\in Y_{A,B}$. Then, for $(L,L',L'')\in Y_{A,B}$,
+\begin{equation*}
+L_0''\subset \epsilon^{-N_2} L_0' \subset \epsilon^{-(N_1+N_2)} L_0
+\end{equation*}
+and
+\begin{equation*}
+\epsilon^{N_1+N_2}L_0\subset \epsilon^{N_2}L_0'\subset L_0''.
+\end{equation*}
+
+In particular, taking $N=N_1 + N_2$, we have
+\begin{equation*}
+\epsilon^N L_0 \subset L_0'' \subset \epsilon^{-N}L_0
+\end{equation*}
+whenever $(L,L'')\in X_{A,B}$.
 \end{proof}
+
+\begin{lemma}
+TOP AND BOTTOM DIMENSIONS OF TRUNCATED FLAG
+\end{lemma}
 
 \begin{lemma}
 \begin{equation*}
@@ -777,68 +791,6 @@ E_iFi - F_iE_i + \sum_{\lambda:\lambda_i = 0,\lambda_{i+1}>0} 1_\lambda - \sum_{
 
 
 \section{ -- Chapter draft bin -- }
-
-Given $A,B\in\matrices$ and $L\in\flags$, define
-\begin{equation*}
-X_{A,B}^L = \{L''\in\flags: (L,L'')\in X_{A,B}\}.
-\end{equation*}
-
-$X_{A,B}^L\subset\flags_b$, where $b = co(B)$. $X_{A,B}^L\neq\emptyset$ if and only if $co(A)=ro(B)$ and $L\in\flags_a$, where $a=ro(A)$. Let $G_L$ denote the stabiliser of $L$ in $G$: $G_L = \{g\in G: gL=L\}$. $G_L$ acts on $X_{A,B}^L$ by restriction of the $G$-action on $\dblflags$. The $G_L$ orbits in $X_{A,B}^L$ correspond bijectively to the $G$ orbits in $X_{A,B}$. We seek to prove existence of a unique generic $G$-orbit in $X_{A,B}$ by considering the degeneration order on $G_L$ orbits in $X_{A,B}^L$.
-
-\subsection{reducing to the finite setting}
-
-There is $N\in\naturals$ such that
-\begin{equation*}
-\epsilon^N L_0\subset L_0'\subset\cdots\subset L_n'\subset \epsilon^{-N}L_0
-\end{equation*}
-\begin{equation*}
-\epsilon^N L_0' \subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N}L_0',
-\end{equation*}
-\begin{equation*}
-\epsilon^N L_0\subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N} L_0,
-\end{equation*}
-if $(L,L',L'')\in\triflags$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$.
-
-% since the space Pi is only used as a proof technique, not to be referred to later, we suppress all dependence on paramaters such as L, N, A, B here.
-\begin{lemma}
-If $L''\in X_{A,B}^L$, then
-\begin{equation*}
-\dim\left(L_0''/{\epsilon^N L_0}\right) = -Nr + d_{-Nn,0}^-(A) + d_{-Nn,0}^-(B).
-\end{equation*}
-In particular, $\dim(L_0''/{\epsilon^N L_0})$ does not depend on the choice of $L''\in X_{A,B}$, depending only on $A$ and $B$. Also,
-\begin{equation*}
-\dim\left(\epsilon^{-N} L_0/{L_n''}\right) + \dim\left(L_0''/{\epsilon^N L_0}\right) = (2N-1)r.
-\end{equation*}
-{\color{blue}It seems there should be a formula for the top dimension in terms of the $d_{\cdot,\cdot}^+$.}
-\end{lemma}
-\begin{proof}
-\begin{equation*}
-\epsilon^{2N} L_0 \subset \epsilon^N L_0' \subset	L_0''
-\end{equation*}
-\begin{equation*}
-\epsilon^{2N} L_0 \subset \epsilon^N L_0 \subset L_0''
-\end{equation*}
-Comparing the dimensions of the quotients above, we get
-\begin{equation*}
-\dim\left(L_0''/{\epsilon^N L_0}\right) + \dim\left(L_0/{\epsilon^N L_0}\right) = \dim\left(L_0'/{\epsilon^N L_0}\right) + \dim\left(L_0''/{\epsilon^N L_0'}\right).
-\end{equation*}
-$\dim(L_0/{\epsilon^N L_0})= Nr$.
-\begin{equation*}
-\dim(L_0'/{\epsilon^N L_0}) = \sum_{s>-Nn, t\le 0} a_{s,t} = d_{-Nn,0}^-(A)
-\end{equation*}
-and
-\begin{equation*}
-\dim(L_0''/{\epsilon^N L_0'}) = \sum_{s>-Nn,t\le 0} b_{s,t} = d_{-Nn,0}^-(B)
-\end{equation*}
-For the final claim, computing the dimensions of quotients in the filtration
-\begin{equation*}
-\epsilon^N L_0\subset L_0''\subset L_n''\subset \epsilon^{-N}L_0
-\end{equation*}
-gives
-\begin{equation*}
-\dim(\epsilon^{-N}L_0/{L_n''}) + r + \dim(L_0''/{\epsilon^N L_0}) = 2Nr.
-\end{equation*}
-\end{proof}
 
 Define
 \begin{equation*}
