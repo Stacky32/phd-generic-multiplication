@@ -45,6 +45,7 @@ Up to isomorphism, there is a unique module with top $S_i$ and length $l\geq 1$,
 \begin{equation*}
 S_{i+1}(l-1)\to S_i(l)\to S_i
 \end{equation*}
+
 \begin{equation*}
 S_{i+l-1}\to S_i(l)\to S_i(l-1),
 \end{equation*}
@@ -568,7 +569,7 @@ X_{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags \text{ with } (L,L',L'')\in Y
 
 Note that $X_{A,B}$ is the image of $Y_{A,B}$ under the projection onto the first and last components.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:orbit-products-are-bounded}
 There is $N\in\naturals$ such that
 \begin{equation*}
 \epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0
@@ -601,21 +602,50 @@ In particular, taking $N=N_1 + N_2$, we have
 whenever $(L,L'')\in X_{A,B}$.
 \end{proof}
 
-\begin{lemma}
-Suppose $N_1,N_2\in\naturals$ with $\epsilon^{N_1}L_0\subset L_0'\subset \epsilon^{-N_1}L_0$ and $\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0'$ whenever $(L,L',L'')\in Y_{A,B}$ and let $N=N_1+N_2$. Then
+\begin{lemma}\label{lemma:codimensions-in-orbit-product}
+Suppose $N_1,N_2\in\naturals$ with $\epsilon^{N_1}L_0\subset L_0\subset \epsilon^{-N_1}L_0$ and $\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0'$ whenever $(L,L',L'')\in Y_{A,B}$ and let $N = N_1 + N_2$. Then
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = d_{nN_1,0}(A) + d_{nN_2,0}(B)
 \end{equation*}
 and
 \begin{equation*}
-\dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - d_{nN_1,0}(A) - d_{nN_2,0}(B),
+\dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - d_{nN_1,0}(A) + d_{nN_2,0}(B),
 \end{equation*}
 whenever $(L,L'')\in X_{A,B}$.
 \end{lemma}
 
 \begin{proof}
-TO BE WRITTEN IN.
+Suppose $(L,L'')\in X_{A,B}$ and $L'\in\flags$ so that $(L,L',L'')\in Y_{A,B}$. As in lemma \ref{lemma:orbit-products-are-bounded}, $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$, so
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) + \dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right).
+\end{equation*}
+
+As a $\field$-vector space, $\epsilon^{-N}L_0/\epsilon^N L_0$ is isomorphic to $(L_0/{\epsilon L_0})^{2N}$, which has dimension $2Nr$, so
+\begin{equation*}
+\dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right).
+\end{equation*}
+
+It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_0''\subset \epsilon^{-N_2}L_0'\subset \epsilon^{-N} L_0$, so
+\begin{equation*}
+\dim\left(\frac{\epsilon{-N}L_0}{L_0''}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N_2}L_0'}\right) + \dim\left(\frac{\epsilon^{-N_2}L_0'}{L_0''}\right).
+\end{equation*}
+
+\begin{align*}
+\dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N_2}L_0'}\right)
+&= \dim\left(\frac{\epsilon^{-N_1}L_0}{L_0'}\right)\\
+&= \dim\left(\frac{L_{nN_1}}{L_{nN_1}\cap L_0'}\right)\\
+&= \sum_{s\le nN_1, t>0} A_{s,t}\\
+&= d_{nN_1,0}(A).
+\end{align*}
+
+\begin{align*}
+\dim\left(\frac{\epsilon^{-N_2}L_0'}{L_0''}\right)
+&= \dim\left(\frac{ L_{nN_2}'}{L_{nN_2}'\cap L_0''}\right)\\
+&= \sum_{s\le nN_2, t>0} B_{s,t}\\
+&= d_{nN_2,0}(B)
+\end{align*}
 \end{proof}
+
 
 \begin{lemma}
 \begin{equation*}
@@ -623,8 +653,6 @@ TO BE WRITTEN IN.
 \end{equation*}
 is a complex projective variety, closed under the action of $G_L$.
 \end{lemma}
-\begin{proof}
-\end{proof}
 
 \section{Existence of a maximum}
 
