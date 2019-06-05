@@ -558,6 +558,13 @@ for all $i,j\in\integers$.
 
 \section{Preliminary results}
 
+\begin{lemma}
+$L_0/{\epsilon L_0}$ is a torsion $\field[\epsilon]$-module, where $\epsilon$ acts as zero, with dimension $r$ as a $\field$-vector space.
+\end{lemma}
+\begin{proof}[rough]
+Let $V = \field[\epsilon,\epsilon^{-1}]^r$. $L_0$ is a free $\field[\epsilon]$-module of rank $r$, with $L_0\subset V$. So we may take a $\field[\epsilon]$-basis $x_1,\ldots, x_r\in V$ for $L_0$. The action of $\epsilon$ gives an automorphism of $V$ mapping $L_0$ to $\epsilon L_0$, so $\epsilon x_1,\ldots,\epsilon x_r$ give a basis for $\epsilon L_0$ over $\field[\epsilon]$. Therefore, the cosets $x_1 + \epsilon L_0,\ldots x_r +\epsilon L_0$ give a basis for $L_0/{\epsilon L_0}$ over $\field$.
+\end{proof}
+
 Suppose $A,B\in\matrices$ with $co(A)=ro(B)$. Recall the notation
 \begin{equation*}
 Y_{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B\}
@@ -646,12 +653,21 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 \end{align*}
 \end{proof}
 
+\subsection{The complex case}
+
+For this section, assume the underlying field is $\complex$ and $L\in\flags$ is fixed. Given $N,a\in\naturals$ and $\lambda\in\compositions$, define
+\begin{equation*}
+\Pi_{N,\lambda} = \{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0\}
+\end{equation*}
+and
+\begin{equation*}
+\Pi_{N,\lambda}^a = \left\{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = a\right\}.
+\end{equation*}
+
+$\Pi_{N,\lambda}$ is the (disjoint) union of the $\Pi_{N,\lambda}^a$ for $a\in\naturals$. In fact, we will see $\Pi_{N,\lambda}^a$ is empty whenever $a > 2Nr$.
 
 \begin{lemma}
-\begin{equation*}
-\Pi  =\{L''\in\flags_{co(B)}:\epsilon^{2N}\subset L_0''\subset\epsilon^{-2N}L_0, \dim\left(\frac{\epsilon^{-2N}L_0}{L_0''}\right) = d_{nN,0}(A)+ d_{nN,0}(B)\}
-\end{equation*}
-is a complex projective variety, closed under the action of $G_L$.
+$\Pi_{N,\lambda}^a$ is a complex projective variety, provided $0\le a\le 2Nr$.
 \end{lemma}
 
 \section{Existence of a maximum}
