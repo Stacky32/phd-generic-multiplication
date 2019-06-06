@@ -558,10 +558,12 @@ for all $i,j\in\integers$.
 
 \section{Preliminary results}
 
+Assume $L\in\flags$.
+
 \begin{lemma}
 $L_0/{\epsilon L_0}$ is a torsion $\field[\epsilon]$-module, where $\epsilon$ acts as zero, with dimension $r$ as a $\field$-vector space.
 \end{lemma}
-\begin{proof}[rough]
+\begin{proof}
 Let $V = \field[\epsilon,\epsilon^{-1}]^r$. $L_0$ is a free $\field[\epsilon]$-module of rank $r$, with $L_0\subset V$. So we may take a $\field[\epsilon]$-basis $x_1,\ldots, x_r\in V$ for $L_0$. The action of $\epsilon$ gives an automorphism of $V$ mapping $L_0$ to $\epsilon L_0$, so $\epsilon x_1,\ldots,\epsilon x_r$ give a basis for $\epsilon L_0$ over $\field[\epsilon]$. Therefore, the cosets $x_1 + \epsilon L_0,\ldots x_r +\epsilon L_0$ give a basis for $L_0/{\epsilon L_0}$ over $\field$.
 \end{proof}
 
@@ -574,7 +576,7 @@ and
 X_{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags \text{ with } (L,L',L'')\in Y_{A,B}\}.
 \end{equation*}
 
-Note that $X_{A,B}$ is the image of $Y_{A,B}$ under the projection onto the first and last components.
+$X_{A,B}$ is the image of $Y_{A,B}$ under the projection onto the first and last components.
 
 \begin{lemma}\label{lemma:orbit-products-are-bounded}
 There is $N\in\naturals$ such that
@@ -649,7 +651,7 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 \dim\left(\frac{\epsilon^{-N_2}L_0'}{L_0''}\right)
 &= \dim\left(\frac{ L_{nN_2}'}{L_{nN_2}'\cap L_0''}\right)\\
 &= \sum_{s\le nN_2, t>0} B_{s,t}\\
-&= d_{nN_2,0}(B)
+&= d_{nN_2,0}(B).
 \end{align*}
 \end{proof}
 
@@ -665,6 +667,25 @@ and
 \end{equation*}
 
 $\Pi_{N,\lambda}$ is the (disjoint) union of the $\Pi_{N,\lambda}^a$ for $a\in\naturals$. In fact, we will see $\Pi_{N,\lambda}^a$ is empty whenever $a > 2Nr$.
+
+\begin{lemma}
+Let $N,a\in\naturals$, $\lambda\in\compositions$. Then $\Pi_{N,\lambda}
+^a$ is nonempty precisely when $0\le a \le 2Nr$.
+\end{lemma}
+
+\begin{proof}
+Suppose $L''\in\Pi_{N,\lambda}$. By definition, $\epsilon^{-N}L_0\subset L_0''\subset \epsilon^{-N}L_0$, which shows
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) \le \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right) = 2Nr.
+\end{equation*}
+Therefore, $\Pi_{N,\lambda}^a$ is empty unless $a\le 2Nr$.
+
+Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ of $W = \epsilon^{-N}L_0/{\epsilon^N L_0}$ of codimension $a$. $W'$ lifts to give a $\complex[\epsilon]$-module, say $L_0''$, with $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ and with $\dim(\epsilon^{-N}L_0/{L_0''}) = \dim(W/W') = a$. Similarly, a flag of type $\lambda$ in $L_0''/{\epsilon L_0''}$ lifts to give $\complex[\epsilon]$-modules $(L_{-n+1}'',\ldots,L_0'')$ with
+\begin{equation*}
+\epsilon L_0''\subset L_{-n+1}''\subset\cdots\subset L_{-1}''\subset L_0''\subset \epsilon^{-N}L_0
+\end{equation*}
+and such that the dimensions of successive quotients are given by $\lambda_1,\ldots,\lambda_n,a$, from left to right. Thus, $(L_{-n+1}'',\ldots,L_0'')$ extends by periodicity to give an element of $\Pi_{N,\lambda}^a$, as desired.
+\end{proof}
 
 \begin{lemma}
 $\Pi_{N,\lambda}^a$ is a complex projective variety, provided $0\le a\le 2Nr$.
