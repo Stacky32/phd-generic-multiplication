@@ -727,7 +727,7 @@ Given $N\in\naturals$, define
 \begin{equation*}
 H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L_0} \right\}.
 \end{equation*}
-Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$.
+Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
 
 \begin{lemma}
 $H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
@@ -738,6 +738,23 @@ $H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1
 
 Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
 \end{proof} 
+
+The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
+
+\begin{lemma}
+There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
+\end{lemma}
+\begin{proof}
+Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$. Then
+\begin{equation*}
+\epsilon^N L_0 \subset L_0'\subset L_1'\subset\cdots\subset L_n' \subset \epsilon^{-(1+N)}L_0.
+\end{equation*}
+Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
+\end{proof}
+
+\begin{lemma}[speculative]
+If $N\in\naturals$ and $H_N\subset G_{L'}$, then $H_N$ is normal in $G_{L'}$.
+\end{lemma}
 
 \section{Existence of a maximum}
 
