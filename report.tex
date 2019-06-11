@@ -710,6 +710,19 @@ The correspondence between the set of $\complex[\epsilon]$-submodules of $\epsil
  Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
 \end{remark}
 
+\begin{lemma}
+Suppose $(L',L'')\in\mathcal{O}_B$ with $(L,L')\in\mathcal{O}_A$. Then $X_{A,B}^L$ is the image of the map
+\begin{equation*}
+G_L\times G_{L'}\to\flags: (\alpha,\beta)\mapsto \alpha\beta L''.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Suppose $\alpha\in G_L$ and $\beta\in G_{L'}$. $(L,\alpha L',\alpha\beta L'')\in Y_{A,B}$ since $(L,\alpha L')\sim (L,L')\in\mathcal{O}_A$ and $(\alpha L',\alpha\beta L'')\sim (L',L'')\in\mathcal{O}_B$. This shows $(L,\alpha\beta L'')\in X_{A,B}$ and thus $\alpha\beta L''\in X_{A,B}^L$.
+
+Conversely, suppose $N''\in X_{A,B}^L$. $(L,N'')\in X_{A,B}$, so there is $N'$ such that $(L,N')\in\mathcal{O}_A$ and $(N',N'')\in\mathcal{O}_B$. There exist $\gamma,\delta\in G$ such that $\gamma (L,L') = (N,N')$ and $\delta (L',L'') = (N',N'')$. Then $(L,N',N'') = (L,\gamma L', \delta L'') = (L, \gamma L',\gamma (\gamma^{-1}\delta)L'')$, where $\gamma\in G_L$ and $\gamma^{-1}\delta\in G_{L'}$. This shows $N'' \in G_L G_{L'} L''$ as required.
+\end{proof}
+
 \section{Existence of a maximum}
 
 \begin{proposition}\label{proposition:existence-maximum}
