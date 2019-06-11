@@ -7,7 +7,6 @@
 
 \chapter{Introduction}
 
-{\color{blue} The introduction should contain a summary of the results of the thesis: It should give clear statements of the main results. It is not really clear to me what an introduction should contain. Maybe a summary of the results in the finite case?}
 
 \chapter{Representations and Hall algebras of cyclic quivers}
 
@@ -670,7 +669,7 @@ $\Pi_{N,\lambda}$ is the (disjoint) union of the $\Pi_{N,\lambda}^a$ for $a\in\n
 
 \begin{lemma}
 Let $N,a\in\naturals$, $\lambda\in\compositions$. Then $\Pi_{N,\lambda}
-^a$ is nonempty precisely when $0\le a \le 2Nr$.
+^a$ is nonempty exactly when $0\le a \le 2Nr$.
 \end{lemma}
 
 \begin{proof}
@@ -688,8 +687,28 @@ and such that the dimensions of successive quotients are given by $\lambda_1,\ld
 \end{proof}
 
 \begin{lemma}
-$\Pi_{N,\lambda}^a$ is a complex projective variety, provided $0\le a\le 2Nr$.
+$\Pi_{N,\lambda}^a$ is a (quasi)projective variety, provided $0\le a\le 2Nr$.
 \end{lemma}
+\begin{proof}
+Let $W= \epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ and let
+\begin{equation*}
+X = \left\{W_1\le\cdots\le W_n\le W:\dim\left(\frac{W}{W_n}\right)=a, \dim\left(\frac{W_i}{W_{i-1}}\right) = \lambda_i \text{ for } i=2,\ldots,n\right\}.
+\end{equation*}
+
+$X$ is known to be a projective variety {\color{red}[CITATION NEEDED]}
+
+Let $X'$ be the subset of $X$ consisting of those $(W_1,\ldots, W_n)$, where each $W_i$ is $\epsilon$-invariant and $\epsilon W_n \le W_1$. $X'$ is a closed subset of $X$, though is not necessarily irreducible.
+
+The correspondence between the set of $\complex[\epsilon]$-submodules of $\epsilon^{-(1+N)}L_0$ which contain $\epsilon^N L_0$ and the set of $\complex[\epsilon]$-submodules of $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ gives a pair of mutually inverse maps $\Pi_{N,\lambda}^a\leftrightarrow X'$.
+
+
+\end{proof}
+
+\begin{remark}\color{blue}
+ -- the idea that is relevant to the proof is that inclusion relations $L_i\subset L_{i+1}$ describe a closed set in a product of grassmanians.
+ 
+ Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
+\end{remark}
 
 \section{Existence of a maximum}
 
