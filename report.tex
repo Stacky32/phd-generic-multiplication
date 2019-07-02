@@ -737,7 +737,11 @@ $H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
 $H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1+N)}L_0$. $h'(x)\in\epsilon^{-(1+N)}L_0$ as $h'\in G_L$, so $hh'(x) + \epsilon^N L_0 = h'(x) + \epsilon^N L_0 = x + \epsilon^N L_0$, which shows $hh'\in H_N$. $h(x)-x\in\epsilon^N L_0$, so $h^{-1}(x) - x = -h^{-1}(h(x)-x)\in\epsilon^N L_0$. $h^{-1}\in H_N$, so $H_N$ is a subgroup of $G_L$.
 
 Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
-\end{proof} 
+\end{proof}
+
+\begin{lemma}
+$G_L/H_N$ is an (irreducible) algebraic group, for any $N\in\naturals$.
+\end{lemma}
 
 The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 
@@ -752,8 +756,10 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
-\begin{lemma}[speculative]
-If $N\in\naturals$ and $H_N\subset G_{L'}$, then $H_N$ is normal in $G_{L'}$.
+Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
+
+\begin{lemma}
+$G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{lemma}
 
 \section{Existence of a maximum}
