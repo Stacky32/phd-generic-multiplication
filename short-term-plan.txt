@@ -1,0 +1,11 @@
+Focus on making description of the generic affine Schur algebra clear. In particular:
+
+> Assume the description for the q-version is clear, so notation and concepts are established.
+
+> To give an overview at the beginning of the chapter, state that an algebra will be constructed with a $\integers$-basis with the property that the product of any  two basis elements is either zero or is another basis element. Then an isomorphism with the affine zero Schur algebra will be constructed in the case $r<n$, which will lead to construction of a monomial basis in the affine zero Schur algebra; when $r<n$.
+
+>> State the theorems and subsidiary results:
+
+- Thm: X_{A,B} has a unique orbit which maximises the functions d_{i,j}.
+
+>> 
