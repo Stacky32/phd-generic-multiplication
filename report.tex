@@ -518,40 +518,54 @@ given by
 
 Fix $n,r\geq 1$. Let $V = \complex[\epsilon,\epsilon^{-1}]$ and let $\flags = \flags_\complex(n,r)$ be the set of $n$-periodic cyclic flags in $V$; $\flags$ consists of collections $L = (L_i)_{i\in\integers}$ of $\complex[\epsilon]$-lattices in $V$ with $L_i\subset L_{i+1}$ for $i\in\integers$ and $\epsilon L_i = L_{i-n}$ for $i\in\integers$.
 
-Let $G$ denote the automorphism group of $V$. Thus $G$ is identified with $GL_r(\complex[\epsilon,\epsilon^{-1}])$. $G$ acts on $\flags$ with orbits ...
-
-\section{Poset of orbits}
-
-First we recall some notation. Let $\field$ be a field and let $\flags=\flags_\field(n,r)$ be the set cyclic flags of period $n$ in $V=\laurent^r$. That is, $\flags$ is the set of collections $L = (L_i)_{i\in\integers}$, where each $L_i$ is a lattice in $V$ (which means $\laurent\otimes_{\polys} L_i = V$), $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$.
-
-Given $i,j\in\integers$, define functions
+Let $G$ denote the automorphism group of $V$. Thus $G$ is identified with $GL_r(\complex[\epsilon,\epsilon^{-1}])$. $G$ acts on $\flags$ with orbits $\flags_\lambda : \lambda\in\compositions$, where $\flags_\lambda = \{L\in\flags: \dim(L_i/{L_{i-1}}) = \lambda_i \text{ for all } i\in\integers\}$. The set of $G$-orbits in $\dblflags$ is identified with $\matrices$ by the map sending a pair of flags $(L,L')$ to its `intersection matrix' $(a_{i,j}(L,L'))_{i,j\in\integers}$, where
 \begin{equation*}
-a_{i,j}\colon\dblflags\to\integers: (L,L')\mapsto \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right)
+a_{i,j}\colon\dblflags\to\integers: (L,L')\mapsto \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right),
+\end{equation*}
+for each $i,j\in\integers$.
+
+Define maps
+\begin{equation*}
+\pi\colon \triflags\to\dblflags: (L,L',L'')\mapsto (L,L'')
 \end{equation*}
 and
 \begin{equation*}
-d_{i,j}\colon\dblflags\to\integers: (L,L')\mapsto \dim\left(\frac{L_i}{L_i\cap L_j'}\right).
+\delta\colon \triflags\to\dblflags\times\dblflags: (L,L',L'')\mapsto (L,L',L',L'')
 \end{equation*}
 
-We have seen that the functions $\{a_{i,j}:i,j\in\integers\}$ give a labelling of the orbits in $\dblflags$ by integer matrices satisfying some combinatorial conditions. In particular, the map
+Given orbits $\mathcal{O}_A,\mathcal{O}_B$, it will be shown that $\pi\delta^{-1}(\mathcal{O}_A\times\mathcal{O}_B)$ contains a unique orbit $\mathcal{O}_C$ such that
 \begin{equation*}
-\dblflags/G\to\matrices\colon G(L,L') \mapsto (a_{i,j}(L,L'))_{i,j\in\integers}
+\dim\left(\frac{N_i}{N_i\cap N_j''}\right) \le \dim\left(\frac{L_i}{L_i\cap L_j''}\right),
 \end{equation*}
-is a bijection. The orbit in $\dblflags$ corresponding to $A\in\matrices$ is denoted $\mathcal{O}_A$.
+for any $(L,L'')\in\mathcal{O}_C$, $(N,N'')\in\pi\delta^{-1}(\mathcal{O}_A\times\mathcal{O}_B)$, $i,j\in\integers$. $\mathcal{O}_C$ is referred to as a generic orbit and is denoted $\mathcal{O}_A\ast \mathcal{O}_B$. Associativity of the generic product of orbits will be established, which will lead to the construction of an associative $\integers$-algebra with $1$, called a generic affine Schur algebra, denoted $\hat{G}(n,r)$. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
-% relating the above sets of functions.
+\section{A partial order on orbits.}
 
+The set of $G$-orbits in $\dblflags$, denoted $\dblflags/G$ admits a partial order which compares codimensions of intersections between pairs of flags - a smaller intersection between flags is regarded as being more generic. Define functions
+\begin{equation*}
+d_{i,j}\colon\dblflags\to\integers: (L,L')\mapsto \dim\left(\frac{L_i}{L_i\cap L_j'}\right),
+\end{equation*}
+for each $i,j\in\integers$.
+
+\begin{lemma}\label{lemma:orbit-matrix-from-codimensions}
 \begin{equation*}
 d_{i,j}(L,L') = \sum_{s\le i, t>j} a_{s,t}(L,L')
 \end{equation*}
-
+and
 \begin{equation*}
 a_{i,j}(L,L') = \left( d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j}\right)(L,L')
 \end{equation*}
+for all $(L,L')\in\dblflags$.
+\end{lemma}
+\provelater
 
-% defining the partial ordering on orbits.
+\begin{lemma}\label{lemma:orbit-poset}
+The relation $\le$ on $\dblflags/G$ defined by $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $d_{i,j}(L,L')\le d_{i,j}(N,N')$ for all $(L,L')\in\mathcal{O}_A$, $(N,N')\in\mathcal{O}_B$ and $i,j\in\integers$ is a partial order.
+\end{lemma}
+\begin{proof}
+The relation is clearly reflexive and transitive, so it remains to prove it is antisymmetric. If $\mathcal{O}_A \le \mathcal{O}_B$ and $\mathcal{O}_B \le \mathcal{O}_A$, then $d_{i,j}(L,L') = d_{i,j}(N,N')$ for any $(L,L')\in\mathcal{O}_A$ and $(N,N')\in\mathcal{O}_B$. It follows from lemma \ref{lemma:orbit-matrix-from-codimensions} that $a_{i,j}(L,L') = a_{i,j}(N,N')$ for $(L,L')\in\mathcal{O}_A$, $(N,N')\in\mathcal{O}_B$, $i,j\in\integers$, and thus the orbits $\mathcal{O}_A$ and $\mathcal{O}_B$ coincide.
+\end{proof}
 
-There is a partial order $\le$ on $\dblflags/G$, given by $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $d_{i,j}(A)\le d_{i,j}(B)$ for all $i,j\in\integers$. Thus $\dblflags/G$ is regarded as a poset where the ordering is independent of the underlying field. Indeed, we may identify $\dblflags/G$ with $\matrices$ with the compatible partial ordering.
 
 Given $A,B\in\matrices$, write $\Xi_{A,B} = \{C\in\matrices: g_{A,B,C}\neq 0\}$ where $g_{A,B,C}\in\integers[q]$ is the structure polynomial giving the coefficient of $e_C$ in the product $e_A e_B$ in $\affineqschur$. The set of $G$-orbits in $X_{A,B}$ may be identified with $\Xi_{A,B}$, with partial ordering $A'\le A$ if and only if
 \begin{equation*}
@@ -868,15 +882,29 @@ e_{A\ast B} \text{ if } co(A)=ro(B)\\
 \end{cases}
 \end{equation*}
 
+Given $\lambda\in\compositions$, let $1_\lambda = e_{\lambda_1\xi_{1,1} + \cdots + \lambda_n\xi_{n,n}}$.
+
+\begin{lemma}\label{lemma:one-sided-identity}
+Given $A\in\matrices$, $\lambda\in\compositions$: $1_\lambda e_A = e_A$ provided  $\lambda = ro(A)$ and $1_\lambda e_A = 0$ if $\lambda\neq ro(A)$. $e_A1_\lambda = e_A$ if $\lambda = co(A)$ and $e_A 1_\lambda = 0$ if $\lambda \neq co(A)$.
+\end{lemma}
+\begin{proof}
+It is clear that $1_\lambda e_A=0$ unless $\lambda = ro(A)$ and $e_A 1_\lambda = 0$ unless $\lambda = co(A)$. The basis element $e_A$ may be identified with the corresponding orbit in $\dblflags$; then $1_{\lambda}$ corresponds to the orbit $G(L,L)$, for any $L\in\flags_\lambda$ - denote this orbit by $\mathcal{I}_\lambda$. In the case $\lambda = ro(A)$, $\pi(\delta^{-1}(\mathcal{I}_\lambda\times\mathcal{O}_A)) = \mathcal{O}_A$, so $\mathcal{I}_\lambda\ast \mathcal{O}_A = \mathcal{O}_A$. Similarly, if $\lambda = co(A)$, then $\pi(\delta^{-1}(\mathcal{O}_A\times\mathcal{I}_\lambda))$, so $\mathcal{O}_A\ast \mathcal{I}_\lambda = \mathcal{O}_A$.
+\end{proof}
+
+\begin{corollary}\label{corollary:idempotents-and-identity}
+$\{1_\lambda:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempotents in $\generic$ with $\sum_{\lambda\in\compositions}1_\lambda = 1$.
+\end{corollary}
+
 \begin{theorem}
-$\generic$ is a ring with $1$.
+$\generic$ is an associative $\integers$-algebra with $1$.
 \end{theorem}
 \begin{proof}
-Given $A,B\in\matrices$ with $co(A)=ro(B)$, proposition \ref{proposition:existence-maximum} shows that there is a maximum element $C\in\matrices$ such that $g_{A,B,C}\neq 0$, which we denote by $A\ast B$. This shows that the product on $\generic$ is well-defined. To establish associativity in $\generic$ it suffices to show $(e_A \ast e_B)\ast e_C = e_A\ast (e_B\ast e_C)$ for $A,B,C\in\matrices$. If $co(A)\neq ro(B)$ or $co(B)\neq ro(C)$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $co(A)=ro(B)$ and $co(B)=ro(C)$, then proposition \ref{proposition:associativity-maximum} shows that
+Given $A,B\in\matrices$ with $co(A)=ro(B)$, proposition \ref{proposition:existence-maximum} shows that there is a maximum element in $\{C\in\matrices: g_{A,B,C}\neq 0\}$, which is denoted $A\ast B$. This shows that the product on $\generic$ is well-defined. If $co(A)\neq ro(B)$ or $co(B)\neq ro(C)$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $co(A)=ro(B)$ and $co(B)=ro(C)$, then proposition \ref{proposition:associativity-maximum} shows that
 \begin{equation*}
 (e_A\ast e_B)\ast e_C = e_{(A\ast B)\ast C} = e_{A\ast (B\ast C)} = e_A\ast (e_B\ast e_C).
 \end{equation*}
-INCLUDE EXISTENCE OF THE MULTIPLICATIVE IDENTITY.
+
+Corollary \ref{corollary:idempotents-and-identity} shows that the sum of the idempotents $1_\lambda$ for $\lambda\in\compositions$ is a multiplicative identity.
 \end{proof}
 
 \section{Multiplication rules}
