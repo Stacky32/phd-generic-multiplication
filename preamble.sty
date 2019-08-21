@@ -18,14 +18,12 @@
 \RequirePackage{mathtools}	% included for use of coloneqq.
 
 \usepackage{tikz-cd} % create (commuting) diagrams.
-
-% BIBLIOGRAPHY MANAGEMENT
-
 \usepackage{biblatex}
 
+% LOAD BIBLIOGRAPHY
 \addbibresource{references.bib}
 
-% --- unused packages --- %
+% OTHER PACKAGES:
 
 %\usepackage{extpfeil} 	% for interesting arrows.
 %\usepackage{hyperref} 	% enable navigation hyperlinks
@@ -34,11 +32,12 @@
 %For importing sections, bibliography etc.
 %Usage: \import[path]{filename}
 
+% -------------------------------------------- %
+% 				EDITORIAL MACROS				 %
+% -------------------------------------------- %
 
-% --- SPECIAL COMMANDS --- %
-
-%marker to continue typing:
-\newcommand{\seeyoulater}{ {\color{orange}TO BE CONTINUED.} }
+% marker to continue typing:
+\newcommand{\seeyoulater}{ {\color{red}CONTINUE...} }
 
 % proof reminder(s)
 \newcommand{\provelater}{ {\color{red}INCLUDE A PROOF LATER.} }
@@ -75,6 +74,27 @@
 \newtheorem{example}{Example}
 \newtheorem{observation}{Observation}
 
+% -------------------------------------------- %
+%			 MATHEMATICAL OPERATORS				 %
+% -------------------------------------------- %
+
+% (linear) span
+\DeclareMathOperator{\SPAN}{span}
+
+% morphism spaces
+\DeclareMathOperator{\HOM}{Hom}
+
+% endomorphism ring
+\DeclareMathOperator{\END}{End}
+
+% automorphism group
+\DeclareMathOperator{\AUT}{Aut}
+
+% extension groups
+\DeclareMathOperator{\EXT}{Ext}
+
+% image
+\DeclareMathOperator{\IM}{im}%image
 
 % --------------------------------------------- %
 % 				NOTATION					 	  %
@@ -87,15 +107,20 @@
 \newcommand{\naturals}{\mathbb{N}}
 \newcommand{\field}{\mathbf{k}}
 
-\renewcommand{\epsilon}{\varepsilon}
+% GENERAL LINEAR GROUPS
 
-% SPECIFIC NOTATION
+\newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
+% argument 1 denotes the rank while argument 2 denotes the ground ring
 
 % GROUND RINGS FOR LATTICES:
+
+\renewcommand{\epsilon}{\varepsilon}
 % Laurent polynomial ring
+
 \newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
 % polynomial ring
 \newcommand{\polys}{{\field[\epsilon]}}
+
 % compact notation:
 \renewcommand{\laurent}{\mathcal{S}}
 \renewcommand{\polys}{\mathcal{R}}
@@ -107,10 +132,13 @@
 \newcommand{\triflags}{{\flags\!\times\!\flags\!\times\!\flags}}
 
 % compositions (of r into n parts)
-\newcommand{\compositions}[1][n,r]{\Lambda(#1)}
+\newcommand{\compositions}[1][n,r]{\Lambda_0(#1)}
 
-% index set for orbits in double flag variety.
-\newcommand{\matrices}[1][n,r]{\Xi(#1)}
+% characteristic matrix of a pair.
+\newcommand{\type}[2]{\operatorname{A}(#1,#2)}
+
+% periodic characteristic matrices.
+\newcommand{\matrices}[1][n,r]{\Lambda_1(#1)}
 
 % cyclic quivers
 \newcommand{\cyclic}{\Delta}
@@ -136,35 +164,13 @@
 \newcommand{\affinezeroschur}[1][n,r]{\hat{S}_0(#1)}
 % generic affine Schur algebras (realisation of 0-Schur algebras.)
 \newcommand{\generic}[1][n,r]{\hat{G}(#1)}
-%
-% finite type generic Schur algebras may be denoted S_0(n,r) as the isomorphism theorem is known.
+
 
 % transpose operator
 \newcommand{\transpose}{\top}
 % other possibilities are \top, ...
 
-% --- MORE OPERATORS --- %
 
-%General linear group.
-\DeclareMathOperator{\GL}{GL}
-
-% (linear) span
-\DeclareMathOperator{\SPAN}{span}
-
-% morphism spaces
-\DeclareMathOperator{\HOM}{Hom}
-
-% endomorphism ring
-\DeclareMathOperator{\END}{End}
-
-% automorphism group
-\DeclareMathOperator{\AUT}{Aut}
-
-% extension groups
-\DeclareMathOperator{\EXT}{Ext}
-
-% image
-\DeclareMathOperator{\IM}{im}%image
 
 
 % -------------------------------------------- %
