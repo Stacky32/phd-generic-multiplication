@@ -44,6 +44,9 @@
 
 \newcommand{\finishproof}{ {\color{red}COMPLETE THIS PROOF.} }
 
+% dotted red line as a progress marker:
+\newcommand{\dashedline}{ {\color{red} ------------------------------------------------------------------------------}\\}
+
 % -------------------------------------------- %
 % 				STYLE AND FORMATTING			 %
 % -------------------------------------------- %
@@ -111,12 +114,12 @@
 
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 % argument 1 denotes the rank while argument 2 denotes the ground ring
+% Usage: $\GL{~rank~}{~ring~}$.
 
 % GROUND RINGS FOR LATTICES:
 
 \renewcommand{\epsilon}{\varepsilon}
 % Laurent polynomial ring
-
 \newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
 % polynomial ring
 \newcommand{\polys}{{\field[\epsilon]}}
