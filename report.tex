@@ -143,13 +143,13 @@ is constant on $G$-orbits and gives a bijection $\dblflags/G\cong\matrices$.
 
 Given $A\in\matrices$, define
 \begin{equation*}
-ro(A) = \left( \sum_{j\in\integers}a_{1,j}, \ldots, \sum_{j\in\integers} a_{n,j}\right)
+\ro{A} = \left( \sum_{j\in\integers}a_{1,j}, \ldots, \sum_{j\in\integers} a_{n,j}\right)
 \end{equation*}
 and
 \begin{equation*}
-co(A) = \left( \sum_{i\in\integers} a_{i,1}, \ldots, \sum_{i\in\integers} a_{i,n}\right).
+\co{A} = \left( \sum_{i\in\integers} a_{i,1}, \ldots, \sum_{i\in\integers} a_{i,n}\right).
 \end{equation*}
-$ro(A)$ and $co(A)$ are compositions of $r$ into $n$ parts, by definition of $\matrices$. If $(L,L')\in\mathcal{O}_A$, then $ro(A)=|L|$ and $co(A) = |L'|$.
+$\ro{A}$ and $\co{A}$ are compositions of $r$ into $n$ parts, by definition of $\matrices$. If $(L,L')\in\mathcal{O}_A$, then $\ro{A}=|L|$ and $\co{A} = |L'|$.
 
 \section{Convolution algebras}
 
@@ -190,7 +190,7 @@ $S$ has a $\integers$-basis consisting of the indicator functions of the $G$-orb
 
 \section{Affine q-Schur algebras}
 
-Given $A,B,C\in\matrices$, there exists a polynomial $\gamma_{A,B,C}\in\integers[q]$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite{lusztig99}. The affine $q$-Schur algebra $\affineqschur$ is a free $\integers[q]$ module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+Given $A,B,C\in\matrices$, there exists a polynomial $\gamma_{A,B,C}\in\integers[q]$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a free $\integers[q]$ module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 \end{equation*}
@@ -227,7 +227,7 @@ Given $A\in\matrices$ and $L\in\flags$, define
 X_A^L = \{L'\in\flags:(L,L')\in\mathcal{O}_A\}
 \end{equation*}
 
-Write $a=ro(A)$, $a'=co(A)$. Then $X_A^L \subset \flags_{a'}$ and $X_A^L$ is non-empty if and only if $L\in\flags_a$. Let $A,B\in\matrices$ and $(L,L'')\in\dblflags$. Consider the set
+Write $a=\ro{A}$, $a'=\co{A}$. Then $X_A^L \subset \flags_{a'}$ and $X_A^L$ is non-empty if and only if $L\in\flags_a$. Let $A,B\in\matrices$ and $(L,L'')\in\dblflags$. Consider the set
 \begin{equation*}
 X_A^L\cap X_{B^T}^{L''} = \{L':(L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\}
 \end{equation*}
@@ -261,9 +261,9 @@ where $L/L'$ is a finite dimensional nilpotent $\field\cyclic$-module.
 
 \section{Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}
 
-$(L,L')\in\mathcal{O}_A$ if and only if $(L',L)\in\mathcal{O}_{A^\transpose}$. In fact, the operation of transposition on $\dblflags$ (or on $\matrices$) induces an anti-automorphism of $\affineqschur$.
+$(L,L')\in\mathcal{O}_A$ if and only if $(L',L)\in\mathcal{O}_{A^\transpose}$. In fact, the operation of transposition on $\dblflags$ (or on $\matrices$) induces an anti-automorphism of $\qschur$.
 \begin{lemma}
-Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\affineqschur\to\affineqschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
+Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\qschur\to\qschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
 \end{lemma}
 \begin{proof}
 Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\mathcal{O}_C$ then $(L'',L)\in\mathcal{O}_{C^\transpose}$ and
@@ -283,7 +283,7 @@ Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ denote the diagonal
 D_\lambda = \lambda_1 \mathcal{E}_{1,1} +\cdots + \lambda_n \mathcal{E}_{n,n}
 \end{equation*}
 
-For $\lambda\in\compositions$, write $1_\lambda = e_{D_\lambda}$. The $1_\lambda$ are pairwise orthogonal idempotents in $\affineqschur$ with $1 = \sum_{\lambda\in\compositions}1_\lambda$.
+For $\lambda\in\compositions$, write $1_\lambda = e_{D_\lambda}$. The $1_\lambda$ are pairwise orthogonal idempotents in $\qschur$ with $1 = \sum_{\lambda\in\compositions}1_\lambda$.
 
 Given $i,j\in\integers$, write $X_{i,j} = \mathcal{E}_{i,j} - \mathcal{E}_{i+1,j}$. By convention, $e_A = 0$ unless $A\in\matrices$.
 
@@ -351,7 +351,7 @@ F_i^r = [r]_! e_{r\mathcal{E}_{i+1,i}}.
 \end{equation*}
 
 \begin{lemma}[quantum Serre relations: $n\geq 3$]
-Suppose $n\geq 3$. The following relations hold in $\affineqschur$:
+Suppose $n\geq 3$. The following relations hold in $\qschur$:
 \begin{equation*}
 E_i E_j - E_j E_i = 0
 \end{equation*}
@@ -426,7 +426,7 @@ e_A R = e_{A_{[\pm 1]}}.
 \end{equation*}
 \end{lemma}
 
-Conjugation by $R$ gives an automorphism $\rho$ of $\affineqschur$ satisfying $\rho^n = 1$.
+Conjugation by $R$ gives an automorphism $\rho$ of $\qschur$ satisfying $\rho^n = 1$.
 }
 
 \section{quivers with relations}
@@ -441,7 +441,7 @@ Denote by $\integers[q]\Gamma$ the path $\integers[q]$-algebra of $\Gamma$. Thus
 
 By construction, there is a homomorphism of $\integers[q]$-algebras
 \begin{equation*}
-\phi\colon \integers[q]\Gamma\to\affineqschur
+\phi\colon \integers[q]\Gamma\to\qschur
 \end{equation*}
 given by
 \begin{align*}
@@ -451,7 +451,7 @@ given by
 \end{align*}
 for $i\in [1,n]$ and $\lambda\in\compositions$.
 
-The image of $\phi$ is the subalgebra of $\affineqschur$ generated by $E_i$, $F_i$ for $i\in [1,n]$ and $1_\lambda$ for $\lambda\in\compositions$, since $E_{i,\lambda}=E_i1_\lambda$ and $F_{i,\lambda}=F_i1_\lambda$, while $E_i = \sum_\lambda E_{i,\lambda}$ and $F_i = \sum_\lambda F_{i,\lambda}$. In general $\phi$ is not surjective, so this does not always lead to a presentation of $\affineqschur$.
+The image of $\phi$ is the subalgebra of $\qschur$ generated by $E_i$, $F_i$ for $i\in [1,n]$ and $1_\lambda$ for $\lambda\in\compositions$, since $E_{i,\lambda}=E_i1_\lambda$ and $F_{i,\lambda}=F_i1_\lambda$, while $E_i = \sum_\lambda E_{i,\lambda}$ and $F_i = \sum_\lambda F_{i,\lambda}$. In general $\phi$ is not surjective, so this does not always lead to a presentation of $\qschur$.
 
 \subsection{Exceptional case $n=2$.}
 
@@ -497,7 +497,7 @@ Recall that a relation is a $\integers[q]$-linear combination of paths with comm
 \begin{lemma}
 There is a homomorphism of $\integers[q]$-algebras
 \begin{equation*}
-\phi\colon\integers[q]\presentationquiver/{\quiverrelations}\to\affineqschur
+\phi\colon\integers[q]\presentationquiver/{\quiverrelations}\to\qschur
 \end{equation*}
 given by
 \begin{equation*}
@@ -541,7 +541,7 @@ Given $A\in\matrices$, write $\co{A}\stackrel{A}{\to}\ro{A}$. Given $\lambda,\mu
 
 The generic affine Schur algebra $\generic$ will then be a $\integers$-algebra defined as a linearisation of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
-\section{A partial order.}
+\section{A partial order}
 
 Given $i,j\in\integers$, define a map $d_{i,j}$ on $\matrices$ by setting
 \begin{equation*}
@@ -616,7 +616,7 @@ for each $i,j\in\integers$.
 
 \section{Preliminary results}
 
-Assume $L\in\flags$.
+Fix $L\in\flags$.
 
 \begin{lemma}
 $L_0/{\epsilon L_0}$ is a torsion $\field[\epsilon]$-module, where $\epsilon$ acts as zero, with dimension $r$ as a $\field$-vector space.
@@ -625,7 +625,7 @@ $L_0/{\epsilon L_0}$ is a torsion $\field[\epsilon]$-module, where $\epsilon$ ac
 Let $V = \field[\epsilon,\epsilon^{-1}]^r$. $L_0$ is a free $\field[\epsilon]$-module of rank $r$, with $L_0\subset V$. So we may take a $\field[\epsilon]$-basis $x_1,\ldots, x_r\in V$ for $L_0$. The action of $\epsilon$ gives an automorphism of $V$ mapping $L_0$ to $\epsilon L_0$, so $\epsilon x_1,\ldots,\epsilon x_r$ give a basis for $\epsilon L_0$ over $\field[\epsilon]$. Therefore, the cosets $x_1 + \epsilon L_0,\ldots x_r +\epsilon L_0$ give a basis for $L_0/{\epsilon L_0}$ over $\field$.
 \end{proof}
 
-Suppose $A,B\in\matrices$ with $co(A)=ro(B)$. Recall the notation
+Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Recall the notation
 \begin{equation*}
 Y_{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B\}
 \end{equation*}
@@ -824,28 +824,26 @@ $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \section{Existence of a maximum}
 
 \begin{proposition}\label{proposition:existence-maximum}
-Given $A,B\in\matrices$ with $co(A)=ro(B)$, $\Xi_{A,B}$ has a maximum element.
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
 \end{proposition}
 
 \begin{proof}[Draft of proof]
-The assumption $co(A)=ro(B)$ ensures $\Xi_{A,B}$ is non-empty. The partial order on $\Xi_{A,B}$ is given by the partial order on $\matrices$; where $A'\le A$ if and only if $d_{i,j}(A')\le d_{i,j}(A)$ for all $i,j\in\integers$.
+$\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. The partial order on $\matrices_{A,B}$ is given by the partial order on $\matrices$; where $C'\le C$ if and only if $d_{i,j}C'\le d_{i,j}C$ for all $i,j\in\integers$.
 
-To prove existence of a maximum element in $\Xi_{A,B}$ we will consider the poset of $G$-orbits in $\flags=\flags_\complex(n,r)$ and prove existence of a maximum orbit in $X_{A,B}$ using an open orbits argument. Fix a free $\complex[\epsilon,\epsilon^{-1}]$-module of rank $r$ and write $G=\AUT(V)$. Then $\flags = \flags_\complex(n,r)$ denotes the space of $n$-cyclic flags of $\complex[\epsilon]$-lattices in $V$.
+To prove existence of a maximum element in $\matrices_{A,B}$ we will consider the poset of $G$-orbits in $\dblflags$ and prove existence of a maximum orbit in $X_{A,B}$ using an open orbits argument. Recall $X_{A,B}$ consists of $(L,L'')\in\dblflags$ such that there exists $L'\in\flags$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$.
 
-Recall $X_{A,B}$ denotes the set of $(L,L'')\in\dblflags$ where there exists $L'\in\flags$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$. $X_{A,B}/G$ is identified with $\Xi_{A,B}$ by the map $\mathcal{O}_C\mapsto C$ and $d_{i,j}(C) = \dim(L_i/{L_i\cap L_j'})$.
-
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ whenever $(L,L'')\in X_{A,B}$. Fix $L\in\flags_{ro(A)}$ and write
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ whenever $(L,L'')\in X_{A,B}$. Fix $L\in\flags_{\ro{A}}$ and write
 \begin{equation*}
 X_{A,B}^L = \{L''\in\flags: (L,L'')\in X_{A,B}\}.
 \end{equation*}
 With the above choice of $N$, write
 \begin{equation*}
-\Pi = \{L''\in\flags_{co(B)}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
+\Pi = \{L''\in\flags_{\co{B}}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
 \end{equation*}
 
-$\Pi$ is a (disjoint union of) complex projective varieties (!), closed under the action of $G_L$. [REF] The closure $\overline{X_{A,B}^L}$ of $X_{A,B}^L$ in $\Pi$ is irreducible so is a complex projective variety.
+$\Pi$ is a complex projective variety (not generally irreducible), closed under the action of $G_L$. \needsreference The closure $\overline{X_{A,B}^L}$ of $X_{A,B}^L$ in $\Pi$ is an irreducible complex projective variety.
 
-Proposition [REF] shows there is a unique $G_L$-orbit in $X_{A,B}^L$ which is open in $\overline{X_{A,B}^L}$, say $\mathcal{O}_C^L$ for some $C\in\Xi_{A,B}$. It will be shown that $C$ is the maximum element of $\Xi_{A,B}$. Given $i,j\in\integers$, let $m_{i,j}$ denote the maximum of $\{d_{i,j}(C): C\in\Xi_{A,B}\}$ and define
+Proposition \needsreference shows there is a unique $G_L$-orbit in $X_{A,B}^L$ which is open in $\overline{X_{A,B}^L}$, say $\mathcal{O}_C^L$ for some $C\in\matrices_{A,B}$. It will be shown that $C$ is the maximum element of $\matrices_{A,B}$. Given $i,j\in\integers$, let $m_{i,j}$ denote the maximum of $\{d_{i,j}C: C\in\matrices_{A,B}\}$ and define
 \begin{equation*}
 \mathcal{M}_{i,j} = \{L''\in \overline{X_{A,B}^L}: d_{i,j}(L,L'') = m_{i,j}\}.
 \end{equation*}
@@ -853,37 +851,36 @@ $\mathcal{M}_{i,j}$ is non-empty by definition of the $m_{i,j}$ and is closed un
 \begin{equation*}
 d_{i,j}^L\colon\Pi\to\integers: L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)
 \end{equation*}
-is lower semi-continuous and
+is lower semi-continuous \needsreference and
 \begin{equation*}
 \mathcal{M}_{i,j} = \overline{X_{A,B}^L}\setminus \{L''\in\overline{X_{A,B}^L}: d_{i,j}^L(L'')\le m_{i,j} -1\}.
 \end{equation*}
 
-It follows that $\mathcal{O}_C^L$ and $\mathcal{M}_{i,j}$ intersect non-trivially, since $\overline{X_{A,B}^L}$ is irreducible and therefore $\mathcal{O}_C^L\subset \mathcal{M}_{i,j}$ as both are closed under the action of $G_L$. This proves $C$ is a maximum element of $\Xi_{A,B}$, since
+It follows that $\mathcal{O}_C^L$ and $\mathcal{M}_{i,j}$ intersect non-trivially, since $\overline{X_{A,B}^L}$ is irreducible and therefore $\mathcal{O}_C^L\subset \mathcal{M}_{i,j}$ as both are closed under the action of $G_L$. This proves $C$ is a maximum element of $\matrices_{A,B}$, since
 \begin{equation*}
-d_{i,j}(C) = d_{i,j}(L,L'') = m_{i,j}
+d_{i,j}C = d_{i,j}(L,L'') = m_{i,j}
 \end{equation*}
 for any $L''\in\mathcal{O}_C^L$.
-
 \end{proof}
 
 \begin{proof}[Short proof]
-$\Xi_{A,B}$ is nonempty since $co(A)=ro(B)$. For each $i,j\in\integers$, define
+$\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. For each $i,j\in\integers$, define
 \begin{equation*}
-m_{i,j} = \max_{C\in\Xi_{A,B}} d_{i,j}(C).
+m_{i,j} = \max_{C\in\matrices_{A,B}} d_{i,j}C.
 \end{equation*}
-It will be shown that there is a unique element $A\ast B\in \Xi_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$: such an element is neccesarily a maximum in $\Xi_{A,B}$. Assume $\field=\complex$, so $\flags$ is a set of periodic chains of lattices in $V = \complex[\epsilon,\epsilon^{-1}]^r$, $G = \AUT(V) = GL_{r}(\complex[\epsilon,\epsilon^{-1}])$ and so on. Fix $L\in\flags_{ro(A)}$ and assume $N\in\naturals$ is sufficiently large that $X_{A,B}^L\subset \Pi_N$; where
+It will be shown that there is a unique element $A\ast B\in \matrices_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$: such an element is necessarily a maximum in $\matrices_{A,B}$. Fix $L\in\flags_{\ro{A}}$ and assume $N\in\naturals$ is sufficiently large that $X_{A,B}^L\subset \Pi_N$; where
 \begin{equation*}
-\Pi_N = \{L''\in\flags_{co(B)}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
+\Pi_N = \{L''\in\flags_{\co{B}}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
 \end{equation*}
 
-Lusztig notes \cite{lusztig99} that $\Pi_N$ is a projective algebraic variety, closed under the action of $G_L$. Lemma [...] shows that the closure of $X_{A,B}^L$ in $\Pi_N$, denoted $\overline{X_{A,B}^L}$, is irreducible and is therefore a subvariety of $\Pi_N$ which is closed under the action of $G_L$.
+Lusztig notes \cite{lusztig99} that $\Pi_N$ is a projective algebraic variety, closed under the action of $G_L$. Lemma \needsreference shows that the closure of $X_{A,B}^L$ in $\Pi_N$, denoted $\overline{X_{A,B}^L}$, is an irreducible complex projective variety.
 
 For each $i,j\in\integers$, write
 \begin{equation*}
 \mathcal{M}_{i,j} = \{L''\in\overline{X_{A,B}^L}: d_{i,j}(L,L'') = m_{i,j}\}.
 \end{equation*}
 
-$\mathcal{M}_{i,j}$ is nonempty since $d_{i,j}(L,-)$ attains the maximum value $m_{i,j}$ on $X_{A,B}^L$. $\mathcal{M}_{i,j}$ is open in $\overline{X_{A,B}^L}$ since
+$\mathcal{M}_{i,j}$ is non-empty since $d_{i,j}(L,-)$ attains a maximum on $X_{A,B}^L$. $\mathcal{M}_{i,j}$ is open in $\overline{X_{A,B}^L}$ since
 \begin{equation*}
 \overline{X_{A,B}^L}\setminus \mathcal{M}_{i,j} = \{L''\in\overline{X_{A,B}^L}: d_{i,j}(L,L'')\le m_{i,j} - 1\}
 \end{equation*}
@@ -891,23 +888,21 @@ and the function
 \begin{equation*}
 d_{i,j}(L,-)\colon\Pi_N\to\integers : L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)
 \end{equation*}
-is lower semicontinuous, by lemma [... : lower semicontinuity].
+is lower semi-continuous, by lemma [\needsreference : lower semi-continuity].
 
-Lemma [... : open orbit] shows that there is a unique $G_L$-orbit in $X_{A,B}^L$ which is open in $\overline{X_{A,B}^L}$, say $\mathcal{O}_{A\ast B}^L$ for some $A\ast B\in\Xi_{A,B}$. $\mathcal{M}_{i,j}$ intersects the open orbit $\mathcal{O}_{A\ast B}^L$ nontrivially, since $\mathcal{M}_{i,j}$ and $\mathcal{O}_{A\ast B}^L$ are both nonempty and open in the irreducible space $\overline{X_{A,B}^L}$. Moreover, $\mathcal{O}_{A\ast B}^L\subset \mathcal{M}_{i,j}$, since $\mathcal{M}_{i,j}$ is closed under the action of $G_L$. In particular, we have $A\ast B\in \Xi_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$ for each $i,j\in\integers$, which shows $A\ast B$ is a maximum in $\Xi_{A,B}$.
+Lemma [\needsreference : open orbit] shows that there is a unique $G_L$-orbit in $X_{A,B}^L$ which is open in $\overline{X_{A,B}^L}$, say $\mathcal{O}_{A\ast B}^L$ for some $A\ast B\in\matrices_{A,B}$. $\mathcal{M}_{i,j}$ intersects the open orbit $\mathcal{O}_{A\ast B}^L$ non-trivially, since $\mathcal{M}_{i,j}$ and $\mathcal{O}_{A\ast B}^L$ are both non-empty and open in the irreducible space $\overline{X_{A,B}^L}$. Moreover, $\mathcal{O}_{A\ast B}^L\subset \mathcal{M}_{i,j}$, since $\mathcal{M}_{i,j}$ is closed under the action of $G_L$. In particular, we have $A\ast B\in \matrices_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$ for each $i,j\in\integers$, which shows $A\ast B$ is a maximum in $\matrices_{A,B}$.
 
 More specifically, we may compute:
 \begin{equation*}
 a_{i,j}(A\ast B) = m_{i,j-1} - m_{i-1,j-1} + m_{i-1,j} - m_{i,j}
 \end{equation*}
 for each $i,j\in\integers$.
-
 \end{proof}
-
 
 \section{Associativity}
 
 \begin{proposition}\label{proposition:associativity-maximum}
-Given $A,B,C\in\matrices$ with $co(A)=ro(B)$ and $co(B)=ro(C)$, $(A\ast B)\ast C = A\ast (B\ast C)$.
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
 \end{proposition}
 \begin{proof}
 INCLUDE PROOF.
@@ -918,18 +913,18 @@ INCLUDE PROOF.
 This now leads to the construction of a so-called generic version of the affine q-Schur algebra. Let $\generic$ be a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ with $\integers$-bilinear product
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
-e_{A\ast B} \text{ if } co(A)=ro(B)\\
-0 \text{ if } co(A)\neq ro(B).
+e_{A\ast B} \text{ if } \co{A}=\ro{B}\\
+0 \text{ if } \co{A}\neq \ro{B}.
 \end{cases}
 \end{equation*}
 
 Given $\lambda\in\compositions$, let $1_\lambda = e_{\lambda_1\xi_{1,1} + \cdots + \lambda_n\xi_{n,n}}$.
 
 \begin{lemma}\label{lemma:one-sided-identity}
-Given $A\in\matrices$, $\lambda\in\compositions$: $1_\lambda e_A = e_A$ provided  $\lambda = ro(A)$ and $1_\lambda e_A = 0$ if $\lambda\neq ro(A)$. $e_A1_\lambda = e_A$ if $\lambda = co(A)$ and $e_A 1_\lambda = 0$ if $\lambda \neq co(A)$.
+Given $A\in\matrices$, $\lambda\in\compositions$: $1_\lambda e_A = e_A$ provided  $\lambda = \ro{A}$ and $1_\lambda e_A = 0$ if $\lambda\neq \ro{A}$. $e_A1_\lambda = e_A$ if $\lambda = \co{A}$ and $e_A 1_\lambda = 0$ if $\lambda \neq \co{A}$.
 \end{lemma}
 \begin{proof}
-It is clear that $1_\lambda e_A=0$ unless $\lambda = ro(A)$ and $e_A 1_\lambda = 0$ unless $\lambda = co(A)$. The basis element $e_A$ may be identified with the corresponding orbit in $\dblflags$; then $1_{\lambda}$ corresponds to the orbit $G(L,L)$, for any $L\in\flags_\lambda$ - denote this orbit by $\mathcal{I}_\lambda$. In the case $\lambda = ro(A)$, $\pi(\delta^{-1}(\mathcal{I}_\lambda\times\mathcal{O}_A)) = \mathcal{O}_A$, so $\mathcal{I}_\lambda\ast \mathcal{O}_A = \mathcal{O}_A$. Similarly, if $\lambda = co(A)$, then $\pi(\delta^{-1}(\mathcal{O}_A\times\mathcal{I}_\lambda))$, so $\mathcal{O}_A\ast \mathcal{I}_\lambda = \mathcal{O}_A$.
+It is clear that $1_\lambda e_A=0$ unless $\lambda = \ro{A}$ and $e_A 1_\lambda = 0$ unless $\lambda = \co{A}$. The basis element $e_A$ may be identified with the corresponding orbit in $\dblflags$; then $1_{\lambda}$ corresponds to the orbit $G(L,L)$, for any $L\in\flags_\lambda$ - denote this orbit by $\mathcal{I}_\lambda$. In the case $\lambda = \ro{A}$, $\pi(\delta^{-1}(\mathcal{I}_\lambda\times\mathcal{O}_A)) = \mathcal{O}_A$, so $\mathcal{I}_\lambda\ast \mathcal{O}_A = \mathcal{O}_A$. Similarly, if $\lambda = \co{A}$, then $\pi(\delta^{-1}(\mathcal{O}_A\times\mathcal{I}_\lambda))$, so $\mathcal{O}_A\ast \mathcal{I}_\lambda = \mathcal{O}_A$.
 \end{proof}
 
 \begin{corollary}\label{corollary:idempotents-and-identity}
@@ -940,7 +935,7 @@ $\{1_\lambda:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempote
 $\generic$ is an associative $\integers$-algebra with $1$.
 \end{theorem}
 \begin{proof}
-Given $A,B\in\matrices$ with $co(A)=ro(B)$, proposition \ref{proposition:existence-maximum} shows that there is a maximum element in $\{C\in\matrices: g_{A,B,C}\neq 0\}$, which is denoted $A\ast B$. This shows that the product on $\generic$ is well-defined. If $co(A)\neq ro(B)$ or $co(B)\neq ro(C)$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $co(A)=ro(B)$ and $co(B)=ro(C)$, then proposition \ref{proposition:associativity-maximum} shows that
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, proposition \ref{proposition:existence-maximum} shows that there is a maximum element in $\{C\in\matrices: g_{A,B,C}\neq 0\}$, which is denoted $A\ast B$. This shows that the product on $\generic$ is well-defined. If $\co{A}\neq \ro{B}$ or $\co{B}\neq \ro{C}$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, then proposition \ref{proposition:associativity-maximum} shows that
 \begin{equation*}
 (e_A\ast e_B)\ast e_C = e_{(A\ast B)\ast C} = e_{A\ast (B\ast C)} = e_A\ast (e_B\ast e_C).
 \end{equation*}
@@ -960,7 +955,7 @@ F_i = \sum_{\lambda\in\compositions} F_{i,\lambda}.
 Then $E_{i,\lambda} = E_i 1_\lambda$ and $F_{i,\lambda} = F_i 1_\lambda$.
 
 \begin{lemma}
-Let $A\in\matrices$, $i\in [1,n]$ and let $\lambda = ro(A)$. The following multiplication rules hold:
+Let $A\in\matrices$, $i\in [1,n]$ and let $\lambda = \ro{A}$. The following multiplication rules hold:
 \begin{equation*}
 E_i e_A = \begin{cases}
 e_{A+X_{i,p}} &\text{	if } \lambda_{i+1}>0\\
@@ -1015,7 +1010,7 @@ E_iFi - F_iE_i + \sum_{\lambda:\lambda_i = 0,\lambda_{i+1}>0} 1_\lambda - \sum_{
 
 Define
 \begin{equation*}
-\Pi = \left\{L''\in\flags_{co(B)} : \epsilon^N L_0 \subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N} L_0 \text{ and } \dim\left(L_0''/{\epsilon^N L_0}\right) = -Nr + d_{-Nn,0}^-(A) + d_{-Nn,0}^-(B) \right\}.
+\Pi = \left\{L''\in\flags_{\co{B}} : \epsilon^N L_0 \subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N} L_0 \text{ and } \dim\left(L_0''/{\epsilon^N L_0}\right) = -Nr + d_{-Nn,0}^-(A) + d_{-Nn,0}^-(B) \right\}.
 \end{equation*}
 
 \begin{lemma}
@@ -1085,7 +1080,7 @@ There exist $g,g'\in G$ such that $(N,N') = g(L,L')$ and $(N',N'') = g'(L',L'')$
 \end{proof}
 
 \begin{proposition}\label{lemma:irreducibility-orbit-product}
-Suppose $X_{A,B}^L\neq\emptyset$. Then $X_{A,B}^L\subset\flags_{co(B)}$ is finite dimensional and irreducible.
+Suppose $X_{A,B}^L\neq\emptyset$. Then $X_{A,B}^L\subset\flags_{\co{B}}$ is finite dimensional and irreducible.
 \end{proposition}
 \begin{proof}
 The map
@@ -1132,7 +1127,7 @@ Given $A,B,C\in\matrices$ and $L\in\flags$ let
 X_{A,B,C}^L = \{L'''\in \flags:\exists (L',L'')\in\mathcal{O}_B \text{ with } (L,L')\in\mathcal{O}_A, (L'',L''')\in\mathcal{O}_C\}.
 \end{equation*}
 
-Note that $X_{A,B,C}^L\subset$ is contained in $\flags_{co(C)}$ and is non-empty only if $L\in\flags_{ro(A)}$, $co(A) = ro(B)$ and $co(B) = ro(C)$. $X_{A,B,C}^L$ consists of finitely many $G_L$-orbits. Using a similar argument to the existence of generic orbits we show that there is a unique generic orbit in $X_{A,B,C}^L$, which will establish associativity of the generic product. We now suppose $X_{A,B,C}^L$ is non-empty and fix $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$.
+Note that $X_{A,B,C}^L\subset$ is contained in $\flags_{\co{C}}$ and is non-empty only if $L\in\flags_{\ro{A}}$, $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$. $X_{A,B,C}^L$ consists of finitely many $G_L$-orbits. Using a similar argument to the existence of generic orbits we show that there is a unique generic orbit in $X_{A,B,C}^L$, which will establish associativity of the generic product. We now suppose $X_{A,B,C}^L$ is non-empty and fix $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$.
 
 \begin{lemma}
 $X_{A,B,C}^L$ is the image of the map
@@ -1166,20 +1161,20 @@ There is a unique generic $G_L$-orbit in $X_{A,B,C}^L$.
 We aim to prove the isomorphism theorem in the cases $r<n$ and $n\le r< 2n$ separately. Below are crude versions of the statements we want to prove.
 
 \begin{theorem}
-Assume $r<n$. The map $\psi\colon\generic\to\affinezeroschur$, given by $\psi(E_i)=E_i$, $\psi(F_i
+Assume $r<n$. The map $\psi\colon\generic\to\zeroschur$, given by $\psi(E_i)=E_i$, $\psi(F_i
 )=F_i$ and $\psi(1_\lambda) = 1_\lambda$, is an isomorphism of $\integers$-algebras.
 \end{theorem}
 \begin{proof}{\color{gray}
 Below are some of the pieces:
 [1] The elements $E_i$, $F_i$, $1_\lambda$ generate $\generic$.
 
-Provided $r<n$, any $A\in\matrices$ may be obtained from the diagonal matrix $D_\lambda$ with $\lambda=ro(A)$ by a sequence of transitions $A \mapsto A\pm X_{i,p}$.
+Provided $r<n$, any $A\in\matrices$ may be obtained from the diagonal matrix $D_\lambda$ with $\lambda=\ro{A}$ by a sequence of transitions $A \mapsto A\pm X_{i,p}$.
 
 [2] Give a complete set of generating relations for $\generic$.}
 \end{proof}
 
 \begin{theorem}
-Assume $n\le r< 2n$. There is a unique homomorphism of $\integers$-algebras $\hat{\psi}\colon\generic\to\affinezeroschur$ such that $\hat{\psi}(R)=R$ and $\hat{\psi}=\psi$ on the subalgebra of $\generic$ generated by the $E_i$, $F_i$ and $1_\lambda$. $\hat{\psi}$ is an isomorphism of $\integers$-algebras.
+Assume $n\le r< 2n$. There is a unique homomorphism of $\integers$-algebras $\hat{\psi}\colon\generic\to\zeroschur$ such that $\hat{\psi}(R)=R$ and $\hat{\psi}=\psi$ on the subalgebra of $\generic$ generated by the $E_i$, $F_i$ and $1_\lambda$. $\hat{\psi}$ is an isomorphism of $\integers$-algebras.
 \end{theorem}
 
 \section{Quivers with relations for the generic algebra.}

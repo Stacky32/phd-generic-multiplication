@@ -36,15 +36,12 @@
 % 				EDITORIAL MACROS				 %
 % -------------------------------------------- %
 
-% marker to continue typing:
-\newcommand{\seeyoulater}{ {\color{red}CONTINUE...} }
+\newcommand{\seeyoulater}{ {\color{red}RESUME HERE...} }
 
-% proof reminder(s)
 \newcommand{\provelater}{ {\color{red}INCLUDE A PROOF LATER.} }
 
 \newcommand{\finishproof}{ {\color{red}COMPLETE THIS PROOF.} }
 
-% add a reference:
 \newcommand{\needsreference}{{\color{blue}[ADD A REFERENCE]}} 
 
 % -------------------------------------------- %
@@ -111,15 +108,14 @@
 \newcommand{\field}{\mathbf{k}}
 
 % GENERAL LINEAR GROUPS
-
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 % argument 1 denotes the rank while argument 2 denotes the ground ring
 % Usage: $\GL{~rank~}{~ring~}$.
 
 % GROUND RINGS FOR LATTICES:
-
+% use curly epsilon
 \renewcommand{\epsilon}{\varepsilon}
-% Laurent polynomial ring
+% laurent polynomial ring
 \newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
 % polynomial ring
 \newcommand{\polys}{{\field[\epsilon]}}
@@ -128,8 +124,7 @@
 \renewcommand{\laurent}{\mathcal{S}}
 \renewcommand{\polys}{\mathcal{R}}
 
-
-% AFFINE FLAG VARIETIES [single, double, triple]
+% CYCLIC FLAG VARIETIES [single, double, triple]
 \newcommand{\flags}{\mathcal{F}}
 \newcommand{\dblflags}{{\flags\!\times\!\flags}}
 \newcommand{\triflags}{{\flags\!\times\!\flags\!\times\!\flags}}
@@ -137,7 +132,7 @@
 % compositions (of r into n parts)
 \newcommand{\compositions}[1][n,r]{\Lambda_0(#1)}
 
-% characteristic matrix of a pair.
+% periodic characteristic matrix of a pair.
 \newcommand{\type}[2]{\operatorname{A}(#1,#2)}
 
 % set of periodic characteristic matrices.
@@ -156,28 +151,17 @@
 % ideal of relations for the quiver presentation
 \newcommand{\quiverrelations}[1][n,r]{I(#1)}
 
-
 % VARIOUS SCHUR ALGEBRAS
 
-% classical Schur algebras
-\newcommand{\schur}[1][n,r]{S(#1)}
-% classical affine Schur algebras
-\newcommand{\affineschur}[1][n,r]{\hat{S}(#1)}
-% quantum Schur algebras
-\newcommand{\qschur}[1][n,r]{S_q(#1)}
 % quantum affine Schur algebras
-\newcommand{\affineqschur}[1][n,r]{\hat{S}_q(#1)}
+\newcommand{\qschur}[1][n,r]{\hat{S}_q(#1)}
 % affine 0-Schur algebras
-\newcommand{\affinezeroschur}[1][n,r]{\hat{S}_0(#1)}
-% generic affine Schur algebras (realisation of 0-Schur algebras.)
+\newcommand{\zeroschur}[1][n,r]{\hat{S}_0(#1)}
+% generic affine Schur algebras
 \newcommand{\generic}[1][n,r]{\hat{G}(#1)}
-
 
 % transpose operator
 \newcommand{\transpose}{\top}
-% other possibilities are \top, ...
-
-
 
 
 % -------------------------------------------- %
