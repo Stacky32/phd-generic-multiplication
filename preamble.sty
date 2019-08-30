@@ -44,8 +44,8 @@
 
 \newcommand{\finishproof}{ {\color{red}COMPLETE THIS PROOF.} }
 
-% dotted red line as a progress marker:
-\newcommand{\dashedline}{ {\color{red} ------------------------------------------------------------------------------}\\}
+% add a reference:
+\newcommand{\needsreference}{{\color{blue}[ADD A REFERENCE]}} 
 
 % -------------------------------------------- %
 % 				STYLE AND FORMATTING			 %
@@ -140,8 +140,12 @@
 % characteristic matrix of a pair.
 \newcommand{\type}[2]{\operatorname{A}(#1,#2)}
 
-% periodic characteristic matrices.
+% set of periodic characteristic matrices.
 \newcommand{\matrices}[1][n,r]{\Lambda_1(#1)}
+
+% row and column sums of characteristic matrix.
+\newcommand{\ro}{\operatorname{ro}}
+\newcommand{\co}{\operatorname{co}}
 
 % cyclic quivers
 \newcommand{\cyclic}{\Delta}

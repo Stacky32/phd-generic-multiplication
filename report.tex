@@ -520,33 +520,30 @@ Assume $\field = \complex$ and fix $n,r\geq 1$. Let $\laurent$ be the $\field$-a
 
 Let $G$ be the group of $\laurent$-module automorphisms of $V$. Thus $G$ is isomorphic to $\GL{r}{\laurent}$. $G$ acts on $\flags$ with orbits $\{\flags_\lambda:\lambda\in\compositions\}$, where $\compositions$ is the set of compositions of $r$ into $n$ parts.
 
-The diagonal action of $G$ on $\dblflags$ has orbits $\{\mathcal{O}_A:A\in\matrices\}$, where $\mathcal{O}_A$ consists of those pairs of flags with {\color{blue}periodic characteristic matrix} equal to $A$. In particular, the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
+The diagonal action of $G$ on $\dblflags$ has orbits $\{\mathcal{O}_A:A\in\matrices\}$, where $\mathcal{O}_A$ consists of those pairs of flags with periodic characteristic matrix equal to $A$. In particular, the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
 \begin{equation*}
 a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right),
 \end{equation*}
 for each $i,j\in\integers$.
 
+\subsection{Not quite a category}
 
-\dashedline
-
-Define maps
+There are maps $\ro,\co\colon\matrices\to\compositions$ given by
 \begin{equation*}
-\pi\colon \triflags\to\dblflags: (L,L',L'')\mapsto (L,L'')
+\ro{A} = \left(\sum_{j} a_{1,j},\ldots, \sum_{j}a_{n,j}\right)
 \end{equation*}
 and
 \begin{equation*}
-\delta\colon \triflags\to\dblflags\times\dblflags: (L,L',L'')\mapsto (L,L',L',L'')
+\co{A} = \left(\sum_{i} a_{i,1},\ldots, \sum_{i} a_{i,n}\right).
 \end{equation*}
 
-Given orbits $\mathcal{O}_A,\mathcal{O}_B$, it will be shown that $\pi\delta^{-1}(\mathcal{O}_A\times\mathcal{O}_B)$ contains a unique orbit $\mathcal{O}_C$ such that
-\begin{equation*}
-\dim\left(\frac{N_i}{N_i\cap N_j''}\right) \le \dim\left(\frac{L_i}{L_i\cap L_j''}\right),
-\end{equation*}
-for any $(L,L'')\in\mathcal{O}_C$, $(N,N'')\in\pi\delta^{-1}(\mathcal{O}_A\times\mathcal{O}_B)$, $i,j\in\integers$. $\mathcal{O}_C$ is referred to as a generic orbit and is denoted $\mathcal{O}_A\ast \mathcal{O}_B$. Associativity of the generic product of orbits will be established, which will lead to the construction of an associative $\integers$-algebra with $1$, called a generic affine Schur algebra, denoted $\hat{G}(n,r)$. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
+Given $A\in\matrices$, write $\co{A}\stackrel{A}{\to}\ro{A}$. Given $\lambda,\mu\in\compositions$ the morphisms from $\lambda$ to $\mu$ will be those $A\in\matrices$ with $\co{A} = \lambda$ and $\ro{A} = \mu$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that $\matrices_{A,B}$ has a maximum element $A\ast B$, whenever $\co{A} = \ro{B}$. It will be shown that $\ast$ is associative, so defining the composition of morphisms in the category formed by $\compositions$ and $\matrices$.
+
+The generic affine Schur algebra $\generic$ will then be a $\integers$-algebra defined as a linearisation of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
 \section{A partial order.}
 
-The set of $G$-orbits in $\dblflags$, denoted $\dblflags/G$ admits a partial order which compares codimensions of intersections between pairs of flags - a smaller intersection between flags is regarded as being more generic. Given $i,j\in\integers$, define a map $d_{i,j}$ on $\matrices$ by setting
+Given $i,j\in\integers$, define a map $d_{i,j}$ on $\matrices$ by setting
 \begin{equation*}
 d_{i,j}A = \sum_{s\le i,t>j} a_{s,t}
 \end{equation*}
@@ -574,21 +571,35 @@ d_{i,j+1}-d_{i,j} = \sum_{s\le i,t>j+1}a_{s,t} - \sum_{s\le i,t>j}a_{s,t} = -\su
 \end{equation*}
 \end{proof}
 
-\begin{corollary}\label{corollary:orbit-matrix-from-codimensions}
+\begin{lemma}\label{lemma:antisymmetry}
 Let $A\in\matrices$, with $A = (a_{i,j})_{i,j\in\integers}$ and write $d_{i,j}=d_{i,j}A$ for each $i,j\in\integers$. Then
 \begin{equation*}
 a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j}
 \end{equation*}
 for each $i,j\in\integers$.
-\end{corollary}
+\end{lemma}
+\begin{proof}
+Using lemma \ref{lemma:differentials},
+\begin{align*}
+a_{i,j}
+&= \sum_{t>j-1}a_{i,t} - \sum_{t>j}a_{i,t}\\
+&= (d_{i,j-1} - d_{i-1,j-1}) - (d_{i,j} - d_{i-1,j}).
+\end{align*}
+Alternatively,
+\begin{align*}
+a_{i,j}
+&= \sum_{s\le i}a_{s,j} - \sum_{s\le i-1}a_{s,j}\\
+&= (d_{i,j-1} - d_{i,j}) - (d_{i-1,j-1} - d_{i-1,j}).
+\end{align*}
+\end{proof}
 
 \begin{lemma}\label{lemma:orbit-poset}
-The relation $\le$ on $\matrices$, defined by $A\le B$ if $d_{i,j}A\le d_{i,j}B$
+The relation $\le$ on $\matrices$, defined by $A\le B$ if and only if $d_{i,j}A\le d_{i,j}B$
 for all $i,j\in\integers$, is a partial order.
 \end{lemma}
 
 \begin{proof}
-The sums defining the relation are finite since only finitely many terms are nonzero. This is a consequence of the periodicity of the matrices and the fact that any row or column contains only finitely many nonzero entries - thus each such matrix has zero entries sufficiently far from the diagonal: that is, $a_{i,j} = 0$ whenever $|j-i|$ is sufficiently large. It should be clear that $\le$ is both reflexive and transitive, so it remains to prove $\le$ is antisymmetric. If $A,B\in\matrices$ with $A\le B$ and $B\le A$, then $d_{i,j}A=d_{i,j}B$ for all $i,j\in\integers$, so corollary \ref{corollary:orbit-matrix-from-codimensions} shows that $A$ and $B$ coincide. 
+It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ is antisymmetric. Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}A = d_{i,j}B$ for each $i,j\in\integers$, which shows $A=B$ as a result of lemma \ref{lemma:antisymmetry}.  
 \end{proof}
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The next lemma gives some geometric significance to the partial order on $\matrices$.
