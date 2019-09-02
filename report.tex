@@ -713,9 +713,8 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 \end{align*}
 \end{proof}
 
-\subsection{The complex case}
 
-For this section, assume the underlying field is $\complex$ and $L\in\flags$ is fixed. Given $N,a\in\naturals$ and $\lambda\in\compositions$, define
+Fix $L\in\flags$. Given $N,a\in\naturals$ and $\lambda\in\compositions$, define
 \begin{equation*}
 \Pi_{N,\lambda} = \{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0\}
 \end{equation*}
@@ -738,7 +737,7 @@ Suppose $L''\in\Pi_{N,\lambda}$. By definition, $\epsilon^{-N}L_0\subset L_0''\s
 \end{equation*}
 Therefore, $\Pi_{N,\lambda}^a$ is empty unless $a\le 2Nr$.
 
-Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ of $W = \epsilon^{-N}L_0/{\epsilon^N L_0}$ of codimension $a$. $W'$ lifts to give a $\complex[\epsilon]$-module, say $L_0''$, with $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ and with $\dim(\epsilon^{-N}L_0/{L_0''}) = \dim(W/W') = a$. Similarly, a flag of type $\lambda$ in $L_0''/{\epsilon L_0''}$ lifts to give $\complex[\epsilon]$-modules $(L_{-n+1}'',\ldots,L_0'')$ with
+Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ of $W = \epsilon^{-N}L_0/{\epsilon^N L_0}$ of codimension $a$. $W'$ lifts to give a $\polys$-module, say $L_0''$, with $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ and with $\dim(\epsilon^{-N}L_0/{L_0''}) = \dim(W/W') = a$. Similarly, a flag of type $\lambda$ in $L_0''/{\epsilon L_0''}$ lifts to give $\polys$-modules $(L_{-n+1}'',\ldots,L_0'')$ with
 \begin{equation*}
 \epsilon L_0''\subset L_{-n+1}''\subset\cdots\subset L_{-1}''\subset L_0''\subset \epsilon^{-N}L_0
 \end{equation*}
@@ -758,9 +757,7 @@ $X$ is known to be a projective variety {\color{red}[CITATION NEEDED]}
 
 Let $X'$ be the subset of $X$ consisting of those $(W_1,\ldots, W_n)$, where each $W_i$ is $\epsilon$-invariant and $\epsilon W_n \le W_1$. $X'$ is a closed subset of $X$, though is not necessarily irreducible.
 
-The correspondence between the set of $\complex[\epsilon]$-submodules of $\epsilon^{-(1+N)}L_0$ which contain $\epsilon^N L_0$ and the set of $\complex[\epsilon]$-submodules of $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ gives a pair of mutually inverse maps $\Pi_{N,\lambda}^a\leftrightarrow X'$.
-
-
+The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0$ which contain $\epsilon^N L_0$ and the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ gives a pair of mutually inverse maps $\Pi_{N,\lambda}^a\leftrightarrow X'$.
 \end{proof}
 
 \begin{remark}\color{blue}
@@ -802,11 +799,16 @@ Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsil
 $G_L/H_N$ is an (irreducible) algebraic group, for any $N\in\naturals$.
 \end{lemma}
 
+\begin{proof}
+\finishproof
+\end{proof}
+
 The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 
 \begin{lemma}
 There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
 \end{lemma}
+
 \begin{proof}
 Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$. Then
 \begin{equation*}
@@ -820,6 +822,10 @@ Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space
 \begin{lemma}
 $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{lemma}
+
+\begin{proof}
+\finishproof
+\end{proof}
 
 \section{Existence of a maximum}
 
@@ -1019,57 +1025,15 @@ $\Pi$ is a projective algebraic variety, closed under the action of $G_L$.
 
 By choice of $N$, we have $X_{A,B}^L\subset\Pi$.
 
-Write
-\begin{equation*}
-H = \{g\in G_L: g=1 \text{ on } \epsilon^{-N}L_0/{\epsilon^N L_0}\}.
-\end{equation*}
-The condition $g=1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ means $g(x) - x\in \epsilon^N L_0$ whenever $x\in\epsilon^{-N} L_0$. It follows that the action of $H$ fixes each lattice $\mathcal{L}$ with $\epsilon^N L_0\subset \mathcal{L}\subset \epsilon^{-N}L_0$.
-
 \begin{lemma}
-$H$ is a normal subgroup in $G_L$ and $H$ acts trivially on $\Pi$.
-\end{lemma}
-\begin{proof}
-% first the group property. Multiplicativity:
-If $g,g'\in H$, then $gg'\in G_L$ and for $x\in\epsilon^{-N} L_0$ we have
-\begin{equation*}
-gg'(x)-x = g(g'(x) - x) + g(x) - x.
-\end{equation*}
-$g(x) - x$ and $g'(x) - x$ are contained in $\epsilon^N L_0$ and $g$ stabilises $L$, so it follows $gg'(x) - x \in \epsilon^N L_0$ as required.
-
-% Inverses
-$g^{-1}(x) - x = g^{-1}(x - g(x)) \in\epsilon^N L_0$, since $g^{-1}\in G_L$. Thus $g^{-1}\in H_N^L$. It remains to check normality in $G_L$.
-
-% check normality.
-Now suppose $g\in H_N^L$, $h\in G_L$ and take $x\in\epsilon^{-N} L_0$. $h^{-1}(x) \epsilon^{-N} L_0$, since $h^{-1}\in G_L$, so $gh^{-1}(x) - h^{-1}(x)\in\epsilon^{-N} L_0$ then applying $h$ gives that $hgh^{-1}=1$ on $\epsilon^{-N} L_0/{\epsilon^N L_0}$.
-
-%trivial action on Pi.
-If $h\in H$ and $L''\in\Pi$, then
-\begin{equation*}
-\epsilon^N L_0 \subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N} L_0
-\end{equation*},
-so $h(L_i'') = L_i''$ for $i=0,1,\ldots,n$. This proves $h L'' = L''$.
-\end{proof}
-
-\begin{lemma}
-$H$ is a normal subgroup in $G_{L'}$.
-\end{lemma}
-\begin{proof}
-$H$ fixes any lattice $\mathcal{L}$ with $\epsilon^N L_0\subset \mathcal{L}\subset \epsilon^{-N} L_0$. In particular,
-\begin{equation*}
-\epsilon^N L_0 \subset L_0'\subset\cdots\subset L_n'\subset \epsilon^{-N} L_0,
-\end{equation*}
-so $H$ fixes $L_0',\ldots, L_n'$. It follows $H$ is a subgroup in $G_{L'}$, so it remains to prove normality.
-\end{proof}
-
-\begin{lemma}
-The groups $G_L/H$ and $G_{L'}/H$ are (finite dimensional/ connected/ ...) algebraic groups.
+The group $G_L/H$ is an irreducible algebraic group.
 \end{lemma}
 \begin{proof}
 $\sigma\in G_L$ naturally induces an automorphism $\bar{\sigma}$ of $\epsilon^{-N} L_0/{\epsilon^N L_0}$, with inverse induced by $\sigma^{-1}$. Moreover, the natural map
 \begin{equation*}
 G_L/H \to GL(\epsilon^{-N}L_0/{\epsilon^N L_0})
 \end{equation*}
-is a group homomorphism. In fact, this homomorphism is injective: if $\sigma = \tau$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$, then $\sigma\tau^{-1} = 1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ and so $\sigma H = \tau H$. Thus $G_L/H$ is isomorphic to its image in $GL(\epsilon^{-N}L_0/{\epsilon^N L_0})$. {\color{red}this image is an algebraic group, then I need to deduce $G_L/H$ is an algebraic group.} 
+is a group homomorphism. In fact, this homomorphism is injective: if $\sigma = \tau$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$, then $\sigma\tau^{-1} = 1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ and so $\sigma H = \tau H$. Thus $G_L/H$ is isomorphic to its image in $GL(\epsilon^{-N}L_0/{\epsilon^N L_0})$. {\color{red}this image is an algebraic group, then I need to deduce $G_L/H$ is an algebraic group. First isomorphism theorem?} 
 \end{proof}
 
 \begin{lemma}
@@ -1136,21 +1100,9 @@ $X_{A,B,C}^L$ is the image of the map
 \end{equation*}
 \end{lemma}
 
-\begin{lemma}
-{\color{red} Unsure with terminology here -- treat this with suspicion}
-We may choose $N$ sufficiently large that
-\begin{equation*}
-H = \{g\in G: g=1 \text{ on } \epsilon^{-N}L_0/{\epsilon^N L_0}\}
-\end{equation*}
-is a normal subgroup in $G_L$, $G_{L'}$ and $G_{L''}$. Moreover, $N$ may be chosen so that the quotients $G_L/H$, $G_{L'}/H$ and $G_{L''}/H$ are algebraic groups, irreducible as varieties. In this case $G_L\times G_{L'}\times G_{L''}$ is an irreducible algebraic group.
-\end{lemma}
-
 \begin{proposition}
 The closure $\overline{X_{A,B,C}^L}$ of $X_{A,B,C}^L$ in $\flags$ is irreducible.
 \end{proposition}
-\begin{proof}
-{\color{red} assume chosen $N$ sufficiently large and $H=H_N$ so that $H$ is normal in each of the three stabilisers. Then the product of the quotient groups is an irreducible projective variety and thus the image under the orbit map has irreducible closure.}
-\end{proof}
 
 \begin{proposition}
 There is a unique generic $G_L$-orbit in $X_{A,B,C}^L$.
