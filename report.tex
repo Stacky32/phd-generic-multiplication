@@ -744,9 +744,11 @@ Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ 
 and such that the dimensions of successive quotients are given by $\lambda_1,\ldots,\lambda_n,a$, from left to right. Thus, $(L_{-n+1}'',\ldots,L_0'')$ extends by periodicity to give an element of $\Pi_{N,\lambda}^a$, as desired.
 \end{proof}
 
+{\color{blue}
 \begin{lemma}
 $\Pi_{N,\lambda}^a$ is a (quasi)projective variety, provided $0\le a\le 2Nr$.
 \end{lemma}
+
 \begin{proof}
 Let $W= \epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ and let
 \begin{equation*}
@@ -758,13 +760,10 @@ $X$ is known to be a projective variety {\color{red}[CITATION NEEDED]}
 Let $X'$ be the subset of $X$ consisting of those $(W_1,\ldots, W_n)$, where each $W_i$ is $\epsilon$-invariant and $\epsilon W_n \le W_1$. $X'$ is a closed subset of $X$, though is not necessarily irreducible.
 
 The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0$ which contain $\epsilon^N L_0$ and the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ gives a pair of mutually inverse maps $\Pi_{N,\lambda}^a\leftrightarrow X'$.
-\end{proof}
 
-\begin{remark}\color{blue}
- -- the idea that is relevant to the proof is that inclusion relations $L_i\subset L_{i+1}$ describe a closed set in a product of grassmanians.
- 
- Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
-\end{remark}
+ -- the idea that is relevant to the proof is that inclusion relations $L_i\subset L_{i+1}$ describe a closed set in a product of grassmanians. Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
+\end{proof}
+}
 
 \begin{lemma}
 Suppose $(L',L'')\in\mathcal{O}_B$ with $(L,L')\in\mathcal{O}_A$. Then $X_{A,B}^L$ is the image of the map
@@ -795,13 +794,15 @@ $H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1
 Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
 \end{proof}
 
+{\color{blue}
 \begin{lemma}
-$G_L/H_N$ is an (irreducible) algebraic group, for any $N\in\naturals$.
+$G_L/H_N$ is an irreducible algebraic group, for any $N\in\naturals$.
 \end{lemma}
 
 \begin{proof}
 \finishproof
 \end{proof}
+}
 
 The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 
@@ -817,8 +818,10 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
+
 Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
 
+{\color{blue}
 \begin{lemma}
 $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{lemma}
@@ -826,14 +829,15 @@ $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \begin{proof}
 \finishproof
 \end{proof}
+}
 
 \section{Existence of a maximum}
 
-\begin{proposition}\label{proposition:existence-maximum}
+\begin{proposition}\label{proposition:existence}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
 \end{proposition}
 
-\begin{proof}[Draft of proof]
+\begin{proof}[Draft 1]
 $\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. The partial order on $\matrices_{A,B}$ is given by the partial order on $\matrices$; where $C'\le C$ if and only if $d_{i,j}C'\le d_{i,j}C$ for all $i,j\in\integers$.
 
 To prove existence of a maximum element in $\matrices_{A,B}$ we will consider the poset of $G$-orbits in $\dblflags$ and prove existence of a maximum orbit in $X_{A,B}$ using an open orbits argument. Recall $X_{A,B}$ consists of $(L,L'')\in\dblflags$ such that there exists $L'\in\flags$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$.
@@ -869,7 +873,7 @@ d_{i,j}C = d_{i,j}(L,L'') = m_{i,j}
 for any $L''\in\mathcal{O}_C^L$.
 \end{proof}
 
-\begin{proof}[Short proof]
+\begin{proof}[Draft 2]
 $\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. For each $i,j\in\integers$, define
 \begin{equation*}
 m_{i,j} = \max_{C\in\matrices_{A,B}} d_{i,j}C.
@@ -907,31 +911,36 @@ for each $i,j\in\integers$.
 
 \section{Associativity}
 
-\begin{proposition}\label{proposition:associativity-maximum}
+{\color{blue}
+\begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
 \end{proposition}
 \begin{proof}
 INCLUDE PROOF.
 \end{proof}
+}
 
 \section{The generic algebra}
 
-This now leads to the construction of a so-called generic version of the affine q-Schur algebra. Let $\generic$ be a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ with $\integers$-bilinear product
+\begin{definition}[Generic category]
+The generic category $\gcat$ is the category with set of objects $\compositions$ and set of morphisms $\matrices$ where; the morphisms from $\lambda$ to $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$; the composition of morphisms $A\colon\lambda\to\mu$ and $B\colon\mu\to\nu$ is $B\ast A\colon\lambda\to\nu$. For each $\lambda\in\compositions$, the identity morphism $D_\lambda\colon\lambda\to\lambda$ is given by $(D_\lambda)_{i,i}=\lambda_i$ and $(D_\lambda)_{i,j}=0$ whenever $i\neq j$.
+\end{definition}
+
+\begin{definition}[Generic algebra]
+The affine generic algebra $\generic$ is the category $\integers$-algebra of $\gcat$. In particular, $\generic$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and with associative multiplication given by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
-e_{A\ast B} \text{ if } \co{A}=\ro{B}\\
-0 \text{ if } \co{A}\neq \ro{B}.
+e_{A\ast B} &\text{ if } \co{A}=\ro{B}\\
+0 			&\text{ if } \co{A}\neq \ro{B}.
 \end{cases}
 \end{equation*}
+\end{definition}
 
-Given $\lambda\in\compositions$, let $1_\lambda = e_{\lambda_1\xi_{1,1} + \cdots + \lambda_n\xi_{n,n}}$.
+Given $\lambda\in\compositions$, let $1_\lambda = e_{D_\lambda}$.
 
-\begin{lemma}\label{lemma:one-sided-identity}
-Given $A\in\matrices$, $\lambda\in\compositions$: $1_\lambda e_A = e_A$ provided  $\lambda = \ro{A}$ and $1_\lambda e_A = 0$ if $\lambda\neq \ro{A}$. $e_A1_\lambda = e_A$ if $\lambda = \co{A}$ and $e_A 1_\lambda = 0$ if $\lambda \neq \co{A}$.
+\begin{lemma}\label{lemma:identity-morphisms}
+For each $\lambda\in\compositions$, $D_\lambda\ast A = A$ whenever $\ro{A}=\lambda$ and $A\ast D_\lambda = A$ whenever $\co{A}=\lambda$.
 \end{lemma}
-\begin{proof}
-It is clear that $1_\lambda e_A=0$ unless $\lambda = \ro{A}$ and $e_A 1_\lambda = 0$ unless $\lambda = \co{A}$. The basis element $e_A$ may be identified with the corresponding orbit in $\dblflags$; then $1_{\lambda}$ corresponds to the orbit $G(L,L)$, for any $L\in\flags_\lambda$ - denote this orbit by $\mathcal{I}_\lambda$. In the case $\lambda = \ro{A}$, $\pi(\delta^{-1}(\mathcal{I}_\lambda\times\mathcal{O}_A)) = \mathcal{O}_A$, so $\mathcal{I}_\lambda\ast \mathcal{O}_A = \mathcal{O}_A$. Similarly, if $\lambda = \co{A}$, then $\pi(\delta^{-1}(\mathcal{O}_A\times\mathcal{I}_\lambda))$, so $\mathcal{O}_A\ast \mathcal{I}_\lambda = \mathcal{O}_A$.
-\end{proof}
 
 \begin{corollary}\label{corollary:idempotents-and-identity}
 $\{1_\lambda:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempotents in $\generic$ with $\sum_{\lambda\in\compositions}1_\lambda = 1$.
@@ -941,7 +950,7 @@ $\{1_\lambda:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempote
 $\generic$ is an associative $\integers$-algebra with $1$.
 \end{theorem}
 \begin{proof}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, proposition \ref{proposition:existence-maximum} shows that there is a maximum element in $\{C\in\matrices: g_{A,B,C}\neq 0\}$, which is denoted $A\ast B$. This shows that the product on $\generic$ is well-defined. If $\co{A}\neq \ro{B}$ or $\co{B}\neq \ro{C}$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, then proposition \ref{proposition:associativity-maximum} shows that
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, proposition \ref{proposition:existence} shows that there is a maximum element in $\{C\in\matrices: g_{A,B,C}\neq 0\}$, which is denoted $A\ast B$. This shows that the product on $\generic$ is well-defined. If $\co{A}\neq \ro{B}$ or $\co{B}\neq \ro{C}$, then $(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C)$. If $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, then proposition \ref{proposition:associativity} shows that
 \begin{equation*}
 (e_A\ast e_B)\ast e_C = e_{(A\ast B)\ast C} = e_{A\ast (B\ast C)} = e_A\ast (e_B\ast e_C).
 \end{equation*}
