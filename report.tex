@@ -155,15 +155,25 @@ for each $i,j\in\integers$.
 
 The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of infinite periodic matrices (see definition \ref{def:matrices}). The $G$-orbit corresponding to $A\in\matrices$ is denoted $\mathcal{O}_A$ and consists of those pairs $(L,L')\in\dblflags$ with periodic characteristic matrix $\type{L}{L'}$ equal to $A$.
 
+{\color{blue}define $Y_{A,B}$, $X_{A,B}$ in terms of the maps $\pi,\delta$ and the product of orbits.}
+Given $A,B\in\matrices$ define
+\begin{equation*}
+X_{A,B} = \{(L,L''):\exists L'\in\flags\text{ with } (L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\}.
+\end{equation*}
+
+\begin{observation}
+There are only finitely many $G$-orbits in $X_{A,B}$.
+\end{observation}
+
 \section{Convolution algebras}
 
-Suppose $\field$ is a finite field. Consider the set $S$ of $G$-invariant functions $\dblflags\to\integers$ with constructible support. $S$ is a free $\integers$-module with a basis consisting of the indicator functions of the $G$-orbits in $\dblflags$. Define an operation $\star$ on $S$ as follows: Given $f,g\in S$, $f\star g\in S$ is given by
+Suppose $\field$ is a finite field and let $\mathrm{q}$ denote the number of elements of $\field$. Consider the set $S$ of $G$-invariant functions $\dblflags\to\integers$ with constructible support. $S$ is a free $\integers$-module with a basis consisting of the indicator functions of the $G$-orbits in $\dblflags$. Define an operation $\star$ on $S$ as follows: for each $f,g\in S$, $f\star g\in S$ is given by
 \begin{equation*}
 (f\star g)(L,L'') = \sum_{L'\in\flags} f(L,L')g(L',L''),
 \end{equation*}
 for $(L,L'')\in\dblflags$. 
 
-$f\star g$ is well defined since the supports of $f$ and $g$ consist of finitely many $G$-orbits, so for each $(L,L'')\in\dblflags$ there are only finitely many $L'\in\flags$ such that $f(L,L')g(L',L'')\neq 0$. $f\star g$ is constant on $G$-orbits and is supported on finitely many $G$-orbits, so $f\star g\in S$.
+$f\star g$ is well defined since the supports of $f$ and $g$ consist of finitely many $G$-orbits, so there are only finitely many $L'\in\flags$ such that $f(L,L')g(L',L'')\neq 0$, given $(L,L'')\in\dblflags$. $f\star g$ is constant on $G$-orbits and is supported on finitely many $G$-orbits, so $f\star g\in S$.
 
 \begin{lemma}
 The set $S$ together with the operation $\star$ is an associative $\integers$-algebra with identity element $\iota$ given by $\iota(L,L) = 1$ and $\iota(L,L')=0$ for $L'\neq L$.
@@ -185,10 +195,14 @@ and
 \begin{equation*}
 (f\star\iota)(L,L'') = \sum_{L'}f(L,L')\iota(L',L'') = f(L,L''),
 \end{equation*}
-for each $f\in S$, $(L,L'')\in\dblflags$.
+for each $f\in S$ and $(L,L'')\in\dblflags$.
 \end{proof}
 
-Given $A\in\matrices$, let $e_A\in S$ denote the indicator function of the orbit $\mathcal{O}_A$. Write $\gamma_{A,B,C;\mathrm{q}}$ for the structure constants of $S$ with respect to this basis. Then
+Given $A\in\matrices$, let $e_A\in S$ denote the indicator function of the orbit $\mathcal{O}_A$. $S$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$. There exist $\gamma_{A,B,C;\mathrm{q}}\in\integers$ for $A,B,C\in\matrices$ such that
+\begin{equation*}
+e_A\star e_B = \sum_{C\in\matrices} \gamma_{A,B,C;\mathrm{q}}e_C
+\end{equation*}
+for each $A,B\in\matrices$. Then
 \begin{align*}
 \gamma_{A,B,C;\mathrm{q}}
 &=(e_A\star e_B)(L,L'')\\
@@ -199,76 +213,10 @@ for any $(L,L'')\in\mathcal{O}_C$.
 
 \section{Affine q-Schur algebras}
 
-Given $A,B,C\in\matrices$, there exists a polynomial $\gamma_{A,B,C}\in\integers[q]$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a free $\integers[q]$ module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+There exist a polynomial $\gamma_{A,B,C}\in\integers[q]$ for each $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \needsreference \cite{lusztig99}. The affine $q$-Schur algebra $\qschur$ (defined in \needsreference) is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 \end{equation*}
-
-Given $A,B\in\matrices$ define
-\begin{equation*}
-X_{A,B} = \{(L,L''):\exists L'\in\flags\text{ with } (L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\}.
-\end{equation*}
-
-\begin{observation}
-There are only finitely many $G$-orbits in $X_{A,B}$.
-\end{observation}
-
-{\color{gray}
-\begin{proof}
-There are $a,b\in\integers$ (depending only on $A$ and $B$) such that
-\begin{equation*}
-\epsilon^aL \subset L'\subset \epsilon^{-a}L
-\end{equation*}
-and
-\begin{equation*}
-\epsilon^bL' \subset L''\subset \epsilon^{-b}L',
-\end{equation*}
-whenever $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$. In this case,
-\begin{equation*}
-\epsilon^cL \subset L''\subset \epsilon^{-c}L
-\end{equation*}
-where $c=a+b$. The $G$-orbits in $X_{A,B}$ are indexed by the finite set of $A\in\matrices$ with $a_{i,j}=0$ whenever $|j-i|>cn$.
-\end{proof}
-}
-
-Given $A\in\matrices$ and $L\in\flags$, define
-\begin{equation*}
-X_A^L = \{L'\in\flags:(L,L')\in\mathcal{O}_A\}
-\end{equation*}
-
-Write $a=\ro{A}$, $a'=\co{A}$. Then $X_A^L \subset \flags_{a'}$ and $X_A^L$ is non-empty if and only if $L\in\flags_a$. Let $A,B\in\matrices$ and $(L,L'')\in\dblflags$. Consider the set
-\begin{equation*}
-X_A^L\cap X_{B^T}^{L''} = \{L':(L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\}
-\end{equation*}
-
-Observe that $X_A^L\cap X_{B^\transpose}^{L''}$ is non-empty precisely when $(L,L'')\in X_{A,B}$. Let $(L,L'')\in X_{A,B}$ and take $g\in G$. The natural map
-\begin{equation*}
-X_A^L\cap X_{B^\transpose}^{L''}\to X_A^{gL}\cap X_{B^\transpose}^{gL''}:L'\mapsto gL'
-\end{equation*}
-is a bijection. In the case $\field$ is a finite field with $\mathrm{q}=\#\field$ elements, the number of elements in $X_A^L\cap X_{B^\transpose}^{L''}$ depends only on $\mathrm{q}$, $A$, $B$ and the orbit of $(L,L'')$. Thus there are integers $\gamma_{A,B,C;\mathrm{q}}$ such that, for any finite field $\field$ with $\mathrm{q}$ elements and any $(L,L'')\in\mathcal{O}_C$,
-\begin{equation*}
-\gamma_{A,B,C;\mathrm{q}} = \# X_A^L\cap X_{B^\transpose}^{L''}.
-\end{equation*}
-
-\section{Relation to the Ringel-Hall algebra of a cyclic quiver.}
-
-Let $\field$ be a field. $L\in\flags$ determines an infinite dimensional $\field\cyclic$-module; corresponding to the representation
-\begin{align*}
-L_1 &\hookrightarrow L_2 \cdots\hookrightarrow L_n &&\to L_1\\
-x &\mapsto x\cdots\mapsto && x\mapsto \epsilon x.
-\end{align*}
-
-If $(L,L')\in\dblflags$ with $L'\subset L$, we have a short exact sequence in $Mod(\field\cyclic)$:
-\begin{equation*}
-L'\to L\to L/{L'},
-\end{equation*}
-where $L/L'$ is a finite dimensional nilpotent $\field\cyclic$-module.
-
-
-\chapter{Quivers with relations for affine q-Schur algebras.}
-
-
-\section{Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}
 
 $(L,L')\in\mathcal{O}_A$ if and only if $(L',L)\in\mathcal{O}_{A^\transpose}$. In fact, the operation of transposition on $\dblflags$ (or on $\matrices$) induces an anti-automorphism of $\qschur$.
 \begin{lemma}
@@ -282,8 +230,12 @@ Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\f
 &= \#\{L': (L'',L')\in\mathcal{O}_{B^\transpose}\text{ and } (L',L)\in\mathcal{O}_{A^\transpose}\}\\
 &= \gamma_{B^\transpose,A^\transpose, C^\transpose;\mathrm{q}}
 \end{align*}
-It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$. The other parts of the statements are clear.
+It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
 \end{proof}
+
+\chapter{Quivers with relations for affine q-Schur algebras.}
+
+\section{Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}
 
 If $i,j\in\integers$, let $\mathcal{E}_{i,j}$ denote the `elementary matrix' with entries given by $(\mathcal{E}_{i,j})_{s,t}=1$, for $s,t\in\integers$,  whenever $(i,j)\sim (s,t)$ modulo $(n,n)$ and all other entries are zero.
 
