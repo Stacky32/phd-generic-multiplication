@@ -8,7 +8,9 @@
 \chapter{Introduction}
 
 
-\chapter{The cyclic flags approach to affine q-Schur algebras.}
+\chapter{The double flag variety approach to q-Schur algebras}
+
+\chapter{The cyclic flags approach to affine q-Schur algebras}
 
 Fix natural numbers $n$ and $r$.
 
@@ -109,7 +111,7 @@ for any $(L,L'')\in\mathcal{O}_C$.
 
 \section{Affine q-Schur algebras}
 
-There exist a polynomial $\gamma_{A,B,C}\in\integers[q]$ for each $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \needsreference \cite{lusztig99}. The affine $q$-Schur algebra $\qschur$ (defined in \needsreference) is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+There exists a polynomial $\gamma_{A,B,C}\in\integers[q]$ for each $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ (defined in \needsreference) is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 \end{equation*}
@@ -129,7 +131,7 @@ Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\f
 It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
 \end{proof}
 
-\chapter{Quivers with relations for affine q-Schur algebras.}
+\chapter{Quivers with relations for affine q-Schur algebras}
 
 \section{Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}
 
@@ -369,7 +371,7 @@ given by
 \end{lemma}
 
 
-\chapter{A generic affine Schur algebra.}
+\chapter{A generic affine Schur algebra}
 
 \section{Introducing the affine generic algebra}
 
@@ -387,11 +389,11 @@ for each $i,j\in\integers$.
 
 There are maps $\ro,\co\colon\matrices\to\compositions$ given by
 \begin{equation*}
-\ro{A} = \left(\sum_{j} a_{1,j},\ldots, \sum_{j}a_{n,j}\right)
+\ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
 and
 \begin{equation*}
-\co{A} = \left(\sum_{i} a_{i,1},\ldots, \sum_{i} a_{i,n}\right).
+\co{A} = \left(\sum_{i\in\integers} a_{i,1},\ldots, \sum_{i\in\integers} a_{i,n}\right).
 \end{equation*}
 
 Given $A\in\matrices$, write $\co{A}\stackrel{A}{\to}\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that $\matrices_{A,B}$ has a maximum element $A\ast B$, whenever $\co{A} = \ro{B}$. It will be shown that $\ast$ is associative, so defining the composition of morphisms in the category formed by $\compositions$ and $\matrices$.
@@ -409,22 +411,22 @@ for each $A\in\matrices$.
 \begin{lemma}\label{lemma:differentials}
 Let $A\in\matrices$, with $A=(a_{i,j})_{i,j\in\integers}$ and write $d_{i,j} = d_{i,j}A$ for $i,j\in\integers$. Then
 \begin{equation*}
-d_{i+1,j} - d_{i,j} = \sum_{t>j}a_{i+1,t}
+d_{i,j} - d_{i-1,j} = \sum_{t>j}a_{i,t}
 \end{equation*}
 and
 \begin{equation*}
-d_{i,j+1}-d_{i,j} = - \sum_{s\le i}a_{s,j}.
+d_{i,j}-d_{i,j-1} = - \sum_{s\le i}a_{s,j}.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
 Let $i,j\in\integers$. Then
 \begin{equation*}
-d_{i+1,j} - d_{i,j} = \sum_{s\le i+1,t>j}a_{s,t} - \sum_{s\le i,t>j}a_{s,t} = \sum_{t>j}a_{i+1,t}.
+d_{i,j} - d_{i-1,j} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}.
 \end{equation*}
 Similarly,
 \begin{equation*}
-d_{i,j+1}-d_{i,j} = \sum_{s\le i,t>j+1}a_{s,t} - \sum_{s\le i,t>j}a_{s,t} = -\sum_{s\le i}a_{s,j}.
+d_{i,j}-d_{i,j-1} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
 \end{equation*}
 \end{proof}
 
@@ -436,7 +438,7 @@ a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j}
 for each $i,j\in\integers$.
 \end{lemma}
 \begin{proof}
-Using lemma \ref{lemma:differentials},
+Using Lemma \ref{lemma:differentials},
 \begin{align*}
 a_{i,j}
 &= \sum_{t>j-1}a_{i,t} - \sum_{t>j}a_{i,t}\\
@@ -446,17 +448,16 @@ Alternatively,
 \begin{align*}
 a_{i,j}
 &= \sum_{s\le i}a_{s,j} - \sum_{s\le i-1}a_{s,j}\\
-&= (d_{i,j-1} - d_{i,j}) - (d_{i-1,j-1} - d_{i-1,j}).
+&= -(d_{i,j}-d_{i,j-1}) + (d_{i-1,j} - d_{i-1,j-1}).
 \end{align*}
 \end{proof}
 
 \begin{lemma}\label{lemma:orbit-poset}
-The relation $\le$ on $\matrices$, defined by $A\le B$ if and only if $d_{i,j}A\le d_{i,j}B$
-for all $i,j\in\integers$, is a partial order.
+The relation $\le$ on $\matrices$, defined by $A\le B$ if and only if $d_{i,j}A\le d_{i,j}B$ for all $i,j\in\integers$, is a partial order.
 \end{lemma}
 
 \begin{proof}
-It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ is antisymmetric. Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}A = d_{i,j}B$ for each $i,j\in\integers$, which shows $A=B$ as a result of lemma \ref{lemma:antisymmetry}.  
+It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ is antisymmetric. Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}A = d_{i,j}B$ for each $i,j\in\integers$, which shows $A=B$ as a result of Lemma \ref{lemma:antisymmetry}.  
 \end{proof}
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The next lemma gives some geometric significance to the partial order on $\matrices$.
@@ -651,17 +652,15 @@ $H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1
 Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
 \end{proof}
 
-{\color{blue}
+The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 \begin{lemma}
-$G_L/H_N$ is an irreducible algebraic group, for any $N\in\naturals$.
+$G_L/H_N$ is an irreducible algebraic group for any $N\in\naturals$.
 \end{lemma}
 
 \begin{proof}
-\finishproof
+%CHECK THIS CITATION
+See the discussion in \cite{lusztig99}[section 4]. Should be able to give an explicit presentation of $G_L/H_N$ in terms of the block structure.
 \end{proof}
-}
-
-The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 
 \begin{lemma}
 There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
@@ -675,8 +674,8 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
-
-Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
+Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible. {\color{blue}
+ADD AN EXAMPLE}
 
 {\color{blue}
 \begin{lemma}
@@ -1029,11 +1028,17 @@ The subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $
 
 \chapter{Further directions}
 
+\section{Further results on affine zero Schur algebras}
+
 [1] Investigate link between this generic product and the generic extension of representations. Shifting to the non-negative subalgebra to do computations purely in terms of generic extensions of quiver representations.
 
-[2] Degenerate group algebras of symmetric groups: write down a presentation of the degenerate group algeras, with generators given by the transpositions, or $2$-cycles. Type up the computations done for degenerate group algebras for $S_3$ and $S_4$. Formulate propositions for the general case: the transpositions generate the degenerate group algebra; lemma: `these' relations hold; these generators and relations give a presentation of the degenerate group algebras.
+\section{Deformed group algebras of symmetric groups}
 
-Terminology: deformed group algebra. 
+[2] Degenerate group algebras of symmetric groups: write down a presentation of the degenerate group algebras, with generators given by the transpositions, or $2$-cycles. Type up the computations done for degenerate group algebras for $S_3$ and $S_4$. Formulate propositions for the general case: the transpositions generate the degenerate group algebra; lemma: `these' relations hold; these generators and relations give a presentation of the degenerate group algebras.
+
+Terminology: deformed group algebra.
+
+% --- END OF DOCUMENT BODY --- %
 
 \printbibliography
 
