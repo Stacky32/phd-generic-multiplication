@@ -46,7 +46,7 @@ $A\in\matrices$ is said to go from $\co{A}$ to $\ro{A}$.
 \end{definition}
 
 \begin{definition}[diagonal matrices]
-Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the diagonal matrix with the composition $\lambda$ on the diagonal. More precisely, $(D_\lambda)_{i,j}=0$ unless $i=j$ and $(D_\lambda)_{i,i}=\lambda_i$ for each $i\in\integers$; where the indices of the composition are read modulo $n$.
+Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the matrix given by $(D_\lambda)_{i,j}=0$ for $i,j\in\integers$ with $i\neq j$ and $(D_\lambda)_{i,i}=\lambda_i$ for $i\in\integers$; where the indices are taken modulo $n$.
 \end{definition}
 
 \section{Cyclic flags}
@@ -105,7 +105,7 @@ Suppose $L,L'\in\flags$ with $L'\subset L$, meaning $L_j'\subset L_j$ for each $
 as required. {\color{red}PROVE THE CONVERSE}
 \end{proof}
 
-\begin{corollary}[diagonal orbits]
+\begin{corollary}[diagonal orbits]\label{corollary:diagonal-orbits}
 Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\neq j$. In particular,
 \begin{equation*}
 \mathcal{O}_{D_\lambda} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
@@ -132,7 +132,16 @@ If also $L\in\flags_{\ro{A}}$, define the $L$-slices of $\yprod{A,B}$ and $\xpro
 There are only finitely many $G$-orbits in $\xprod{A,B}$.
 \end{observation}
 
-Similarly, given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
+\begin{lemma}
+Given $A\in\matrices$, $\xprod{D_\lambda,A}=\mathcal{O}_A$ if $\lambda=\ro{A}$ and $\xprod{A,D_\lambda}=\mathcal{O}_A$ if $\lambda=\co{A}$.
+\end{lemma}
+\begin{proof}
+Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_{D_\lambda}$, thus $L=L'$ by Corollary \ref{corollary:diagonal-orbits}, and $(L',L'')\in\mathcal{O}_A$. $\xprod{D_\lambda,A}$ is the projection of $\yprod{D_\lambda,A}$, which equals $\mathcal{O}_A$.
+
+Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\mathcal{O}_B$.
+\end{proof}
+
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
 \begin{equation*}
 \yprod{A,B,C} = \{(L,L',L'',L''')\in\flags^4: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B \text{ and } (L'',L''')\in\mathcal{O}_C\},
 \end{equation*}
