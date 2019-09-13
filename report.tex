@@ -61,7 +61,7 @@ $G$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\in\integers$, given 
 \begin{definition}\label{def:characteristic-matrix}
 The periodic characteristic matrix of a pair of cyclic flags $(L,L')\in\dblflags$ is the matrix $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$ with entries
 \begin{equation*}
-a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_i\cap L_{j-1}' + L_{i-1}\cap L_j'}\right)
+a_{i,j} = \dim_\field\left(\frac{L_i\cap L_j'}{L_i\cap L_{j-1}' + L_{i-1}\cap L_j'}\right)
 \end{equation*}
 for each $i,j\in\integers$.
 \end{definition}
@@ -94,15 +94,30 @@ By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that 
 for each $i,j\in\integers$.
 \end{proof}
 
+\begin{lemma}[a codimension formula]\label{lemma:flags-codimension-formula}
+Given $(L,L')\in\flags^2$ and $i,j\in\integers$,
+\begin{equation*}
+\dim_\field\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t},
+\end{equation*}
+where $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$.
+\end{lemma}
+\begin{proof}
+{\color{red}COMPLETE THIS PROOF}	
+\end{proof}
+
 \begin{lemma}[nested flags]
-Given $L,L'\in\flags$, $L'\subset L$ if and only if $\type{L}{L'}_{i,j}=0$ for $i,j\in\integers$ with $i>j$.
+Given $(L,L')\in\flags^2$, $L'\subset L$ if and only if $\type{L}{L'}_{i,j}=0$ for $i,j\in\integers$ with $i>j$.
 \end{lemma}
 \begin{proof}
 Suppose $L,L'\in\flags$ with $L'\subset L$, meaning $L_j'\subset L_j$ for each $j\in\integers$. Then for $i>j$, $L_i\cap L_j' = L_j'$, $L_{i-1}\cap L_j' = L_j'$ and $L_i\cap L_{j-1}'$, which shows
 \begin{equation*}
 \type{L}{L'}_{i,j} = \dim_\field\left(\frac{L_j'}{L_{j-1}'+L_j'}\right) = 0
 \end{equation*}
-as required. {\color{red}PROVE THE CONVERSE}
+as required. Conversely, suppose $\type{L}{L'}$ is upper triangular, meaning $\type{L}{L'}_{i,j}=0$ when $i>j$. Using Lemma \ref{lemma:flags-codimension-formula},
+\begin{equation*}
+\dim_\field\left(\frac{L_i'}{L_i'\cap L_i}\right) = \sum_{s>i,t\le i} a_{s,t} = 0,
+\end{equation*}
+so $L_i\cap L_i' = L_i'$ and thus $L_i'\subset L_i$ for each $i\in\integers$, as required.
 \end{proof}
 
 \begin{corollary}[diagonal orbits]\label{corollary:diagonal-orbits}
@@ -556,9 +571,9 @@ The relation $\le$ on $\matrices$, defined by $A\le B$ if and only if $d_{i,j}A\
 It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ is antisymmetric. Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}A = d_{i,j}B$ for each $i,j\in\integers$, which shows $A=B$ as a result of Lemma \ref{lemma:antisymmetry}.  
 \end{proof}
 
-The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The next lemma gives some geometric significance to the partial order on $\matrices$.
+The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
-\begin{lemma}
+\begin{lemma}\ref{lemma:flags-codimension-formula}
 Let $A\in\matrices$ and take $(L,L')\in\mathcal{O}_A$. Then
 \begin{equation*}
 d_{i,j}A = \dim\left(\frac{L_i}{L_i\cap L_j'}\right)
