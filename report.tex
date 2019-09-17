@@ -7,7 +7,6 @@
 
 \chapter{Introduction}
 
-
 \chapter{The double flag variety approach to q-Schur algebras}
 
 \chapter{The cyclic flags approach to affine q-Schur algebras}
@@ -573,15 +572,20 @@ It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ i
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
-\begin{lemma}\ref{lemma:flags-codimension-formula}
+\begin{lemma}
 Let $A\in\matrices$ and take $(L,L')\in\mathcal{O}_A$. Then
 \begin{equation*}
 d_{i,j}A = \dim\left(\frac{L_i}{L_i\cap L_j'}\right)
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
+\begin{proof}
+This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
+\end{proof}
 
-{\color{red}It is thought* that the partial order on $\matrices$ is compatible with the degeneration order (or closure order) on $G$-orbits in $\dblflags$ when $\field=\complex$. In particular, it is hoped that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $\mathcal{O}_A\subset \overline{\mathcal{O}_B}$.}
+\begin{remark}
+It is thought* that the partial order on $\matrices$ is compatible with the degeneration order (or closure order) on $G$-orbits in $\dblflags$ when $\field=\complex$. In particular, it is hoped that $A\le B$ if and only if $\mathcal{O}_A\subset \overline{\mathcal{O}_B}$.
+\end{remark}
 
 \section{Preliminary results}
 
@@ -769,7 +773,6 @@ $G_L/H_N$ is an irreducible algebraic group for any $N\in\naturals$.
 \end{lemma}
 
 \begin{proof}
-%CHECK THIS CITATION
 See the discussion in \cite{lusztig99}[section 4]. Should be able to give an explicit presentation of $G_L/H_N$ in terms of the block structure.
 \end{proof}
 
@@ -798,12 +801,41 @@ $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{proof}
 }
 
+\begin{lemma}\label{lemma:locally-closed-orbits}
+Given $L\in\flags$, the $G_L$-orbits in $\flags$ are locally closed.
+\end{lemma}
+\begin{proof}
+{\color{red} ADD PROOF HERE.
+Look at proposition 8.3 "Closed Orbits" in \cite{humphreys81}, which shows that the orbits under an algebraic group action are locally closed.}
+\end{proof}
+
+\begin{lemma}\label{lemma:irreducible-product}
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B}$ is an irreducible topological space.
+\end{lemma}
+
 \section{Existence of a maximum}
+
+\begin{lemma}\label{lemma:compare-partial-orders}
+Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ if and only if $\xprod[L]{A'}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
+\end{lemma}
+
+\begin{proof}
+{\color{red}ADD PROOF}
+\end{proof}
 
 \begin{proposition}\label{proposition:existence}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
 \end{proposition}
 
+\begin{proof}[The Real One]
+Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-product} and is the union of finitely many $G_L$-orbits, namely
+\begin{equation*}
+\xprod[L]{A,B} = \bigcup_{C\in\matrices_{A,B}} \xprod[L]{C}.
+\end{equation*}
+This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:locally-closed-orbits} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices_{A,B}$.
+\end{proof}
+
+{\color{gray}
 \begin{proof}[Draft 1]
 $\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. The partial order on $\matrices_{A,B}$ is given by the partial order on $\matrices$; where $C'\le C$ if and only if $d_{i,j}C'\le d_{i,j}C$ for all $i,j\in\integers$.
 
@@ -875,17 +907,32 @@ a_{i,j}(A\ast B) = m_{i,j-1} - m_{i-1,j-1} + m_{i-1,j} - m_{i,j}
 \end{equation*}
 for each $i,j\in\integers$.
 \end{proof}
+}
 
 \section{Associativity}
 
-{\color{blue}
+\begin{lemma}
+Suppose $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$. $\xprod[L]{A,B,C}$ is the image of the map
+\begin{equation*}
+\phi\colon G_L\times G_{L'}\times G_{L''}\to \flags: (\alpha,\beta,\gamma)\mapsto \alpha\beta\gamma L'''.
+\end{equation*}
+\end{lemma}
+
+\begin{lemma}\label{lemma:irreducible-triple}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space
+\end{lemma}
+
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
 \end{proposition}
 \begin{proof}
-INCLUDE PROOF.
+Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-triple}, and is the union of finitely many disjoint locally closed subsets, namely
+\begin{equation*}
+\xprod[L]{A,B,C} = \bigcup_{D\in\matrices_{A,B,C}} \xprod[L]{D}.
+\end{equation*}
+Therefore, exactly one of the $\xprod[L]{D}$ is open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$, by Lemma [ADD RESULT - ADD REFERENCE]. It then follows that the maximum $G_L$-orbit $\xprod[L]{(A\ast B)\ast C}$ in $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open and dense in $\xprod[L]{A,B\ast C}$ which is in turn open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ are both a single orbit for the action of $G_L$ and intersect non-trivially since $\xprod[L]{A,B,C}$ is irreducible, therefore $\xprod[L]{(A\ast B)\ast C} = \xprod[L]{A\ast(B\ast C)}$, which means $(A\ast B)\ast C = A\ast(B\ast C)$.
 \end{proof}
-}
+
 
 \section{The generic algebra}
 
@@ -934,7 +981,7 @@ Corollary \ref{corollary:idempotents-and-identity} shows that the sum of the ide
 \end{proof}
 
 \section{ -- Chapter draft bin -- }
-
+{\color{gray}
 Define
 \begin{equation*}
 \Pi = \left\{L''\in\flags_{\co{B}} : \epsilon^N L_0 \subset L_0''\subset\cdots\subset L_n''\subset \epsilon^{-N} L_0 \text{ and } \dim\left(L_0''/{\epsilon^N L_0}\right) = -Nr + d_{-Nn,0}^-(A) + d_{-Nn,0}^-(B) \right\}.
@@ -964,37 +1011,12 @@ Suppose $(L,L',L''),(N,N',N'')\in\beta^{-1}(\mathcal{O}_A\times\mathcal{O}_B)$. 
 There exist $g,g'\in G$ such that $(N,N') = g(L,L')$ and $(N',N'') = g'(L',L'')$. Then $(N,N',N'') = g(L,L',g^{-1}g' L'')$. Taking $\sigma = g$ and $\tau = g^{-1}g'$ gives the required result.
 \end{proof}
 
-\begin{proposition}\label{lemma:irreducibility-orbit-product}
-Suppose $\xprod[L]{A,B}\neq\emptyset$. Then $\xprod[L]{A,B}\subset\flags_{\co{B}}$ is finite dimensional and irreducible.
-\end{proposition}
-\begin{proof}
-The map
-\begin{equation*}
-G_L/H\times G_{L'}/H\to\Pi
-\end{equation*}
-has image $\xprod[L]{A,B}$, so the closure of $\xprod[L]{A,B}$ in $\Pi$ is irreducible {\color{red}due to some properties of the above groups.}
-\end{proof}
-
-\subsection{locally closed orbits}
-
-\begin{proposition}\label{lemma:locally-closed-orbits}
-Suppose $\xprod[L]{A,B}\neq\emptyset$. The $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed.
-\end{proposition}
-\begin{proof}
-The $G_L$ orbit of $L''\in \xprod[L]{A,B}$ is the image of the map
-\begin{equation*}
-G_L/H\to\Pi: g\mapsto g L''.
-\end{equation*}
-{\color{red} Justify why this image must be locally closed.}
-% Look at proposition 8.3 "Closed Orbits" in \cite{humphreys81}, which shows that the orbits under an algebraic group action are locally closed.
-\end{proof}
-
 \begin{proposition}
 Let $A,B\in\matrices$, $L\in\flags$ and suppose $\xprod[L]{A,B}\neq\emptyset$. There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
-\begin{proof}{\color{gray}
-Write $X=\xprod[L]{A,B}$. $X$ is irreducible and finite dimensional, using Lemma  \ref{lemma:irreducibility-orbit-product}. We have
+\begin{proof}\color{gray}
+Write $X=\xprod[L]{A,B}$. $X$ is irreducible and finite dimensional, using Lemma  \ref{lemma:irreducible-product}. We have
 \begin{equation*}
 X = \bigcup_C O_C,
 \end{equation*}
@@ -1002,32 +1024,9 @@ where the union is taken over the finite set $\{C\in\matrices : \mathcal{O}_C\su
 
 A proper, non-empty, closed subset of $X$ has strictly smaller dimension than $X$, so there is $C$ such that $\overline{O_C}=X$. $O_C$ is locally closed, by Lemma \ref{lemma:locally-closed-orbits}, so it follows that $O_C$ is open in $\overline{O_C}=X$.
 
-Now suppose $O_C$ is an open $G_L$ orbit and let $D\in\matrices$. $O_D\subset X\setminus O_C$ and thus $\overline{O_D}\subset X\setminus O_C$. This shows $O_D$ is not open in $X$ and thus the claim is proven.}
+Now suppose $O_C$ is an open $G_L$ orbit and let $D\in\matrices$. $O_D\subset X\setminus O_C$ and thus $\overline{O_D}\subset X\setminus O_C$. This shows $O_D$ is not open in $X$ and thus the claim is proven.
 \end{proof}
-
-\subsection{Associativity of the generic product}
-
-Given $A,B,C\in\matrices$ and $L\in\flags$ let
-\begin{equation*}
-\xprod[L]{A,B,C} = \{L'''\in \flags:\exists (L',L'')\in\mathcal{O}_B \text{ with } (L,L')\in\mathcal{O}_A, (L'',L''')\in\mathcal{O}_C\}.
-\end{equation*}
-
-Note that $\xprod[L]{A,B,C}$ is contained in $\flags_{\co{C}}$ and is non-empty only if $L\in\flags_{\ro{A}}$, $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$. $\xprod[L]{A,B,C}$ consists of finitely many $G_L$-orbits. Using a similar argument to the existence of generic orbits we show that there is a unique generic orbit in $\xprod[L]{A,B,C}$, which will establish associativity of the generic product. We now suppose $\xprod[L]{A,B,C}$ is non-empty and fix $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$.
-
-\begin{lemma}
-$\xprod[L]{A,B,C}$ is the image of the map
-\begin{equation*}
-\phi\colon G_L\times G_{L'}\times G_{L''}\to \flags: (\alpha,\beta,\gamma)\mapsto \alpha\beta\gamma L'''.
-\end{equation*}
-\end{lemma}
-
-\begin{proposition}
-The closure $\overline{\xprod[L]{A,B,C}}$ of $\xprod[L]{A,B,C}$ in $\flags$ is irreducible.
-\end{proposition}
-
-\begin{proposition}
-There is a unique generic $G_L$-orbit in $\xprod[L]{A,B,C}$.
-\end{proposition}
+}
 
 \chapter{A realisation of affine zero Schur algebras}
 
