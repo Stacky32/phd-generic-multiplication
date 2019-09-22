@@ -127,6 +127,8 @@ Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\
 for each $\lambda\in\compositions$.
 \end{corollary}
 
+\subsection{A product on orbits}
+
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, define
 \begin{equation*}
 \yprod{A,B} = \{ (L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\},
@@ -230,23 +232,11 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 1 = \sum_{\lambda\in\compositions} e_{D_\lambda}.
 \end{equation*}
 
-\begin{lemma}
-Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\qschur\to\qschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
-\end{lemma}
-\begin{proof}
-Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\mathcal{O}_C$ then $(L'',L)\in\mathcal{O}_{C^\transpose}$ and
-\begin{align*}
-\gamma_{A,B,C;\mathrm{q}}
-&= \#\{L': (L,L')\in\mathcal{O}_A\text{ and } (L',L'')\in\mathcal{O}_B\}\\
-&= \#\{L': (L'',L')\in\mathcal{O}_{B^\transpose}\text{ and } (L',L)\in\mathcal{O}_{A^\transpose}\}\\
-&= \gamma_{B^\transpose,A^\transpose, C^\transpose;\mathrm{q}}
-\end{align*}
-It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
-\end{proof}
-
 \chapter{Quivers with relations for affine q-Schur algebras}
 
-\section{Basic results: TO BE REPLACED WITH A MORE INFORMATIVE NAME.}
+\section{Basic results and notation}
+
+\subsection{Elementary matrices}
 
 If $i,j\in\integers$, let $\mathcal{E}_{i,j}$ denote the `elementary matrix' with entries given by $(\mathcal{E}_{i,j})_{s,t}=1$, for $s,t\in\integers$,  whenever $(i,j)\sim (s,t)$ modulo $(n,n)$ and all other entries are zero.
 
@@ -275,7 +265,26 @@ E_i = \sum_{\lambda\in\compositions} E_{i,\lambda}
 F_i = \sum_{\lambda\in\compositions} F_{i,\lambda}.
 \end{equation*}
 
-Observe that $E_{i,\lambda}=0$ unless $\lambda_{i+1} > 0$ and $F_{i,\lambda}=0$ unless $\lambda_i > 0$. Also, $E_{i,\lambda} = E_i 1_\lambda$ and $F_{i,\lambda} = F_i 1_\lambda$. 
+Observe that $E_{i,\lambda}=0$ unless $\lambda_{i+1} > 0$ and $F_{i,\lambda}=0$ unless $\lambda_i > 0$. Also, $E_{i,\lambda} = E_i 1_\lambda$ and $F_{i,\lambda} = F_i 1_\lambda$.
+
+\subsection{Transpose involution}
+
+\begin{lemma}
+Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\qschur\to\qschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
+\end{lemma}
+\begin{proof}
+Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\mathcal{O}_C$ then $(L'',L)\in\mathcal{O}_{C^\transpose}$ and
+\begin{align*}
+\gamma_{A,B,C;\mathrm{q}}
+&= \#\{L': (L,L')\in\mathcal{O}_A\text{ and } (L',L'')\in\mathcal{O}_B\}\\
+&= \#\{L': (L'',L')\in\mathcal{O}_{B^\transpose}\text{ and } (L',L)\in\mathcal{O}_{A^\transpose}\}\\
+&= \gamma_{B^\transpose,A^\transpose, C^\transpose;\mathrm{q}}
+\end{align*}
+It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
+\end{proof}
+
+\subsection{A multiplication rule}
+
 \begin{lemma}
 Let $i\in [1,n]$ and $A\in\matrices$.
 \begin{equation*}
@@ -312,6 +321,8 @@ e_A E_j &= \transpose (F_j e_{A^\transpose})\\
 &= \sum_p q^{\sum_{i<p} a_{i,j+1}}[a_{p,j+1}+1] e_{A-X_{j,p}^{\transpose}}
 \end{align*}
 \end{proof}
+
+\section{Relations}
 
 Note that $E_i^{r+1}=F_i^{r+1}=0$ while
 \begin{equation*}
