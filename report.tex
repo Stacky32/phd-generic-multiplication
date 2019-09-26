@@ -521,7 +521,7 @@ for each $i,j\in\integers$.
 
 \subsection{Not quite a category}
 
-There are maps $\ro,\co\colon\matrices\to\compositions$ given by
+{\color{blue}REPHRASE: Recall that $\ro$ and $\co$ are given by...} There are maps $\ro,\co\colon\matrices\to\compositions$ given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
@@ -530,7 +530,9 @@ and
 \co{A} = \left(\sum_{i\in\integers} a_{i,1},\ldots, \sum_{i\in\integers} a_{i,n}\right).
 \end{equation*}
 
-Given $A\in\matrices$, write $\co{A}\stackrel{A}{\to}\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that $\matrices_{A,B}$ has a maximum element $A\ast B$, whenever $\co{A} = \ro{B}$. It will be shown that $\ast$ is associative, so defining the composition of morphisms in the category formed by $\compositions$ and $\matrices$.
+{\color{blue}There has to be a better way to phrase this. Logically, the main result of this chapter will be `there exists a category with objects $\compositions$; morphisms $\matrices$; composition $\ast$', then finally the generic affine algebra is defined as the $\integers$-algebra of this category.}
+
+Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L,L'')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
 The generic affine Schur algebra $\generic$ will then be a $\integers$-algebra defined as a linearisation of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
@@ -757,16 +759,16 @@ The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L
 }
 
 \begin{lemma}
-Suppose $(L',L'')\in\mathcal{O}_B$ with $(L,L')\in\mathcal{O}_A$. Then $\xprod[L]{A,B}$ is the image of the map
+Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$,
 \begin{equation*}
-G_L\times G_{L'}\to\flags: (\alpha,\beta)\mapsto \alpha\beta L''.
+\xprod[L]{A,B} = G_L G_{L'} L''.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-Suppose $\alpha\in G_L$ and $\beta\in G_{L'}$. $(L,\alpha L',\alpha\beta L'')\in \yprod{A,B}$ since $(L,\alpha L')\sim (L,L')\in\mathcal{O}_A$ and $(\alpha L',\alpha\beta L'')\sim (L',L'')\in\mathcal{O}_B$. This shows $(L,\alpha\beta L'')\in \xprod{A,B}$ and thus $\alpha\beta L''\in \xprod[L]{A,B}$.
+$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\mathcal{O}_A$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\mathcal{O}_B$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
 
-Conversely, suppose $N''\in \xprod[L]{A,B}$. $(L,N'')\in \xprod{A,B}$, so there is $N'$ such that $(L,N')\in\mathcal{O}_A$ and $(N',N'')\in\mathcal{O}_B$. There exist $\gamma,\delta\in G$ such that $\gamma (L,L') = (N,N')$ and $\delta (L',L'') = (N',N'')$. Then $(L,N',N'') = (L,\gamma L', \delta L'') = (L, \gamma L',\gamma (\gamma^{-1}\delta)L'')$, where $\gamma\in G_L$ and $\gamma^{-1}\delta\in G_{L'}$. This shows $N'' \in G_L G_{L'} L''$ as required.
+For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\mathcal{O}_A$ and $(N',N'')\in\mathcal{O}_B$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
 \end{proof}
 
 Given $N\in\naturals$, define
@@ -871,87 +873,13 @@ Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ i
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
 \end{proposition}
 
-\begin{proof}[The Real One]
+\begin{proof}
 Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-product} and is the union of finitely many $G_L$-orbits, namely
 \begin{equation*}
 \xprod[L]{A,B} = \bigcup_{C\in\matrices_{A,B}} \xprod[L]{C}.
 \end{equation*}
 This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:locally-closed-orbits} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices_{A,B}$.
 \end{proof}
-
-{\color{gray}
-\begin{proof}[Draft 1]
-$\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. The partial order on $\matrices_{A,B}$ is given by the partial order on $\matrices$; where $C'\le C$ if and only if $d_{i,j}C'\le d_{i,j}C$ for all $i,j\in\integers$.
-
-To prove existence of a maximum element in $\matrices_{A,B}$ we will consider the poset of $G$-orbits in $\dblflags$ and prove existence of a maximum orbit in $\xprod{A,B}$ using an open orbits argument. Recall $\xprod{A,B}$ consists of $(L,L'')\in\dblflags$ such that there exists $L'\in\flags$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$.
-
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ whenever $(L,L'')\in \xprod{A,B}$. Fix $L\in\flags_{\ro{A}}$ and write
-\begin{equation*}
-\xprod[L]{A,B} = \{L''\in\flags: (L,L'')\in \xprod{A,B}\}.
-\end{equation*}
-With the above choice of $N$, write
-\begin{equation*}
-\Pi = \{L''\in\flags_{\co{B}}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
-\end{equation*}
-
-$\Pi$ is a complex projective variety (not generally irreducible), closed under the action of $G_L$. \needsreference The closure $\overline{\xprod[L]{A,B}}$ of $\xprod[L]{A,B}$ in $\Pi$ is an irreducible complex projective variety.
-
-Proposition \needsreference shows there is a unique $G_L$-orbit in $\xprod[L]{A,B}$ which is open in $\overline{\xprod[L]{A,B}}$, say $\mathcal{O}_C^L$ for some $C\in\matrices_{A,B}$. It will be shown that $C$ is the maximum element of $\matrices_{A,B}$. Given $i,j\in\integers$, let $m_{i,j}$ denote the maximum of $\{d_{i,j}C: C\in\matrices_{A,B}\}$ and define
-\begin{equation*}
-\mathcal{M}_{i,j} = \{L''\in \overline{\xprod[L]{A,B}}: d_{i,j}(L,L'') = m_{i,j}\}.
-\end{equation*}
-$\mathcal{M}_{i,j}$ is non-empty by definition of the $m_{i,j}$ and is closed under the action of $G_L$. $\mathcal{M}_{i,j}$ is open in $\overline{\xprod[L]{A,B}}$ since the function
-\begin{equation*}
-d_{i,j}^L\colon\Pi\to\integers: L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)
-\end{equation*}
-is lower semi-continuous \needsreference and
-\begin{equation*}
-\mathcal{M}_{i,j} = \overline{\xprod[L]{A,B}}\setminus \{L''\in\overline{\xprod[L]{A,B}}: d_{i,j}^L(L'')\le m_{i,j} -1\}.
-\end{equation*}
-
-It follows that $\mathcal{O}_C^L$ and $\mathcal{M}_{i,j}$ intersect non-trivially, since $\overline{\xprod[L]{A,B}}$ is irreducible and therefore $\mathcal{O}_C^L\subset \mathcal{M}_{i,j}$ as both are closed under the action of $G_L$. This proves $C$ is a maximum element of $\matrices_{A,B}$, since
-\begin{equation*}
-d_{i,j}C = d_{i,j}(L,L'') = m_{i,j}
-\end{equation*}
-for any $L''\in\mathcal{O}_C^L$.
-\end{proof}
-
-\begin{proof}[Draft 2]
-$\matrices_{A,B}$ is non-empty since $\co{A}=\ro{B}$. For each $i,j\in\integers$, define
-\begin{equation*}
-m_{i,j} = \max_{C\in\matrices_{A,B}} d_{i,j}C.
-\end{equation*}
-It will be shown that there is a unique element $A\ast B\in \matrices_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$: such an element is necessarily a maximum in $\matrices_{A,B}$. Fix $L\in\flags_{\ro{A}}$ and assume $N\in\naturals$ is sufficiently large that $\xprod[L]{A,B}\subset \Pi_N$; where
-\begin{equation*}
-\Pi_N = \{L''\in\flags_{\co{B}}: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N} L_0\}.
-\end{equation*}
-
-Lusztig notes \cite{lusztig99} that $\Pi_N$ is a projective algebraic variety, closed under the action of $G_L$. Lemma \needsreference shows that the closure of $\xprod[L]{A,B}$ in $\Pi_N$, denoted $\overline{\xprod[L]{A,B}}$, is an irreducible complex projective variety.
-
-For each $i,j\in\integers$, write
-\begin{equation*}
-\mathcal{M}_{i,j} = \{L''\in\overline{\xprod[L]{A,B}}: d_{i,j}(L,L'') = m_{i,j}\}.
-\end{equation*}
-
-$\mathcal{M}_{i,j}$ is non-empty since $d_{i,j}(L,-)$ attains a maximum on $\xprod[L]{A,B}$. $\mathcal{M}_{i,j}$ is open in $\overline{\overline[L]{A,B}}$ since
-\begin{equation*}
-\overline{\xprod[L]{A,B}}\setminus \mathcal{M}_{i,j} = \{L''\in\overline{\xprod[L]{A,B}}: d_{i,j}(L,L'')\le m_{i,j} - 1\}
-\end{equation*}
-and the function
-\begin{equation*}
-d_{i,j}(L,-)\colon\Pi_N\to\integers : L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)
-\end{equation*}
-is lower semi-continuous, by lemma [\needsreference : lower semi-continuity].
-
-Lemma [\needsreference : open orbit] shows that there is a unique $G_L$-orbit in $\xprod[L]{A,B}$ which is open in $\overline{\xprod[L]{A,B}}$, say $\mathcal{O}_{A\ast B}^L$ for some $A\ast B\in\matrices_{A,B}$. $\mathcal{M}_{i,j}$ intersects the open orbit $\mathcal{O}_{A\ast B}^L$ non-trivially, since $\mathcal{M}_{i,j}$ and $\mathcal{O}_{A\ast B}^L$ are both non-empty and open in the irreducible space $\overline{\xprod[L]{A,B}}$. Moreover, $\mathcal{O}_{A\ast B}^L\subset \mathcal{M}_{i,j}$, since $\mathcal{M}_{i,j}$ is closed under the action of $G_L$. In particular, we have $A\ast B\in \matrices_{A,B}$ with $d_{i,j}(A\ast B) = m_{i,j}$ for each $i,j\in\integers$, which shows $A\ast B$ is a maximum in $\matrices_{A,B}$.
-
-More specifically, we may compute:
-\begin{equation*}
-a_{i,j}(A\ast B) = m_{i,j-1} - m_{i-1,j-1} + m_{i-1,j} - m_{i,j}
-\end{equation*}
-for each $i,j\in\integers$.
-\end{proof}
-}
 
 \section{Associativity}
 
@@ -963,6 +891,8 @@ Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of f
 \end{lemma}
 
 \begin{proof}
+Given $\alpha\in G_L$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(L,\alpha L',\alpha\beta L'',\alpha\beta\gamma L''')\in\yprod{A,B,C}$ since $(L,\alpha L')=\alpha(L,L')\in\mathcal{O}_A$, $(\alpha L',\alpha\beta L'')=\alpha\beta(L',L'')\in\mathcal{O}_B$ and $(\alpha\beta L'',\alpha\beta\gamma L''')=\alpha\beta\gamma(L'',L''')\in\mathcal{O}_C$. This shows $G_L G_{L'} G_{L''}L'''\in\xprod[L]{A,B,C}$.
+
 $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $(N',N'',N''')\mapsto N'''$. Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_3\in G$ such that $(L,N') = \sigma_1(L,L')$, $(N',N'') = \sigma_2(L',L'')$ and $(N'',N''') = \sigma_3(L'',L''')$; then $N' = \sigma_1 L' = \sigma_2 L'$, $N'' = \sigma_2 L'' = \sigma_3 L''$ and $N''' = \sigma_3 L'''$. Thus
 \begin{equation*}
 (L,N',N'',N''') = (L,\sigma_1 L', \sigma_1(\sigma_1^{-1}\sigma_2)L'', \sigma_1(\sigma_1^{-1}\sigma_2)(\sigma_2^{-1}\sigma_3)L''')
@@ -976,7 +906,7 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\fla
 \end{lemma}
 
 \begin{lemma}\label{lemma:open-embeddings}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
 \end{lemma}
 
 \begin{proposition}\label{proposition:associativity}
@@ -1001,8 +931,10 @@ Lemma \ref{lemma:product-with-diagonal-orbits} shows that $\matrices_{D_\lambda,
 \end{proof}
 
 
+{\color{blue}Rephrase the below result into a Theorem: there exists a category with these objects and morphisms and composition given by $\ast$. The proof then consists of pointing out that 1) morphisms have a source and target 2) composition is associative 3) there are identity maps.}
+
 \begin{definition}
-For each $n,r\geq 1$, the generic category $\gcat$ is the category with set of objects $\compositions$ and set of morphisms $\matrices$ where; the morphisms from $\lambda$ to $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$; the composition of morphisms $A\colon\lambda\to\mu$ and $B\colon\mu\to\nu$ is $B\ast A\colon\lambda\to\nu$, where $B\ast A$ is the maximum element in $\matrices_{A,B}$. For each $\lambda\in\compositions$, the identity morphism $D_\lambda\colon\lambda\to\lambda$ is given by $(D_\lambda)_{i,i}=\lambda_i$ and $(D_\lambda)_{i,j}=0$ whenever $i\neq j$.
+For each $n,r\geq 1$, the generic category $\gcat$ is the category with set of objects $\compositions$ and set of morphisms $\matrices$ where; the morphisms from $\lambda$ to $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$; the composition of morphisms $A\colon\lambda\to\mu$ and $B\colon\mu\to\nu$ is $B\ast A\colon\lambda\to\nu$, where $B\ast A$ is the maximum element in $\matrices_{A,B}$. For each $\lambda\in\compositions$, the identity morphism is $D_\lambda\colon\lambda\to\lambda$.
 \end{definition}
 
 \begin{example}
@@ -1030,8 +962,7 @@ where $1_\lambda = e_{D_\lambda}$.
 We aim to prove the isomorphism theorem in the cases $r<n$ and $n\le r< 2n$ separately. Below are crude versions of the statements we want to prove.
 
 \begin{theorem}
-Assume $r<n$. The map $\psi\colon\generic\to\zeroschur$, given by $\psi(E_i)=E_i$, $\psi(F_i
-)=F_i$ and $\psi(1_\lambda) = 1_\lambda$, is an isomorphism of $\integers$-algebras.
+Assume $r<n$. The map $\psi\colon\generic\to\zeroschur$, given by $\psi(E_i)=E_i$, $\psi(F_i)=F_i$ and $\psi(1_\lambda) = 1_\lambda$, is an isomorphism of $\integers$-algebras.
 \end{theorem}
 
 \begin{theorem}
