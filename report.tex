@@ -519,16 +519,17 @@ a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\rig
 \end{equation*}
 for each $i,j\in\integers$.
 
-\subsection{Not quite a category}
+\subsection{De-linearisation}
 
-{\color{blue}REPHRASE: Recall that $\ro$ and $\co$ are given by...} There are maps $\ro,\co\colon\matrices\to\compositions$ given by
+Recall that $\ro,\co\colon\matrices\to\compositions$ are given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
 and
 \begin{equation*}
-\co{A} = \left(\sum_{i\in\integers} a_{i,1},\ldots, \sum_{i\in\integers} a_{i,n}\right).
+\co{A} = \left(\sum_{i\in\integers} a_{i,1},\ldots, \sum_{i\in\integers} a_{i,n}\right)
 \end{equation*}
+for each $A\in\matrices$.
 
 {\color{blue}There has to be a better way to phrase this. Logically, the main result of this chapter will be `there exists a category with objects $\compositions$; morphisms $\matrices$; composition $\ast$', then finally the generic affine algebra is defined as the $\integers$-algebra of this category.}
 
@@ -900,24 +901,56 @@ $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $(
 where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
 \end{proof}
 
-
-\begin{lemma}\label{lemma:irreducible-triple}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space
+\begin{lemma}\label{lemma:irreducible-y-triple}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible topological space.
 \end{lemma}
+
+\begin{proof}[{\color{red}Proof -- to be written.}]
+\end{proof}
+
+\begin{corollary}\label{lemma:irreducible-triple}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space
+\end{corollary}
+
+\begin{proof}
+$\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $(L',L'',L''')\mapsto L'''$, which is continuous. Lemma \ref{lemma:irreducible-y-triple} shows that $\yprod[L]{A,B,C}$ is irreducible, so it follows $\xprod[L]{A,B,C}$ is irreducible.
+\end{proof}
 
 \begin{lemma}\label{lemma:open-embeddings}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
 \end{lemma}
 
+\begin{proof}[{\color{red}Proof -- to be written.}]
+\end{proof}
+
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
 \end{proposition}
-\begin{proof}
+
+\begin{proof}[Proof 1]
 Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-triple}, and is the union of finitely many disjoint locally closed subsets, namely
 \begin{equation*}
 \xprod[L]{A,B,C} = \bigcup_{D\in\matrices_{A,B,C}} \xprod[L]{D}.
 \end{equation*}
 Therefore, exactly one of the $\xprod[L]{D}$ is open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$, by Lemma \ref{lemma:open-embeddings}. It then follows that the maximum $G_L$-orbit $\xprod[L]{(A\ast B)\ast C}$ in $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open and dense in $\xprod[L]{A,B\ast C}$ which is in turn open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ are both a single orbit for the action of $G_L$ and intersect non-trivially since $\xprod[L]{A,B,C}$ is irreducible, therefore $\xprod[L]{(A\ast B)\ast C} = \xprod[L]{A\ast(B\ast C)}$, which means $(A\ast B)\ast C = A\ast(B\ast C)$.
+\end{proof}
+
+\begin{proof}[Proof 2]
+Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. Let $f\colon\yprod[L]{A,B,C}\to\xprod[L]{A,B,C}$ be the restriction of the forgetful map $(L',L'',L''')\mapsto L'''$. $\yprod[L]{A,B,C}$ is an irreducible topological space, by \ref{lemma:irreducible-y-triple}.
+
+\begin{equation*}
+f^{-1}\xprod[L]{A\ast B,C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i}{L_i\cap L_j''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
+\end{equation*}
+is open in $\yprod[L]{A,B,C}$ since $f^{-1}\xprod[L]{A\ast B,C}$ is given by {\color{red}finitely many open conditions.} 
+
+$\xprod[L]{(A\ast B)\ast C}$ is open in $\xprod[L]{A\ast B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $f^{-1}\xprod[L]{A\ast B,C}$, which is open in $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open and dense in $\yprod[L]{A,B,C}$.
+
+\begin{equation*}
+f^{-1}\xprod[L]{A,B\ast C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
+\end{equation*}
+is open in $\yprod[L]{A,B,C}$, {\color{red}being determined by finitely many open conditions.}
+
+$\xprod[L]{A\ast(B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$, so $f^{-1}\xprod[L]{A\ast(B\ast C)}$ is open in $f^{-1}\xprod[L]{A,B\ast C}$, which is open in $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{A\ast(B\ast C)}$ is open in $\yprod[L]{A,B,C}$. Then $f^{-1}\xprod[L]{(A\ast B)\ast C}$ and $f^{-1}\xprod[L]{A\ast(B\ast C}$ are both nonempty and open in the irreducible space $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}\cap \xprod[L]{A\ast(B\ast C)}$ is non-empty. It follows that the $G_L$-orbits $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast (B\ast C)}$ coincide and thus $(A\ast B)\ast C=A\ast(B\ast C)$.
 \end{proof}
 
 
@@ -930,19 +963,22 @@ Given $\lambda\in\compositions$ and $A\in\matrices$, $D_\lambda\ast A = A$ if $\
 Lemma \ref{lemma:product-with-diagonal-orbits} shows that $\matrices_{D_\lambda,A} = \{A\}$ if $\lambda=\ro{A}$ and $\matrices_{A,D_\lambda} = \{A\}$ if $\lambda=\co{A}$, which proves the result. 
 \end{proof}
 
+\begin{theorem}\label{thm:generic-category}
+The following constitutes a small category: the set of objects is $\compositions$ and the set of morphisms is $\matrices$. Given compositions $\lambda,\mu\in\compositions$, the morphisms with source $\lambda$ and target $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$. Given $\lambda,\mu,\nu\in\compositions$ and $A,B\in\matrices$ with $B\colon\lambda\to\mu$ and $A\colon\mu\to\nu$ the composition is $A\ast B\colon\lambda\to\nu$.
+\end{theorem}
 
-{\color{blue}Rephrase the below result into a Theorem: there exists a category with these objects and morphisms and composition given by $\ast$. The proof then consists of pointing out that 1) morphisms have a source and target 2) composition is associative 3) there are identity maps.}
+\begin{proof}
+Proposition \ref{proposition:existence} shows that the composition is well defined while Proposition \ref{proposition:associativity} establishes associativity of the composition. Lemma \ref{lemma:identity-morphisms} shows that $D_\lambda\colon\lambda\to\lambda$ is the identity morphism for each $\lambda\in\compositions$. Thus $(\compositions,\matrices,\co,\ro,\ast)$ is a category.
+\end{proof}
 
-\begin{definition}
-For each $n,r\geq 1$, the generic category $\gcat$ is the category with set of objects $\compositions$ and set of morphisms $\matrices$ where; the morphisms from $\lambda$ to $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$; the composition of morphisms $A\colon\lambda\to\mu$ and $B\colon\mu\to\nu$ is $B\ast A\colon\lambda\to\nu$, where $B\ast A$ is the maximum element in $\matrices_{A,B}$. For each $\lambda\in\compositions$, the identity morphism is $D_\lambda\colon\lambda\to\lambda$.
-\end{definition}
+Write $\gcat$ to denote this so-called `generic category'.
 
 \begin{example}
 The objects in $\gcat[2,2]$ are compositions of $2$ into $2$ parts, namely $(0,2)$, $(1,1)$ and $(2,0)$. The set of morphisms from $\lambda$ to $\mu$ is the set of infinite periodic matrices $A\in\matrices[2,2]$ with $\co{A}=\lambda$ and $\ro{A}=\mu$, which is a countably infinite set for any pair of compositions $\lambda,\mu\in\compositions[2,2]$.
 \end{example}
 
 \begin{definition}[Generic algebra]
-The affine generic algebra $\generic$ is the category $\integers$-algebra of $\gcat$. In particular, $\generic$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and with associative multiplication given by
+The generic affine algebra $\generic$ is the category $\integers$-algebra of $\gcat$. In particular, $\generic$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and with associative multiplication given by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
 e_{A\ast B} &\text{ if } \co{A}=\ro{B}\\
@@ -951,9 +987,8 @@ e_{A\ast B} &\text{ if } \co{A}=\ro{B}\\
 \end{equation*}
 The multiplicative identity in $\generic$ is
 \begin{equation*}
-1 = \sum_{\lambda\in\compositions}1_\lambda
+1 = \sum_{\lambda\in\compositions}e_{D_\lambda}.
 \end{equation*}
-where $1_\lambda = e_{D_\lambda}$.
 \end{definition}
 
 
