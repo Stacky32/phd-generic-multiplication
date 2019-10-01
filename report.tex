@@ -137,7 +137,7 @@ Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\
 for each $\lambda\in\compositions$.
 \end{corollary}
 
-\subsection{A product on orbits}
+\subsection{A product on orbits}\label{sec:orbit-product}
 
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, define
 \begin{equation*}
@@ -168,7 +168,7 @@ Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set o
 Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\mathcal{O}_B$.
 \end{proof}
 
-\subsection{Triple products}
+\subsection{Triple products}\label{sec:triple-product}
 
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
 \begin{equation*}
@@ -736,7 +736,6 @@ Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ 
 and such that the dimensions of successive quotients are given by $\lambda_1,\ldots,\lambda_n,a$, from left to right. Thus, $(L_{-n+1}'',\ldots,L_0'')$ extends by periodicity to give an element of $\Pi_{N,\lambda}^a$, as desired.
 \end{proof}
 
-
 \begin{lemma}
 Given $\lambda\in\compositions$, $N\in\naturals$ and $a\in\integers$ with $0\le a\le 2Nr$,
 $\Pi_{N,\lambda}^a$ is a quasi-projective variety.
@@ -758,6 +757,10 @@ The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L
  -- the idea that is relevant to the proof is that inclusion relations $L_i\subset L_{i+1}$ describe a closed set in a product of grassmanians. Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
 \end{proof}
 }
+
+\subsection{Geometry of orbit products}
+
+Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
 
 \begin{lemma}
 Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$,
@@ -884,6 +887,8 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 
 \section{Associativity}
 
+Refer to Section \ref{sec:triple-product} for definitions of the spaces $\xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$.
+
 \begin{lemma}
 Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$,
 \begin{equation*}
@@ -908,7 +913,7 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\fla
 \begin{proof}[{\color{red}Proof -- to be written.}]
 \end{proof}
 
-\begin{corollary}\label{lemma:irreducible-triple}
+\begin{corollary}\label{lemma:irreducible-x-triple}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space
 \end{corollary}
 
@@ -916,26 +921,53 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\fla
 $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $(L',L'',L''')\mapsto L'''$, which is continuous. Lemma \ref{lemma:irreducible-y-triple} shows that $\yprod[L]{A,B,C}$ is irreducible, so it follows $\xprod[L]{A,B,C}$ is irreducible.
 \end{proof}
 
-\begin{lemma}\label{lemma:open-embeddings}
+\begin{definition}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, define spaces
+\begin{equation*}
+\zprod[L]{(AB)C} = f^{-1}\xprod[L]{(A\ast B)\ast C}
+\end{equation*}
+\begin{equation*}
+\zprod[L]{A(BC)} = f^{-1}\xprod[L]{A\ast(B\ast C)}.
+\end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lemma:zprod-open-in-yprod-left}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\zprod[L]{(AB)C}$ is open in $\yprod[L]{A,B,C}$.
+\end{lemma}
+
+\begin{proof}[{\color{red}Proof -- to be written}]
+\end{proof}
+
+\begin{lemma}\label{lemma:zprod-open-in-yprod-right}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\zprod[L]{A(BC)}$ is open in $\yprod[L]{A,B,C}$.
+\end{lemma}
+
+\begin{proof}[{\color{red}Proof -- to be written}]
+\end{proof}
+
+\begin{lemma}[Conjecture??]\label{lemma:open-embeddings}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
 \end{lemma}
 
-\begin{proof}[{\color{red}Proof -- to be written.}]
+\begin{proof}[{\color{red}Proof -- to be written. }]
+Question: should this result be removed or changed into a conjecture, since it is stronger than the results above which will be used to prove associativity? In particular, if $f$ is shown to be an open map then this result follows from Lemma \ref{lemma:zprod-open-in-yprod-left} and Lemma \ref{lemma:zprod-open-in-yprod-right}.
 \end{proof}
 
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
 \end{proposition}
 
-\begin{proof}[Proof 1]
-Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-triple}, and is the union of finitely many disjoint locally closed subsets, namely
+{\color{gray}
+\begin{proof}[Proof - original]
+Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-x-triple}, and is the union of finitely many disjoint locally closed subsets, namely
 \begin{equation*}
 \xprod[L]{A,B,C} = \bigcup_{D\in\matrices_{A,B,C}} \xprod[L]{D}.
 \end{equation*}
 Therefore, exactly one of the $\xprod[L]{D}$ is open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$, by Lemma \ref{lemma:open-embeddings}. It then follows that the maximum $G_L$-orbit $\xprod[L]{(A\ast B)\ast C}$ in $\xprod[L]{A\ast B,C}$ is open and dense in $\xprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open and dense in $\xprod[L]{A,B\ast C}$ which is in turn open and dense in $\xprod[L]{A,B,C}$. $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ are both a single orbit for the action of $G_L$ and intersect non-trivially since $\xprod[L]{A,B,C}$ is irreducible, therefore $\xprod[L]{(A\ast B)\ast C} = \xprod[L]{A\ast(B\ast C)}$, which means $(A\ast B)\ast C = A\ast(B\ast C)$.
 \end{proof}
+}
 
-\begin{proof}[Proof 2]
+\begin{proof}
 Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. Let $f\colon\yprod[L]{A,B,C}\to\xprod[L]{A,B,C}$ be the restriction of the forgetful map $(L',L'',L''')\mapsto L'''$. $\yprod[L]{A,B,C}$ is an irreducible topological space, by \ref{lemma:irreducible-y-triple}.
 
 \begin{equation*}
