@@ -1096,13 +1096,34 @@ $A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exi
 \end{definition}
 
 \begin{lemma}\label{lemma:words-are-aperiodic}
-If $A\in\matrices$ is aperiodic, then $E_i\ast e_A$ and $F_i\ast e_A$ are aperiodic.
+Let $A\in\matrices$ and write $\lambda=\ro{A}$. If $A$ is aperiodic and $\lambda_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $A$ is aperiodic and $\lambda_i>0$, then $F_i\ast e_A$ is aperiodic.
 \end{lemma}
+
 \begin{proof}
-Suppose $A\in\matrices$ is aperiodic and $E_i\ast A\neq 0$. There is $l\in\integers$ such that $a_{i+1,l}>0$ and $a_{i+1,l'}=0$ for $l'>l$. Then $E_i\ast e_A = e_{A+\mathcal{E}_{i,l}-\mathcal{E}_{i+1,l}}$, from Lemma \ref{lemma:multiplication-rule-generic}.
-{\color{red}FINISH THIS PROOF}
+Suppose $A\in\matrices$ is aperiodic and $\lambda_{i+1}>0$, where $\lambda=\ro{A}$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:multiplication-rule-generic} shows that $E_i\ast e_A = e_B$, where $B=A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$ is aperiodic.
+
+Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. Lemma \ref{lemma:multiplication-rule-generic} shows that $F_i\ast e_A = e_C$ where $C=A+\mathcal{E}_{i+1,p}-\mathcal{E}_{i,p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
 \end{proof}
 
+\begin{definition}(Weight function)\label{def:weight-function}
+Define the weight function $\weight\colon\matrices\to\integers$ by
+\begin{equation*}
+\weight{A} = \sum_{i\in[1,n],j\in\integers} |j-i|a_{i,j}
+\end{equation*}
+for each $A\in\matrices$. The sum is taken over a transversal of the set of congruence classes of $(i,j)$ modulo $(n,n)$ for $i,j\in\integers$.
+\end{definition}
+
+\begin{remark}
+$e_i$ and $f_i$ may be viewed as operators on $\matrices$, where $e_iA$ is the composition of morphisms $e_{i,\ro{A}}A$ in the generic category $\gcat$. Similarly, $f_iA$ is the composition $f_{i,\ro{A}}A$. This is only to make notation simpler.
+\end{remark}
+
+\begin{lemma}\label{lemma:adding-weight}
+Let $A\in\matrices$ and write $\lambda=\ro{A}$. Suppose $\lambda_{i+1}>0$ and set $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$. If $p>i$ then $\weight{e_iA}=1+\weight{A}$. If $p\le i$ then $\weight{e_iA}=-1+\weight{A}$. Suppose $\lambda_i>0$ and set $q=\min\{q'\in\integers: a_{i,q'}>0\}$. If $q\le i$ then $\weight{f_iA}=1+\weight{A}$. If $q>i$ then $\weight{f_iA}=-1+\weight{A}$.
+\end{lemma}
+
+\begin{proof}
+Lemma \ref{lemma:multiplication-rule-generic} shows that $e_iA = A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$, so $\weight{e_iA} - \weight{A} = |p-i| - |p-i-1|$, which equals $1$ if $p>i$ and equals $-1$ if $p\le i$. Similarly, $f_iA = A + \mathcal{E}_{i+1,q} - \mathcal{E}_{i,q}$ by Lemma \ref{lemma:multiplication-rule-generic}, so $\weight{f_iA} - \weight{A} = |q-i-1| - |q-i|$, which equals $-1$ if $q>i$ and equals $1$ if $q\le i$.
+\end{proof}
 
 \begin{lemma}\label{lemma:factorising-aperiodic-elements}
 If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by finitely many applications of $E_i$ and $F_i$ for $i\in[1,n]$.
