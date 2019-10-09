@@ -519,7 +519,7 @@ a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\rig
 \end{equation*}
 for each $i,j\in\integers$.
 
-\subsection{De-linearisation}
+\subsection{This needs a cool and informative name - `atomic' sounds pretty gnarly}
 
 Recall that $\ro,\co\colon\matrices\to\compositions$ are given by
 \begin{equation*}
@@ -1005,7 +1005,7 @@ Write $\gcat$ to denote this so-called `generic category'.
 The objects in $\gcat[2,2]$ are compositions of $2$ into $2$ parts, namely $(0,2)$, $(1,1)$ and $(2,0)$. The set of morphisms from $\lambda$ to $\mu$ is the set of infinite periodic matrices $A\in\matrices[2,2]$ with $\co{A}=\lambda$ and $\ro{A}=\mu$, which is a countably infinite set for any pair of compositions $\lambda,\mu\in\compositions[2,2]$.
 \end{example}
 
-\begin{definition}[Generic algebra]
+\begin{definition}[Generic algebra]\label{def:generic-algebra}
 The generic affine algebra $\generic$ is the category $\integers$-algebra of $\gcat$. In particular, $\generic$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and with associative multiplication given by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
@@ -1034,9 +1034,27 @@ Assume $n\le r< 2n$. There is a unique homomorphism of $\integers$-algebras $\ha
 
 \section{Preliminary results}
 
+Recall from Definition \ref{def:generic-algebra} that the generic algebra $\generic$ is an associative $\integers$-algebra which is a free $\integers$-module with an atomic basis $\{e_A:A\in\matrices\}$: given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $e_Ae_B = e_{A\ast B}$.
+
 \subsection{Elementary basis elements}
 
-{\color{red}Give notation for the elementary basis elements $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$.}
+Given $i\in[1,n]$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
+\begin{equation*}
+E_{i,\lambda} = e_{D_\lambda + \mathcal{E}_{i,i+1} - \mathcal{E}_{i+1,i+1}}
+\end{equation*}
+and
+\begin{equation*}
+E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
+\end{equation*}
+
+Given $i\in[1,n]$ and $\lambda\in\compositions$ such that $\lambda_i>0$, define
+\begin{equation*}
+F_{i,\lambda} = e_{D_\lambda + \mathcal{E}_{i+1,i} - \mathcal{E}_{i,i}}
+\end{equation*}
+and
+\begin{equation*}
+F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}.
+\end{equation*}
 
 \subsection{Transpose involution}
 
@@ -1053,35 +1071,21 @@ This is a consequence of Lemma \ref{lemma:transpose-involution}. {\color{blue}It
 
 \subsection{Multiplication rules}
 
-Write
-\begin{equation*}
-E_i = \sum_{\lambda\in\compositions: \lambda_{i+1}>0} E_{i,\lambda}
-\end{equation*}
-\begin{equation*}
-F_i = \sum_{\lambda\in\compositions: \lambda_i>0} F_{i,\lambda}.
-\end{equation*}
-Then $E_{i,\lambda} = E_i 1_\lambda$ and $F_{i,\lambda} = F_i 1_\lambda$.
-
 \begin{lemma}\label{lemma:multiplication-rule-generic}
-Let $A\in\matrices$, $i\in [1,n]$ and let $\lambda = \ro{A}$. The following multiplication rules hold:
+Given $A\in\matrices$ and $i\in[1,n]$ such that $\ro{A}_{i+1}>0$,
 \begin{equation*}
-E_i e_A = \begin{cases}
-e_{A+X_{i,p}} &\text{	if } \lambda_{i+1}>0\\
-0 &\text{	if } \lambda_{i+1}=0;
-\end{cases}
+E_ie_A = e_{A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}},
 \end{equation*}
-where $p$ is such that $A_{i+1,p}>0$ and $A_{i+1,j}=0$ for $j>p$. Also
+where $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$.
+
+Given $A\in\matrices$ and $i\in[1,n]$ such that $\ro{A}_i>0$,
 \begin{equation*}
-F_i e_A = \begin{cases}
-e_{A-X_{i,p}} &\text{	if } \lambda_i>0\\
-0 &\text{	if } \lambda_i=0;
-\end{cases}
+F_ie_A = e_{A+\mathcal{E}_{i+1,p}-\mathcal{E}_{i,p}},
 \end{equation*}
-where $p$ is such that $A_{i,p}>0$ and $A_{i,j}=0$ for $j<p$.
+where $p=\min\{p'\in\integers: a_{i,p'}>0\}$.
 \end{lemma}
 
 Similar formulas for right multiplication by $E_i$ and $F_i$ are obtained by applying the transpose.
-{\color{red}Add formulas for right multiplication by $E_i$ and $F_i$.}
 
 \section{Presentation of the generic algebra.}
 
@@ -1113,12 +1117,8 @@ Define the weight function $\weight\colon\matrices\to\integers$ by
 for each $A\in\matrices$. The sum is taken over a transversal of the set of congruence classes of $(i,j)$ modulo $(n,n)$ for $i,j\in\integers$.
 \end{definition}
 
-\begin{remark}
-$e_i$ and $f_i$ may be viewed as operators on $\matrices$, where $e_iA$ is the composition of morphisms $e_{i,\ro{A}}A$ in the generic category $\gcat$. Similarly, $f_iA$ is the composition $f_{i,\ro{A}}A$. This is only to make notation simpler.
-\end{remark}
-
-\begin{lemma}\label{lemma:adding-weight}
-Let $A\in\matrices$ and write $\lambda=\ro{A}$. Suppose $\lambda_{i+1}>0$ and set $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$. If $p>i$ then $\weight{e_iA}=1+\weight{A}$. If $p\le i$ then $\weight{e_iA}=-1+\weight{A}$. Suppose $\lambda_i>0$ and set $q=\min\{q'\in\integers: a_{i,q'}>0\}$. If $q\le i$ then $\weight{f_iA}=1+\weight{A}$. If $q>i$ then $\weight{f_iA}=-1+\weight{A}$.
+\begin{lemma}\label{lemma:decreasing-weight}
+Let $A\in\matrices$ and write $\lambda=\ro{A}$. Suppose $\lambda_{i+1}>0$ and set $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$. If $p>i$ then $\weight{e_{i,\lambda}\ast A}=1+\weight{A}$. If $p\le i$ then $\weight{e_{i,\lambda}\ast A}=-1+\weight{A}$. Suppose $\lambda_i>0$ and set $q=\min\{q'\in\integers: a_{i,q'}>0\}$. If $q\le i$ then $\weight{f_{i,\lambda}\ast A}=1+\weight{A}$. If $q>i$ then $\weight{f_{i,\lambda}\ast A}=-1+\weight{A}$.
 \end{lemma}
 
 \begin{proof}
@@ -1130,10 +1130,11 @@ If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by
 \end{lemma}
 
 \begin{proposition}
-The subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$ has $\integers$-basis $\{e_A:A\in\matrices^{ap}\}$, where $\matrices^{ap}\subset\matrices$ is the set of aperiodic elements, as in Definition \ref{def:aperiodic}.
+The $\integers$-subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$ has $\integers$-basis $\{e_A:A\in\matrices^{ap}\}$, where $\matrices^{ap}\subset\matrices$ is the set of aperiodic elements.
 \end{proposition}
+
 \begin{proof}
-Combining Lemma \ref{lemma:words-are-aperiodic} and Lemma \ref{lemma:factorising-aperiodic-elements} proves the result.
+
 \end{proof}
 
 \subsection{The case $n\geq 3$.}
