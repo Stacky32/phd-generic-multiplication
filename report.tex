@@ -75,7 +75,7 @@ a_{i,j} = \dim_\field\left(\frac{L_i\cap L_j'}{L_i\cap L_{j-1}' + L_{i-1}\cap L_
 for each $i,j\in\integers$.
 \end{definition}
 
-The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of infinite periodic matrices (see definition \ref{def:matrices}). The $G$-orbit corresponding to $A\in\matrices$ is denoted $\mathcal{O}_A$ and consists of those pairs $(L,L')\in\dblflags$ with periodic characteristic matrix $\type{L}{L'}$ equal to $A$.
+The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of infinite periodic matrices (see definition \ref{def:matrices}). The $G$-orbit corresponding to $A\in\matrices$ is denoted $\orbit{A}$ and consists of those pairs $(L,L')\in\dblflags$ with periodic characteristic matrix $\type{L}{L'}$ equal to $A$.
 
 \begin{lemma}(alternative expression for characteristic matrix)
 Alternatively,
@@ -132,7 +132,7 @@ so $L_i\cap L_i' = L_i'$ and thus $L_i'\subset L_i$ for each $i\in\integers$, as
 \begin{corollary}[diagonal orbits]\label{corollary:diagonal-orbits}
 Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\neq j$. In particular,
 \begin{equation*}
-\mathcal{O}_{D_\lambda} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
+\orbit{D_\lambda} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
 \end{equation*}
 for each $\lambda\in\compositions$.
 \end{corollary}
@@ -141,10 +141,10 @@ for each $\lambda\in\compositions$.
 
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, define
 \begin{equation*}
-\yprod{A,B} = \{ (L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\},
+\yprod{A,B} = \{ (L,L',L'')\in\flags^3: (L,L')\in\orbit{A} \text{ and } (L',L'')\in\orbit{B}\},
 \end{equation*}
 \begin{equation*}
-\xprod{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags\text{ with } (L,L')\in\mathcal{O}_A \text{ and } (L',L'')\in\mathcal{O}_B\}.
+\xprod{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags\text{ with } (L,L')\in\orbit{A} \text{ and } (L',L'')\in\orbit{B}\}.
 \end{equation*}
 If also $L\in\flags_{\ro{A}}$, define the $L$-slices of $\yprod{A,B}$ and $\xprod{A,B}$ respectively as
 \begin{equation*}
@@ -159,23 +159,23 @@ There are only finitely many $G$-orbits in $\xprod{A,B}$.
 \end{observation}
 
 \begin{lemma}\label{lemma:product-with-diagonal-orbits}
-Given $A\in\matrices$, $\xprod{D_\lambda,A}=\mathcal{O}_A$ if $\lambda=\ro{A}$ and $\xprod{A,D_\lambda}=\mathcal{O}_A$ if $\lambda=\co{A}$.
+Given $A\in\matrices$, $\xprod{D_\lambda,A}=\orbit{A}$ if $\lambda=\ro{A}$ and $\xprod{A,D_\lambda}=\orbit{A}$ if $\lambda=\co{A}$.
 \end{lemma}
 
 \begin{proof}
-Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_{D_\lambda}$, thus $L=L'$ by Corollary \ref{corollary:diagonal-orbits}, and $(L',L'')\in\mathcal{O}_A$. $\xprod{D_\lambda,A}$ is the projection of $\yprod{D_\lambda,A}$, which equals $\mathcal{O}_A$.
+Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{D_\lambda}$, thus $L=L'$ by Corollary \ref{corollary:diagonal-orbits}, and $(L',L'')\in\orbit{A}$. $\xprod{D_\lambda,A}$ is the projection of $\yprod{D_\lambda,A}$, which equals $\orbit{A}$.
 
-Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\mathcal{O}_B$.
+Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\orbit{B}$.
 \end{proof}
 
 \subsection{Triple products}\label{sec:triple-product}
 
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
 \begin{equation*}
-\yprod{A,B,C} = \{(L,L',L'',L''')\in\flags^4: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B \text{ and } (L'',L''')\in\mathcal{O}_C\},
+\yprod{A,B,C} = \{(L,L',L'',L''')\in\flags^4: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B} \text{ and } (L'',L''')\in\orbit{C}\},
 \end{equation*}
 \begin{equation*}
-\xprod{A,B,C} = \{(L,L''')\in\flags^2: \exists (L',L'')\in\mathcal{O}_B \text{ with } (L,L')\in\mathcal{O}_A \text{ and } (L'',L''')\in\mathcal{O}_C\},
+\xprod{A,B,C} = \{(L,L''')\in\flags^2: \exists (L',L'')\in\orbit{B} \text{ with } (L,L')\in\orbit{A} \text{ and } (L'',L''')\in\orbit{C}\},
 \end{equation*}
 \begin{equation*}
 \yprod[L]{A,B,C} = \{ (L',L'',L''')\in\flags^3: (L,L',L'',L''')\in\yprod{A,B,C}\},
@@ -217,7 +217,7 @@ and
 for each $f\in S$ and $(L,L'')\in\dblflags$.
 \end{proof}
 
-Given $A\in\matrices$, let $e_A\in S$ denote the indicator function of the orbit $\mathcal{O}_A$. $S$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$. There exist $\gamma_{A,B,C;\mathrm{q}}\in\integers$ for $A,B,C\in\matrices$ such that
+Given $A\in\matrices$, let $e_A\in S$ denote the indicator function of the orbit $\orbit{A}$. $S$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$. There exist $\gamma_{A,B,C;\mathrm{q}}\in\integers$ for $A,B,C\in\matrices$ such that
 \begin{equation*}
 e_A\star e_B = \sum_{C\in\matrices} \gamma_{A,B,C;\mathrm{q}}e_C
 \end{equation*}
@@ -226,9 +226,9 @@ for each $A,B\in\matrices$. Then
 \gamma_{A,B,C;\mathrm{q}}
 &=(e_A\star e_B)(L,L'')\\
 &= \sum_{L'} e_A(L,L')e_B(L',L'')\\
-&= \#\{L':(L,L')\in\mathcal{O}_A \text{ and }(L',L'')\in\mathcal{O}_B\},
+&= \#\{L':(L,L')\in\orbit{A} \text{ and }(L',L'')\in\orbit{B}\},
 \end{align*}
-for any $(L,L'')\in\mathcal{O}_C$.
+for any $(L,L'')\in\orbit{C}$.
 
 \section{Affine q-Schur algebras}
 
@@ -248,34 +248,30 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 
 \subsection{Elementary matrices}
 
-If $i,j\in\integers$, let $\mathcal{E}_{i,j}$ denote the `elementary matrix' with entries given by $(\mathcal{E}_{i,j})_{s,t}=1$, for $s,t\in\integers$,  whenever $(i,j)\sim (s,t)$ modulo $(n,n)$ and all other entries are zero.
-
-Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ denote the diagonal matrix with $r(D_\lambda)=c(D_\lambda) = \lambda$, as in Definition \ref{def:diagonal-matrices}. That is,
+For each $i,j\in\integers$, let $\elem{i}{j}$ be the $\integers\times\integers$ `elementary periodic matrix' with entries given by $(\elem{i}{j})_{s,t}=1$ if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$. Recall from Definition \ref{def:diagonal-matrices} that the diagonal matrix associated to a composition $\lambda\in\compositions$ is
 \begin{equation*}
-D_\lambda = \lambda_1 \mathcal{E}_{1,1} +\cdots + \lambda_n \mathcal{E}_{n,n}
+D_\lambda = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n}.
 \end{equation*}
 
-For $\lambda\in\compositions$, write $1_\lambda = e_{D_\lambda}$. The $1_\lambda$ are pairwise orthogonal idempotents in $\qschur$ with $1 = \sum_{\lambda\in\compositions}1_\lambda$, as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
+$\{e_{D_\lambda}:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempotents in $\qschur$ with $\sum_{\lambda\in\compositions}e_{D_\lambda} = 1$, as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
 
-Given $i,j\in\integers$, write $X_{i,j} = \mathcal{E}_{i,j} - \mathcal{E}_{i+1,j}$. By convention, $e_A = 0$ unless $A\in\matrices$.
-
-For $i\in [1,n]$ and $\lambda\in\compositions$, write
+Given $i\in[1,n]$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, define
 \begin{equation*}
-E_{i,\lambda} = e_{D_\lambda + X_{i,i+1}},
+E_{i,\lambda} = e_{D_\lambda + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
+and define
 \begin{equation*}
-F_{i,\lambda} = e_{D_\lambda - X_{i,i}}.
-\end{equation*}
-
-Define
-\begin{equation*}
-E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}
-\end{equation*}
-\begin{equation*}
-F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}.
+E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
 \end{equation*}
 
-Observe that $E_{i,\lambda}=0$ unless $\lambda_{i+1} > 0$ and $F_{i,\lambda}=0$ unless $\lambda_i > 0$. Also, $E_{i,\lambda} = E_i 1_\lambda$ and $F_{i,\lambda} = F_i 1_\lambda$.
+Given $i\in[1,n]$ and $\lambda\in\compositions$ with $\lambda_i>0$, define
+\begin{equation*}
+F_{i,\lambda} = e_{D_\lambda + \elem{i+1}{i} - \elem{i}{i}}
+\end{equation*}
+and define
+\begin{equation*}
+F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}
+\end{equation*}
 
 \subsection{Transpose involution}
 
@@ -283,11 +279,11 @@ Observe that $E_{i,\lambda}=0$ unless $\lambda_{i+1} > 0$ and $F_{i,\lambda}=0$ 
 Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\qschur\to\qschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
 \end{lemma}
 \begin{proof}
-Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\mathcal{O}_C$ then $(L'',L)\in\mathcal{O}_{C^\transpose}$ and
+Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\orbit{C}$ then $(L'',L)\in\orbit{C^\transpose}$ and
 \begin{align*}
 \gamma_{A,B,C;\mathrm{q}}
-&= \#\{L': (L,L')\in\mathcal{O}_A\text{ and } (L',L'')\in\mathcal{O}_B\}\\
-&= \#\{L': (L'',L')\in\mathcal{O}_{B^\transpose}\text{ and } (L',L)\in\mathcal{O}_{A^\transpose}\}\\
+&= \#\{L': (L,L')\in\orbit{A}\text{ and } (L',L'')\in\orbit{B}\}\\
+&= \#\{L': (L'',L')\in\orbit{B^\transpose}\text{ and } (L',L)\in\orbit{A^\transpose}\}\\
 &= \gamma_{B^\transpose,A^\transpose, C^\transpose;\mathrm{q}}
 \end{align*}
 It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
@@ -295,18 +291,18 @@ It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
 
 \subsection{A multiplication rule}
 
-\begin{lemma}
-Let $i\in [1,n]$ and $A\in\matrices$.
+\begin{lemma}\label{lemma:fundamental-multiplication-rules}
+Given $A\in\matrices$ and $i\in[1,n]$ with $\ro{A}_{i+1}>0$,
 \begin{equation*}
-E_ie_A = \sum_{p\in\integers} q^{\sum_{j>p} a_{i,j}}[a_{i,p}+1] e_{A + X_{i,p}}
+E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
 \end{equation*}
-and
-\begin{equation*}                                                                               
-F_ie_A = \sum_{p\in\integers} q^{\sum_{j<p} a_{i+1,j}}[a_{i+1,p}+1] e_{A - X_{i,p}}.
+Given $A\in\matrices$ and $i\in[1,n]$ with $\ro{A}_i>0$,
+\begin{equation*}
+F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}.
 \end{equation*}
 \end{lemma}
 
-Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$. There are similar formulas for right multiplication by $E_i$ and $F_i$, which can be obtained by applying the transpose involution to the above formulas. The transpose relates the $E_i$, $F_i$ and $1_\lambda$ in the following way: $\transpose(E_{i,\lambda}) = F_{i,\lambda}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda -\epsilon_i +\epsilon_{i+1}}$ and $\transpose(1_\lambda) = 1_\lambda$. In particular, $\transpose(E_i) = F_i$ and $\transpose(F_i) = E_i$.
+Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$, provided it is understood that $e_B = 0$ whenever $B\notin\matrices$. There are similar formulas for right multiplication by $E_i$ and $F_i$, obtained by applying the transpose involution to the above. The transpose relates the $E_i$, $F_i$ and $1_\lambda$ in the following way: $\transpose(E_{i,\lambda}) = F_{i,\lambda}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda -\epsilon_i +\epsilon_{i+1}}$ and $\transpose(1_\lambda) = 1_\lambda$. In particular, $\transpose(E_i) = F_i$ and $\transpose(F_i) = E_i$.
 
 \begin{corollary}
 Let $j\in [1,n]$ and $A\in\matrices$. Then
@@ -318,13 +314,13 @@ and
 e_A E_j = \sum_{p\in\integers} q^{\sum_{i<p} a_{i,j+1}}[a_{p,j+1}+1] e_{A-X_{j,p}^{\transpose}}
 \end{equation*}
 \end{corollary}
+
 \begin{proof}
 \begin{align*}
 e_A F_j &= \transpose (E_j e_{A^\transpose})\\
 &= \transpose ( \sum_p q^{\sum_{i>p} a_{i,j}}[a_{p,j}+1] e_{A^\transpose + X_{j,p}} )\\
 &= \sum_p q^{\sum_{i>p} a_{i,j}} [a_{p,j}+1] e_{A+X_{j,p}^{\transpose}}
 \end{align*}
-
 \begin{align*}
 e_A E_j &= \transpose (F_j e_{A^\transpose})\\
 &= \transpose ( \sum_p q^{\sum_{i<p} a_{i,j+1}} [a_{p,j+1}+1] e_{A^\transpose - X_{j,p}} )\\
@@ -336,11 +332,11 @@ e_A E_j &= \transpose (F_j e_{A^\transpose})\\
 
 Note that $E_i^{r+1}=F_i^{r+1}=0$ while
 \begin{equation*}
-E_i^r = [r]_! e_{r\mathcal{E}_{i,i+1}}
+E_i^r = [r]_! e_{r\elem{i}{i+1}}
 \end{equation*}
 and
 \begin{equation*}
-F_i^r = [r]_! e_{r\mathcal{E}_{i+1,i}}.
+F_i^r = [r]_! e_{r\elem{i+1}{i}}.
 \end{equation*}
 
 \begin{lemma}[quantum Serre relations: $n\geq 3$]
@@ -406,7 +402,7 @@ E_i F_i - F_i E_i = \sum_{\lambda\in\compositions} ([\lambda_i] - [\lambda_{i+1}
 
 
 {\color{gray}
-For $\lambda\in\compositions$, let $R_\lambda = e_{\lambda_1\mathcal{E}_{0,1}+\cdots +\lambda_n\mathcal{E}_{n-1,n}}$. Write $R = \sum_{\lambda\in\compositions} R_\lambda$. Note $R_\lambda = R 1_\lambda$. Given $A\in\matrices$ and $m\in\integers$, let $A[m]\in\matrices$ be given by $A[m]_{i,j} = a_{i,j+m}$ and let $A^{[m]}$ be given by $A^{[m]}_{i,j} = a_{i+m,j}$ for each $i\in\integers$.
+For $\lambda\in\compositions$, let $R_\lambda = e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}$. Write $R = \sum_{\lambda\in\compositions} R_\lambda$. Note $R_\lambda = R 1_\lambda$. Given $A\in\matrices$ and $m\in\integers$, let $A[m]\in\matrices$ be given by $A[m]_{i,j} = a_{i,j+m}$ and let $A^{[m]}$ be given by $A^{[m]}_{i,j} = a_{i+m,j}$ for each $i\in\integers$.
 
 \begin{lemma}[Shifting]
 If $A\in\matrices$ then
@@ -513,7 +509,7 @@ Assume $\field = \complex$ and fix $n,r\geq 1$. Let $\laurent$ be the $\field$-a
 
 Let $G$ be the group of $\laurent$-module automorphisms of $V$. Thus $G$ is isomorphic to $\GL{r}{\laurent}$. $G$ acts on $\flags$ with orbits $\{\flags_\lambda:\lambda\in\compositions\}$, where $\compositions$ is the set of compositions of $r$ into $n$ parts, as in Definition \ref{def:compositions}.
 
-The diagonal action of $G$ on $\dblflags$ has orbits $\{\mathcal{O}_A:A\in\matrices\}$, where $\mathcal{O}_A$ consists of those pairs of flags with periodic characteristic matrix equal to $A$. Definitions of the periodic characteristic matrix and the set $\matrices$ are given in Definition \ref{def:characteristic-matrix} and Definition \ref{def:matrices} respectively. In particular, the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
+The diagonal action of $G$ on $\dblflags$ has orbits $\{\orbit{A}:A\in\matrices\}$, where $\orbit{A}$ consists of those pairs of flags with periodic characteristic matrix equal to $A$. Definitions of the periodic characteristic matrix and the set $\matrices$ are given in Definition \ref{def:characteristic-matrix} and Definition \ref{def:matrices} respectively. In particular, the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
 \begin{equation*}
 a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right)
 \end{equation*}
@@ -531,7 +527,7 @@ and
 \end{equation*}
 for each $A\in\matrices$.
 
-Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L,L'')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
+Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
 The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
@@ -595,10 +591,10 @@ The relation $\le$ on $\matrices$, defined by $A\le B$ if and only if $d_{i,j}A\
 It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ is antisymmetric. Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}A = d_{i,j}B$ for each $i,j\in\integers$, which shows $A=B$ as a result of Lemma \ref{lemma:antisymmetry}.  
 \end{proof}
 
-The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\mathcal{O}_A\le \mathcal{O}_B$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
+The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
 \begin{lemma}
-Let $A\in\matrices$ and take $(L,L')\in\mathcal{O}_A$. Then
+Let $A\in\matrices$ and take $(L,L')\in\orbit{A}$. Then
 \begin{equation*}
 d_{i,j}A = \dim\left(\frac{L_i}{L_i\cap L_j'}\right)
 \end{equation*}
@@ -609,14 +605,14 @@ This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
 \end{proof}
 
 \begin{conjecture}
-Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with the closure order on $G$-orbits in $\dblflags$. In particular, $A\le B$ if and only if $\mathcal{O}_A\subset \overline{\mathcal{O}_B}$.
+Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with the closure order on $G$-orbits in $\dblflags$. In particular, $A\le B$ if and only if $\orbit{A}\subset \overline{\orbit{B}}$.
 \end{conjecture}
 
 \section{Preliminary results}
 
 Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Recall the notation
 \begin{equation*}
-\yprod{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\mathcal{O}_A, (L',L'')\in\mathcal{O}_B\}
+\yprod{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
 and
 \begin{equation*}
@@ -761,16 +757,16 @@ The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L
 Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
 
 \begin{lemma}
-Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\mathcal{O}_A$ and $(L',L'')\in\mathcal{O}_B$,
+Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$,
 \begin{equation*}
 \xprod[L]{A,B} = G_L G_{L'} L''.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\mathcal{O}_A$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\mathcal{O}_B$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
+$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\orbit{B}$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
 
-For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\mathcal{O}_A$ and $(N',N'')\in\mathcal{O}_B$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
+For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\orbit{A}$ and $(N',N'')\in\orbit{B}$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
 \end{proof}
 
 Given $N\in\naturals$, define
@@ -856,7 +852,7 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[
 
 {\color{blue}
 \begin{proof}
-Write up this proof properly - this is only a sketch. There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\mathcal{O}_A$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is an irreducible algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
+Write up this proof properly - this is only a sketch. There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is an irreducible algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
 \end{proof}
 }
 
@@ -897,14 +893,14 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 Refer to Section \ref{sec:triple-product} for definitions of the spaces $\xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$. Recall that $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$, given by $f(L',L'',L''') = L'''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$.
 
 \begin{lemma}
-Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L'',L''')\in\mathcal{O}_C$,
+Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L'',L''')\in\orbit{C}$,
 \begin{equation*}
 \xprod[L]{A,B,C} = G_L G_{L'} G_{L''} L'''.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-Given $\alpha\in G_L$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(L,\alpha L',\alpha\beta L'',\alpha\beta\gamma L''')\in\yprod{A,B,C}$ since $(L,\alpha L')=\alpha(L,L')\in\mathcal{O}_A$, $(\alpha L',\alpha\beta L'')=\alpha\beta(L',L'')\in\mathcal{O}_B$ and $(\alpha\beta L'',\alpha\beta\gamma L''')=\alpha\beta\gamma(L'',L''')\in\mathcal{O}_C$. This shows $G_L G_{L'} G_{L''}L'''\in\xprod[L]{A,B,C}$.
+Given $\alpha\in G_L$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(L,\alpha L',\alpha\beta L'',\alpha\beta\gamma L''')\in\yprod{A,B,C}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$, $(\alpha L',\alpha\beta L'')=\alpha\beta(L',L'')\in\orbit{B}$ and $(\alpha\beta L'',\alpha\beta\gamma L''')=\alpha\beta\gamma(L'',L''')\in\orbit{C}$. This shows $G_L G_{L'} G_{L''}L'''\in\xprod[L]{A,B,C}$.
 
 Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_3\in G$ such that $(L,N') = \sigma_1(L,L')$, $(N',N'') = \sigma_2(L',L'')$ and $(N'',N''') = \sigma_3(L'',L''')$; then $N' = \sigma_1 L' = \sigma_2 L'$, $N'' = \sigma_2 L'' = \sigma_3 L''$ and $N''' = \sigma_3 L'''$. Thus
 \begin{equation*}
@@ -1050,7 +1046,7 @@ Recall from Definition \ref{def:generic-algebra} that the generic algebra $\gene
 
 Given $i\in[1,n]$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
 \begin{equation*}
-E_{i,\lambda} = e_{D_\lambda + \mathcal{E}_{i,i+1} - \mathcal{E}_{i+1,i+1}}
+E_{i,\lambda} = e_{D_\lambda + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
 and
 \begin{equation*}
@@ -1059,7 +1055,7 @@ E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
 
 Given $i\in[1,n]$ and $\lambda\in\compositions$ such that $\lambda_i>0$, define
 \begin{equation*}
-F_{i,\lambda} = e_{D_\lambda + \mathcal{E}_{i+1,i} - \mathcal{E}_{i,i}}
+F_{i,\lambda} = e_{D_\lambda + \elem{i+1}{i} - \elem{i}{i}}
 \end{equation*}
 and
 \begin{equation*}
@@ -1084,13 +1080,13 @@ This is a consequence of Lemma \ref{lemma:transpose-involution}. {\color{blue}It
 \begin{lemma}\label{lemma:multiplication-rule-generic}
 Given $A\in\matrices$ and $i\in[1,n]$ such that $\ro{A}_{i+1}>0$,
 \begin{equation*}
-E_ie_A = e_{A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}},
+E_ie_A = e_{A+\elem{i}{p}-\elem{i+1}{p}},
 \end{equation*}
 where $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$.
 
 Given $A\in\matrices$ and $i\in[1,n]$ such that $\ro{A}_i>0$,
 \begin{equation*}
-F_ie_A = e_{A+\mathcal{E}_{i+1,p}-\mathcal{E}_{i,p}},
+F_ie_A = e_{A+\elem{i+1}{p}-\elem{i}{p}},
 \end{equation*}
 where $p=\min\{p'\in\integers: a_{i,p'}>0\}$.
 \end{lemma}
@@ -1114,9 +1110,9 @@ Let $A\in\matrices$ and write $\lambda=\ro{A}$. If $A$ is aperiodic and $\lambda
 \end{lemma}
 
 \begin{proof}
-Suppose $A\in\matrices$ is aperiodic and $\lambda_{i+1}>0$, where $\lambda=\ro{A}$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:multiplication-rule-generic} shows that $E_i\ast e_A = e_B$, where $B=A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$ is aperiodic.
+Suppose $A\in\matrices$ is aperiodic and $\lambda_{i+1}>0$, where $\lambda=\ro{A}$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:multiplication-rule-generic} shows that $E_i\ast e_A = e_B$, where $B=A+\elem{i}{p}-\elem{i+1}{p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\elem{i}{p}-\elem{i+1}{p}$ is aperiodic.
 
-Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. Lemma \ref{lemma:multiplication-rule-generic} shows that $F_i\ast e_A = e_C$ where $C=A+\mathcal{E}_{i+1,p}-\mathcal{E}_{i,p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
+Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. Lemma \ref{lemma:multiplication-rule-generic} shows that $F_i\ast e_A = e_C$ where $C=A+\elem{i+1}{p}-\elem{i}{p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
 \end{proof}
 
 \begin{definition}(Weight function)\label{def:weight-function}
@@ -1132,7 +1128,7 @@ Let $A\in\matrices$ and write $\lambda=\ro{A}$. Suppose $\lambda_{i+1}>0$ and se
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:multiplication-rule-generic} shows that $e_iA = A+\mathcal{E}_{i,p}-\mathcal{E}_{i+1,p}$, so $\weight{e_iA} - \weight{A} = |p-i| - |p-i-1|$, which equals $1$ if $p>i$ and equals $-1$ if $p\le i$. Similarly, $f_iA = A + \mathcal{E}_{i+1,q} - \mathcal{E}_{i,q}$ by Lemma \ref{lemma:multiplication-rule-generic}, so $\weight{f_iA} - \weight{A} = |q-i-1| - |q-i|$, which equals $-1$ if $q>i$ and equals $1$ if $q\le i$.
+Lemma \ref{lemma:multiplication-rule-generic} shows that $e_iA = A+\elem{i}{p}-\elem{i+1}{p}$, so $\weight{e_iA} - \weight{A} = |p-i| - |p-i-1|$, which equals $1$ if $p>i$ and equals $-1$ if $p\le i$. Similarly, $f_iA = A + \elem{i+1}{q} - \elem{i}{q}$ by Lemma \ref{lemma:multiplication-rule-generic}, so $\weight{f_iA} - \weight{A} = |q-i-1| - |q-i|$, which equals $-1$ if $q>i$ and equals $1$ if $q\le i$.
 \end{proof}
 
 \begin{lemma}\label{lemma:factorising-aperiodic-elements}
