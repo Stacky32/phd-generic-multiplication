@@ -521,7 +521,7 @@ for each $i,j\in\integers$.
 
 \subsection{This needs a cool and informative name - `atomic' sounds pretty gnarly}
 
-Recall that $\ro,\co\colon\matrices\to\compositions$ are given by
+Recall that $\ro,\co\colon\matrices\to\compositions$ are the maps given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
@@ -531,11 +531,9 @@ and
 \end{equation*}
 for each $A\in\matrices$.
 
-{\color{blue}There has to be a better way to phrase this. Logically, the main result of this chapter will be `there exists a category with objects $\compositions$; morphisms $\matrices$; composition $\ast$', then finally the generic affine algebra is defined as the $\integers$-algebra of this category.}
-
 Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\mathcal{O}_A$, $(L',L'')\in\mathcal{O}_B$ and $(L,L'')\in\mathcal{O}_C$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
-The generic affine Schur algebra $\generic$ will then be a $\integers$-algebra defined as a linearisation of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the 0-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
+The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
 \section{A partial order}
 
@@ -610,9 +608,9 @@ for each $i,j\in\integers$.
 This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
 \end{proof}
 
-\begin{remark}
-It is thought* that the partial order on $\matrices$ is compatible with the degeneration order (or closure order) on $G$-orbits in $\dblflags$ when $\field=\complex$. In particular, it is hoped that $A\le B$ if and only if $\mathcal{O}_A\subset \overline{\mathcal{O}_B}$.
-\end{remark}
+\begin{conjecture}
+Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with the closure order on $G$-orbits in $\dblflags$. In particular, $A\le B$ if and only if $\mathcal{O}_A\subset \overline{\mathcal{O}_B}$.
+\end{conjecture}
 
 \section{Preliminary results}
 
@@ -625,14 +623,14 @@ and
 \xprod{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags \text{ with } (L,L',L'')\in \yprod{A,B}\}.
 \end{equation*}
 
-$\xprod{A,B}$ is the image of $\yprod{A,B}$ under the projection onto the first and last components.
+$\xprod{A,B}$ is the image of $\yprod{A,B}$ under the forgetful map $(L,L',L'')\mapsto (L,L'')$.
 
 \begin{lemma}\label{lemma:orbit-products-are-bounded}
 There is $N\in\naturals$ such that
 \begin{equation*}
 \epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0
 \end{equation*}
-whenever $(L,L'')\in \xprod{A,B}$.
+for each $(L,L'')\in \xprod{A,B}$.
 \end{lemma}
 
 \begin{proof}
@@ -644,7 +642,7 @@ and
 \begin{equation*}
 \epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0',
 \end{equation*}
-whenever $(L,L',L'')\in \yprod{A,B}$. Then, for $(L,L',L'')\in \yprod{A,B}$,
+for each $(L,L',L'')\in \yprod{A,B}$. Then, for $(L,L',L'')\in \yprod{A,B}$,
 \begin{equation*}
 L_0''\subset \epsilon^{-N_2} L_0' \subset \epsilon^{-(N_1+N_2)} L_0
 \end{equation*}
@@ -657,11 +655,11 @@ In particular, taking $N=N_1 + N_2$, we have
 \begin{equation*}
 \epsilon^N L_0 \subset L_0'' \subset \epsilon^{-N}L_0
 \end{equation*}
-whenever $(L,L'')\in \xprod{A,B}$.
+for each $(L,L'')\in \xprod{A,B}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:codimensions-in-orbit-product}
-Suppose $N_1,N_2\in\naturals$ with $\epsilon^{N_1}L_0\subset L_0\subset \epsilon^{-N_1}L_0$ and $\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0'$ whenever $(L,L',L'')\in \yprod{A,B}$ and let $N = N_1 + N_2$. Then
+Suppose $N_1,N_2\in\naturals$ with $\epsilon^{N_1}L_0\subset L_0\subset \epsilon^{-N_1}L_0$ and $\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0'$ for each $(L,L',L'')\in \yprod{A,B}$ and let $N = N_1 + N_2$. Then
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = d_{nN_1,0}(A) + d_{nN_2,0}(B)
 \end{equation*}
@@ -669,7 +667,7 @@ and
 \begin{equation*}
 \dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - d_{nN_1,0}(A) + d_{nN_2,0}(B),
 \end{equation*}
-whenever $(L,L'')\in \xprod{A,B}$.
+for each $(L,L'')\in \xprod{A,B}$.
 \end{lemma}
 
 \begin{proof}
@@ -821,14 +819,18 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
-Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible. {\color{blue}
-ADD AN EXAMPLE}
+Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
 
-{\color{blue}
+\begin{example}
+{\color{blue}Give an example here to illustrate that $H_N^L$ need not be a normal subgroup in $G_{L'}$ for $L'\neq L$.}
+\end{example}
+
+
 \begin{lemma}
 $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{lemma}
 
+{\color{blue}
 \begin{proof}
 Needs a proof.
 \end{proof}
@@ -840,8 +842,11 @@ Given $L\in\flags$, the $G_L$-orbits in $\flags$ are locally closed.
 
 {\color{blue}
 \begin{proof}
-
-Look at proposition 8.3 "Closed Orbits" in \cite{humphreys81}, which shows that the orbits under an algebraic group action are locally closed.
+This seems to require defining a limit topology on $\flags$. Given $L\in\flags$ and $A\in\matrices$ with $|L|=\ro{A}$ and $\lambda =\co{A}$, there is a natural number $N$ so that $\xprod[L]{A}\subset\Pi_N^\lambda(L)$, which is a projective algebraic variety. Moreover, $\xprod[L]{A}$ is given by the conditions
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}.
+\end{equation*}
+Lower(?) semicontinuity of the map $L'\mapsto\dim\left(L_i/{L_i\cap L_j'}\right)$ shows that each condition defines a locally closed subset of $\Pi_N^\lambda(L)$. Finally it will be shown that $\xprod[L]{A}$ is determined by finitely many of these conditions.
 \end{proof}
 }
 
@@ -869,9 +874,11 @@ $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible to
 Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ if and only if $\xprod[L]{A'}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
 \end{lemma}
 
+{\color{blue}
 \begin{proof}
-{\color{red}ADD PROOF}
+Needs a proof.
 \end{proof}
+}
 
 \begin{proposition}\label{proposition:existence}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
@@ -910,11 +917,14 @@ where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\si
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible topological space.
 \end{lemma}
 
-\begin{proof}[{\color{red}Proof -- to be written.}]
+{\color{blue}
+\begin{proof}
+Needs a proof. This is still a sticking point I think.
 \end{proof}
+}
 
 \begin{corollary}\label{lemma:irreducible-x-triple}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space.
 \end{corollary}
 
 \begin{proof}
@@ -947,7 +957,7 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\fla
 \begin{equation*}
 f^{-1}\xprod[L]{A\ast B,C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i}{L_i\cap L_j''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
 \end{equation*}
-is open in $\yprod[L]{A,B,C}$ since $f^{-1}\xprod[L]{A\ast B,C}$ is given by {\color{red}finitely many} open conditions{\color{red}(*)}. 
+is open in $\yprod[L]{A,B,C}$ since $f^{-1}\xprod[L]{A\ast B,C}$ is given by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A,B}$ given by $L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A,B}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:zprod-open-in-yprod-right}
@@ -958,16 +968,16 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\fla
 \begin{equation*}
 f^{-1}\xprod[L]{A,B\ast C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
 \end{equation*}
-is open in $\yprod[L]{A,B,C}$, as it is determined by {\color{red}finitely many} open conditions.
+is open in $\yprod[L]{A,B,C}$, as it is determined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$ given by $(L',L''')\mapsto\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$.
 \end{proof}
 
-\begin{lemma}[Conjecture??]\label{lemma:open-embeddings-in-x}
+\begin{conjecture}\label{conjecture:open-embeddings-in-x}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
-\end{lemma}
+\end{conjecture}
 
-\begin{proof}[Ideas]
-Question: should this result be removed or changed into a conjecture, since it is stronger than the results above which will be used to prove associativity? In particular, if $f$ is shown to be an open map then this result follows from Lemma \ref{lemma:zprod-open-in-yprod-left} and Lemma \ref{lemma:zprod-open-in-yprod-right}.
-\end{proof}
+\begin{remark}
+If $f$ is shown to be an open map then this result follows from Lemma \ref{lemma:zprod-open-in-yprod-left} and Lemma \ref{lemma:zprod-open-in-yprod-right}.
+\end{remark}
 
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
