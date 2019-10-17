@@ -289,6 +289,8 @@ Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\f
 It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
 \end{proof}
 
+The transpose relates the $E_i$, $F_i$ and $1_\lambda$ in the following way: $\transpose(E_{i,\lambda}) = F_{i,\lambda}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda -\epsilon_i +\epsilon_{i+1}}$ and $\transpose(1_\lambda) = 1_\lambda$. In particular, $\transpose(E_i) = F_i$ and $\transpose(F_i) = E_i$.
+
 \subsection{A multiplication rule}
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rules}
@@ -302,29 +304,32 @@ F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+
 \end{equation*}
 \end{lemma}
 
-Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$, provided it is understood that $e_B = 0$ whenever $B\notin\matrices$. There are similar formulas for right multiplication by $E_i$ and $F_i$, obtained by applying the transpose involution to the above. The transpose relates the $E_i$, $F_i$ and $1_\lambda$ in the following way: $\transpose(E_{i,\lambda}) = F_{i,\lambda}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda -\epsilon_i +\epsilon_{i+1}}$ and $\transpose(1_\lambda) = 1_\lambda$. In particular, $\transpose(E_i) = F_i$ and $\transpose(F_i) = E_i$.
+Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$, provided it is understood that $e_B = 0$ whenever $B\notin\matrices$. There are similar formulas for right multiplication by $E_i$ and $F_i$, obtained by applying the transpose involution to the above.
 
-\begin{corollary}
-Let $j\in [1,n]$ and $A\in\matrices$. Then
+\begin{corollary}\label{corollary:fundamental-right-multiplication-rules}
+Given $A\in\matrices$ and $j\in[1,n]$ with $\co{A}_{j+1}>0$,
 \begin{equation*}
-e_A F_j = \sum_{p\in\integers} q^{\sum_{i>p} a_{i,j}}[a_{p,j}+1] e_{A+X_{j,p}^{\transpose}}
+e_AF_j = \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}}.
 \end{equation*}
-and
+Given $A\in\matrices$ and $j\in[1,n]$ with $\co{A}_{j}>0$,
 \begin{equation*}
-e_A E_j = \sum_{p\in\integers} q^{\sum_{i<p} a_{i,j+1}}[a_{p,j+1}+1] e_{A-X_{j,p}^{\transpose}}
+e_AE_j = \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A+\elem{p}{j+1}-\elem{p}{j}}.
 \end{equation*}
 \end{corollary}
 
 \begin{proof}
 \begin{align*}
-e_A F_j &= \transpose (E_j e_{A^\transpose})\\
-&= \transpose ( \sum_p q^{\sum_{i>p} a_{i,j}}[a_{p,j}+1] e_{A^\transpose + X_{j,p}} )\\
-&= \sum_p q^{\sum_{i>p} a_{i,j}} [a_{p,j}+1] e_{A+X_{j,p}^{\transpose}}
+e_AF_j
+&= \transpose\left(E_j e_{A^\transpose}\right)\\
+&= \transpose\left(\sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p} a_{i,j}} \qint{a_{p,j}+1} e_{A^\transpose +\elem{j}{p} -\elem{j+1}{p}}\right)\\
+&= \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}},
 \end{align*}
+where the second equality comes from Lemma \ref{lemma:fundamental-multiplication-rules}. Similarly,
 \begin{align*}
-e_A E_j &= \transpose (F_j e_{A^\transpose})\\
-&= \transpose ( \sum_p q^{\sum_{i<p} a_{i,j+1}} [a_{p,j+1}+1] e_{A^\transpose - X_{j,p}} )\\
-&= \sum_p q^{\sum_{i<p} a_{i,j+1}}[a_{p,j+1}+1] e_{A-X_{j,p}^{\transpose}}
+e_AE_j
+&= \transpose\left(F_j e_{A^\transpose}\right)\\
+&= \transpose\left( \sum_{p\in\integers:a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A^\transpose +\elem{j+1}{p} - \elem{j}{p}}\right)\\
+&= \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p}a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A+\elem{p}{j+1} -\elem{p}{j}}.
 \end{align*}
 \end{proof}
 
