@@ -7,7 +7,11 @@
 
 \chapter{Introduction}
 
-\chapter{The double flag variety approach to q-Schur algebras}
+\chapter{Background: The double flag variety approach to q-Schur algebras}
+
+\section{Flag varieties as projective algebraic varieties}
+
+{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmanian in a projective space; flag varieties as a closed subset in a product of grassmanians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogenous polynomials which should appear as minors of a matrix.}
 
 \chapter{The cyclic flags approach to affine q-Schur algebras}
 
@@ -703,59 +707,40 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 \end{align*}
 \end{proof}
 
-\subsection{A quasi-projective variety}
+\subsection{Covering with projective varieties}
 
-Fix $L\in\flags$. Given $N\in\naturals$ and $\lambda\in\compositions$, define
+Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$ define
 \begin{equation*}
-\Pi_{N,\lambda} = \{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0\}.
+\Pi_{N,\lambda}(L) = \{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0\}.
 \end{equation*}
 and
 \begin{equation*}
-\Pi_{N,\lambda}^a = \left\{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = a\right\}.
+\Pi_{N,\lambda}^a = \left\{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = a\right\},
 \end{equation*}
-
-$\Pi_{N,\lambda}$ is the (disjoint) union of the $\Pi_{N,\lambda}^a$ for $a\in\naturals$. In fact, we will see $\Pi_{N,\lambda}^a$ is empty whenever $a > 2Nr$.
+for each $a\in\naturals$.
 
 \begin{lemma}
-Let $N,a\in\naturals$, $\lambda\in\compositions$. Then $\Pi_{N,\lambda}
-^a$ is nonempty exactly when $0\le a \le 2Nr$.
+Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
+\begin{equation*}
+\Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L)
+\end{equation*}
 \end{lemma}
 
 \begin{proof}
-Suppose $L''\in\Pi_{N,\lambda}$. By definition, $\epsilon^{-N}L_0\subset L_0''\subset \epsilon^{-N}L_0$, which shows
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) \le \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right) = 2Nr.
-\end{equation*}
-Therefore, $\Pi_{N,\lambda}^a$ is empty unless $a\le 2Nr$.
-
-Now assume $0\le a\le 2Nr$. We may choose an $\epsilon$-invariant subspace $W'$ of $W = \epsilon^{-N}L_0/{\epsilon^N L_0}$ of codimension $a$. $W'$ lifts to give a $\polys$-module, say $L_0''$, with $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$ and with $\dim(\epsilon^{-N}L_0/{L_0''}) = \dim(W/W') = a$. Similarly, a flag of type $\lambda$ in $L_0''/{\epsilon L_0''}$ lifts to give $\polys$-modules $(L_{-n+1}'',\ldots,L_0'')$ with
-\begin{equation*}
-\epsilon L_0''\subset L_{-n+1}''\subset\cdots\subset L_{-1}''\subset L_0''\subset \epsilon^{-N}L_0
-\end{equation*}
-and such that the dimensions of successive quotients are given by $\lambda_1,\ldots,\lambda_n,a$, from left to right. Thus, $(L_{-n+1}'',\ldots,L_0'')$ extends by periodicity to give an element of $\Pi_{N,\lambda}^a$, as desired.
+If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$.
 \end{proof}
 
 \begin{lemma}
-Given $\lambda\in\compositions$, $N\in\naturals$ and $a\in\integers$ with $0\le a\le 2Nr$,
-$\Pi_{N,\lambda}^a$ is a quasi-projective variety.
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
 \end{lemma}
 
-{\color{blue}
 \begin{proof}
-Let $W= \epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ and let
-\begin{equation*}
-X = \left\{W_1\le\cdots\le W_n\le W:\dim\left(\frac{W}{W_n}\right)=a, \dim\left(\frac{W_i}{W_{i-1}}\right) = \lambda_i \text{ for } i=2,\ldots,n\right\}.
-\end{equation*}
-
-$X$ is known to be a projective variety {\color{red}[CITATION NEEDED]}
-
-Let $X'$ be the subset of $X$ consisting of those $(W_1,\ldots, W_n)$, where each $W_i$ is $\epsilon$-invariant and $\epsilon W_n \le W_1$. $X'$ is a closed subset of $X$, though is not necessarily irreducible.
-
-The correspondence between the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0$ which contain $\epsilon^N L_0$ and the set of $\polys$-submodules of $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ gives a pair of mutually inverse maps $\Pi_{N,\lambda}^a\leftrightarrow X'$.
-
- -- the idea that is relevant to the proof is that inclusion relations $L_i\subset L_{i+1}$ describe a closed set in a product of grassmanians. Unsure here -- Is it true that irreducible components of $X'$ are projective varieties. In this case, should the statement be that $\Pi_{N,\lambda}^a$ is a projective algebraic set, rather that a quasi projective variety?
+Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with dimension type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
 \end{proof}
-}
+
+\begin{remark}
+It should be made clear why $\epsilon W_n \subset W_1$ is a closed condition in variety of flags in $W$. That flag varieties are projective algebraic varieties should be considered an `elementary' result not needing a reference or further explanation here, though a short discussion will be found in the early sections of the thesis.
+\end{remark}
 
 \subsection{Geometry of orbit products}
 
