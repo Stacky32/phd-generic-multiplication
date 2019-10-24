@@ -11,7 +11,7 @@
 
 \section{Flag varieties as projective algebraic varieties}
 
-{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmanian in a projective space; flag varieties as a closed subset in a product of grassmanians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogenous polynomials which should appear as minors of a matrix.}
+{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmannian in a projective space; flag varieties as a closed subset in a product of Grassmannians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogenous polynomials which should appear as minors of a matrix.}
 
 \chapter{The cyclic flags approach to affine q-Schur algebras}
 
@@ -524,8 +524,6 @@ a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\rig
 \end{equation*}
 for each $i,j\in\integers$.
 
-\subsection{This needs a cool and informative name - `atomic' sounds pretty gnarly}
-
 Recall that $\ro,\co\colon\matrices\to\compositions$ are the maps given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
@@ -735,11 +733,11 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 \end{lemma}
 
 \begin{proof}
-Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with dimension type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
+Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
 \end{proof}
 
 \begin{remark}
-It should be made clear why $\epsilon W_n \subset W_1$ is a closed condition in variety of flags in $W$. That flag varieties are projective algebraic varieties should be considered an `elementary' result not needing a reference or further explanation here, though a short discussion will be found in the early sections of the thesis.
+It should be made clear why $\epsilon W_n \subset W_1$ is a closed condition in the variety of flags in $W$. That flag varieties are projective algebraic varieties should be considered an `elementary' result not needing a reference or further explanation here, though a short discussion will be found in the early sections of the thesis.
 \end{remark}
 
 \subsection{Geometry of orbit products}
