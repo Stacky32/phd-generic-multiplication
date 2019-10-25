@@ -532,9 +532,9 @@ and
 \begin{equation*}
 \co{A} = \left(\sum_{i\in\integers} a_{i,1},\ldots, \sum_{i\in\integers} a_{i,n}\right)
 \end{equation*}
-for each $A\in\matrices$.
+for each $A\in\matrices$. Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$.
 
-Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$. The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
+The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
 The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
@@ -740,22 +740,54 @@ Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Th
 It should be made clear why $\epsilon W_n \subset W_1$ is a closed condition in the variety of flags in $W$. That flag varieties are projective algebraic varieties should be considered an `elementary' result not needing a reference or further explanation here, though a short discussion will be found in the early sections of the thesis.
 \end{remark}
 
-\subsection{Geometry of orbit products}
-
-Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
-
 \begin{lemma}
-Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$,
-\begin{equation*}
-\xprod[L]{A,B} = G_L G_{L'} L''.
-\end{equation*}
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a closed subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$.
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\orbit{B}$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
-
-For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\orbit{A}$ and $(N',N'')\in\orbit{B}$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
+If $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-(1+n)}L_0}{L_0'}\right) = \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = r+a,
+\end{equation*}
+which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
+\end{equation*}
+which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed condition $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$.
 \end{proof}
+
+{\color{blue}
+\begin{align*}
+\Pi_{N,\lambda}^a(L)
+&= \{L'\in\Pi_{N+1,\lambda}^{a+r}(L): \epsilon L' \in\Pi_{N+1,\lambda}^{a+2r}(L), \epsilon^{-1}L'\in\Pi_{N+1,\lambda}^a(L)\}\\
+&= \epsilon\Pi_{N+1,\lambda}^a(L)\cap\epsilon^{-1}\Pi_{N+1,\lambda}^{a+2r}(L)\\
+&= \Pi_{N+1,\lambda}^a(\epsilon L)\cap \Pi_{N+1,\lambda}^{a+2r}(\epsilon^{-1}L)
+\end{align*}
+}
+
+\begin{conjecture}
+If $L,\tilde{L}\in\flags$, $N_1,N_2\in\naturals$, $\lambda\in\compositions$ and $a_1,a_2\in\naturals$ with $0\le a_1\le 2N_1r$ and $0\le a_2\le 2N_2r$ such that $\Pi_{N_1,\lambda}^{a_1}(L)\subset\Pi_{N_2,\lambda}^{a_2}(\tilde{L})$, then $\Pi_{N_1,\lambda}^{a_1}(L)$ is a closed subspace of $\Pi_{N_2,\lambda}^{a_2}(\tilde{L})$.
+\end{conjecture}
+
+{\color{blue}
+Thus the subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties. If this is true, then subsets of $\flags$ may be given the subspace topology without reference to an explicit embedding in a $\Pi_{N,\lambda}^a(L)$.
+}
+
+\subsection{Geometry of orbits}
+
+{\color{blue}
+\begin{lemma}\label{lemma:locally-closed-orbits}
+Given $L\in\flags$, the $G_L$-orbits in $\flags$ are locally closed.
+\end{lemma}
+
+\begin{proof}
+This seems to require defining a limit topology on $\flags$. Given $L\in\flags$ and $A\in\matrices$ with $|L|=\ro{A}$ and $\lambda =\co{A}$, there is a natural number $N$ so that $\xprod[L]{A}\subset\Pi_N^\lambda(L)$, which is a projective algebraic variety. Moreover, $\xprod[L]{A}$ is given by the conditions
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}.
+\end{equation*}
+Lower(?) semicontinuity of the map $L'\mapsto\dim\left(L_i/{L_i\cap L_j'}\right)$ shows that each condition defines a locally closed subset of $\Pi_N^\lambda(L)$. Finally it will be shown that $\xprod[L]{A}$ is determined by finitely many of these conditions.
+\end{proof}
+}
 
 Given $N\in\naturals$, define
 \begin{equation*}
@@ -787,9 +819,36 @@ $\sigma\in G_L$ induces an automorphism $\bar{\sigma}$ of $\epsilon^{-N} L_0/{\e
 \begin{equation*}
 G_L/H \to GL(\epsilon^{-N}L_0/{\epsilon^N L_0})
 \end{equation*}
-is a group homomorphism. In fact, this homomorphism is injective: if $\sigma = \tau$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$, then $\sigma\tau^{-1} = 1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ and so $\sigma H = \tau H$. Thus $G_L/H$ is isomorphic to its image in $\GL(\epsilon^{-N}L_0/{\epsilon^N L_0})$.
+is a group homomorphism. In fact, this homomorphism is injective: if $\sigma = \tau$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$, then $\sigma\tau^{-1} = 1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ and so $\sigma H = \tau H$. Thus $G_L/H$ is isomorphic to its image in $\GL{}{\epsilon^{-(N+1)}L_0/{\epsilon^N L_0}}$.
 \end{proof}
 }
+
+\begin{lemma}
+Given $A\in\matrices$ and $L\in\flags_{\co{A}}$, $\xprod[L]{A}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)$ for some $N,a\in\naturals$.
+\end{lemma}
+
+{\color{blue}
+\begin{proof}
+There exist $N,a\in\naturals$ so that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$. Then $\xprod[L]{A} = G_L/{H_N}L'$ for any $L'\in\xprod[L]{A}$, where $G_L/{H_N}$ is an irreducible algebraic group acting naturally on $\Pi_{N,\co{A}}^a(L)$, thus $\xprod[L]{A}$ is irreducible.
+\end{proof}
+} 
+
+\subsection{Geometry of orbit products}
+
+Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
+
+\begin{lemma}
+Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$,
+\begin{equation*}
+\xprod[L]{A,B} = G_L G_{L'} L''.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\orbit{B}$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
+
+For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\orbit{A}$ and $(N',N'')\in\orbit{B}$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
+\end{proof}
 
 \begin{lemma}
 There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
@@ -809,7 +868,6 @@ Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space
 {\color{blue}Give an example here to illustrate that $H_N^L$ need not be a normal subgroup in $G_{L'}$ for $L'\neq L$.}
 \end{example}
 
-
 \begin{lemma}
 $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 \end{lemma}
@@ -817,20 +875,6 @@ $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
 {\color{blue}
 \begin{proof}
 Needs a proof.
-\end{proof}
-}
-
-\begin{lemma}\label{lemma:locally-closed-orbits}
-Given $L\in\flags$, the $G_L$-orbits in $\flags$ are locally closed.
-\end{lemma}
-
-{\color{blue}
-\begin{proof}
-This seems to require defining a limit topology on $\flags$. Given $L\in\flags$ and $A\in\matrices$ with $|L|=\ro{A}$ and $\lambda =\co{A}$, there is a natural number $N$ so that $\xprod[L]{A}\subset\Pi_N^\lambda(L)$, which is a projective algebraic variety. Moreover, $\xprod[L]{A}$ is given by the conditions
-\begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}.
-\end{equation*}
-Lower(?) semicontinuity of the map $L'\mapsto\dim\left(L_i/{L_i\cap L_j'}\right)$ shows that each condition defines a locally closed subset of $\Pi_N^\lambda(L)$. Finally it will be shown that $\xprod[L]{A}$ is determined by finitely many of these conditions.
 \end{proof}
 }
 
