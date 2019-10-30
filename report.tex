@@ -600,7 +600,7 @@ It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ i
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:codimension-fomula-corner-sums}
 Let $A\in\matrices$ and take $(L,L')\in\orbit{A}$. Then
 \begin{equation*}
 d_{i,j}A = \dim\left(\frac{L_i}{L_i\cap L_j'}\right)
@@ -770,24 +770,47 @@ If $L,\tilde{L}\in\flags$, $N_1,N_2\in\naturals$, $\lambda\in\compositions$ and 
 \end{conjecture}
 
 {\color{blue}
-Thus the subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties. If this is true, then subsets of $\flags$ may be given the subspace topology without reference to an explicit embedding in a $\Pi_{N,\lambda}^a(L)$.
+Thus the subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties. If this conjecture is true, then subsets of $\flags$ may be given the subspace topology without reference to an embedding in $\Pi_{N,\lambda}^a(L)$.
 }
 
 \subsection{Geometry of orbits}
 
-{\color{blue}
-\begin{lemma}\label{lemma:locally-closed-orbits}
-Given $L\in\flags$, the $G_L$-orbits in $\flags$ are locally closed.
+\begin{lemma}\label{lemma:bounded-orbits}
+Given $A\in\matrices$, there is $N\in\naturals$ such that for each $(L,L')\in\orbit{A}$, $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$. In this case
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = d_{nN,0}(A).
+\end{equation*}
 \end{lemma}
 
 \begin{proof}
-This seems to require defining a limit topology on $\flags$. Given $L\in\flags$ and $A\in\matrices$ with $|L|=\ro{A}$ and $\lambda =\co{A}$, there is a natural number $N$ so that $\xprod[L]{A}\subset\Pi_N^\lambda(L)$, which is a projective algebraic variety. Moreover, $\xprod[L]{A}$ is given by the conditions
+Given $A\in\matrices$, there is $N\in\naturals$ so that $a_{i,j}=0$ whenever $|j-i|>nN$. If $(L,L')\in\orbit{A}$ then
 \begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}.
+\dim\left(\frac{L_0'}{L_0'\cap\epsilon^{-N}L_0}\right) = \dim\left(\frac{L_0'}{L_0'\cap L_{nN}}\right) = \sum_{s>nN,t\le 0} a_{s,t} = 0,
 \end{equation*}
-Lower(?) semicontinuity of the map $L'\mapsto\dim\left(L_i/{L_i\cap L_j'}\right)$ shows that each condition defines a locally closed subset of $\Pi_N^\lambda(L)$. Finally it will be shown that $\xprod[L]{A}$ is determined by finitely many of these conditions.
+so it follows $L_0'\subset\epsilon^{-N}L_0$. Similarly,
+\begin{equation*}
+\dim\left(\frac{\epsilon^N L_0}{\epsilon^N L_0\cap L_0'}\right) = \dim\left(\frac{L_{-nN}}{L_{-nN}\cap L_0'}\right) = \sum_{s\le -nN,t>0} a_{s,t} = 0,
+\end{equation*}
+which shows $\epsilon^N L_0\subset L_0'$. Moreover,
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
+\end{equation*}
+as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
 \end{proof}
-}
+
+\begin{lemma}\label{lemma:locally-closed-orbits}
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, suppose $N\in\naturals$ so that $\xprod[L]{A}\subset\Pi_{N,\co{A}}(L)$. Then $\xprod[L]{A}$ is a locally-closed subspace of $\Pi_{N,\co{A}}^a(L)$, where $a = d_{nN,0}(A)$.
+\end{lemma}
+
+\begin{proof}
+Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Then $\xprod[L]{A}$ is the subset of $\Pi_{N,\co{A}}^a(L)$ given by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}(A)$ for $i,j\in\integers$. For each $i,j\in\integers$, the condition $\dim(L_i/{L_i\cap L_j'})$ determines a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ since the function $L'\mapsto \dim(L_i/{L_i\cap L_j'})$ is lower semicontinuous. Both $d_{i,j}(A)$ and $\dim(L_i/{L_i\cap L_j'})$ are invariant under the map $(i,j)\mapsto (i+n,j+n)$, so $\xprod[L]{A}$ is determined by these conditions for $(i,j)\in [1,n]\times\integers$.
+
+There are only finitely many $(i,j)\in[1,n]\times\integers$ such that $a_{i,j}>0$ and
+\begin{equation*}
+a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j},
+\end{equation*}
+which shows that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
+\end{proof}
 
 Given $N\in\naturals$, define
 \begin{equation*}
