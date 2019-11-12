@@ -828,33 +828,52 @@ $H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1
 Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
 \end{proof}
 
+\begin{proof}[Short proof]
+$H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
+\end{proof}
+
 The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
 
-\begin{lemma}\label{lemma:algebraic-quotient-group}
-$G_L/H_N$ is an irreducible algebraic group for any $N\in\naturals$.
+\begin{lemma}\label{lemma:connected-algebraic-group}
+Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
 
-{\color{blue}
 \begin{proof}
-See the discussion in \cite{lusztig99}[section 4]. Should be able to give an explicit presentation of $G_L/H_N$ in terms of the block structure.
+Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. Given $g\in G_{L_0}$, $g$ is a $\complex[\epsilon]$-module automorphism of $\epsilon^{-(1+N)}L_0$ and $\epsilon^{N}L_0$ is a $g$-invariant submodule, so there is an automorphism $\bar{g}\colon W\to W$ fitting into a commutative diagram {\color{blue}DRAW A DIAGRAM USING TIKZ.}
 
-$\sigma\in G_L$ induces an automorphism $\bar{\sigma}$ of $\epsilon^{-N} L_0/{\epsilon^N L_0}$, with inverse induced by $\sigma^{-1}$. Moreover, the natural map
+The natural map $\bar{}\colon G_{L_0}\to \GL{}{W}$ is a group homomorphism with kernel consisting of those $g\in G_{L_0}$ such that $\bar{g}=1$: that is, $g(x)\in x+\epsilon^{2N+1}L_0$ for each $x\in L_0$.
+
+The image of $G_{L_0}$ in $\GL{}{W}$ may be described by equations in the coordinates on $\GL{}{W}$ with respect to a $\complex$-basis of $W$. $W$ has a basis $\{x_1,\ldots,x_r\}$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$, therefore the complex vector space $W$ has a basis $\{y_j:j\in\integers,1-2Nr\le j\le r\}$ given by
 \begin{equation*}
-G_L/H \to GL(\epsilon^{-N}L_0/{\epsilon^N L_0})
+y_{i-cr} = \epsilon^c x_i
 \end{equation*}
-is a group homomorphism. In fact, this homomorphism is injective: if $\sigma = \tau$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$, then $\sigma\tau^{-1} = 1$ on $\epsilon^{-N}L_0/{\epsilon^N L_0}$ and so $\sigma H = \tau H$. Thus $G_L/H$ is isomorphic to its image in $\GL{}{\epsilon^{-(N+1)}L_0/{\epsilon^N L_0}}$.
-\end{proof}
-}
+for $1\le i\le r$ and $0\le c\le 2N$. There are coordinate functions $\gamma_{i,j}\colon\GL{}{W}\to\complex$ with respect to this basis, given by
+\begin{equation*}
+g(y_j) = \sum_i \gamma_{ij}(g)y_i.
+\end{equation*}
+If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. Thus the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
+\begin{align*}
+A_0 A_1 A_2 \cdots A_{2N}\\
+0 A_0 A_1 \cdots A_{2N-1}\\
+\cdots \cdots \cdots\\
+0 0 \cdots A_0 A_1\\
+0 0 \cdots 0 A_0,
+\end{align*}
 
-\begin{lemma}
-Given $A\in\matrices$ and $L\in\flags_{\co{A}}$, $\xprod[L]{A}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)$ for some $N,a\in\naturals$.
+which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
+
+Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is such that $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
+\end{proof}
+
+\begin{lemma}\label{lemma:orbits-are-irreducible}
+Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is irreducible in the subspace topology from $\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}$, for some $N\in\naturals$.
 \end{lemma}
 
-{\color{blue}
 \begin{proof}
-There exist $N,a\in\naturals$ so that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$. Then $\xprod[L]{A} = G_L/{H_N}L'$ for any $L'\in\xprod[L]{A}$, where $G_L/{H_N}$ is an irreducible algebraic group acting naturally on $\Pi_{N,\co{A}}^a(L)$, thus $\xprod[L]{A}$ is irreducible.
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-irreducible} shows that $\xprod[L]{A}$ is locally closed in the subspace topology directly. For any $L'\in\xprod[L]{A}$, $\xprod[L]{A}=G_L L'=G_L/{H_N} L'$. $G_L/{H_{N,L}}$ is a connected algebraic group and the action of $G_L/{H_N}$ on $\Pi_{N,\co{A}}^a(L)$ is algebraic, so the closure of $\xprod[L]{A}$ in $\Pi_{N,\co{A}}^a(L)$ is irreducible. $\xprod[L]{A}$ is locally-closed, so is open in the irreducible space $\overline{\xprod[L]{A}}$. Therefore $\xprod[L]{A}$ is irreducible.
 \end{proof}
-} 
+
+More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasiprojective variety.
 
 \subsection{Geometry of orbit products}
 
@@ -862,15 +881,19 @@ Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L
 
 \begin{lemma}
 Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$,
-\begin{equation*}
-\xprod[L]{A,B} = G_L G_{L'} L''.
-\end{equation*}
+\begin{align*}
+\xprod[L]{A,B}
+&= G_L G_{L'} L''\\
+&= G_L \xprod[L']{B}.
+\end{align*}
 \end{lemma}
 
 \begin{proof}
 $\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\orbit{B}$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
 
 For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\orbit{A}$ and $(N',N'')\in\orbit{B}$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
+
+The second equality follows since $\xprod[L']{B}=G_{L'}L''$.
 \end{proof}
 
 \begin{lemma}
