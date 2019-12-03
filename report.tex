@@ -13,6 +13,8 @@
 
 {\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmannian in a projective space; flag varieties as a closed subset in a product of Grassmannians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogenous polynomials which should appear as minors of a matrix.}
 
+References for this material include \cite{harris13}[J. Harris: A First Course in Algebraic Geometry]; \cite{hu07}[D. Hudec: The Grassmannian as a Projective Variety]; \cite{morandi98}[P. Morandi: Algebraic Groups, Grassmannians and Flag Varieties].
+
 \chapter{The cyclic flags approach to affine q-Schur algebras}
 
 Fix natural numbers $n$ and $r$.
@@ -736,12 +738,8 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
 \end{proof}
 
-\begin{remark}
-It should be made clear why $\epsilon W_n \subset W_1$ is a closed condition in the variety of flags in $W$. That flag varieties are projective algebraic varieties should be considered an `elementary' result not needing a reference or further explanation here, though a short discussion will be found in the early sections of the thesis.
-\end{remark}
-
 \begin{lemma}
-Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a closed subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$.
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a closed subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -765,12 +763,20 @@ which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subs
 \end{align*}
 }
 
-\begin{conjecture}
-If $L,\tilde{L}\in\flags$, $N_1,N_2\in\naturals$, $\lambda\in\compositions$ and $a_1,a_2\in\naturals$ with $0\le a_1\le 2N_1r$ and $0\le a_2\le 2N_2r$ such that $\Pi_{N_1,\lambda}^{a_1}(L)\subset\Pi_{N_2,\lambda}^{a_2}(\tilde{L})$, then $\Pi_{N_1,\lambda}^{a_1}(L)$ is a closed subspace of $\Pi_{N_2,\lambda}^{a_2}(\tilde{L})$.
-\end{conjecture}
+\begin{lemma}
+Let $\lambda\in\compositions$, $N,\tilde{N}\in\naturals$, $L,\tilde{L}\in\flags_\lambda$, $0\le a\le 2Nr$, $0\le\tilde{a}\le2\tilde{N}r$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
+\end{lemma}
+
+\begin{proof}
+$\Pi_{N,\lambda}^a(L)$ is naturally identified with the space of flags of subspaces
+\begin{equation*}
+0\subset U_1\subset \cdots\subset U_n\subset \frac{\epsilon^{-N-1}L_0}{\epsilon^N L_0}
+\end{equation*}
+with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, satisfying the closed condition $\epsilon U_n\subset U_1$. The image of $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ under this identification is the subspace of flags $(U_1,\ldots,U_n)$ defined by the additional closed conditions ${(\epsilon^N L_0+\epsilon^{\tilde{N}}\tilde{L_0})}/{\epsilon^N L_0}\subset\epsilon U_n$ and $U_n\subset {(\epsilon^{-N-1}L_0\cap \epsilon^{-\tilde{N}-1}\tilde{L_0})}/{\epsilon^N L_0}$. Thus $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed subset of $\Pi_{N,\lambda}^a(L)$ as claimed.
+\end{proof}
 
 {\color{blue}
-Thus the subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties. If this conjecture is true, then subsets of $\flags$ may be given the subspace topology without reference to an embedding in $\Pi_{N,\lambda}^a(L)$.
+The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.
 }
 
 \subsection{Geometry of orbits}
@@ -930,9 +936,17 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[
 
 {\color{blue}
 \begin{proof}
-Write up this proof properly - this is only a sketch. There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is an irreducible algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
+Write up this proof properly - this is only a sketch. There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is a connected algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
 \end{proof}
 }
+
+\begin{proposition}\label{prop:irreducible-y-prod}
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
+\end{proposition}
+
+\begin{proof}
+{\color{red}FINISH WRITING THIS PROOF.}
+\end{proof}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
