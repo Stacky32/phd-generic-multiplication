@@ -65,7 +65,6 @@ Let $L$ be a lattice in $V$. $L/{\epsilon L}$ is a torsion $\polys$-module, wher
 $L$ is a free $\polys$-module of rank $r$, with $L\subset V$. Given an $\polys$-basis $\{x_1,\ldots,x_r\}$ of $L$, $\{\epsilon x_1,\ldots, \epsilon x_r\}$ is an $\polys$-basis of $\epsilon L$. Finally, the cosets $\{ x_1 + \epsilon L,\ldots, x_r + \epsilon L\}$ give a basis for $L/{\epsilon L}$ over $\polys/{\langle \epsilon\rangle}\cong \field$.
 \end{proof}
 
-
 Let $\flags=\flags_\field(n,r)$ be the set of collections $(L_i)_{i\in\integers}$ of lattices in $V$ with $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. These collections of lattices in $V$ are referred to as cyclic flags in $V$. 
 
 $G$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\in\integers$, given $g\in G$ and $L\in\flags$. The $G$-orbits in $\flags$ are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts: the $G$-orbit in $\flags$ corresponding to $\lambda\in\compositions$ is
@@ -945,7 +944,9 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[
 \end{proposition}
 
 \begin{proof}
-{\color{red}FINISH WRITING THIS PROOF.}
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $\yprod[L]{A,B}$ consists of finitely many $G_L$-orbits, each of which is an irreducible quasiprojective variety, since $G_L$ acts on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ through the quotient $G_L/{H_{2N,L}}$ which is a connected algebraic group. Thus $\yprod[L]{A,B}$ is a constructible subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$.
+
+Given $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\overline{\xprod[L']{B}}$ is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\{L'\}\times\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$, so the image under the $G_L/{H_{2N,L}}$ action is irreducible. Thus $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
 \end{proof}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
