@@ -867,18 +867,21 @@ A_0 A_1 A_2 \cdots A_{2N}\\
 
 which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
 
-Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is such that $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
+Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
-Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is irreducible in the subspace topology from $\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}$, for some $N\in\naturals$.
+Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible quasi-projective variety.
 \end{lemma}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-irreducible} shows that $\xprod[L]{A}$ is locally closed in the subspace topology directly. For any $L'\in\xprod[L]{A}$, $\xprod[L]{A}=G_L L'=G_L/{H_N} L'$. $G_L/{H_{N,L}}$ is a connected algebraic group and the action of $G_L/{H_N}$ on $\Pi_{N,\co{A}}^a(L)$ is algebraic, so the closure of $\xprod[L]{A}$ in $\Pi_{N,\co{A}}^a(L)$ is irreducible. $\xprod[L]{A}$ is locally-closed, so is open in the irreducible space $\overline{\xprod[L]{A}}$. Therefore $\xprod[L]{A}$ is irreducible.
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:locally-closed-orbits} shows that $\xprod[L]{A}$ is locally closed in the subspace topology directly. For any $L'\in\xprod[L]{A}$, $\xprod[L]{A}=G_L L'=G_L/{H_N} L'$. $G_L/{H_{N,L}}$ is a connected algebraic group and the action of $G_L/{H_N}$ on $\Pi_{N,\co{A}}^a(L)$ is algebraic, so the closure of $\xprod[L]{A}$ in $\Pi_{N,\co{A}}^a(L)$ is irreducible. $\xprod[L]{A}$ is locally-closed, so is open in the irreducible space $\overline{\xprod[L]{A}}$. Therefore $\xprod[L]{A}$ is irreducible.
 \end{proof}
 
-More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasiprojective variety.
+\begin{remark}
+More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasi-projective variety.
+\end{remark}
+
 
 \subsection{Geometry of orbit products}
 
@@ -913,11 +916,7 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
-Note that $H_N$ is generally not a normal subgroup of $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
-
-\begin{example}
-{\color{blue}Give an example here to illustrate that $H_N^L$ need not be a normal subgroup in $G_{L'}$ for $L'\neq L$.}
-\end{example}
+$H_N$ is generally not normal in $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
 
 \begin{lemma}
 $G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
@@ -929,25 +928,29 @@ Needs a proof.
 \end{proof}
 }
 
+\begin{proposition}\label{prop:irreducible-y-prod}
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasi-projective variety.
+\end{proposition}
+
+\begin{proof}
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $\yprod[L]{A,B}$ consists of finitely many $G_L$-orbits, each of which is an irreducible quasi-projective variety, since $G_L$ acts on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ through the quotient $G_L/{H_{2N,L}}$ which is a connected algebraic group. Thus $\yprod[L]{A,B}$ is a constructible subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$.
+
+Given $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\overline{\xprod[L']{B}}$ is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\{L'\}\times\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$, so the image under the $G_L/{H_{2N,L}}$ action is irreducible. Thus $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
+\end{proof}
+
 \begin{lemma}\label{lemma:irreducible-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B}$ is an irreducible topological space.
 \end{lemma}
 
+\begin{proof}
+$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the projection $\flags_{\co{A}}\times\flags_{\co{B}}\to\flags_{\co{B}}$ and $\yprod[L]{A,B}$ is irreducible, by Proposition \ref{prop:irreducible-y-prod}, so $\xprod[L]{A,B}$ is irreducible.
+\end{proof}
+
 {\color{blue}
 \begin{proof}
-Write up this proof properly - this is only a sketch. There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is a connected algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
+There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is a connected algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
 \end{proof}
 }
-
-\begin{proposition}\label{prop:irreducible-y-prod}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
-\end{proposition}
-
-\begin{proof}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $\yprod[L]{A,B}$ consists of finitely many $G_L$-orbits, each of which is an irreducible quasiprojective variety, since $G_L$ acts on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ through the quotient $G_L/{H_{2N,L}}$ which is a connected algebraic group. Thus $\yprod[L]{A,B}$ is a constructible subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$.
-
-Given $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\overline{\xprod[L']{B}}$ is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\{L'\}\times\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$, so the image under the $G_L/{H_{2N,L}}$ action is irreducible. Thus $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
-\end{proof}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
