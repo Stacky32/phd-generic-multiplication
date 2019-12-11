@@ -714,7 +714,7 @@ Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$ define
 \end{equation*}
 and
 \begin{equation*}
-\Pi_{N,\lambda}^a = \left\{L''\in\flags_\lambda: \epsilon^N L_0\subset L_0''\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = a\right\},
+\Pi_{N,\lambda}^a = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\},
 \end{equation*}
 for each $a\in\naturals$.
 
@@ -726,7 +726,7 @@ Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$.
+If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
 \end{proof}
 
 \begin{lemma}
@@ -781,7 +781,7 @@ The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusio
 \subsection{Geometry of orbits}
 
 \begin{lemma}\label{lemma:bounded-orbits}
-Given $A\in\matrices$, there is $N\in\naturals$ such that for each $(L,L')\in\orbit{A}$, $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$. In this case
+Given $A\in\matrices$, there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ for each $(L,L')\in\orbit{A}$. In this case
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = d_{nN,0}(A).
 \end{equation*}
@@ -814,7 +814,7 @@ There are only finitely many $(i,j)\in[1,n]\times\integers$ such that $a_{i,j}>0
 \begin{equation*}
 a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j},
 \end{equation*}
-which shows that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
+{\color{blue}which shows} that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
 \end{proof}
 
 Given $N\in\naturals$, define
@@ -882,6 +882,10 @@ There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, whe
 More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasi-projective variety.
 \end{remark}
 
+\begin{remark}
+A question of general topology: is it true that a subspace of a topological space is irreducible if and only if its closure is irreducible?
+\end{remark}
+
 
 \subsection{Geometry of orbit products}
 
@@ -946,11 +950,9 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[
 $\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the projection $\flags_{\co{A}}\times\flags_{\co{B}}\to\flags_{\co{B}}$ and $\yprod[L]{A,B}$ is irreducible, by Proposition \ref{prop:irreducible-y-prod}, so $\xprod[L]{A,B}$ is irreducible.
 \end{proof}
 
-{\color{blue}
 \begin{proof}
-There is $N\in\naturals$ sufficiently large that $\xprod[L]{A,B}$ is contained in $\Pi_{N,\co{B}}$, using Lemma \ref{lemma:orbit-products-are-bounded}. Suppose $(L,L')\in\orbit{A}$, then $\xprod[L]{A,B} = G_L \xprod[L']{B}$. $G_L$ acts on $\Pi_{N,\lambda}$ through a quotient $G_L/H$ which is a connected algebraic group, as a result of Lemma \ref{lemma:algebraic-quotient-group}. {\color{blue}$\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\lambda}$}. $\xprod[L]{A,B}$ is the image of an irreducible subspace of $\Pi_{N,\lambda}$ under the action of a connected algebraic group, so $\xprod[L]{A,B}$ is irreducible.
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ for each $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Then $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is in turn a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\xprod[L']{B}$ is an irreducible subspace of $\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting morphically on $\Pi_{2N,\co{B}}^{a+b}(L)$, therefore $\xprod[L]{A,B} = G_L/{H_{2N,L}}\cdot\xprod[L']{B}$ is irreducible.
 \end{proof}
-}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
