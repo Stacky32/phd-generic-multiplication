@@ -708,25 +708,24 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 
 \subsection{Covering with projective varieties}
 
-Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$ define
+Given $L\in\flags$, $N,a\in\naturals$ and $\lambda\in\compositions$ define
 \begin{equation*}
 \Pi_{N,\lambda}(L) = \{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0\}.
 \end{equation*}
 and
 \begin{equation*}
-\Pi_{N,\lambda}^a = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\},
+\Pi_{N,\lambda}^a(L) = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\}.
 \end{equation*}
-for each $a\in\naturals$.
 
 \begin{lemma}
 Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
 \begin{equation*}
-\Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L)
+\Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L).
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
+If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
 \end{proof}
 
 \begin{lemma}
@@ -777,6 +776,14 @@ with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, s
 {\color{blue}
 The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.
 }
+
+\begin{lemma}
+Suppose $L\in\flags$, $N\,a in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (the restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
+\end{lemma}
+
+\begin{lemma}
+For each $g\in G$ the map $\colon G_L\times\Pi_{N,\lambda}^a(L)\to G_{gL}\times\Pi_{N,\lambda}^a(gL)$ given by $(h,L)\mapsto (ghg^{-1},gL)$ is a {\color{red}bijection -- is it more correct to say this is a rational map? / what terminology is appropriate here?}
+\end{lemma}
 
 \subsection{Geometry of orbits}
 
