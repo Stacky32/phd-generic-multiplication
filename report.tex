@@ -778,12 +778,17 @@ The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusio
 }
 
 \begin{lemma}
-Suppose $L\in\flags$, $N\,a in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (the restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
+Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
 \end{lemma}
 
+\begin{proof}
+If $L'\in\Pi_{N,\lambda}^a(L)$, then $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and so $\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0)$, so $gL'\in\Pi_{N,\lambda}^a(L)$. Thus $g$ and $g^{-1}$ induce mutually inverse morphisms of varieties $g\colon\Pi_{N,\lambda}^a(L)\to\Pi_{N,\lambda}^a(gL)$ and $g^{-1}\colon\Pi_{N,\lambda}^a(gL)\to\Pi_{N,\lambda}^a(L)$.
+\end{proof}
+
 \begin{lemma}
-For each $g\in G$ the map $\colon G_L\times\Pi_{N,\lambda}^a(L)\to G_{gL}\times\Pi_{N,\lambda}^a(gL)$ given by $(h,L)\mapsto (ghg^{-1},gL)$ is a {\color{red}bijection -- is it more correct to say this is a rational map? / what terminology is appropriate here?}
+For each $g\in G$ the map $g\colon G_L\times\Pi_{N,\lambda}^a(L)\to G_{gL}\times\Pi_{N,\lambda}^a(gL)$ given by $(h,L)\mapsto (ghg^{-1},gL)$ is a bijection
 \end{lemma}
+
 
 \subsection{Geometry of orbits}
 
@@ -810,8 +815,8 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
 \end{proof}
 
-\begin{lemma}\label{lemma:locally-closed-orbits}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, suppose $N\in\naturals$ so that $\xprod[L]{A}\subset\Pi_{N,\co{A}}(L)$. Then $\xprod[L]{A}$ is a locally-closed subspace of $\Pi_{N,\co{A}}^a(L)$, where $a = d_{nN,0}(A)$.
+\begin{lemma}\label{lemma:orbits-are-quasiprojective}
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$.
 \end{lemma}
 
 \begin{proof}
@@ -939,6 +944,25 @@ Needs a proof.
 \end{proof}
 }
 
+\begin{lemma}\label{lemma:y-prod-is-quasiprojective}
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is a quasiprojective variety.
+\end{lemma}
+
+\begin{proof}
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L,L',L'')$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Let $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$. Then $\yprod[L]{A,B}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ defined by the conditions
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A)
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B)
+\end{equation*}
+for each $i,j\in\integers$.
+
+{\color{blue} it remains to justify why these are locally closed conditions on the product and why there are effectively only finitely many conditions.}
+Thus $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ so is a quasiprojective variety.
+\end{proof}
+
 \begin{proposition}\label{prop:irreducible-y-prod}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasi-projective variety.
 \end{proposition}
@@ -1014,15 +1038,39 @@ Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_
 where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
 \end{proof}
 
-\begin{lemma}\label{lemma:irreducible-y-triple}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible topological space.
+\begin{lemma}\label{lemma:y-triple-is-quasiprojective}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{lemma}
 
-{\color{blue}
 \begin{proof}
-Needs a proof. This is still a sticking point I think.
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Let $a=d_{nN,0}(A)$, $b=d_{nN,0}(B)$ and $c=d_{nN,0}(C)$. Then $\yprod[L]{A,B,C}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$ defined by the conditions
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A),
+\end{equation*}
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B),
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) = d_{i,j}(C)
+\end{equation*}
+for each $i,j\in\integers$.
+
+{\color{blue} it remains to shows these conditions define locally closed subsets of the triple product and that there are effectively finitely many conditions}.
+
+Thus $\yprod[L]{A,B,C}$ is a locally closed subset of the projective variety $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$, so $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{proof}
-}
+
+\begin{lemma}\label{lemma:irreducible-y-triple}
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
+\end{lemma}
+
+\begin{proof}[Sketch!!]
+\begin{equation*}
+\yprod[L]{A,B,C} = G_L\cdot({L'}\times\yprod[L']{B,C}).
+\end{equation*}
+$\yprod[L']{B,C}$ is irreducible, so ${L'}\times\yprod[L']{B,C}$ is irreducible. $G_L$ acts through the quotient $G_L/{H_{3N,L}}$ which is a connected algebraic group, so it follows $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
+\end{proof}
 
 \begin{corollary}\label{lemma:irreducible-x-triple}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space.
