@@ -737,7 +737,7 @@ Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Th
 \end{proof}
 
 \begin{lemma}
-Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a closed subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -752,15 +752,6 @@ which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $
 which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed condition $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$.
 \end{proof}
 
-{\color{blue}
-\begin{align*}
-\Pi_{N,\lambda}^a(L)
-&= \{L'\in\Pi_{N+1,\lambda}^{a+r}(L): \epsilon L' \in\Pi_{N+1,\lambda}^{a+2r}(L), \epsilon^{-1}L'\in\Pi_{N+1,\lambda}^a(L)\}\\
-&= \epsilon\Pi_{N+1,\lambda}^a(L)\cap\epsilon^{-1}\Pi_{N+1,\lambda}^{a+2r}(L)\\
-&= \Pi_{N+1,\lambda}^a(\epsilon L)\cap \Pi_{N+1,\lambda}^{a+2r}(\epsilon^{-1}L)
-\end{align*}
-}
-
 \begin{lemma}
 Let $\lambda\in\compositions$, $N,\tilde{N}\in\naturals$, $L,\tilde{L}\in\flags_\lambda$, $0\le a\le 2Nr$, $0\le\tilde{a}\le2\tilde{N}r$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
 \end{lemma}
@@ -773,9 +764,9 @@ $\Pi_{N,\lambda}^a(L)$ is naturally identified with the space of flags of subspa
 with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, satisfying the closed condition $\epsilon U_n\subset U_1$. The image of $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ under this identification is the subspace of flags $(U_1,\ldots,U_n)$ defined by the additional closed conditions ${(\epsilon^N L_0+\epsilon^{\tilde{N}}\tilde{L_0})}/{\epsilon^N L_0}\subset\epsilon U_n$ and $U_n\subset {(\epsilon^{-N-1}L_0\cap \epsilon^{-\tilde{N}-1}\tilde{L_0})}/{\epsilon^N L_0}$. Thus $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed subset of $\Pi_{N,\lambda}^a(L)$ as claimed.
 \end{proof}
 
-{\color{blue}
-The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.
-}
+\begin{remark}{\color{blue}
+The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.}
+\end{remark}
 
 \begin{lemma}
 Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
@@ -849,8 +840,6 @@ Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsil
 $H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
 \end{proof}
 
-The $H_N$ form a descending chain of normal subgroups in $G_L$: $\cdots\subset H_1 \subset H_0 \subset G_L \subset G$.
-
 \begin{lemma}\label{lemma:connected-algebraic-group}
 Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
@@ -887,7 +876,7 @@ Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible
 \end{lemma}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:locally-closed-orbits} shows that $\xprod[L]{A}$ is locally closed in the subspace topology directly. For any $L'\in\xprod[L]{A}$, $\xprod[L]{A}=G_L L'=G_L/{H_N} L'$. $G_L/{H_{N,L}}$ is a connected algebraic group and the action of $G_L/{H_N}$ on $\Pi_{N,\co{A}}^a(L)$ is algebraic, so the closure of $\xprod[L]{A}$ in $\Pi_{N,\co{A}}^a(L)$ is irreducible. $\xprod[L]{A}$ is locally-closed, so is open in the irreducible space $\overline{\xprod[L]{A}}$. Therefore $\xprod[L]{A}$ is irreducible.
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety, so it remains to show $\xprod[L]{A}$ is irreducible. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
 \end{proof}
 
 \begin{remark}
@@ -968,12 +957,12 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[
 \end{proposition}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $\yprod[L]{A,B}$ consists of finitely many $G_L$-orbits, each of which is an irreducible quasi-projective variety, since $G_L$ acts on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ through the quotient $G_L/{H_{2N,L}}$ which is a connected algebraic group. Thus $\yprod[L]{A,B}$ is a constructible subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$.
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. Lemma \ref{lemma:y-prod-is-quasiprojective} shows that $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ and thus a quasiprojective variety, so it remains to show $\yprod[L]{A,B}$ is irreducible.
 
-Given $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\overline{\xprod[L']{B}}$ is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\{L'\}\times\xprod[L']{B}$ is an irreducible subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$, so the image under the $G_L/{H_{2N,L}}$ action is irreducible. Thus $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
+For any $L'\in\xprod[L]{A}$, $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\{L'\}\times\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. In particular, $\{L'\}\times\xprod[L']{B}$ is an irreducible (locally closed) subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ and $\yprod[L]{A,B}$ is the image of $G_L/{H_{2N,L}}\times\{L'\}\times\xprod[L']{B}$ under the action map, so $\yprod[L]{A,B}$ is irreducible. 
 \end{proof}
 
-\begin{lemma}\label{lemma:irreducible-product}
+\begin{lemma}\label{lemma:irreducible-x-prod}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B}$ is an irreducible topological space.
 \end{lemma}
 
@@ -985,12 +974,17 @@ $\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the projection $\flags_{
 There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ for each $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Then $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is in turn a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\xprod[L']{B}$ is an irreducible subspace of $\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting morphically on $\Pi_{2N,\co{B}}^{a+b}(L)$, therefore $\xprod[L]{A,B} = G_L/{H_{2N,L}}\cdot\xprod[L']{B}$ is irreducible.
 \end{proof}
 
+\begin{remark}
+$\xprod[L]{A,B}$ is a union of finitely many $G_L$-orbits, each of which is locally closed, so $\xprod[L]{A,B}$ is constructible. Lemma
+\ref{lemma:irreducible-x-prod} shows that $\xprod[L]{A,B}$ is irreducible. Investigate whether $\xprod[L]{A,B}$ is actually locally closed and therefore an irreducible quasiprojective variety.
+\end{remark}
+
 \begin{proposition}\label{prop:open-orbits-in-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
 \begin{proof}
-$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-product}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:locally-closed-orbits} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two non-empty open sets in $\xprod[L]{A,B}$ intersect non-trivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
+$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two non-empty open sets in $\xprod[L]{A,B}$ intersect non-trivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
 \section{Existence of a maximum}
@@ -1010,11 +1004,11 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum el
 \end{proposition}
 
 \begin{proof}
-Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-product} and is the union of finitely many $G_L$-orbits, namely
+Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-x-prod} and is the union of finitely many $G_L$-orbits, namely
 \begin{equation*}
 \xprod[L]{A,B} = \bigcup_{C\in\matrices_{A,B}} \xprod[L]{C}.
 \end{equation*}
-This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:locally-closed-orbits} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices_{A,B}$.
+This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices_{A,B}$.
 \end{proof}
 
 \section{Associativity}
@@ -1065,11 +1059,10 @@ Thus $\yprod[L]{A,B,C}$ is a locally closed subset of the projective variety $\P
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
 \end{lemma}
 
-\begin{proof}[Sketch!!]
-\begin{equation*}
-\yprod[L]{A,B,C} = G_L\cdot({L'}\times\yprod[L']{B,C}).
-\end{equation*}
-$\yprod[L']{B,C}$ is irreducible, so ${L'}\times\yprod[L']{B,C}$ is irreducible. $G_L$ acts through the quotient $G_L/{H_{3N,L}}$ which is a connected algebraic group, so it follows $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
+\begin{proof}
+There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{3N,L}}$ is a connected algebraic group acting algebraically on $\Pi = \Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$.
+
+Let $L'\in\xprod[L]{A}$. $\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}$. $\yprod[L']{B,C}$ is an irreducible quasiprojective variety; $\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')\times\Pi_{2N,\co{C}}^{b+c}(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$. Thus $\{L'\}\times\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi$. Therefore $\yprod[L]{A,B,C}$ is the image of the irreducible space $G_L/{H_{3N,L}}\times\{L'\}\times\yprod[L']{B,C}$ under the action map, so $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
 \end{proof}
 
 \begin{corollary}\label{lemma:irreducible-x-triple}
@@ -1085,7 +1078,7 @@ Given matrices $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and 
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B,C}$ is irreducible, by Corollary \ref{lemma:irreducible-x-triple}, and consists of finitely many $G_L$-orbits, so contains a dense $G_L$-orbit. In particular, there is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\xprod[L]{A,B,C}$. Lemma \ref{lemma:locally-closed-orbits} shows that the $G_L$-orbits are locally closed in $\xprod[L]{A,B,C}$. In particular, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}} = \xprod[L]{A,B,C}$. Therefore, there is an open $G_L$-orbit in $\xprod[L]{A,B,C}$. There is a unique open $G_L$-orbit since $\xprod[L]{A,B,C}$ is irreducible.
+$\xprod[L]{A,B,C}$ is irreducible, by Corollary \ref{lemma:irreducible-x-triple}, and consists of finitely many $G_L$-orbits, so contains a dense $G_L$-orbit. In particular, there is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\xprod[L]{A,B,C}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits are locally closed in $\xprod[L]{A,B,C}$. In particular, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}} = \xprod[L]{A,B,C}$. Therefore, there is an open $G_L$-orbit in $\xprod[L]{A,B,C}$. There is a unique open $G_L$-orbit since $\xprod[L]{A,B,C}$ is irreducible.
 \end{proof}
 
 \begin{definition}
