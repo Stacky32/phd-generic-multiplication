@@ -616,7 +616,230 @@ This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
 Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with the closure order on $G$-orbits in $\dblflags$. In particular, $A\le B$ if and only if $\orbit{A}\subset \overline{\orbit{B}}$.
 \end{conjecture}
 
-\section{Preliminary results}
+
+\section{Geometry of affine flag varieties}
+
+Given $L\in\flags$, $N,a\in\naturals$ and $\lambda\in\compositions$ define
+\begin{equation*}
+\Pi_{N,\lambda}(L) = \{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0\}.
+\end{equation*}
+and
+\begin{equation*}
+\Pi_{N,\lambda}^a(L) = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\}.
+\end{equation*}
+
+\begin{lemma}
+Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
+\begin{equation*}
+\Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
+\end{proof}
+
+\begin{lemma}
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
+\end{lemma}
+
+\begin{proof}
+Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
+\end{proof}
+
+\begin{lemma}
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
+\end{lemma}
+
+\begin{proof}
+If $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-(1+n)}L_0}{L_0'}\right) = \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = r+a,
+\end{equation*}
+which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
+\end{equation*}
+which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed condition $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$.
+\end{proof}
+
+\begin{lemma}
+Let $\lambda\in\compositions$, $N,\tilde{N}\in\naturals$, $L,\tilde{L}\in\flags_\lambda$, $0\le a\le 2Nr$, $0\le\tilde{a}\le2\tilde{N}r$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
+\end{lemma}
+
+\begin{proof}
+$\Pi_{N,\lambda}^a(L)$ is naturally identified with the space of flags of subspaces
+\begin{equation*}
+0\subset U_1\subset \cdots\subset U_n\subset \frac{\epsilon^{-N-1}L_0}{\epsilon^N L_0}
+\end{equation*}
+with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, satisfying the closed condition $\epsilon U_n\subset U_1$. The image of $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ under this identification is the subspace of flags $(U_1,\ldots,U_n)$ defined by the additional closed conditions ${(\epsilon^N L_0+\epsilon^{\tilde{N}}\tilde{L_0})}/{\epsilon^N L_0}\subset\epsilon U_n$ and $U_n\subset {(\epsilon^{-N-1}L_0\cap \epsilon^{-\tilde{N}-1}\tilde{L_0})}/{\epsilon^N L_0}$. Thus $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed subset of $\Pi_{N,\lambda}^a(L)$ as claimed.
+\end{proof}
+
+\begin{remark}{\color{blue}
+The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.}
+\end{remark}
+
+\begin{lemma}
+Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
+\end{lemma}
+
+\begin{proof}
+If $L'\in\Pi_{N,\lambda}^a(L)$, then $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and so $\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0)$, so $gL'\in\Pi_{N,\lambda}^a(L)$. Thus $g$ and $g^{-1}$ induce mutually inverse morphisms of varieties $g\colon\Pi_{N,\lambda}^a(L)\to\Pi_{N,\lambda}^a(gL)$ and $g^{-1}\colon\Pi_{N,\lambda}^a(gL)\to\Pi_{N,\lambda}^a(L)$.
+\end{proof}
+
+\subsection{Action through an algebraic group}
+
+Given $N\in\naturals$, define
+\begin{equation*}
+H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L_0} \right\}.
+\end{equation*}
+Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
+
+\begin{lemma}
+$H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
+\end{lemma}
+
+\begin{proof}
+$H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1+N)}L_0$. $h'(x)\in\epsilon^{-(1+N)}L_0$ as $h'\in G_L$, so $hh'(x) + \epsilon^N L_0 = h'(x) + \epsilon^N L_0 = x + \epsilon^N L_0$, which shows $hh'\in H_N$. $h(x)-x\in\epsilon^N L_0$, so $h^{-1}(x) - x = -h^{-1}(h(x)-x)\in\epsilon^N L_0$. $h^{-1}\in H_N$, so $H_N$ is a subgroup of $G_L$.
+
+Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
+\end{proof}
+
+\begin{proof}[Short proof]
+$H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
+\end{proof}
+
+\begin{lemma}\label{lemma:connected-algebraic-group}
+Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
+\end{lemma}
+
+\begin{proof}
+Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. Given $g\in G_{L_0}$, $g$ is a $\complex[\epsilon]$-module automorphism of $\epsilon^{-(1+N)}L_0$ and $\epsilon^{N}L_0$ is a $g$-invariant submodule, so there is an automorphism $\bar{g}\colon W\to W$ fitting into a commutative diagram 
+
+\begin{tikzpicture}[scale = 1.0, baseline = -0.5ex]
+\node (AA) at (0,1.5) {$0$};
+\node (AB) at (2,1.5) {$\epsilon^N L_0$};
+\node (AC) at (4,1.5) {$\epsilon^{-1-N}L_0$};
+\node (AD) at (6,1.5) {$W$};
+\node (AE) at (8,1.5) {$0$};
+
+\cdarrow (AA) edge (AB);
+\cdarrow (AB) edge (AC);
+\cdarrow (AC) edge (AD);
+\cdarrow (AD) edge (AE);
+
+\node (BA) at (0,0) {$0$};
+\node (BB) at (2,0) {$\epsilon^N L_0$};
+\node (BC) at (4,0) {$\epsilon^{-1-N} L_0$};
+\node (BD) at (6,0) {$W$};
+\node (BE) at (8,0) {$0$};
+
+\cdarrow (BA) edge (BB);
+\cdarrow (BB) edge (BC);
+\cdarrow (BC) edge (BD);
+\cdarrow (BD) edge (BE);
+
+\cdarrow (AB) edge (BB);
+\cdarrow (AC) edge (BC);
+\cdarrow (AD) edge (BD);
+\end{tikzpicture}
+
+The natural map $\bar{}\colon G_{L_0}\to \GL{}{W}$ is a group homomorphism with kernel consisting of those $g\in G_{L_0}$ such that $\bar{g}=1$: that is, $g(x)\in x+\epsilon^{2N+1}L_0$ for each $x\in L_0$.
+
+The image of $G_{L_0}$ in $\GL{}{W}$ may be described by equations in the coordinates on $\GL{}{W}$ with respect to a $\complex$-basis of $W$. $W$ has a basis $\{x_1,\ldots,x_r\}$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$, therefore the complex vector space $W$ has a basis $\{y_j:j\in\integers,1-2Nr\le j\le r\}$ given by
+\begin{equation*}
+y_{i-cr} = \epsilon^c x_i
+\end{equation*}
+for $1\le i\le r$ and $0\le c\le 2N$. There are coordinate functions $\gamma_{i,j}\colon\GL{}{W}\to\complex$ with respect to this basis, given by
+\begin{equation*}
+g(y_j) = \sum_i \gamma_{ij}(g)y_i.
+\end{equation*}
+If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. Thus the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
+\begin{align*}
+A_0 A_1 A_2 \cdots A_{2N}\\
+0 A_0 A_1 \cdots A_{2N-1}\\
+\cdots \cdots \cdots\\
+0 0 \cdots A_0 A_1\\
+0 0 \cdots 0 A_0,
+\end{align*}
+
+which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
+
+Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
+\end{proof}
+
+Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
+
+\begin{tikzpicture}[scale=1.5, baseline = -0.5ex]
+\node (A) at (0,1) {$G_L/{H_{N,L}}\times\Pi_{N,\lambda}^a(L)$};
+\node (B) at (3,1) {$\Pi_{N,\lambda}^a(L)$};
+\node (C) at (0,0) {$G_{gL}/{H_{N,gL}}\times\Pi_{N,\lambda}^a(gL)$};
+\node (D) at (3,0) {$\Pi_{N,\lambda}^a(gL)$};
+
+\cdarrow (A) edge (B);
+\cdarrow (A) edge (C);
+\cdarrow (B) edge (D);
+\cdarrow (C) edge (D);
+\end{tikzpicture}
+
+
+\subsection{Geometry of orbits}
+
+\begin{lemma}\label{lemma:bounded-orbits}
+Given $A\in\matrices$, there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ for each $(L,L')\in\orbit{A}$. In this case
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = d_{nN,0}(A).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Given $A\in\matrices$, there is $N\in\naturals$ so that $a_{i,j}=0$ whenever $|j-i|>nN$. If $(L,L')\in\orbit{A}$ then
+\begin{equation*}
+\dim\left(\frac{L_0'}{L_0'\cap\epsilon^{-N}L_0}\right) = \dim\left(\frac{L_0'}{L_0'\cap L_{nN}}\right) = \sum_{s>nN,t\le 0} a_{s,t} = 0,
+\end{equation*}
+so it follows $L_0'\subset\epsilon^{-N}L_0$. Similarly,
+\begin{equation*}
+\dim\left(\frac{\epsilon^N L_0}{\epsilon^N L_0\cap L_0'}\right) = \dim\left(\frac{L_{-nN}}{L_{-nN}\cap L_0'}\right) = \sum_{s\le -nN,t>0} a_{s,t} = 0,
+\end{equation*}
+which shows $\epsilon^N L_0\subset L_0'$. Moreover,
+\begin{equation*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
+\end{equation*}
+as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
+\end{proof}
+
+\begin{lemma}\label{lemma:orbits-are-quasiprojective}
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$.
+\end{lemma}
+
+\begin{proof}
+Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Then $\xprod[L]{A}$ is the subset of $\Pi_{N,\co{A}}^a(L)$ given by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}(A)$ for $i,j\in\integers$. For each $i,j\in\integers$, the condition $\dim(L_i/{L_i\cap L_j'})$ determines a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ since the function $L'\mapsto \dim(L_i/{L_i\cap L_j'})$ is lower semicontinuous. Both $d_{i,j}(A)$ and $\dim(L_i/{L_i\cap L_j'})$ are invariant under the map $(i,j)\mapsto (i+n,j+n)$, so $\xprod[L]{A}$ is determined by these conditions for $(i,j)\in [1,n]\times\integers$.
+
+There are only finitely many $(i,j)\in[1,n]\times\integers$ such that $a_{i,j}>0$ and
+\begin{equation*}
+a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j},
+\end{equation*}
+{\color{blue}which shows} that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
+\end{proof}
+
+\begin{lemma}\label{lemma:orbits-are-irreducible}
+Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible quasi-projective variety.
+\end{lemma}
+
+\begin{proof}
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety, so it remains to show $\xprod[L]{A}$ is irreducible. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
+\end{proof}
+
+\begin{remark}
+More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasi-projective variety.
+\end{remark}
+
+\begin{remark}
+A question of general topology: is it true that a subspace of a topological space is irreducible if and only if its closure is irreducible?
+\end{remark}
+
+
+\subsection{Geometry of orbit products}
 
 Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Recall the notation
 \begin{equation*}
@@ -705,246 +928,6 @@ It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_
 &= d_{nN_2,0}(B).
 \end{align*}
 \end{proof}
-
-\subsection{Covering with projective varieties}
-
-Given $L\in\flags$, $N,a\in\naturals$ and $\lambda\in\compositions$ define
-\begin{equation*}
-\Pi_{N,\lambda}(L) = \{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0\}.
-\end{equation*}
-and
-\begin{equation*}
-\Pi_{N,\lambda}^a(L) = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\}.
-\end{equation*}
-
-\begin{lemma}
-Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
-\begin{equation*}
-\Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L).
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
-\end{proof}
-
-\begin{lemma}
-Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
-\end{lemma}
-
-\begin{proof}
-Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
-\end{proof}
-
-\begin{lemma}
-Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
-\end{lemma}
-
-\begin{proof}
-If $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-(1+n)}L_0}{L_0'}\right) = \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = r+a,
-\end{equation*}
-which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
-\end{equation*}
-which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed condition $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$.
-\end{proof}
-
-\begin{lemma}
-Let $\lambda\in\compositions$, $N,\tilde{N}\in\naturals$, $L,\tilde{L}\in\flags_\lambda$, $0\le a\le 2Nr$, $0\le\tilde{a}\le2\tilde{N}r$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
-\end{lemma}
-
-\begin{proof}
-$\Pi_{N,\lambda}^a(L)$ is naturally identified with the space of flags of subspaces
-\begin{equation*}
-0\subset U_1\subset \cdots\subset U_n\subset \frac{\epsilon^{-N-1}L_0}{\epsilon^N L_0}
-\end{equation*}
-with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, satisfying the closed condition $\epsilon U_n\subset U_1$. The image of $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ under this identification is the subspace of flags $(U_1,\ldots,U_n)$ defined by the additional closed conditions ${(\epsilon^N L_0+\epsilon^{\tilde{N}}\tilde{L_0})}/{\epsilon^N L_0}\subset\epsilon U_n$ and $U_n\subset {(\epsilon^{-N-1}L_0\cap \epsilon^{-\tilde{N}-1}\tilde{L_0})}/{\epsilon^N L_0}$. Thus $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed subset of $\Pi_{N,\lambda}^a(L)$ as claimed.
-\end{proof}
-
-\begin{remark}{\color{blue}
-The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.}
-\end{remark}
-
-\begin{lemma}
-Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
-\end{lemma}
-
-\begin{proof}
-If $L'\in\Pi_{N,\lambda}^a(L)$, then $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and so $\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0)$, so $gL'\in\Pi_{N,\lambda}^a(L)$. Thus $g$ and $g^{-1}$ induce mutually inverse morphisms of varieties $g\colon\Pi_{N,\lambda}^a(L)\to\Pi_{N,\lambda}^a(gL)$ and $g^{-1}\colon\Pi_{N,\lambda}^a(gL)\to\Pi_{N,\lambda}^a(L)$.
-\end{proof}
-
-\begin{lemma}
-For each $g\in G$ the map $g\colon G_L\times\Pi_{N,\lambda}^a(L)\to G_{gL}\times\Pi_{N,\lambda}^a(gL)$ given by $(h,L)\mapsto (ghg^{-1},gL)$ is a bijection
-\end{lemma}
-
-The following discussion will supercede the previous two Lemmas. Given $g\in G$, the isomorphisms described above fit into a commuative diagram as follows.
-
-\begin{tikzpicture}[scale=1.5, baseline = -0.5ex]
-\node (A) at (0,1) {$G_L\times\Pi_{N,\lambda}^a(L)$};
-\node (B) at (2,1) {$\Pi_{N,\lambda}^a(L)$};
-\node (C) at (0,0) {$G_{gL}\times\Pi_{N,\lambda}^a(gL)$};
-\node (D) at (2,0) {$\Pi_{N,\lambda}^a(gL)$};
-
-\cdarrow (A) edge (B);
-\cdarrow (A) edge (C);
-\cdarrow (B) edge (D);
-\cdarrow (C) edge (D);
-\end{tikzpicture}
-
-The map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
-
-\begin{tikzpicture}[scale=1.5, baseline = -0.5ex]
-\node (A) at (0,1) {$G_L/{H_{N,L}}\times\Pi_{N,\lambda}^a(L)$};
-\node (B) at (3,1) {$\Pi_{N,\lambda}^a(L)$};
-\node (C) at (0,0) {$G_{gL}/{H_{N,gL}}\times\Pi_{N,\lambda}^a(gL)$};
-\node (D) at (3,0) {$\Pi_{N,\lambda}^a(gL)$};
-
-\cdarrow (A) edge (B);
-\cdarrow (A) edge (C);
-\cdarrow (B) edge (D);
-\cdarrow (C) edge (D);
-\end{tikzpicture}
-
-
-\subsection{Geometry of orbits}
-
-\begin{lemma}\label{lemma:bounded-orbits}
-Given $A\in\matrices$, there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ for each $(L,L')\in\orbit{A}$. In this case
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = d_{nN,0}(A).
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-Given $A\in\matrices$, there is $N\in\naturals$ so that $a_{i,j}=0$ whenever $|j-i|>nN$. If $(L,L')\in\orbit{A}$ then
-\begin{equation*}
-\dim\left(\frac{L_0'}{L_0'\cap\epsilon^{-N}L_0}\right) = \dim\left(\frac{L_0'}{L_0'\cap L_{nN}}\right) = \sum_{s>nN,t\le 0} a_{s,t} = 0,
-\end{equation*}
-so it follows $L_0'\subset\epsilon^{-N}L_0$. Similarly,
-\begin{equation*}
-\dim\left(\frac{\epsilon^N L_0}{\epsilon^N L_0\cap L_0'}\right) = \dim\left(\frac{L_{-nN}}{L_{-nN}\cap L_0'}\right) = \sum_{s\le -nN,t>0} a_{s,t} = 0,
-\end{equation*}
-which shows $\epsilon^N L_0\subset L_0'$. Moreover,
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
-\end{equation*}
-as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
-\end{proof}
-
-\begin{lemma}\label{lemma:orbits-are-quasiprojective}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$.
-\end{lemma}
-
-\begin{proof}
-Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Then $\xprod[L]{A}$ is the subset of $\Pi_{N,\co{A}}^a(L)$ given by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}(A)$ for $i,j\in\integers$. For each $i,j\in\integers$, the condition $\dim(L_i/{L_i\cap L_j'})$ determines a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ since the function $L'\mapsto \dim(L_i/{L_i\cap L_j'})$ is lower semicontinuous. Both $d_{i,j}(A)$ and $\dim(L_i/{L_i\cap L_j'})$ are invariant under the map $(i,j)\mapsto (i+n,j+n)$, so $\xprod[L]{A}$ is determined by these conditions for $(i,j)\in [1,n]\times\integers$.
-
-There are only finitely many $(i,j)\in[1,n]\times\integers$ such that $a_{i,j}>0$ and
-\begin{equation*}
-a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j},
-\end{equation*}
-{\color{blue}which shows} that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
-\end{proof}
-
-Given $N\in\naturals$, define
-\begin{equation*}
-H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L_0} \right\}.
-\end{equation*}
-Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
-
-\begin{lemma}
-$H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
-\end{lemma}
-
-\begin{proof}
-$H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1+N)}L_0$. $h'(x)\in\epsilon^{-(1+N)}L_0$ as $h'\in G_L$, so $hh'(x) + \epsilon^N L_0 = h'(x) + \epsilon^N L_0 = x + \epsilon^N L_0$, which shows $hh'\in H_N$. $h(x)-x\in\epsilon^N L_0$, so $h^{-1}(x) - x = -h^{-1}(h(x)-x)\in\epsilon^N L_0$. $h^{-1}\in H_N$, so $H_N$ is a subgroup of $G_L$.
-
-Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
-\end{proof}
-
-\begin{proof}[Short proof]
-$H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
-\end{proof}
-
-\begin{lemma}\label{lemma:connected-algebraic-group}
-Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
-\end{lemma}
-
-\begin{proof}
-Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. Given $g\in G_{L_0}$, $g$ is a $\complex[\epsilon]$-module automorphism of $\epsilon^{-(1+N)}L_0$ and $\epsilon^{N}L_0$ is a $g$-invariant submodule, so there is an automorphism $\bar{g}\colon W\to W$ fitting into a commutative diagram 
-
-\begin{tikzpicture}[scale = 1.0, baseline = -0.5ex]
-\node (AA) at (0,1.5) {$0$};
-\node (AB) at (2,1.5) {$\epsilon^N L_0$};
-\node (AC) at (4,1.5) {$\epsilon^{-1-N}L_0$};
-\node (AD) at (6,1.5) {$W$};
-\node (AE) at (8,1.5) {$0$};
-
-\cdarrow (AA) edge (AB);
-\cdarrow (AB) edge (AC);
-\cdarrow (AC) edge (AD);
-\cdarrow (AD) edge (AE);
-
-\node (BA) at (0,0) {$0$};
-\node (BB) at (2,0) {$\epsilon^N L_0$};
-\node (BC) at (4,0) {$\epsilon^{-1-N} L_0$};
-\node (BD) at (6,0) {$W$};
-\node (BE) at (8,0) {$0$};
-
-\cdarrow (BA) edge (BB);
-\cdarrow (BB) edge (BC);
-\cdarrow (BC) edge (BD);
-\cdarrow (BD) edge (BE);
-
-\cdarrow (AB) edge (BB);
-\cdarrow (AC) edge (BC);
-\cdarrow (AD) edge (BD);
-\end{tikzpicture}
-
-The natural map $\bar{}\colon G_{L_0}\to \GL{}{W}$ is a group homomorphism with kernel consisting of those $g\in G_{L_0}$ such that $\bar{g}=1$: that is, $g(x)\in x+\epsilon^{2N+1}L_0$ for each $x\in L_0$.
-
-The image of $G_{L_0}$ in $\GL{}{W}$ may be described by equations in the coordinates on $\GL{}{W}$ with respect to a $\complex$-basis of $W$. $W$ has a basis $\{x_1,\ldots,x_r\}$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$, therefore the complex vector space $W$ has a basis $\{y_j:j\in\integers,1-2Nr\le j\le r\}$ given by
-\begin{equation*}
-y_{i-cr} = \epsilon^c x_i
-\end{equation*}
-for $1\le i\le r$ and $0\le c\le 2N$. There are coordinate functions $\gamma_{i,j}\colon\GL{}{W}\to\complex$ with respect to this basis, given by
-\begin{equation*}
-g(y_j) = \sum_i \gamma_{ij}(g)y_i.
-\end{equation*}
-If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. Thus the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
-\begin{align*}
-A_0 A_1 A_2 \cdots A_{2N}\\
-0 A_0 A_1 \cdots A_{2N-1}\\
-\cdots \cdots \cdots\\
-0 0 \cdots A_0 A_1\\
-0 0 \cdots 0 A_0,
-\end{align*}
-
-which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
-
-Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
-\end{proof}
-
-\begin{lemma}\label{lemma:orbits-are-irreducible}
-Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible quasi-projective variety.
-\end{lemma}
-
-\begin{proof}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety, so it remains to show $\xprod[L]{A}$ is irreducible. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
-\end{proof}
-
-\begin{remark}
-More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasi-projective variety.
-\end{remark}
-
-\begin{remark}
-A question of general topology: is it true that a subspace of a topological space is irreducible if and only if its closure is irreducible?
-\end{remark}
-
-
-\subsection{Geometry of orbit products}
 
 Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
 
