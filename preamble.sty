@@ -17,16 +17,30 @@
 \RequirePackage{xcolor}
 \RequirePackage{mathtools}	% included for use of coloneqq.
 
-\usepackage{tikz-cd} % create (commuting) diagrams.
-\usepackage{biblatex}
+\usepackage{tikz} % Diagrams
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 
-% LOAD BIBLIOGRAPHY
+
+% TIKZ PICTURE CONVENIENCE COMMANDS %
+% produces an arrow for a commutative diagram
+\newcommand{\cdarrow}{\path[->,font=\scriptsize,>=angle 90]}
+% makes a dashed arrow
+\newcommand{\cdarrowdashed}{\path[->,dashed,font=\scriptsize,>=angle 90]}
+% makes a dashed line
+\newcommand{\cdlinedashed}{\path[-,dashed,font=\scriptsize,>=angle 90]}
+% makes a line
+\newcommand{\cdline}{\path[-,font=\scriptsize,>=angle 90]}
+
+
+% BIBLIOGRAPHY
+
+\usepackage{biblatex}
 \addbibresource{references.bib}
 
 % OTHER PACKAGES:
 
 %\usepackage{extpfeil} 	% for interesting arrows.
-%\usepackage{hyperref} 	% enable navigation hyperlinks
+\usepackage{hyperref} 	% enable navigation hyperlinks
 
 %\usepackage{import}
 %For importing sections, bibliography etc.
