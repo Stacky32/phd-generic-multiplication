@@ -716,6 +716,7 @@ Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic
 \begin{proof}
 Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. Given $g\in G_{L_0}$, $g$ is a $\complex[\epsilon]$-module automorphism of $\epsilon^{-(1+N)}L_0$ and $\epsilon^{N}L_0$ is a $g$-invariant submodule, so there is an automorphism $\bar{g}\colon W\to W$ fitting into a commutative diagram 
 
+\begin{equation*}
 \begin{tikzpicture}[scale = 1.0, baseline = -0.5ex]
 \node (AA) at (0,1.5) {$0$};
 \node (AB) at (2,1.5) {$\epsilon^N L_0$};
@@ -743,6 +744,7 @@ Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_
 \cdarrow (AC) edge (BC);
 \cdarrow (AD) edge (BD);
 \end{tikzpicture}
+\end{equation*}
 
 The natural map $\bar{}\colon G_{L_0}\to \GL{}{W}$ is a group homomorphism with kernel consisting of those $g\in G_{L_0}$ such that $\bar{g}=1$: that is, $g(x)\in x+\epsilon^{2N+1}L_0$ for each $x\in L_0$.
 
@@ -770,6 +772,7 @@ Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}
 
 Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
 
+\begin{equation*}
 \begin{tikzpicture}[scale=1.5, baseline = -0.5ex]
 \node (A) at (0,1) {$G_L/{H_{N,L}}\times\Pi_{N,\lambda}^a(L)$};
 \node (B) at (3,1) {$\Pi_{N,\lambda}^a(L)$};
@@ -781,7 +784,7 @@ Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group iso
 \cdarrow (B) edge (D);
 \cdarrow (C) edge (D);
 \end{tikzpicture}
-
+\end{equation*}
 
 \subsection{Geometry of orbits}
 
@@ -827,7 +830,7 @@ Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible
 \end{lemma}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety, so it remains to show $\xprod[L]{A}$ is irreducible. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
+Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally-closed subset of $\subset\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
 \end{proof}
 
 \begin{remark}
@@ -1120,36 +1123,26 @@ Given matrices $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and 
 $\xprod[L]{A,B,C}$ is irreducible, by Corollary \ref{lemma:irreducible-x-triple}, and consists of finitely many $G_L$-orbits, so contains a dense $G_L$-orbit. In particular, there is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\xprod[L]{A,B,C}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits are locally closed in $\xprod[L]{A,B,C}$. In particular, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}} = \xprod[L]{A,B,C}$. Therefore, there is an open $G_L$-orbit in $\xprod[L]{A,B,C}$. There is a unique open $G_L$-orbit since $\xprod[L]{A,B,C}$ is irreducible.
 \end{proof}
 
-\begin{definition}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, define spaces
-\begin{equation*}
-\zprod[L]{(AB)C} = f^{-1}\xprod[L]{(A\ast B)\ast C}
-\end{equation*}
-\begin{equation*}
-\zprod[L]{A(BC)} = f^{-1}\xprod[L]{A\ast(B\ast C)}.
-\end{equation*}
-\end{definition}
-
 \begin{lemma}\label{lemma:zprod-open-in-yprod-left}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\zprod[L]{(AB)C}$ is open in $\yprod[L]{A,B,C}$.
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $f^{-1}(\xprod[L]{A\ast B,C})$ is open in $\yprod[L]{A,B,C}$.
 \end{lemma}
 
 \begin{proof}
 \begin{equation*}
-f^{-1}\xprod[L]{A\ast B,C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i}{L_i\cap L_j''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
+f^{-1}(\xprod[L]{A\ast B,C}) = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i}{L_i\cap L_j''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
 \end{equation*}
-is open in $\yprod[L]{A,B,C}$ since $f^{-1}\xprod[L]{A\ast B,C}$ is given by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A,B}$ given by $L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A,B}$.
+is open in $\yprod[L]{A,B,C}$ since $f^{-1}(\xprod[L]{A\ast B,C})$ is defined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A,B}$ given by $L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A,B}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:zprod-open-in-yprod-right}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\zprod[L]{A(BC)}$ is open in $\yprod[L]{A,B,C}$.
+Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $f^{-1}(\xprod[L]{A,B\ast C})$ is open in $\yprod[L]{A,B,C}$.
 \end{lemma}
 
 \begin{proof}
 \begin{equation*}
-f^{-1}\xprod[L]{A,B\ast C} = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
+f^{-1}(\xprod[L]{A,B\ast C}) = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
 \end{equation*}
-is open in $\yprod[L]{A,B,C}$, as it is determined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$ given by $(L',L''')\mapsto\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$.
+is open in $\yprod[L]{A,B,C}$, as it is defined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$ given by $(L',L''')\mapsto\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)$ is lower semicontinuous, so maximising this function is an open condition on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$.
 \end{proof}
 
 \begin{conjecture}\label{conjecture:open-embeddings-in-x}
@@ -1167,9 +1160,9 @@ Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\a
 \begin{proof}
 Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$.
 
-$\xprod[L]{(A\ast B)\ast C}$ is open in $\xprod[L]{A\ast B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $f^{-1}\xprod[L]{A\ast B,C}$. Lemma \ref{lemma:zprod-open-in-yprod-left} shows that $f^{-1}\xprod[L]{A\ast,B,C}$ is open in $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $\yprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$ and $f^{-1}\xprod[L]{A,B\ast C}$ is open in $\yprod[L]{A,B,C}$, by Lemma \ref{lemma:zprod-open-in-yprod-right}, so $f^{-1}\xprod[L]{A\ast(B\ast C)}$ is open in $\yprod[L]{A,B,C}$.
+$\xprod[L]{(A\ast B)\ast C}$ is open in $\xprod[L]{A\ast B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $f^{-1}\xprod[L]{A\ast B,C}$. Lemma \ref{lemma:zprod-open-in-yprod-left} shows that $f^{-1}\xprod[L]{A\ast B,C}$ is open in $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $\yprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$ and $f^{-1}\xprod[L]{A,B\ast C}$ is open in $\yprod[L]{A,B,C}$, by Lemma \ref{lemma:zprod-open-in-yprod-right}, so $f^{-1}\xprod[L]{A\ast(B\ast C)}$ is open in $\yprod[L]{A,B,C}$.
 
-Lemma \ref{lemma:irreducible-y-triple} shows that $\yprod[L]{A,B,C}$ is irreducible, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ and $f^{-1}\xprod[L]{A\ast(B\ast C)}$ have nonempty intersection. Therefore the $G_L$-orbits $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ intersect nontrivially, so are the same $G_L$-orbit. Thus $(A\ast B)\ast C= A\ast(B\ast C)$. 
+Lemma \ref{lemma:irreducible-y-triple} shows that $\yprod[L]{A,B,C}$ is irreducible, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ and $f^{-1}\xprod[L]{A\ast(B\ast C)}$ have nonempty intersection. Therefore the $G_L$-orbits $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ intersect nontrivially, so are the same $G_L$-orbit. In particular, $(A\ast B)\ast C= A\ast(B\ast C)$. 
 \end{proof}
 
 
