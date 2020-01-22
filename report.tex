@@ -617,6 +617,38 @@ Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with t
 \end{conjecture}
 
 
+\section{Grassmannians and related varieties}
+
+Here we collect a few elementary results on Grassmannians and some related varieties.
+
+\begin{lemma}
+Let $W$ be a $d$-dimensional vector space over $\field$ and let $l,m,a$ be integers with $0<l,m<d$. The following hold:
+\begin{enumerate}
+\item
+$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) \geq a\}$ is a projective variety;
+\item
+$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) = a\}$ is a quasiprojective variety;
+\item
+$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: U\subset V\}$ is a projective variety;
+\item
+Given $U\in\GR[l]{W}$, $\{V\in\GR[m]{W}: U\subset V\}$ is a projective variety;
+\item
+Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: U\subset V\}$ is a projective variety.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Items \emph{2--5} will follow from \emph{1} in a fairly straightforward manner, so we'll first prove \emph{1}. {\color{red}INSERT PROOF OF PART 1 HERE}.
+
+$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) = a\}$ is locally-closed, being the intersection of the closed set of $(U,V)$ with $\dim(U\cap V)\geq a$ with the open set of $(U,V)$ with $\dim(U\cap V) < a+1$. Therefore \emph{2} is a quasiprojective variety.
+
+Given $(U,V)\in\GR[l]{W}\times\GR[m]{W}$, $U\subset V$ if and only if $\dim(U\cap V) \geq l$. Thus \emph{3} is the particular case of \emph{1} when $a=l$, showing that \emph{3} is a projective variety.
+
+Let $\pi_1\colon\GR[l]{W}\times\GR[m]{W}\to \GR[l]{W}$ and $\pi_2\colon\GR[l]{W}\times\GR[m]{W}\to\GR[m]{W}$ be the projection maps onto each factor. $\pi_1$ and $\pi_2$ are closed morphisms of varieties by the completeness property of projective varieties. In particular, completeness of $\GR[m]{W}$ ensures that $\pi_1$ is closed while completeness of $\GR[l]{W}$ ensures $\pi_2$ is closed. Given $U\in\GR[l]{W}$, the fibre of $\pi_1$ over the point $U$ is closed and the image of this fibre under $\pi_2$ is closed. In particular, $\{V\in\GR[m]{W}: U\subset V\} = \pi_2(\pi_1^{-1}(U))$ is closed so \emph{4} is a projective variety.
+
+Similarly, given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: U\subset V\} = \pi_1(\pi_2^{-1}(V))$ is closed so \emph{5} is a projective variety.
+\end{proof}
+
 \section{Geometry of affine flag varieties}
 
 Given $L\in\flags$, $N,a\in\naturals$ and $\lambda\in\compositions$ define
