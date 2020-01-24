@@ -631,23 +631,35 @@ $\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) = a\}$ is a quasiprojective v
 \item
 $\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: U\subset V\}$ is a projective variety;
 \item
-Given $U\in\GR[l]{W}$, $\{V\in\GR[m]{W}: U\subset V\}$ is a projective variety;
+Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: \dim(U\cap V)\geq a\}$ is a projective variety.
 \item
-Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: U\subset V\}$ is a projective variety.
+Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:\dim(U\cap V) = a\}$ is a quasiprojective variety.
+\item
+Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:U\subset V\}$ is a projective variety.
+\item
+Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:V\subset U\}$ is a projective variety.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Items \emph{2--5} will follow from \emph{1} in a fairly straightforward manner, so we'll first prove \emph{1}. {\color{red}INSERT PROOF OF PART 1 HERE}.
+Items \emph{2--7} will follow from \emph{1} in a fairly straightforward manner, so we'll first prove \emph{1}. Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the dependence of $X_i$ on $a$, write $X_{i,a}$.
 
-$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) = a\}$ is locally-closed, being the intersection of the closed set of $(U,V)$ with $\dim(U\cap V)\geq a$ with the open set of $(U,V)$ with $\dim(U\cap V) < a+1$. Therefore \emph{2} is a quasiprojective variety.
+{\color{red}INSERT PROOF OF PART 1 HERE}.
 
-Given $(U,V)\in\GR[l]{W}\times\GR[m]{W}$, $U\subset V$ if and only if $\dim(U\cap V) \geq l$. Thus \emph{3} is the particular case of \emph{1} when $a=l$, showing that \emph{3} is a projective variety.
+$X_2$ is a quasiprojective variety since it is the complement of the subvariety $X_{1,a+1}$ in $X_{1,a}$ so is open in $X_{1,a}$.
 
-Let $\pi_1\colon\GR[l]{W}\times\GR[m]{W}\to \GR[l]{W}$ and $\pi_2\colon\GR[l]{W}\times\GR[m]{W}\to\GR[m]{W}$ be the projection maps onto each factor. $\pi_1$ and $\pi_2$ are closed morphisms of varieties by the completeness property of projective varieties. In particular, completeness of $\GR[m]{W}$ ensures that $\pi_1$ is closed while completeness of $\GR[l]{W}$ ensures $\pi_2$ is closed. Given $U\in\GR[l]{W}$, the fibre of $\pi_1$ over the point $U$ is closed and the image of this fibre under $\pi_2$ is closed. In particular, $\{V\in\GR[m]{W}: U\subset V\} = \pi_2(\pi_1^{-1}(U))$ is closed so \emph{4} is a projective variety.
+Given $(U,V)\in\GR[l]{W}\times\GR[m]{W}$, $U\subset V$ if and only if $\dim(U\cap V) \geq l$. So \emph{3} is the particular case of \emph{1} when $a=l$, showing that $X_3$ is a projective variety.
 
-Similarly, given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: U\subset V\} = \pi_1(\pi_2^{-1}(V))$ is closed so \emph{5} is a projective variety.
+Let $\pi_1\colon\GR[l]{W}\times\GR[m]{W}\to \GR[l]{W}$ and $\pi_2\colon\GR[l]{W}\times\GR[m]{W}\to\GR[m]{W}$ be the projection maps onto each factor. $\pi_1$ and $\pi_2$ are closed morphisms of varieties by the completeness property of projective varieties. In particular, completeness of $\GR[m]{W}$ ensures $\pi_1$ is closed while completeness of $\GR[l]{W}$ ensures $\pi_2$ is closed.
+
+Observe that $\pi_1(X_1\cap\pi_2^{-1}{V}) = \{V\in\GR[l]{W}:\dim(U\cap V)\geq a\} = X_4$. The fibre of $\pi_2$ over $V$ is closed, so the intersection with $X_1$ is closed, then it follows $X_4$ is closed since $\pi_1$ is a closed morphism. Thus $X_4$ is a projective variety.
+
+$X_5$ is a quasiprojective variety since it is the complement of $X_{4,a}$ by the closed subvariety $X_{4,a+1}$, so is open in $X_{4,a}$.
+
+\emph{6--7} follow since $X_6 = X_{4,l}$ and $X_7 = X_{4,m}$.
 \end{proof}
+
+{\color{red}Question: $X_2$ is the complement of the subvariety $X_{1,a+1}$ in $X_{1,a}$, so $X_2$ is open in $X_{1,a}$. Is $X_{1,a}$ irreducible?}
 
 \section{Geometry of affine flag varieties}
 
