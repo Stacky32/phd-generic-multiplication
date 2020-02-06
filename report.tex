@@ -619,7 +619,17 @@ Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with t
 
 \section{Grassmannians and related varieties}
 
-Here we collect a few elementary results on Grassmannians and some related varieties.
+Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $m$-dimensional $\field$-vector space and let $0\le d\le m$ be an integer. There is a linear map $\phi\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. Given $\alpha\in\Lambda^d(V)$, the kernel of $\phi(\alpha)$ is the space of divisors of $\alpha$; $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. $\alpha\in\Lambda^d(V)$ is totally decomposable if and only if its space of divisors is (at least) $d$-dimensional, which in turn holds if and only if the rank of $\phi(\alpha)$ is (at most) $n-d$ dimensional.
+
+\begin{lemma}
+$\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety.
+\end{lemma}
+
+\begin{proof}
+As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V}\to\HOM(V,\Lambda^{d_1+1}(V)\oplus\Lambda^{d_2+1}(V))$ given by $\Psi(\alpha,\beta)(v) = (\alpha\wedge v,\beta\wedge v)$. Given $\alpha\in\Lambda^{d_1}(V)$ and $\beta\in\Lambda^{d_2}(V)$, the kernel of $\Psi(\alpha,\beta)$ is $D_\alpha\cap D_\beta$ and thus $\Psi(\alpha,\beta)$ has rank $n-\dim(D_\alpha\cap D_\beta)$.
+
+Let $U_i\in\GR[d_i](V)$ and suppose $p_i(U_i)=[\alpha_i]$ -- where $p_i$ is the Pl\"ucker embedding of $GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$ -- then $U_i = D_{\alpha_i} = \ker{\phi(\alpha)}$. The kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis.1
+\end{proof}
 
 \begin{lemma}
 Let $W$ be a $d$-dimensional vector space over $\field$ and let $l,m,a$ be integers with $0<l,m<d$. The following hold:
@@ -644,7 +654,6 @@ Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:V\subset U\}$ is a projective variety.
 \begin{proof}
 Items \emph{2--7} will follow from \emph{1} in a fairly straightforward manner, so we'll first prove \emph{1}. Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the dependence of $X_i$ on $a$, write $X_{i,a}$.
 
-{\color{red}INSERT PROOF OF PART 1 HERE}.
 
 $X_2$ is a quasiprojective variety since it is the complement of the subvariety $X_{1,a+1}$ in $X_{1,a}$ so is open in $X_{1,a}$.
 
