@@ -619,56 +619,54 @@ Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with t
 
 \section{Grassmannians and related varieties}
 
-Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $m$-dimensional $\field$-vector space and let $0\le d\le m$ be an integer. There is a linear map $\phi\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. Given $\alpha\in\Lambda^d(V)$, the kernel of $\phi(\alpha)$ is the space of divisors of $\alpha$; $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. $\alpha\in\Lambda^d(V)$ is totally decomposable if and only if its space of divisors is (at least) $d$-dimensional, which in turn holds if and only if the rank of $\phi(\alpha)$ is (at most) $n-d$ dimensional.
+Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map $\phi\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. Given $\alpha\in\Lambda^d(V)$, the kernel of $\phi(\alpha)$ is the space of divisors of $\alpha$; $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. $\alpha\in\Lambda^d(V)$ is totally decomposable if and only if its space of divisors is (at least) $d$-dimensional, which in turn holds if and only if the rank of $\phi(\alpha)$ is (at most) $n-d$ dimensional.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:2-step-flags}
 $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety.
 \end{lemma}
 
 \begin{proof}
-As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V}\to\HOM(V,\Lambda^{d_1+1}(V)\oplus\Lambda^{d_2+1}(V))$ given by $\Psi(\alpha,\beta)(v) = (\alpha\wedge v,\beta\wedge v)$. Given $\alpha\in\Lambda^{d_1}(V)$ and $\beta\in\Lambda^{d_2}(V)$, the kernel of $\Psi(\alpha,\beta)$ is $D_\alpha\cap D_\beta$ and thus $\Psi(\alpha,\beta)$ has rank $n-\dim(D_\alpha\cap D_\beta)$.
+As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V}\to\HOM(V,\Lambda^{d_1+1}(V)\oplus\Lambda^{d_2+1}(V))$ given by $\Psi(\alpha,\beta)(v) = (\alpha\wedge v,\beta\wedge v)$. Given $\alpha\in\Lambda^{d_1}(V)$ and $\beta\in\Lambda^{d_2}(V)$, the kernel of $\Psi(\alpha,\beta)$ is $D_\alpha\cap D_\beta$ and so the rank of $\Psi(\alpha,\beta)$ is $n-\dim(D_\alpha\cap D_\beta)$.
 
-Let $U_i\in\GR[d_i](V)$ and suppose $p_i(U_i)=[\alpha_i]$ -- where $p_i$ is the Pl\"ucker embedding of $GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$ -- then $U_i = D_{\alpha_i} = \ker{\phi(\alpha)}$. The kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis.1
+Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$ -- where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$ -- then $U_i = D_{\alpha_i} = \ker{\phi(\alpha)}$. The kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis.
 \end{proof}
 
 \begin{lemma}
-Let $W$ be a $d$-dimensional vector space over $\field$ and let $l,m,a$ be integers with $0<l,m<d$. The following hold:
+Let $V$ be an $n$-dimensional vector space over $\field$ and let $d_1,d_2,a$ be integers. The following hold:
 \begin{enumerate}
 \item
-$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) \geq a\}$ is a projective variety;
+$\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2) = a\}$ is a quasiprojective variety;
 \item
-$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: \dim(U\cap V) = a\}$ is a quasiprojective variety;
+$\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: U_1\subset U_2\}$ is a projective variety;
 \item
-$\{(U,V)\in\GR[l]{W}\times\GR[m]{W}: U\subset V\}$ is a projective variety;
+Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety;
 \item
-Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}: \dim(U\cap V)\geq a\}$ is a projective variety.
+Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}:\dim(U_1\cap U_2) = a\}$ is a quasiprojective variety;
 \item
-Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:\dim(U\cap V) = a\}$ is a quasiprojective variety.
+Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}: U_1\subset U_2\}$ is a projective variety;
 \item
-Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:U\subset V\}$ is a projective variety.
-\item
-Given $V\in\GR[m]{W}$, $\{U\in\GR[l]{W}:V\subset U\}$ is a projective variety.
+Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}: U_2\subset U_1\}$ is a projective variety.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Items \emph{2--7} will follow from \emph{1} in a fairly straightforward manner, so we'll first prove \emph{1}. Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the dependence of $X_i$ on $a$, write $X_{i,a}$.
+Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the dependence of $X_i$ on $a$, write $X_{i,a}$.
 
+$X_1$ is a quasiprojective variety since it is equal to the intersection of the projective variety $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ with the open set $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\le a\}$.
 
-$X_2$ is a quasiprojective variety since it is the complement of the subvariety $X_{1,a+1}$ in $X_{1,a}$ so is open in $X_{1,a}$.
+Given $(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}$, $U_1\subset U_2$ if and only if $\dim(U_1\cap U_2)\geq d_1$, so Lemma \ref{lemma:2-step-flags} shows $X_2$ is a projective variety.
 
-Given $(U,V)\in\GR[l]{W}\times\GR[m]{W}$, $U\subset V$ if and only if $\dim(U\cap V) \geq l$. So \emph{3} is the particular case of \emph{1} when $a=l$, showing that $X_3$ is a projective variety.
+Let $\pi_i\colon\GR[d_1]{V}\times\GR[d_2]{V}\to\GR[d_i]{V}$ be the projection map onto the $i$-th factor, for $i=1,2$. The completeness property of projective varieties ensures that $\pi_i$ is a closed morphism. In particular, completeness of $\GR[d_j]{V}$ proves that $\pi_i$ is a closed morphism ($i\neq j$). Fix $U_2\in\GR[d_2]{V}$.
 
-Let $\pi_1\colon\GR[l]{W}\times\GR[m]{W}\to \GR[l]{W}$ and $\pi_2\colon\GR[l]{W}\times\GR[m]{W}\to\GR[m]{W}$ be the projection maps onto each factor. $\pi_1$ and $\pi_2$ are closed morphisms of varieties by the completeness property of projective varieties. In particular, completeness of $\GR[m]{W}$ ensures $\pi_1$ is closed while completeness of $\GR[l]{W}$ ensures $\pi_2$ is closed.
+Observe that
+\begin{equation*}
+X_3 = \{U_1\in\GR[d_1]{V}:\dim(U_1\cap U_2)\geq a\} = \pi_1(\{(U_1,W)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap W)\geq a\}\cap\pi_2^{-1}\{U_2\}).
+\end{equation*}
+The fibre of $\pi_2$ over $U_2$ is closed, so the intersection of the fibre with the variety from Lemma \ref{lemma:2-step-flags} is closed and then the image of this intersection under $\pi_1$ is closed. This shows $X_3$ is a projective variety.
 
-Observe that $\pi_1(X_1\cap\pi_2^{-1}{V}) = \{V\in\GR[l]{W}:\dim(U\cap V)\geq a\} = X_4$. The fibre of $\pi_2$ over $V$ is closed, so the intersection with $X_1$ is closed, then it follows $X_4$ is closed since $\pi_1$ is a closed morphism. Thus $X_4$ is a projective variety.
-
-$X_5$ is a quasiprojective variety since it is the complement of $X_{4,a}$ by the closed subvariety $X_{4,a+1}$, so is open in $X_{4,a}$.
-
-\emph{6--7} follow since $X_6 = X_{4,l}$ and $X_7 = X_{4,m}$.
+$X_4$ is a quasiprojective variety since it is the complement of the subvariety $X_{3,a+1}$ in $X_{3,a}$. Finally, \emph{5-6} follow as special cases of \emph{3} since $X_5 = X_{3,d_1}$ and $X_6 = X_{3,d_2}$.
 \end{proof}
 
-{\color{red}Question: $X_2$ is the complement of the subvariety $X_{1,a+1}$ in $X_{1,a}$, so $X_2$ is open in $X_{1,a}$. Is $X_{1,a}$ irreducible?}
 
 \section{Geometry of affine flag varieties}
 
