@@ -687,7 +687,10 @@ Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$, so the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, which is a $\field$-vector space of dimension at most $2Nr = \dim(\epsilon^{-N}L_0/{\epsilon^N L_0})$. Thus $\Pi_{N,\lambda}^a(L)$ is nonempty only if $0\le a\le 2Nr$.
+If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$ and the $\field[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, so
+\begin{equation*}
+\dim_\field\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) \le \dim_\field\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right) = 2Nr.
+\end{equation*}
 \end{proof}
 
 \begin{lemma}
@@ -699,7 +702,7 @@ Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Th
 \end{proof}
 
 \begin{lemma}
-Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$. In particular, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
+Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -711,7 +714,7 @@ which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
 \end{equation*}
-which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed condition $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$.
+which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the closed conditions $\epsilon^N L_0\subset L_0'$ and $L_0'\subset\epsilon^{-N}L_0$.
 \end{proof}
 
 \begin{lemma}
@@ -746,19 +749,20 @@ H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L
 \end{equation*}
 Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
 
+{\color{gray}
+REDUNDANT:
 \begin{lemma}
 $H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
 \end{lemma}
 
 \begin{proof}
-$H_N\subset G_L$ by definition. Suppose $h,h'\in H_N$ and let $x\in\epsilon^{-(1+N)}L_0$. $h'(x)\in\epsilon^{-(1+N)}L_0$ as $h'\in G_L$, so $hh'(x) + \epsilon^N L_0 = h'(x) + \epsilon^N L_0 = x + \epsilon^N L_0$, which shows $hh'\in H_N$. $h(x)-x\in\epsilon^N L_0$, so $h^{-1}(x) - x = -h^{-1}(h(x)-x)\in\epsilon^N L_0$. $h^{-1}\in H_N$, so $H_N$ is a subgroup of $G_L$.
-
-Let $g\in G_L$. $hg^{-1}(x) + \epsilon^N L_0 = g^{-1}(x)$ as $g^{-1}(x)\in\epsilon^{-(1+N)}L_0$, so $ghg^{-1}(x) + \epsilon^N L_0 = gg^{-1}(x) + \epsilon^N L_0 = x + \epsilon^N L_0$. Thus $ghg^{-1}\in H_N$, which proves $H_N$ is a normal subgroup in $G_L$.
-\end{proof}
-
-\begin{proof}[Short proof]
 $H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
 \end{proof}
+
+EDITORIAL REMARK:
+
+Maybe the cleanest way to write this is to describe the natural group homomorphism $G_L\to \GL{}{W}$ and state that $H_{N,L}$ is the kernel of this group homomorphism. The next lemma should describe the image and deduce $G_L/{H_{N,L}}$ is a connected algebraic group, possibly with the last result relegated to a corollary.
+}
 
 \begin{lemma}\label{lemma:connected-algebraic-group}
 Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
@@ -807,7 +811,7 @@ for $1\le i\le r$ and $0\le c\le 2N$. There are coordinate functions $\gamma_{i,
 \begin{equation*}
 g(y_j) = \sum_i \gamma_{ij}(g)y_i.
 \end{equation*}
-If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. Thus the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
+If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. This shows that the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
 \begin{align*}
 A_0 A_1 A_2 \cdots A_{2N}\\
 0 A_0 A_1 \cdots A_{2N-1}\\
@@ -815,8 +819,7 @@ A_0 A_1 A_2 \cdots A_{2N}\\
 0 0 \cdots A_0 A_1\\
 0 0 \cdots 0 A_0,
 \end{align*}
-
-which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
+where $A_0\in\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in\MAT{r}{\complex}$, which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
 
 Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
 \end{proof}

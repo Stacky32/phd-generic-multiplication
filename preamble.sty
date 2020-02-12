@@ -124,16 +124,22 @@
 \newcommand{\naturals}{\mathbb{N}}
 \newcommand{\field}{\mathbf{k}}
 
-% PROJECTIVE SPACES
+% PROJECTIVE SPACES:
 \newcommand{\Proj}{\mathbb{P}}
 
-% GRASSMANNIANS
+% GRASSMANNIANS:
 \newcommand{\GR}[2][]{\operatorname{Gr}_{#1}(#2)}
 
-% GENERAL LINEAR GROUPS
+% GENERAL LINEAR GROUPS:
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 % argument 1 denotes the rank while argument 2 denotes the ground ring
 % Usage: $\GL{~rank~}{~ring~}$.
+% alternative usage: $\GL{}{~free-module~} if the ring is apparent from context.
+
+% AFFINE SPACE OF MATRICES:
+\newcommand{\MAT}[2]{\operatorname{M}_{#1}(#2)}
+% Usage: %\MAT{r}{\field}% for the space of $r\times r$ matrices over $\field$
+% general usage: $\MAT{m\times n}{\field}$ for the space of $m\times n$ matrices over $\field$.
 
 % GROUND RINGS FOR LATTICES:
 % use curly epsilon
