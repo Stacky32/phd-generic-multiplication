@@ -842,7 +842,53 @@ Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group iso
 \end{tikzpicture}
 \end{equation*}
 
-\subsection{Geometry of orbits}
+\subsection{Incidence in affine flag varieties}
+
+\begin{lemma}\label{lemma:incidence-varieties-master}
+Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
+\begin{equation*}
+\left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
+\end{equation*}
+is a projective variety.
+\end{lemma}
+
+\begin{proof}
+{\color{red}ADD THIS PROOF AS A MATTER OF URGENCY}
+\end{proof}
+
+\begin{lemma}\label{lemma:incidence-varieties-consequences}
+Given $N,a,c\in\naturals$, $\lambda\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
+\begin{equation*}
+\left\{L'\in\Pi_{N,\lambda}^a(L):\dim\left(\frac{L_i}{L_i\cap L_j'}\right)\le c\right\}
+\end{equation*}
+and
+\begin{equation*}
+\left\{L'\in\Pi_{N,\lambda}^a(L): \dim\left(\frac{L_j'}{L_i\cap L_j'}\right)\le c\right\}
+\end{equation*}
+are projective varieties.
+\end{lemma}
+
+\begin{proof}
+{\color{red}ADD THIS PROOF AS A MATTER OF SECONDARY URGENCY}
+\end{proof}
+
+\begin{corollary}
+Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ andd $i,j\in\integers$,
+\begin{equation*}
+\left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i}{L_i\cap L_j'}\right)\le c\right\}
+\end{equation*}
+is a projective variety.
+\end{corollary}
+
+{\color{gray}
+This could be phrased in terms of fibre bundles - just need the right terminology.
+\begin{proof}
+This is a variety isomorphic to the prooduct $\{L'\in\Pi_{N,\lambda}^a(L): \dim(L_i/{L_i\cap L_j'})\le c\}\times\Pi_{N,\mu}^b(L)$, which is a projective variety.
+\end{proof}
+}
+
+
+\section{Geometry of orbits}
 
 \begin{lemma}\label{lemma:bounded-orbits}
 Given $A\in\matrices$, there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ for each $(L,L')\in\orbit{A}$. In this case
