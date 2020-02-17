@@ -619,16 +619,16 @@ Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with t
 
 \section{Grassmannians and related varieties}
 
-Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map $\phi\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. Given $\alpha\in\Lambda^d(V)$, the kernel of $\phi(\alpha)$ is the space of divisors of $\alpha$, $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. An element $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. $\alpha\in\Lambda^d(V)$ is totally decomposable if and only if its space of divisors is at least $d$-dimensional, which in turn holds if and only if the rank of $\phi(\alpha)$ is at most $n-d$ dimensional.
+Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map $\phi^{(d)}\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi^{(d)}(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. The kernel of $\phi^{(d)}(\alpha)$ is the space of divisors of $\alpha$, $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. An element $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. The dimension of $D_\alpha$ is at most $d$ and $\dim(D_\alpha)=d$ precisely when $\alpha$ is totally decomposable. Consequently, the rank of $\phi^{(d)}(\alpha)$ is at least $n-d$ and $\alpha$ is totally decomposable if and only if $\rank{\phi^{(d)}(\alpha)}\le n-d$, which hold if and only if the $(n-d+1)\times(n-d+1)$-minors of a matrix of $\phi^{(d)}(\alpha)$ are all zero.
 
-\begin{lemma}\label{lemma:2-step-flags}
+\begin{lemma}\label{lemma:grassmannian-incidence-varieties}
 $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety.
 \end{lemma}
 
 \begin{proof}
 As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V}\to\HOM(V,\Lambda^{d_1+1}(V)\oplus\Lambda^{d_2+1}(V))$ given by $\Psi(\alpha,\beta)(v) = (\alpha\wedge v,\beta\wedge v)$. Given $\alpha\in\Lambda^{d_1}(V)$ and $\beta\in\Lambda^{d_2}(V)$, the kernel of $\Psi(\alpha,\beta)$ is $D_\alpha\cap D_\beta$ and so the rank of $\Psi(\alpha,\beta)$ is $n-\dim(D_\alpha\cap D_\beta)$.
 
-Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$ -- where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$ -- then $U_i = D_{\alpha_i} = \ker{\phi(\alpha)}$. The kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis. Therefore $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}:\dim(U_1\cap U_2)\geq a\}$ is a closed subset of the product of Grassmannians $\GR[d_1]{V}\times\GR[d_2]{V}$, so is a projective variety.
+Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$, so $U_i = D_{\alpha_i} = \ker{\phi^{(d_i)}(\alpha)}$. Therefore the kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis. Therefore $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}:\dim(U_1\cap U_2)\geq a\}$ is a closed subset of the product of Grassmannians $\GR[d_1]{V}\times\GR[d_2]{V}$, so is a projective variety.
 
 {\color{gray}[CONFIRM THE VALIDITY OF THIS.] More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogeneous polynomials of degree $1$ in the Pl\"ucker coordinates on $\GR[d_1]{V}\times\GR[d_2]{V}$ since $\Psi$ is linear and so the minors of $\Psi(\alpha_1,\alpha_2)$ are also homogeneous polynomials in the Pl\"ucker cooordinates.}
 \end{proof}
@@ -656,7 +656,7 @@ Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the 
 
 $X_1$ is a quasiprojective variety since it is equal to the intersection of the projective variety $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ with the open set $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\le a\}$.
 
-Given $(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}$, $U_1\subset U_2$ if and only if $\dim(U_1\cap U_2)\geq d_1$, so Lemma \ref{lemma:2-step-flags} shows $X_2$ is a projective variety.
+Given $(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}$, $U_1\subset U_2$ if and only if $\dim(U_1\cap U_2)\geq d_1$, so Lemma \ref{lemma:grassmannian-incidence-varieties} shows $X_2$ is a projective variety.
 
 Let $\pi_i\colon\GR[d_1]{V}\times\GR[d_2]{V}\to\GR[d_i]{V}$ be the projection map onto the $i$-th factor, for $i=1,2$. The completeness property of projective varieties ensures that $\pi_i$ is a closed morphism. Observe that
 \begin{align*}
@@ -664,7 +664,7 @@ X_3
 &= \{U_1\in\GR[d_1]{V}:\dim(U_1\cap U_2)\geq a\}\\
 &= \pi_1(\{(U_1,W)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap W)\geq a\}\cap\pi_2^{-1}\{U_2\}).
 \end{align*}
-The fibre of $\pi_2$ over $U_2$ is closed, so the intersection of the fibre with the variety from Lemma \ref{lemma:2-step-flags} is closed and then the image of this intersection under $\pi_1$ is closed. This shows $X_3$ is a projective variety.
+The fibre of $\pi_2$ over $U_2$ is closed, so the intersection of the fibre with the variety from Lemma \ref{lemma:grassmannian-incidence-varieties} is closed and then the image of this intersection under $\pi_1$ is closed. This shows $X_3$ is a projective variety.
 
 $X_4$ is a quasiprojective variety since it is the complement of the subvariety $X_{3,a+1}$ in $X_{3,a}$. Finally, \emph{5-6} follow as special cases of \emph{3} since $X_5 = X_{3,d_1}$ and $X_6 = X_{3,d_2}$.
 \end{proof}
