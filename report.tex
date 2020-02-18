@@ -633,7 +633,7 @@ Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl
 {\color{gray}[CONFIRM THE VALIDITY OF THIS.] More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogeneous polynomials of degree $1$ in the Pl\"ucker coordinates on $\GR[d_1]{V}\times\GR[d_2]{V}$ since $\Psi$ is linear and so the minors of $\Psi(\alpha_1,\alpha_2)$ are also homogeneous polynomials in the Pl\"ucker cooordinates.}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:grassmannian-incidence-lemmas}
 Let $V$ be an $n$-dimensional vector space over $\field$ and let $d_1,d_2,a$ be integers. The following hold:
 \begin{enumerate}
 \item
@@ -700,7 +700,28 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 \end{lemma}
 
 \begin{proof}
-Let $W$ be the $\field$-vector space $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$. Thus $W$ is a $(2N+1)r$-dimensional vector space over $\field$ and the action of $\epsilon$ on $W$ is a nilpotent linear operator with $\epsilon^{2N+1}W = 0$. Then $\Pi_{N,\lambda}^a(L)$ is in natural bijection with the space of flags $(0\le W_1\le\cdots\le W_n\le W)$ of subspaces of $W$ with type $(\lambda,a)$ satisfying the closed condition $\epsilon W_n\subset W_1$. The condition $\epsilon W_n\subset W_1$ ensures that each subspace $W_i\subset W$ is a $\field[\epsilon]$-submodule of $W$, since $\epsilon W_i\subset\epsilon W_n\subset W_1\subset W_i$. Thus each $W_i$ lifts to give a $\field[\epsilon]$-submodule $L_i$ of $V$ with $\epsilon^N L_0 \subset L_i\subset \epsilon^{-N}L_0$, thus $L_i$ is a lattice in $V$.
+Let $W$ be the $\field[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$, which has dimension $(2N+1)r$ over $\field$. Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots n$. The correspondence between submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and submodules of $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$ determines a map
+\begin{equation*}
+\rho\colon\Pi_{N,\lambda}^a(L)\to\GR[d_1]{W}\times\cdots\times\GR[d_n]{W},
+\end{equation*}
+with $\rho(L')=(L_1/{\epsilon^N L_0},\ldots,L_n/{\epsilon^N L_0})$.
+
+Let $\mathcal{F}$ be the space of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{F}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{F}$ is a projective algebraic variety.
+
+The image of $\rho$ is contained in $\mathcal{F}$ since
+\begin{equation*}
+\epsilon L_n'/{\epsilon^N L_0} = L_0'/{\epsilon^N L_0} \subset L_1'/{\epsilon^N L_0}\subset\cdots\subset L_n'/{\epsilon^N L_0}.
+\end{equation*}
+
+Suppose $(U_1,\ldots,U_n)\in\mathcal{F}$. Then $U_i$ is a $\field[\epsilon]$-module, since $\epsilon U_i\subset \epsilon U_n\subset U_1\subset U_i$, for each $i=1,\ldots,n$, so $U_i$ lifts uniquely to a $\field[\epsilon]$-module $L_i'$ with $\epsilon^N L_0\subset L_i'\subset\epsilon^{-1-N}L_0$. Therefore $L_1',\ldots,L_n'$ are $\field[\epsilon]$-lattices with $L_i\subset L_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon L_n'\subset L_1'$, with
+\begin{equation*}
+\dim\left(\epsilon^{-1-N}L_0/{L_n'}\right) = \dim\left(W/{W_n}\right) = (2N+1)r - d_n = a
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(L_i'/{L_{i-1}'}\right) = \dim\left(W_i/{W_{i-1}}\right) = d_i - d_{i-1} = \lambda_i,
+\end{equation*}
+for each $i=2,\ldots,n$. This shows there is a unique affine flag $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, wherer $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. Therefore $\rho$ gives an isomorphism between $\Pi_{N,\lambda}^a(L)$ and $\mathcal{F}$, thus $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
 \end{proof}
 
 \begin{lemma}
