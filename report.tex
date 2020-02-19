@@ -706,14 +706,14 @@ Let $W$ be the $\field[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$, 
 \end{equation*}
 with $\rho(L')=(L_1/{\epsilon^N L_0},\ldots,L_n/{\epsilon^N L_0})$.
 
-Let $\mathcal{F}$ be the space of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{F}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{F}$ is a projective algebraic variety.
+Let $\mathcal{X}$ be the space of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{X}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{X}$ is a projective algebraic variety.
 
-The image of $\rho$ is contained in $\mathcal{F}$ since
+The image of $\rho$ is contained in $\mathcal{X}$ since
 \begin{equation*}
 \epsilon L_n'/{\epsilon^N L_0} = L_0'/{\epsilon^N L_0} \subset L_1'/{\epsilon^N L_0}\subset\cdots\subset L_n'/{\epsilon^N L_0}.
 \end{equation*}
 
-Suppose $(U_1,\ldots,U_n)\in\mathcal{F}$. Then $U_i$ is a $\field[\epsilon]$-module, since $\epsilon U_i\subset \epsilon U_n\subset U_1\subset U_i$, for each $i=1,\ldots,n$, so $U_i$ lifts uniquely to a $\field[\epsilon]$-module $L_i'$ with $\epsilon^N L_0\subset L_i'\subset\epsilon^{-1-N}L_0$. Therefore $L_1',\ldots,L_n'$ are $\field[\epsilon]$-lattices with $L_i\subset L_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon L_n'\subset L_1'$, with
+Suppose $(U_1,\ldots,U_n)\in\mathcal{X}$. Then $U_i$ is a $\field[\epsilon]$-module, since $\epsilon U_i\subset \epsilon U_n\subset U_1\subset U_i$, for each $i=1,\ldots,n$, so $U_i$ lifts uniquely to a $\field[\epsilon]$-module $L_i'$ with $\epsilon^N L_0\subset L_i'\subset\epsilon^{-1-N}L_0$. Therefore $L_1',\ldots,L_n'$ are $\field[\epsilon]$-lattices with $L_i\subset L_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon L_n'\subset L_1'$, with
 \begin{equation*}
 \dim\left(\epsilon^{-1-N}L_0/{L_n'}\right) = \dim\left(W/{W_n}\right) = (2N+1)r - d_n = a
 \end{equation*}
@@ -721,7 +721,7 @@ and
 \begin{equation*}
 \dim\left(L_i'/{L_{i-1}'}\right) = \dim\left(W_i/{W_{i-1}}\right) = d_i - d_{i-1} = \lambda_i,
 \end{equation*}
-for each $i=2,\ldots,n$. Therefore there is a unique $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, where $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. It follows $\rho$ is injective and $\IM{\rho}=\mathcal{F}$, which is a projective variety, so $\Pi_{N,\lambda}^a(L)$ is a projective variety.
+for each $i=2,\ldots,n$. Therefore there is a unique $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, where $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. It follows $\rho$ is injective and $\IM{\rho}=\mathcal{X}$, which is a projective variety, so $\Pi_{N,\lambda}^a(L)$ is a projective variety.
 \end{proof}
 
 \begin{lemma}\label{lemma:nesting-subvarieties}
@@ -926,7 +926,11 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
 \end{equation*}
-as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
+as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}, since
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
+\end{equation*}
+where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$ for each $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$. 
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
@@ -948,7 +952,7 @@ Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally-closed subset of $\subset\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
+Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally-closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
 \end{proof}
 
 Consequently, the closure of $\xprod[L]{A}$ is an irreducible projective variety.
