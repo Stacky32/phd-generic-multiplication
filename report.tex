@@ -237,7 +237,7 @@ for any $(L,L'')\in\orbit{C}$.
 
 \section{Affine q-Schur algebras}
 
-There exist polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ (defined in \needsreference) is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+There exist polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 \end{equation*}
@@ -462,7 +462,7 @@ Write down the homomorphism from the bound quiver algebra to the q-Schur algebra
 
 \subsection{Typical case.}
 
-Suppose $n\geq 3$. Then $\Gamma=\presentationquiver$ has vertex set $\compositions$.\seeyoulater
+Suppose $n\geq 3$. Then $\Gamma=\presentationquiver$ has vertex set $\compositions$.
 
 Define $e_i, f_i\in\integers[q]\presentationquiver$ by
 \begin{equation*}
@@ -622,7 +622,7 @@ Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with t
 Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map $\phi^{(d)}\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi^{(d)}(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. The kernel of $\phi^{(d)}(\alpha)$ is the space of divisors of $\alpha$, $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. An element $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. The dimension of $D_\alpha$ is at most $d$ and $\dim(D_\alpha)=d$ precisely when $\alpha$ is totally decomposable. Consequently, the rank of $\phi^{(d)}(\alpha)$ is at least $n-d$ and $\alpha$ is totally decomposable if and only if $\rank{\phi^{(d)}(\alpha)}\le n-d$, which hold if and only if the $(n-d+1)\times(n-d+1)$-minors of a matrix of $\phi^{(d)}(\alpha)$ are all zero.
 
 \begin{lemma}\label{lemma:grassmannian-incidence-varieties}
-$\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety.
+$\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety, for each $d_1,d_2,a\in\naturals$ with $d_1,d_2,a\le n$.
 \end{lemma}
 
 \begin{proof}
@@ -634,7 +634,7 @@ Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl
 \end{proof}
 
 \begin{lemma}\label{lemma:grassmannian-incidence-lemmas}
-Let $V$ be an $n$-dimensional vector space over $\field$ and let $d_1,d_2,a$ be integers. The following hold:
+Let $V$ be an $n$-dimensional vector space over $\field$ and let $d_1,d_2,a\in\naturals$ with $d_1,d_2,a\le n$. The following hold:
 \begin{enumerate}
 \item
 $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2) = a\}$ is a quasiprojective variety;
@@ -695,7 +695,7 @@ If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N
 \end{equation*}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:projective-varieties-of-cyclic-flags}
 Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
 \end{lemma}
 
@@ -721,10 +721,10 @@ and
 \begin{equation*}
 \dim\left(L_i'/{L_{i-1}'}\right) = \dim\left(W_i/{W_{i-1}}\right) = d_i - d_{i-1} = \lambda_i,
 \end{equation*}
-for each $i=2,\ldots,n$. This shows there is a unique affine flag $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, wherer $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. Therefore $\rho$ gives an isomorphism between $\Pi_{N,\lambda}^a(L)$ and $\mathcal{F}$, thus $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety.
+for each $i=2,\ldots,n$. Therefore there is a unique $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, where $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. It follows $\rho$ is injective and $\IM{\rho}=\mathcal{F}$, which is a projective variety, so $\Pi_{N,\lambda}^a(L)$ is a projective variety.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:nesting-subvarieties}
 Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{N+1,\lambda}^{a+r}(L)$.
 \end{lemma}
 
@@ -874,7 +874,17 @@ is a projective variety.
 \end{lemma}
 
 \begin{proof}
-{\color{red}ADD THIS PROOF AS A MATTER OF URGENCY}
+There is $M\geq N$ so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$. Let $a'=a+(M-N)r$ and $b'=b+(M-N)r$. Lemma \ref{lemma:nesting-subvarieties} shows that $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{M,\lambda}^{a'}(L)$, so $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is a subvariety of $\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L)$.
+
+The fact that
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
+\end{equation*}
+together with Lemma \ref{lemma:projective-varieties-of-cyclic-flags} and Lemma \ref{lemma:grassmannian-incidence-varieties}, shows that
+\begin{equation*}
+\left\{(L',L'')\in\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L):\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
+\end{equation*}
+is a projective variety, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is also a projective variety.
 \end{proof}
 
 \begin{lemma}\label{lemma:incidence-varieties-consequences}
@@ -890,23 +900,8 @@ are projective varieties.
 \end{lemma}
 
 \begin{proof}
-{\color{red}ADD THIS PROOF AS A MATTER OF SECONDARY URGENCY}
+This is a result of Lemma \ref{lemma:grassmannian-incidence-lemmas}.
 \end{proof}
-
-\begin{corollary}
-Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ andd $i,j\in\integers$,
-\begin{equation*}
-\left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i}{L_i\cap L_j'}\right)\le c\right\}
-\end{equation*}
-is a projective variety.
-\end{corollary}
-
-{\color{gray}
-This could be phrased in terms of fibre bundles - just need the right terminology.
-\begin{proof}
-This is a variety isomorphic to the prooduct $\{L'\in\Pi_{N,\lambda}^a(L): \dim(L_i/{L_i\cap L_j'})\le c\}\times\Pi_{N,\mu}^b(L)$, which is a projective variety.
-\end{proof}
-}
 
 
 \section{Geometry of orbits}
@@ -956,14 +951,7 @@ Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is an irreducible
 Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally-closed subset of $\subset\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$. Lemma \ref{lemma:connected-algebraic-group} shows $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)$, so each orbit is irreducible. In particular, if $L'\in\xprod[L]{A}$, then $\xprod[L]{A}=G_L\cdot L'=G_L/{H_{N,L}}\cdot L'$ is irreducible.
 \end{proof}
 
-\begin{remark}
-More is true: the closure of $\xprod[L]{A}$ is an irreducible projective variety and $\xprod[L]{A}$ is an irreducible quasi-projective variety.
-\end{remark}
-
-\begin{remark}
-A question of general topology: is it true that a subspace of a topological space is irreducible if and only if its closure is irreducible?
-\end{remark}
-
+Consequently, the closure of $\xprod[L]{A}$ is an irreducible projective variety.
 
 \subsection{Geometry of orbit products}
 
