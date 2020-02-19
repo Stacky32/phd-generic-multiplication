@@ -700,7 +700,7 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 \end{lemma}
 
 \begin{proof}
-Let $W$ be the $\field[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$, which has dimension $(2N+1)r$ over $\field$. Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots n$. The correspondence between submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and submodules of $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$ determines a map
+Let $W$ be the $\field[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$, which has dimension $(2N+1)r$ over $\field$. Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots, n$. The correspondence between submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and submodules of $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$ determines a map
 \begin{equation*}
 \rho\colon\Pi_{N,\lambda}^a(L)\to\GR[d_1]{W}\times\cdots\times\GR[d_n]{W},
 \end{equation*}
@@ -729,7 +729,7 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
+If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-(1+n)}L_0}{L_0'}\right) = \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = r+a,
 \end{equation*}
@@ -741,20 +741,12 @@ which shows $L'\in\Pi_{N,\lambda}^a(L)$. Thus $\Pi_{N,\lambda}^a(L)$ is the subs
 \end{proof}
 
 \begin{lemma}
-Let $\lambda\in\compositions$, $N,\tilde{N}\in\naturals$, $L,\tilde{L}\in\flags_\lambda$, $0\le a\le 2Nr$, $0\le\tilde{a}\le2\tilde{N}r$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
+Let $\lambda\in\compositions$, $M,N\in\naturals$, $L,\tilde{L}\in\flags$, $0\le a\le 2Nr$, $0\le b\le 2Mr$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{M,\lambda}^b(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
 \end{lemma}
 
 \begin{proof}
-$\Pi_{N,\lambda}^a(L)$ is naturally identified with the space of flags of subspaces
-\begin{equation*}
-0\subset U_1\subset \cdots\subset U_n\subset \frac{\epsilon^{-N-1}L_0}{\epsilon^N L_0}
-\end{equation*}
-with $\dim(U_i/{U_{i-1}})=\lambda_i$ for $i=2,\ldots,n$ and $\dim(W/{U_n})=a$, satisfying the closed condition $\epsilon U_n\subset U_1$. The image of $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ under this identification is the subspace of flags $(U_1,\ldots,U_n)$ defined by the additional closed conditions ${(\epsilon^N L_0+\epsilon^{\tilde{N}}\tilde{L_0})}/{\epsilon^N L_0}\subset\epsilon U_n$ and $U_n\subset {(\epsilon^{-N-1}L_0\cap \epsilon^{-\tilde{N}-1}\tilde{L_0})}/{\epsilon^N L_0}$. Thus $\Pi_{N,\lambda}^a(L)\cap \Pi_{\tilde{N},\lambda}^{\tilde{a}}(\tilde{L})$ is a closed subset of $\Pi_{N,\lambda}^a(L)$ as claimed.
+Observe $\Pi_{N,\lambda}^a(L)\cap\Pi_{M,\lambda}^b(\tilde{L})$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the additional closed conditions that $\epsilon^M \tilde{L}_0\subset L_0'$ and $L_0'\subset\epsilon^{-M}\tilde{L}_0$, so is closed.
 \end{proof}
-
-\begin{remark}{\color{blue}
-The subsets $\Pi_{N,\lambda}^a(L)$ of $\flags$ are partially ordered by inclusion, the inclusions are closed and the set theoretic direct limit is the set $\flags$, so $\flags$ may be endowed with the direct limit topology of a system of projective algebraic varieties.}
-\end{remark}
 
 \begin{lemma}
 Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
@@ -773,15 +765,6 @@ H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L
 Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
 
 {\color{gray}
-REDUNDANT:
-\begin{lemma}
-$H_N$ is a normal subgroup in $G_L$, for any $N\in\naturals$.
-\end{lemma}
-
-\begin{proof}
-$H_N$ is the kernel of the group homomorphism $\bar{}\colon G_L\to\GL{}{W}$.
-\end{proof}
-
 EDITORIAL REMARK:
 
 Maybe the cleanest way to write this is to describe the natural group homomorphism $G_L\to \GL{}{W}$ and state that $H_{N,L}$ is the kernel of this group homomorphism. The next lemma should describe the image and deduce $G_L/{H_{N,L}}$ is a connected algebraic group, possibly with the last result relegated to a corollary.
@@ -900,7 +883,11 @@ are projective varieties.
 \end{lemma}
 
 \begin{proof}
-This is a result of Lemma \ref{lemma:grassmannian-incidence-lemmas}.
+This is a result of Lemma \ref{lemma:grassmannian-incidence-lemmas}, since
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
+\end{equation*}
+where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$ for each $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$.
 \end{proof}
 
 
@@ -926,11 +913,7 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
 \end{equation*}
-as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}, since
-\begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
-\end{equation*}
-where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$ for each $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$. 
+as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}. 
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
