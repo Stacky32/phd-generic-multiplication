@@ -541,9 +541,13 @@ The generic affine algebra $\generic$ is then defined to be the $\integers$-alge
 
 \section{A partial order}
 
-Given $i,j\in\integers$, define a map $d_{i,j}$ on $\matrices$ by setting
+Given $i,j\in\integers$, define maps $d_{i,j}$ and $\bar{d}_{i,j}$ on $\matrices$ by setting
 \begin{equation*}
-d_{i,j}A = \sum_{s\le i,t>j} a_{s,t}
+d_{i,j}{A} = \sum_{s\le i,t>j} a_{s,t}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{A} = \sum_{s>i, t\le j} a_{s,t}
 \end{equation*}
 for each $A\in\matrices$.
 
@@ -604,17 +608,17 @@ The partial order on $\matrices$ induces a partial order on the set of $G$-orbit
 \begin{lemma}\label{lemma:codimension-fomula-corner-sums}
 Let $A\in\matrices$ and take $(L,L')\in\orbit{A}$. Then
 \begin{equation*}
-d_{i,j}A = \dim\left(\frac{L_i}{L_i\cap L_j'}\right)
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) = \bar{d}_{i,j}{A},
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
 \begin{proof}
 This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
 \end{proof}
-
-\begin{conjecture}
-Suppose $\field=\complex$. The partial order on $\matrices$ is compatible with the closure order on $G$-orbits in $\dblflags$. In particular, $A\le B$ if and only if $\orbit{A}\subset \overline{\orbit{B}}$.
-\end{conjecture}
 
 
 \section{Grassmannians and related varieties}
@@ -917,17 +921,21 @@ as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}.
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety. In particular, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and $a=d_{nN,0}(A)$.
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety.
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$, where $a=d_{nN,0}(A)$. Then $\xprod[L]{A}$ is the subset of $\Pi_{N,\co{A}}^a(L)$ given by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}(A)$ for $i,j\in\integers$. For each $i,j\in\integers$, the condition $\dim(L_i/{L_i\cap L_j'})$ determines a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ since the function $L'\mapsto \dim(L_i/{L_i\cap L_j'})$ is lower semicontinuous. Both $d_{i,j}(A)$ and $\dim(L_i/{L_i\cap L_j'})$ are invariant under the map $(i,j)\mapsto (i+n,j+n)$, so $\xprod[L]{A}$ is determined by these conditions for $(i,j)\in [1,n]\times\integers$.
-
-There are only finitely many $(i,j)\in[1,n]\times\integers$ such that $a_{i,j}>0$ and
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$ and $\lambda=\co{A}$. If $L'\in\Pi_{N,\lambda}^a(L)$ then
 \begin{equation*}
-a_{i,j} = d_{i,j-1} - d_{i-1,j-1} + d_{i-1,j} - d_{i,j},
+L_{-Nn}=\epsilon^N L_0\subset L_0'\subset L_1'\subset L_n'\subset \epsilon^{-1-N}L_0 = L_{(N+1)n}.
 \end{equation*}
-{\color{blue}which shows} that finitely many of these conditions determine $\xprod[L]{A}$, so $\xprod[L]{A}$ is the intersection of finitely many locally-closed sets in $\Pi_{N,\co{A}}^a(L)$ and is therefore locally closed.
+Therefore $\xprod[L]{A}$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}{A}$ for $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{A}$ for $i:j<i\le(N+1)n$, for $j=1,\ldots,n$.
+
+The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{A}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{A}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a projective algebraic variety, as a result of Lemma \ref{lemma:incidence-varieties-master}.
+
+Similarly, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$.
+
+Thus $\xprod[L]{A}$ is a nonempty open subset of a projective variety, so is a quasiprojective variety as claimed.
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
