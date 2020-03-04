@@ -857,7 +857,7 @@ Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ and $i,
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
 \end{equation*}
-is a projective variety.
+is a closed set in the projective variety $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -871,7 +871,7 @@ together with Lemma \ref{lemma:projective-varieties-of-cyclic-flags} and Lemma \
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L):\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
 \end{equation*}
-is a projective variety, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is also a projective variety.
+is closed, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is also closed.
 \end{proof}
 
 \begin{lemma}\label{lemma:incidence-varieties-consequences}
@@ -883,7 +883,7 @@ and
 \begin{equation*}
 \left\{L'\in\Pi_{N,\lambda}^a(L): \dim\left(\frac{L_j'}{L_i\cap L_j'}\right)\le c\right\}
 \end{equation*}
-are projective varieties.
+are closed sets in $\Pi_{N,\lambda}^a(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -898,14 +898,11 @@ where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M
 \section{Geometry of orbits}
 
 \begin{lemma}\label{lemma:bounded-orbits}
-Given $A\in\matrices$, there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ for each $(L,L')\in\orbit{A}$. In this case
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = d_{nN,0}(A).
-\end{equation*}
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^{a}(L)$, where $a=d_{nN,0}{A}$.
 \end{lemma}
 
 \begin{proof}
-Given $A\in\matrices$, there is $N\in\naturals$ so that $a_{i,j}=0$ whenever $|j-i|>nN$. If $(L,L')\in\orbit{A}$ then
+There is $N\in\naturals$ so that $a_{i,j}=0$ whenever $|j-i|>nN$. If $(L,L')\in\orbit{A}$ then
 \begin{equation*}
 \dim\left(\frac{L_0'}{L_0'\cap\epsilon^{-N}L_0}\right) = \dim\left(\frac{L_0'}{L_0'\cap L_{nN}}\right) = \sum_{s>nN,t\le 0} a_{s,t} = 0,
 \end{equation*}
@@ -920,22 +917,24 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}. 
 \end{proof}
 
+{\color{gray}Should I define that diameter of $A$, $dia(A)$ to be the minimal $N$ so that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$? Then the previous lemma shows $\xprod[L]{A}\subset\Pi_{N,\co{A}}^a(L)$ whenever $N\geq dia(A)$.}
+
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a quasiprojective variety.
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and where $a=d_{nN,0}{A}$. In particular, $\xprod[L]{A}$ is a quasiprojective variety.
 \end{lemma}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$ and $\lambda=\co{A}$. If $L'\in\Pi_{N,\lambda}^a(L)$ then
+Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ so that $\xprod[L]{A}$ is contained in $\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$ and $\lambda=\co{A}$. If $L'\in\Pi_{N,\lambda}^a(L)$ then
 \begin{equation*}
 L_{-Nn}=\epsilon^N L_0\subset L_0'\subset L_1'\subset L_n'\subset \epsilon^{-1-N}L_0 = L_{(N+1)n}.
 \end{equation*}
 Therefore $\xprod[L]{A}$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}{A}$ for $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{A}$ for $i:j<i\le(N+1)n$, for $j=1,\ldots,n$.
 
-The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{A}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{A}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a projective algebraic variety, as a result of Lemma \ref{lemma:incidence-varieties-master}.
+The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{A}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{A}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a closed subset of $\Pi_{N,\lambda}^a(L)$, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
-Similarly, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$.
+On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
-Thus $\xprod[L]{A}$ is a nonempty open subset of a projective variety, so is a quasiprojective variety as claimed.
+Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in $\Pi_{N,\lambda}^a(L)$, so $\xprod[L]{A}$ is locally closed. It follows that $\xprod[L]{A}$ is an open subset of the projective variety $\overline{\xprod[L]{A}}$, so is a quasiprojective variety as claimed. 
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
