@@ -949,7 +949,9 @@ Consequently, $\overline{\xprod[L]{A}}$ is an irreducible projective variety and
 
 \subsection{Geometry of orbit products}
 
-Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Recall the notation
+Let $A,B\in\matrices$ with $\co{A}=\ro{B}$ and write $\lambda=co{A}$ and $\mu=\co{B}$. Fix $L\in\flags_{\ro{A}}$.
+
+Recall the notation
 \begin{equation*}
 \yprod{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
@@ -960,81 +962,29 @@ and
 
 $\xprod{A,B}$ is the image of $\yprod{A,B}$ under the forgetful map $(L,L',L'')\mapsto (L,L'')$.
 
-\begin{lemma}\label{lemma:orbit-products-are-bounded}
+\begin{lemma}\label{lemma:embedding-orbit-products}
 There is $N\in\naturals$ such that
 \begin{equation*}
-\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0
+\yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L),
 \end{equation*}
-for each $(L,L'')\in \xprod{A,B}$.
+where $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$.
 \end{lemma}
 
 \begin{proof}
-There exist $N_1,N_2\in\naturals$ such that
+There is $N\in\naturals$ such that $\epsilon^NL0\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^NL_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$, using Lemma \ref{lemma:bounded-orbits}. Set $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$.
+
+Then for any $(L',L'')\in\yprod[L]{A,B}$,
 \begin{equation*}
-\epsilon^{N_1}L_0\subset L_0'\subset \epsilon^{-N_1}L_0
+\epsilon^{2N}L_0\subset\epsilon^NL_0'\subset L_0''\subset\epsilon^{-N}L_0'\subset\epsilon^{-2N}L_0
 \end{equation*}
 and
-\begin{equation*}
-\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0',
-\end{equation*}
-for each $(L,L',L'')\in \yprod{A,B}$. Then, for $(L,L',L'')\in \yprod{A,B}$,
-\begin{equation*}
-L_0''\subset \epsilon^{-N_2} L_0' \subset \epsilon^{-(N_1+N_2)} L_0
-\end{equation*}
-and
-\begin{equation*}
-\epsilon^{N_1+N_2}L_0\subset \epsilon^{N_2}L_0'\subset L_0''.
-\end{equation*}
-
-In particular, taking $N=N_1 + N_2$, we have
-\begin{equation*}
-\epsilon^N L_0 \subset L_0'' \subset \epsilon^{-N}L_0
-\end{equation*}
-for each $(L,L'')\in \xprod{A,B}$.
-\end{proof}
-
-\begin{lemma}\label{lemma:codimensions-in-orbit-product}
-Suppose $N_1,N_2\in\naturals$ with $\epsilon^{N_1}L_0\subset L_0\subset \epsilon^{-N_1}L_0$ and $\epsilon^{N_2}L_0'\subset L_0''\subset \epsilon^{-N_2}L_0'$ for each $(L,L',L'')\in \yprod{A,B}$ and let $N = N_1 + N_2$. Then
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) = d_{nN_1,0}(A) + d_{nN_2,0}(B)
-\end{equation*}
-and
-\begin{equation*}
-\dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - d_{nN_1,0}(A) + d_{nN_2,0}(B),
-\end{equation*}
-for each $(L,L'')\in \xprod{A,B}$.
-\end{lemma}
-
-\begin{proof}
-Suppose $(L,L'')\in \xprod{A,B}$ and $L'\in\flags$ so that $(L,L',L'')\in \yprod{A,B}$. As in lemma \ref{lemma:orbit-products-are-bounded}, $\epsilon^N L_0\subset L_0''\subset \epsilon^{-N}L_0$, so
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right) + \dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right).
-\end{equation*}
-
-As a $\field$-vector space, $\epsilon^{-N}L_0/\epsilon^N L_0$ is isomorphic to $(L_0/{\epsilon L_0})^{2N}$, which has dimension $2Nr$, so
-\begin{equation*}
-\dim\left(\frac{L_0''}{\epsilon^N L_0}\right) = 2Nr - \dim\left(\frac{\epsilon^{-N}L_0}{L_0''}\right).
-\end{equation*}
-
-It remains to compute the codimension of $L_0''$ in $\epsilon^{-N}L_0$. Note $L_0''\subset \epsilon^{-N_2}L_0'\subset \epsilon^{-N} L_0$, so
-\begin{equation*}
-\dim\left(\frac{\epsilon{-N}L_0}{L_0''}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N_2}L_0'}\right) + \dim\left(\frac{\epsilon^{-N_2}L_0'}{L_0''}\right).
-\end{equation*}
-
 \begin{align*}
-\dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N_2}L_0'}\right)
-&= \dim\left(\frac{\epsilon^{-N_1}L_0}{L_0'}\right)\\
-&= \dim\left(\frac{L_{nN_1}}{L_{nN_1}\cap L_0'}\right)\\
-&= \sum_{s\le nN_1, t>0} A_{s,t}\\
-&= d_{nN_1,0}(A).
+\dim\left(\frac{\epsilon^{-2N}L_0}{L_0''}\right)
+&=\dim\left(\frac{\epsilon^{-N}L_0'}{L_0''}\right) + \dim\left(\frac{\epsilon^{-2N}L_0}{\epsilon^{-N}L_0'}\right)\\
+&=\dim\left(\frac{\epsilon^{-N}L_0'}{L_0''}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
+&= a+b,
 \end{align*}
-
-\begin{align*}
-\dim\left(\frac{\epsilon^{-N_2}L_0'}{L_0''}\right)
-&= \dim\left(\frac{ L_{nN_2}'}{L_{nN_2}'\cap L_0''}\right)\\
-&= \sum_{s\le nN_2, t>0} B_{s,t}\\
-&= d_{nN_2,0}(B).
-\end{align*}
+as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$as required.
 \end{proof}
 
 Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
@@ -1081,7 +1031,7 @@ Needs a proof.
 }
 
 \begin{lemma}\label{lemma:y-prod-is-quasiprojective}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is a locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $\lambda=\co{A}$, $\mu=\co{B}$, $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
+There is $N\in\naturals$ such that $\yprod[L]{A,B}$ is a locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{lemma}
 
 {\color{gray}CONTINUE HERE THURSDAY MORNING}
