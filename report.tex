@@ -173,7 +173,7 @@ Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set o
 Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\orbit{B}$.
 \end{proof}
 
-\subsection{Triple products}\label{sec:triple-product}
+\subsection{Triple products}
 
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
 \begin{equation*}
@@ -1110,6 +1110,19 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 \end{proof}
 
 \section{Associativity}
+
+\begin{definition}\ref{def:triple-proucts}
+For $A,B,C\in\matrices$ and $L\in\flags_{\ro{A}}$, define
+\begin{equation*}
+\yprod[L]{A,B,C} = \{(L',L'',L''')\in\flags^3: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}, L'''\in\xprod[L'']{C}\}
+\end{equation*}
+and
+\begin{equation*}
+\xprod[L]{A,B,C} = \{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ such that } (L',L'',L''')\in\yprod[L]{A,B,C}
+\end{equation*}
+\end{definition}
+
+Note that $xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$ are nonempty only if $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$.
 
 Refer to Section \ref{sec:triple-product} for definitions of the spaces $\xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$. Recall that $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$, given by $f(L',L'',L''') = L'''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$.
 
