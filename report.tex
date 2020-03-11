@@ -984,25 +984,20 @@ and
 as a result of Lemma \ref{lemma:codimension-formula-corner-sums}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ as required.
 \end{proof}
 
+Now assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$, using Lemma \ref{lemma:embedding-orbit-products}.
+
 \begin{lemma}\label{lemma:y-prod-is-quasiprojective}
-There is $N\in\naturals$ such that $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
+$\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:embedding-orbit-products} shows that there is $N\in\naturals$ such that $\yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^b(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$.
+$\yprod[L]{A,B}$ is the subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ consisting of those $(L',L'')$ satisfying the following conditions: $\dim(L_i/{L_i\cap L_j'}) = d_{i,j}{(A)}$ for $i<j$, $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{(A)}$ for $i>j$, $\dim(L_i'/{L_i'\cap L_j''})=d_{i,j}{(B)}$ for $i<j$ and $\dim(L_j''/{L_i'\cap L_j''})=\bar{d}_{i,j}{(B)}$. Only finitely many conditions are required to define $\yprod[L]{A,B}$ since there are only finitely many nonzero entries in $A$ and $B$ up to the $(n,n)$-periodicity.
 
-Then $\yprod[L]{A,B}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ defined by the conditions
-\begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A)
-\end{equation*}
-and
-\begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B)
-\end{equation*}
-for each $i,j\in\integers$.
+The conditions $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\le d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\le\bar{d}_{i,j}{(B)}$ define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
 
-{\color{blue} it remains to justify why these are locally closed conditions on the product and why there are effectively only finitely many conditions.}
-Thus $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ so is a quasiprojective variety.
+On the other hand, the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\geq d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\geq\bar{d}_{i,j}{(B)}$ define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
+
+Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally-closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{proof}
 
 \begin{lemma}
