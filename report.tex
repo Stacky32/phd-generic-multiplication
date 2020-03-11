@@ -605,7 +605,7 @@ It is clear that $\le$ is reflexive and transitive, so it remains to see $\le$ i
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
-\begin{lemma}\label{lemma:codimension-fomula-corner-sums}
+\begin{lemma}\label{lemma:codimension-formula-corner-sums}
 Let $A\in\matrices$ and take $(L,L')\in\orbit{A}$. Then
 \begin{equation*}
 \dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{A}
@@ -852,7 +852,7 @@ Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group iso
 
 \subsection{Incidence in affine flag varieties}
 
-\begin{lemma}\label{lemma:incidence-varieties-master}
+\begin{lemma}\label{lemma:incidence-varieties-main}
 Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
@@ -871,7 +871,7 @@ together with Lemma \ref{lemma:projective-varieties-of-cyclic-flags} and Lemma \
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L):\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
 \end{equation*}
-is closed, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is also closed.
+is closed, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is closed.
 \end{proof}
 
 \begin{lemma}\label{lemma:incidence-varieties-consequences}
@@ -889,9 +889,9 @@ are closed sets in $\Pi_{N,\lambda}^a(L)$.
 \begin{proof}
 This is a result of Lemma \ref{lemma:grassmannian-incidence-lemmas}, since
 \begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = \dim\left(\frac{L_i/{\epsilon^M L_0}}{L_i/{\epsilon^M L_0}\cap L_j'/{\epsilon^M L_0}}\right),
 \end{equation*}
-where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$ for each $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$.
+where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j'\subset\epsilon^{-M}L_0$ for each $L'\in\Pi_{N,\lambda}^a(L)$.
 \end{proof}
 
 
@@ -914,7 +914,7 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
 \end{equation*}
-as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}. 
+as a result of Lemma \ref{lemma:codimension-formula-corner-sums}. 
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
@@ -936,7 +936,7 @@ Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in 
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
-Given $A\in\matrices$ and $L\in\flags_{ro{A}}$, $\xprod[L]{A}$ is irreducible.
+Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is irreducible.
 \end{lemma}
 
 \begin{proof}
@@ -949,29 +949,26 @@ Consequently, $\overline{\xprod[L]{A}}$ is an irreducible projective variety and
 
 \subsection{Geometry of orbit products}
 
-Let $A,B\in\matrices$ with $\co{A}=\ro{B}$ and write $\lambda=co{A}$ and $\mu=\co{B}$. Fix $L\in\flags_{\ro{A}}$.
+Let $A,B\in\matrices$ with $\co{A}=\ro{B}$ and write $\lambda=\co{A}$ and $\mu=\co{B}$. Fix $L\in\flags_{\ro{A}}$. Recall
 
-Recall the notation
 \begin{equation*}
-\yprod{A,B} = \{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
+\yprod[L]{A,B}=\{(L',L'')\in\flags_{\lambda}\times\flags_{\mu}: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}\}
 \end{equation*}
 and
 \begin{equation*}
-\xprod{A,B} = \{(L,L'')\in\flags^2:\exists L'\in\flags \text{ with } (L,L',L'')\in \yprod{A,B}\}.
+\xprod[L]{A,B}=\{L''\in\flags_{\mu}: \exists L'\in\xprod[L]{A} \text{ with } L''\in\xprod[L']{B}\}
 \end{equation*}
-
-$\xprod{A,B}$ is the image of $\yprod{A,B}$ under the forgetful map $(L,L',L'')\mapsto (L,L'')$.
 
 \begin{lemma}\label{lemma:embedding-orbit-products}
 There is $N\in\naturals$ such that
 \begin{equation*}
 \yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L),
 \end{equation*}
-where $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$.
+where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$.
 \end{lemma}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\epsilon^NL0\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^NL_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$, using Lemma \ref{lemma:bounded-orbits}. Set $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$.
+There is $N\in\naturals$ such that $\epsilon^N{L_0}\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^NL_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$, using Lemma \ref{lemma:bounded-orbits}. Set $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$.
 
 Then for any $(L',L'')\in\yprod[L]{A,B}$,
 \begin{equation*}
@@ -984,17 +981,36 @@ and
 &=\dim\left(\frac{\epsilon^{-N}L_0'}{L_0''}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &= a+b,
 \end{align*}
-as a result of Lemma \ref{lemma:codimension-fomula-corner-sums}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$as required.
+as a result of Lemma \ref{lemma:codimension-formula-corner-sums}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ as required.
 \end{proof}
 
-Refer to Section \ref{sec:orbit-product} for definitions of the spaces $\xprod[L]{A,B}$ and $\yprod[L]{A,B}$.
+\begin{lemma}\label{lemma:y-prod-is-quasiprojective}
+There is $N\in\naturals$ such that $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
+\end{lemma}
+
+\begin{proof}
+Lemma \ref{lemma:embedding-orbit-products} shows that there is $N\in\naturals$ such that $\yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^b(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$.
+
+Then $\yprod[L]{A,B}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ defined by the conditions
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A)
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B)
+\end{equation*}
+for each $i,j\in\integers$.
+
+{\color{blue} it remains to justify why these are locally closed conditions on the product and why there are effectively only finitely many conditions.}
+Thus $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ so is a quasiprojective variety.
+\end{proof}
 
 \begin{lemma}
-Given $A,B\in\matrices$ with $\ro{B}=\co{A}$ and $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$,
+For any $L'\in\xprod[L]{A}$ and $L''\in\xprod[L']{B}$,
 \begin{align*}
 \xprod[L]{A,B}
-&= G_L G_{L'} L''\\
-&= G_L \xprod[L']{B}.
+&= G_L \xprod[L']{B}\\
+&= G_L G_{L'} L''.
 \end{align*}
 \end{lemma}
 
@@ -1018,37 +1034,7 @@ Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N
 Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
 \end{proof}
 
-$H_N$ is generally not normal in $G_{L'}$, though the space of (right) cosets of $H_N$ in $G_{L'}$ will still be irreducible.
-
-\begin{lemma}
-$G_{L'}/H_N$ is irreducible, provided $H_N\subset G_{L'}$.
-\end{lemma}
-
-{\color{blue}
-\begin{proof}
-Needs a proof.
-\end{proof}
-}
-
-\begin{lemma}\label{lemma:y-prod-is-quasiprojective}
-There is $N\in\naturals$ such that $\yprod[L]{A,B}$ is a locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{A}$ and $b=d_{nN,0}{B}$. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
-\end{lemma}
-
-{\color{gray}CONTINUE HERE THURSDAY MORNING}
-\begin{proof}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L,L',L'')$ with $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Let $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$. Then $\yprod[L]{A,B}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ defined by the conditions
-\begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A)
-\end{equation*}
-and
-\begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B)
-\end{equation*}
-for each $i,j\in\integers$.
-
-{\color{blue} it remains to justify why these are locally closed conditions on the product and why there are effectively only finitely many conditions.}
-Thus $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ so is a quasiprojective variety.
-\end{proof}
+$H_N$ is generally not normal in $G_{L'}$, though the space of right cosets of $H_N$ in $G_{L'}$ will still be irreducible.
 
 \begin{proposition}\label{prop:irreducible-y-prod}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasi-projective variety.
@@ -1111,7 +1097,7 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 
 \section{Associativity}
 
-\begin{definition}\ref{def:triple-proucts}
+\begin{definition}\label{def:triple-products}
 For $A,B,C\in\matrices$ and $L\in\flags_{\ro{A}}$, define
 \begin{equation*}
 \yprod[L]{A,B,C} = \{(L',L'',L''')\in\flags^3: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}, L'''\in\xprod[L'']{C}\}
@@ -1124,7 +1110,6 @@ and
 
 Note that $xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$ are nonempty only if $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$.
 
-Refer to Section \ref{sec:triple-product} for definitions of the spaces $\xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$. Recall that $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$, given by $f(L',L'',L''') = L'''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$.
 
 \begin{lemma}
 Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L'',L''')\in\orbit{C}$,
