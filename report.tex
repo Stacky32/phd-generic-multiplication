@@ -1000,23 +1000,15 @@ On the other hand, the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{(A)}$, $
 Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally-closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{proof}
 
-\begin{lemma}
-For any $L'\in\xprod[L]{A}$ and $L''\in\xprod[L']{B}$,
-\begin{align*}
-\xprod[L]{A,B}
-&= G_L \xprod[L']{B}\\
-&= G_L G_{L'} L''.
-\end{align*}
+\begin{lemma}\label{lemma:yprod-as-a-saturation}
+For any $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B})$.
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the forgetful map $(N',N'')\mapsto N''$. If $\alpha\in G_L$ and $\beta\in G_{L'}$ then $(L,\alpha L,\alpha\beta L'')\in\yprod{A,B}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$ and $(\alpha L',\alpha\beta L'')=\alpha\beta(\beta^{-1}L',L'')=\alpha\beta(L',L'')\in\orbit{B}$. Consequently, $G_L G_{L'}L''\in\xprod[L]{A,B}$.
-
-For the reverse inclusion, if $(N',N'')\in\yprod[L]{A,B}$ then $(L,N')\in\orbit{A}$ and $(N',N'')\in\orbit{B}$, so there exist $\sigma_1,\sigma_2\in G$ such that $(L,N')=\sigma_1(L,L')$ and $(N',N'')\in\sigma_2(N',N'')$. Then $(L,N',N'') = (L,\sigma_1 L',\sigma_1(\sigma_1^{-1}\sigma_2) L'')$ with $\sigma_1\in G_L$ and $\sigma_1^{-1}\sigma_2\in G_{L'}$. Thus $\xprod[L]{A,B} = G_L G_{L'}L''$.
-
-The second equality follows since $\xprod[L']{B}=G_{L'}L''$.
+Let $L'\in\xprod[L]{A}$, then $\{L'\}\times\xprod[L']{B}$ is contained in $\yprod[L]{A,B}$ and $G_L$ acts on $\yprod[L]{A,B}$, so $G_L\cdot(\{L'\}\times\xprod[L']{B})$ is contained in $\yprod[L]{A,B}$. If $(N',N'')\in\yprod[L]{A,B}$, then $N'=\sigma L'$ for some $\sigma\in G_L$, since $N'\in\xprod[L]{A}$. Then $(N',N'')=\sigma (L',\sigma^{-1}N'')$ and $\sigma^{-1}N''\in\xprod[\sigma^{-1}N']{B}=\xprod[L']{B}$, so $(N',N'')\in\sigma\cdot(\{L'\}\times\xprod[L']{B})$. Therefore $\yprod[L]{A,B}=G_L\cdot(\{L'\}\times\xprod[L']{B})$ as claimed.
 \end{proof}
 
+{\color{gray}SEEMS SOMEWHAT IRRELEVANT!
 \begin{lemma}
 There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
 \end{lemma}
@@ -1030,15 +1022,14 @@ Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{
 \end{proof}
 
 $H_N$ is generally not normal in $G_{L'}$, though the space of right cosets of $H_N$ in $G_{L'}$ will still be irreducible.
+}
 
 \begin{proposition}\label{prop:irreducible-y-prod}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B}$ is an irreducible quasi-projective variety.
+$\yprod[L]{A,B}$ is irreducible.
 \end{proposition}
 
 \begin{proof}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N} L_0$ and $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ for each $(L',L'')\in\yprod[L]{A,B}$. Write $a=d_{nN,0}(A)$ and $b=d_{nN,0}(B)$, so $\yprod[L]{A,B}\subset\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. Lemma \ref{lemma:y-prod-is-quasiprojective} shows that $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ and thus a quasiprojective variety, so it remains to show $\yprod[L]{A,B}$ is irreducible.
-
-For any $L'\in\xprod[L]{A}$, $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$. $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$, so $\{L'\}\times\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. In particular, $\{L'\}\times\xprod[L']{B}$ is an irreducible (locally closed) subspace of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)$ and $\yprod[L]{A,B}$ is the image of $G_L/{H_{2N,L}}\times\{L'\}\times\xprod[L']{B}$ under the action map, so $\yprod[L]{A,B}$ is irreducible. 
+Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally-closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
 \end{proof}
 
 \begin{lemma}\label{lemma:irreducible-x-prod}
@@ -1052,11 +1043,6 @@ $\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the projection $\flags_{
 \begin{proof}
 There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ for each $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Then $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is in turn a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\xprod[L']{B}$ is an irreducible subspace of $\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting morphically on $\Pi_{2N,\co{B}}^{a+b}(L)$, therefore $\xprod[L]{A,B} = G_L/{H_{2N,L}}\cdot\xprod[L']{B}$ is irreducible.
 \end{proof}
-
-\begin{remark}
-$\xprod[L]{A,B}$ is a union of finitely many $G_L$-orbits, each of which is locally closed, so $\xprod[L]{A,B}$ is constructible. Lemma
-\ref{lemma:irreducible-x-prod} shows that $\xprod[L]{A,B}$ is irreducible. Investigate whether $\xprod[L]{A,B}$ is actually locally closed and therefore an irreducible quasiprojective variety.
-\end{remark}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
