@@ -991,7 +991,7 @@ $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2
 \end{lemma}
 
 \begin{proof}
-$\yprod[L]{A,B}$ is the subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ consisting of those $(L',L'')$ satisfying the following conditions: $\dim(L_i/{L_i\cap L_j'}) = d_{i,j}{(A)}$ for $i<j$, $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{(A)}$ for $i>j$, $\dim(L_i'/{L_i'\cap L_j''})=d_{i,j}{(B)}$ for $i<j$ and $\dim(L_j''/{L_i'\cap L_j''})=\bar{d}_{i,j}{(B)}$. Only finitely many conditions are required to define $\yprod[L]{A,B}$ since there are only finitely many nonzero entries in $A$ and $B$ up to the $(n,n)$-periodicity.
+$\yprod[L]{A,B}$ is the subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ consisting of those $(L',L'')$ satisfying the following conditions: $\dim(L_i/{L_i\cap L_j'}) = d_{i,j}{(A)}$ for $i<j$, $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{(A)}$ for $i>j$, $\dim(L_i'/{L_i'\cap L_j''})=d_{i,j}{(B)}$ for $i<j$ and $\dim(L_j''/{L_i'\cap L_j''})=\bar{d}_{i,j}{(B)}$. Only finitely many conditions are required to define $\yprod[L]{A,B}$ since there are only finitely many nonzero entries in $A$ and $B$ modulo the $(n,n)$-periodicity.
 
 The conditions $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\le d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\le\bar{d}_{i,j}{(B)}$ define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
 
@@ -1032,16 +1032,14 @@ $\yprod[L]{A,B}$ is irreducible.
 Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally-closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
 \end{proof}
 
+Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{N,\lambda}^a(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. Therefore $p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}$, since $p_2(\yprod[L]{A,B})=\xprod[L]{A,B}$.
+
 \begin{lemma}\label{lemma:irreducible-x-prod}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B}$ is an irreducible topological space.
+$\xprod[L]{A,B}$ is irreducible and constructible.
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B}$ is the image of $\yprod[L]{A,B}$ under the projection $\flags_{\co{A}}\times\flags_{\co{B}}\to\flags_{\co{B}}$ and $\yprod[L]{A,B}$ is irreducible, by Proposition \ref{prop:irreducible-y-prod}, so $\xprod[L]{A,B}$ is irreducible.
-\end{proof}
-
-\begin{proof}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ for each $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$. Then $\overline{\xprod[L']{B}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')$, which is in turn a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)$. Thus $\xprod[L']{B}$ is an irreducible subspace of $\Pi_{2N,\co{B}}^{a+b}(L)$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting morphically on $\Pi_{2N,\co{B}}^{a+b}(L)$, therefore $\xprod[L]{A,B} = G_L/{H_{2N,L}}\cdot\xprod[L']{B}$ is irreducible.
+Proposition \ref{prop:irreducible-y-prod} shows that $\yprod[L]{A,B}$ is irreducible and locally closed, so it follows $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B}=p_2(\yprod[L]{A,B})$.
 \end{proof}
 
 \begin{proposition}\label{prop:open-orbits-in-product}
@@ -1078,19 +1076,23 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 
 \section{Associativity}
 
-\begin{definition}\label{def:triple-products}
-For $A,B,C\in\matrices$ and $L\in\flags_{\ro{A}}$, define
+Let $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. Write $\lambda=\co{A}$, $\mu=\co{B}$ and $\nu=\co{C}$. Define
+
 \begin{equation*}
-\yprod[L]{A,B,C} = \{(L',L'',L''')\in\flags^3: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}, L'''\in\xprod[L'']{C}\}
+\yprod[L]{A,B,C} = \left\{(L',L'',L''')\in\flags^3: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}, L'''\in\xprod[L'']{C}\right\}
 \end{equation*}
 and
 \begin{equation*}
-\xprod[L]{A,B,C} = \{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ such that } (L',L'',L''')\in\yprod[L]{A,B,C}
+\xprod[L]{A,B,C} = \left\{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ with } (L',L'',L''')\in\yprod[L]{A,B,C}\right\}
 \end{equation*}
-\end{definition}
 
-Note that $xprod[L]{A,B,C}$ and $\yprod[L]{A,B,C}$ are nonempty only if $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$.
+\begin{lemma}\label{lemma:embedding-y-triple}
+There is $N\in\naturals$ such that $\yprod[L]{A,B,C}$ is contained in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$.
+\end{lemma}
 
+\begin{proof}
+Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Using the proof of Lemma \ref{lemma:embedding-orbit-products}, it follows $L''\in\Pi_{2N,\mu}^{a+b}(L)$ and $L'''\in\Pi_{2N,\nu}^{b+c}(L')\subset\Pi_{3N,\nu}^{a+b+c}(L)$.
+\end{proof}
 
 \begin{lemma}
 Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L'',L''')\in\orbit{C}$,
@@ -1109,11 +1111,13 @@ Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_
 where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
 \end{proof}
 
+Assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B,C}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$, as in Lemma \ref{lemma:embedding-y-triple}.
+
 \begin{lemma}\label{lemma:y-triple-is-quasiprojective}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
+$\yprod[L]{A,B,C}$ is a locally-closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{red}
 There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Let $a=d_{nN,0}(A)$, $b=d_{nN,0}(B)$ and $c=d_{nN,0}(C)$. Then $\yprod[L]{A,B,C}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$ defined by the conditions
 \begin{equation*}
 \dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A),
@@ -1129,25 +1133,25 @@ for each $i,j\in\integers$.
 
 {\color{blue} it remains to shows these conditions define locally closed subsets of the triple product and that there are effectively finitely many conditions}.
 
-Thus $\yprod[L]{A,B,C}$ is a locally closed subset of the projective variety $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$, so $\yprod[L]{A,B,C}$ is a quasiprojective variety.
+Thus $\yprod[L]{A,B,C}$ is a locally closed subset of the projective variety $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$, so $\yprod[L]{A,B,C}$ is a quasiprojective variety.}
 \end{proof}
 
 \begin{lemma}\label{lemma:irreducible-y-triple}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
+$\yprod[L]{A,B,C}$ is irreducible.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{red}
 There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{3N,L}}$ is a connected algebraic group acting algebraically on $\Pi = \Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$.
 
-Let $L'\in\xprod[L]{A}$. $\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}$. $\yprod[L']{B,C}$ is an irreducible quasiprojective variety; $\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')\times\Pi_{2N,\co{C}}^{b+c}(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$. Thus $\{L'\}\times\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi$. Therefore $\yprod[L]{A,B,C}$ is the image of the irreducible space $G_L/{H_{3N,L}}\times\{L'\}\times\yprod[L']{B,C}$ under the action map, so $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.
+Let $L'\in\xprod[L]{A}$. $\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}$. $\yprod[L']{B,C}$ is an irreducible quasiprojective variety; $\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')\times\Pi_{2N,\co{C}}^{b+c}(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$. Thus $\{L'\}\times\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi$. Therefore $\yprod[L]{A,B,C}$ is the image of the irreducible space $G_L/{H_{3N,L}}\times\{L'\}\times\yprod[L']{B,C}$ under the action map, so $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.}
 \end{proof}
 
-\begin{corollary}\label{lemma:irreducible-x-triple}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A,B,C}$ is an irreducible topological space.
-\end{corollary}
+\begin{lemma}\label{lemma:irreducible-x-triple}
+$\xprod[L]{A,B,C}$ is irreducible and constructible.
+\end{lemma}
 
-\begin{proof}
-$\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$ and $\yprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-y-triple}, so $\xprod[L]{A,B,C}$ is irreducible.
+\begin{proof}{\color{red}
+$\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$ and $\yprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-y-triple}, so $\xprod[L]{A,B,C}$ is irreducible.}
 \end{proof}
 
 \begin{lemma}\label{lemma:generic-triple-product}
@@ -1183,10 +1187,6 @@ is open in $\yprod[L]{A,B,C}$, as it is defined by {\color{blue}finitely many} o
 \begin{conjecture}\label{conjecture:open-embeddings-in-x}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
 \end{conjecture}
-
-\begin{remark}
-If $f$ is shown to be an open map then this result follows from Lemma \ref{lemma:zprod-open-in-yprod-left} and Lemma \ref{lemma:zprod-open-in-yprod-right}.
-\end{remark}
 
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
