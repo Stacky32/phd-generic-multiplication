@@ -1094,6 +1094,35 @@ There is $N\in\naturals$ such that $\yprod[L]{A,B,C}$ is contained in $\Pi_{N,\l
 Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset\epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Using the proof of Lemma \ref{lemma:embedding-orbit-products}, it follows $L''\in\Pi_{2N,\mu}^{a+b}(L)$ and $L'''\in\Pi_{2N,\nu}^{b+c}(L')\subset\Pi_{3N,\nu}^{a+b+c}(L)$.
 \end{proof}
 
+Assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B,C}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$, as in Lemma \ref{lemma:embedding-y-triple}.
+
+\begin{lemma}\label{lemma:y-triple-is-quasiprojective}
+$\yprod[L]{A,B,C}$ is a locally-closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
+\end{lemma}
+
+\begin{proof}
+Write $\Pi=\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}(L)$. Then $\yprod[L]{A,B,C}$ consists of those $(L',L'',L''')\in\Pi$ satisfying the following conditions:
+\begin{align}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) &= d_{i,j}{(A)},\\
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) &= d_{i,j}{(B)},\\
+\dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) &= d_{i,j}{(C)},
+\end{align}
+for $(i,j)\in [1,n]\times\integers$ with $i<j<(N+1)n$, and
+\begin{align}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) &= \bar{d}_{i,j}{(A)},\\
+\dim\left(\frac{L_j''}{L_i'\cap L_j''}\right) &= \bar{d}_{i,j}{(B)},\\
+\dim\left(\frac{L_j'''}{L_i''\cap L_j'''}\right) &= \bar{d}_{i,j}{(C)},
+\end{align}
+for $(i,j)\in [1,n]\times\integers$ with $-Nn<j<i$.
+
+Each of the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\le d_{i,j}{(A)}$, $\dim\left(L_i'/{L_i'\cap L_j''}\right)\le d_{i,j}{(B)}$ and $\dim\left(L_i''/{L_i''\cap L_j'''}\right)\le d_{i,j}{(C)}$ for $i<j$ defines a closed subset of $\Pi$, by \ref{lemma:incidence-varieties-main}. The conditions $\dim\left(L_j'/{L_i\cap L_j'}\right)\le \bar{d}_{i,j}{(A)}$, $\dim\left(L_j''/{L_i'\cap L_j''}\right)\le \bar{b}_{i,j}{(B)}$ and $\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\le \bar{d}_{i,j}{(C)}$ for $i>j$ also define closed subsets of $\Pi$.
+
+On the other hand, the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\geq d_{i,j}{(A)}$, $\dim\left(L_i'/{L_i'\cap L_j''}\right)\geq d_{i,j}{(B)}$ and $\dim\left(L_i''/{L_i''\cap L_j'''}\right)\geq d_{i,j}{(C)}$ for $i<j$ define open subsets of $\Pi$. Similarly, the conditions $\dim\left(L_j'/{L_i\cap L_j'}\right)\geq \bar{d}_{i,j}{(A)}$, $\dim\left(L_j''/{L_i'\cap L_j''}\right)\geq \bar{d}_{i,j}{(B)}$ and $\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\geq \bar{d}_{i,j}{(C)}$ for $i>j$ define open subsets of $\Pi$.
+
+Therefore $\yprod[L]{A,B,C}$ is the intersection of finitely many closed sets in $\Pi$ with finitely many open subsets of $\Pi$, so $\yprod[L]{A,B,C}$ is locally closed. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
+\end{proof}
+
+{\color{red}
 \begin{lemma}
 Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L'',L''')\in\orbit{C}$,
 \begin{equation*}
@@ -1110,31 +1139,7 @@ Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_
 \end{equation*}
 where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
 \end{proof}
-
-Assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B,C}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$, as in Lemma \ref{lemma:embedding-y-triple}.
-
-\begin{lemma}\label{lemma:y-triple-is-quasiprojective}
-$\yprod[L]{A,B,C}$ is a locally-closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
-\end{lemma}
-
-\begin{proof}{\color{red}
-There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$, $\epsilon^N L_0'\subset L_0''\subset \epsilon^{-N}L_0'$ and $\epsilon^N L_0''\subset L_0'''\subset\epsilon^{-N}L_0''$ for each $(L',L'',L''')\in\yprod[L]{A,B,C}$. Let $a=d_{nN,0}(A)$, $b=d_{nN,0}(B)$ and $c=d_{nN,0}(C)$. Then $\yprod[L]{A,B,C}$ is the subset of $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$ defined by the conditions
-\begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}(A),
-\end{equation*}
-\begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = d_{i,j}(B),
-\end{equation*}
-and
-\begin{equation*}
-\dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) = d_{i,j}(C)
-\end{equation*}
-for each $i,j\in\integers$.
-
-{\color{blue} it remains to shows these conditions define locally closed subsets of the triple product and that there are effectively finitely many conditions}.
-
-Thus $\yprod[L]{A,B,C}$ is a locally closed subset of the projective variety $\Pi_{N,\co{A}}^a(L)\times\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$, so $\yprod[L]{A,B,C}$ is a quasiprojective variety.}
-\end{proof}
+}
 
 \begin{lemma}\label{lemma:irreducible-y-triple}
 $\yprod[L]{A,B,C}$ is irreducible.
@@ -1183,10 +1188,6 @@ f^{-1}(\xprod[L]{A,B\ast C}) = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\le
 \end{equation*}
 is open in $\yprod[L]{A,B,C}$, as it is defined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$ given by $(L',L''')\mapsto\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)$ is lower semicontinuous, so maximising this function is an open condition on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$.
 \end{proof}
-
-\begin{conjecture}\label{conjecture:open-embeddings-in-x}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A\ast B,C}$ and $\xprod[L]{A,B\ast C}$ are open and dense in $\xprod[L]{A,B,C}$.
-\end{conjecture}
 
 \begin{proposition}\label{proposition:associativity}
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
