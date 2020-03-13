@@ -525,7 +525,7 @@ a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\rig
 \end{equation*}
 for each $i,j\in\integers$.
 
-Recall that $\ro,\co\colon\matrices\to\compositions$ are the maps given by
+Recall that $\ro$ and $\co$ are the maps $\matrices\to\compositions$ given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
@@ -634,7 +634,7 @@ As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V
 
 Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$, so $U_i = D_{\alpha_i} = \ker{\phi^{(d_i)}(\alpha)}$. Therefore the kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis. Therefore $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}:\dim(U_1\cap U_2)\geq a\}$ is a closed subset of the product of Grassmannians $\GR[d_1]{V}\times\GR[d_2]{V}$, so is a projective variety.
 
-{\color{gray}[CONFIRM THE VALIDITY OF THIS.] More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogeneous polynomials of degree $1$ in the Pl\"ucker coordinates on $\GR[d_1]{V}\times\GR[d_2]{V}$ since $\Psi$ is linear and so the minors of $\Psi(\alpha_1,\alpha_2)$ are also homogeneous polynomials in the Pl\"ucker cooordinates.}
+More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogeneous polynomials of degree $1$ in the Pl\"ucker coordinates on $\GR[d_1]{V}\times\GR[d_2]{V}$ since $\Psi$ is linear and so the minors of $\Psi(\alpha_1,\alpha_2)$ are also homogeneous polynomials in the Pl\"ucker coordinates.
 \end{proof}
 
 \begin{lemma}\label{lemma:grassmannian-incidence-lemmas}
@@ -997,7 +997,7 @@ The conditions $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap 
 
 On the other hand, the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\geq d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\geq\bar{d}_{i,j}{(B)}$ define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
 
-Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally-closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
+Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{proof}
 
 \begin{lemma}\label{lemma:yprod-as-a-saturation}
@@ -1008,28 +1008,12 @@ For any $L'\in\xprod[L]{A}$, $\yprod[L]{A,B} = G_L\cdot(\{L'\}\times\xprod[L']{B
 Let $L'\in\xprod[L]{A}$, then $\{L'\}\times\xprod[L']{B}$ is contained in $\yprod[L]{A,B}$ and $G_L$ acts on $\yprod[L]{A,B}$, so $G_L\cdot(\{L'\}\times\xprod[L']{B})$ is contained in $\yprod[L]{A,B}$. If $(N',N'')\in\yprod[L]{A,B}$, then $N'=\sigma L'$ for some $\sigma\in G_L$, since $N'\in\xprod[L]{A}$. Then $(N',N'')=\sigma (L',\sigma^{-1}N'')$ and $\sigma^{-1}N''\in\xprod[\sigma^{-1}N']{B}=\xprod[L']{B}$, so $(N',N'')\in\sigma\cdot(\{L'\}\times\xprod[L']{B})$. Therefore $\yprod[L]{A,B}=G_L\cdot(\{L'\}\times\xprod[L']{B})$ as claimed.
 \end{proof}
 
-{\color{gray}SEEMS SOMEWHAT IRRELEVANT!
-\begin{lemma}
-There is $N\in\naturals$ such that $H_N\subset G_{L'}$. Consequently, $H_{N'}\subset G_{L'}$ whenever $N'\geq N$.
-\end{lemma}
-
-\begin{proof}
-Choose $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$. Then
-\begin{equation*}
-\epsilon^N L_0 \subset L_0'\subset L_1'\subset\cdots\subset L_n' \subset \epsilon^{-(1+N)}L_0.
-\end{equation*}
-Let $h\in H_N$. $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)} L_0$, so $h(L_i')\subset L_i'$ for $i=0,1,\ldots,n$. Moreover, $h^{-1}$ stabilises $L_i'$, so $h(L_i') = L_i'$ for $i=0,1,\ldots,n$ and therefore for $i\in\integers$. This shows $h\in G_{L'}$ as required, so $H_N\subset G_{L'}$.
-\end{proof}
-
-$H_N$ is generally not normal in $G_{L'}$, though the space of right cosets of $H_N$ in $G_{L'}$ will still be irreducible.
-}
-
 \begin{proposition}\label{prop:irreducible-y-prod}
 $\yprod[L]{A,B}$ is irreducible.
 \end{proposition}
 
 \begin{proof}
-Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally-closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
+Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
 \end{proof}
 
 Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{N,\lambda}^a(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. Therefore $p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}$, since $p_2(\yprod[L]{A,B})=\xprod[L]{A,B}$.
@@ -1042,13 +1026,15 @@ $\xprod[L]{A,B}$ is irreducible and constructible.
 Proposition \ref{prop:irreducible-y-prod} shows that $\yprod[L]{A,B}$ is irreducible and locally closed, so it follows $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B}=p_2(\yprod[L]{A,B})$.
 \end{proof}
 
-\begin{proposition}\label{prop:open-orbits-in-product}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
+\begin{proposition}\label{prop:open-orbit-x-prod}
+There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
 \begin{proof}
 $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
+
+Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
 
 \section{Existence of a maximum}
 
@@ -1077,13 +1063,12 @@ This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matri
 \section{Associativity}
 
 Let $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. Write $\lambda=\co{A}$, $\mu=\co{B}$ and $\nu=\co{C}$. Define
-
 \begin{equation*}
 \yprod[L]{A,B,C} = \left\{(L',L'',L''')\in\flags^3: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}, L'''\in\xprod[L'']{C}\right\}
 \end{equation*}
 and
 \begin{equation*}
-\xprod[L]{A,B,C} = \left\{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ with } (L',L'',L''')\in\yprod[L]{A,B,C}\right\}
+\xprod[L]{A,B,C} = \left\{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ with } (L',L'',L''')\in\yprod[L]{A,B,C}\right\}..
 \end{equation*}
 
 \begin{lemma}\label{lemma:embedding-y-triple}
@@ -1097,7 +1082,7 @@ Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ such that $
 Assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B,C}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$, as in Lemma \ref{lemma:embedding-y-triple}.
 
 \begin{lemma}\label{lemma:y-triple-is-quasiprojective}
-$\yprod[L]{A,B,C}$ is a locally-closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
+$\yprod[L]{A,B,C}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{lemma}
 
 \begin{proof}
