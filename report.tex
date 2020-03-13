@@ -1047,7 +1047,7 @@ Given $A,B\in\matrices$ with $\co{A}=\ro{B}$ and $L\in\flags_{\ro{A}}$, there is
 \end{proposition}
 
 \begin{proof}
-$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two non-empty open sets in $\xprod[L]{A,B}$ intersect non-trivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
+$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
 \section{Existence of a maximum}
@@ -1115,7 +1115,25 @@ for $(i,j)\in [1,n]\times\integers$ with $i<j<(N+1)n$, and
 \end{align}
 for $(i,j)\in [1,n]\times\integers$ with $-Nn<j<i$.
 
-Each of the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\le d_{i,j}{(A)}$, $\dim\left(L_i'/{L_i'\cap L_j''}\right)\le d_{i,j}{(B)}$ and $\dim\left(L_i''/{L_i''\cap L_j'''}\right)\le d_{i,j}{(C)}$ for $i<j$ defines a closed subset of $\Pi$, by \ref{lemma:incidence-varieties-main}. The conditions $\dim\left(L_j'/{L_i\cap L_j'}\right)\le \bar{d}_{i,j}{(A)}$, $\dim\left(L_j''/{L_i'\cap L_j''}\right)\le \bar{b}_{i,j}{(B)}$ and $\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\le \bar{d}_{i,j}{(C)}$ for $i>j$ also define closed subsets of $\Pi$.
+For $i<j$, the conditions
+\begin{align*}
+\dim\left(L_i/{L_i\cap L_j'}\right)&\le d_{i,j}{(A)},\\
+\dim\left(L_i'/{L_i'\cap L_j''}\right)&\le d_{i,j}{(B)}
+\end{align*}
+and
+\begin{equation*} 
+\dim\left(L_i''/{L_i''\cap L_j'''}\right)\le d_{i,j}{(C)}
+\end{equation*}
+define closed subsets of $\Pi$, by Lemma \ref{lemma:incidence-varieties-main}. For $i>j$, the conditions
+\begin{align*}
+\dim\left(L_j'/{L_i\cap L_j'}\right)&\le \bar{d}_{i,j}{(A)},\\
+\dim\left(L_j''/{L_i'\cap L_j''}\right)&\le \bar{d}_{i,j}{(B)}
+\end{align*}
+and
+\begin{equation*}
+\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\le \bar{d}_{i,j}{(C)}
+\end{equation*}
+also define closed subsets of $\Pi$.
 
 On the other hand, the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\geq d_{i,j}{(A)}$, $\dim\left(L_i'/{L_i'\cap L_j''}\right)\geq d_{i,j}{(B)}$ and $\dim\left(L_i''/{L_i''\cap L_j'''}\right)\geq d_{i,j}{(C)}$ for $i<j$ define open subsets of $\Pi$. Similarly, the conditions $\dim\left(L_j'/{L_i\cap L_j'}\right)\geq \bar{d}_{i,j}{(A)}$, $\dim\left(L_j''/{L_i'\cap L_j''}\right)\geq \bar{d}_{i,j}{(B)}$ and $\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\geq \bar{d}_{i,j}{(C)}$ for $i>j$ define open subsets of $\Pi$.
 
@@ -1151,54 +1169,60 @@ There is $N\in\naturals$ such that $\epsilon^N L_0\subset L_0'\subset\epsilon^{-
 Let $L'\in\xprod[L]{A}$. $\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}$. $\yprod[L']{B,C}$ is an irreducible quasiprojective variety; $\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi_{N,\co{B}}^b(L')\times\Pi_{2N,\co{C}}^{b+c}(L')$, which is a subvariety of $\Pi_{2N,\co{B}}^{a+b}(L)\times\Pi_{3N,\co{C}}^{a+b+c}(L)$. Thus $\{L'\}\times\overline{\yprod[L']{B,C}}$ is an irreducible subvariety of $\Pi$. Therefore $\yprod[L]{A,B,C}$ is the image of the irreducible space $G_L/{H_{3N,L}}\times\{L'\}\times\yprod[L']{B,C}$ under the action map, so $\yprod[L]{A,B,C}$ is irreducible. Lemma \ref{lemma:y-triple-is-quasiprojective} shows that $\yprod[L]{A,B,C}$ is quasiprojective, so $\yprod[L]{A,B,C}$ is an irreducible quasiprojective variety.}
 \end{proof}
 
+Let $p_3$ be the projection of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$ onto the third factor. By the completeness property of projective varieties, $p_3$ is a closed morphism. The image of $\yprod[L]{A,B,C}$ under $p_3$ is $\xprod[L]{A,B,C}$, so $p_3(\overline{\yprod[L]{A,B,C}}) = \overline{\xprod[L]{A,B,C}}$.
+
 \begin{lemma}\label{lemma:irreducible-x-triple}
 $\xprod[L]{A,B,C}$ is irreducible and constructible.
 \end{lemma}
 
-\begin{proof}{\color{red}
-$\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the forgetful map $f$ and $\yprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-y-triple}, so $\xprod[L]{A,B,C}$ is irreducible.}
+\begin{proof}
+Lemma \ref{lemma:y-triple-is-quasiprojective} and Lemma \ref{lemma:irreducible-y-triple} show that $\yprod[L]{A,B,C}$ is irreducible and locally closed. It follows $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the morphism $p_3$.
 \end{proof}
 
 \begin{lemma}\label{lemma:generic-triple-product}
-Given matrices $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there is a unique open $G_L$-orbit in $\xprod[L]{A,B,C}$.
+There is a unique open and dense $G_L$-orbit in $\xprod[L]{A,B,C}$.
 \end{lemma}
 
 \begin{proof}
-$\xprod[L]{A,B,C}$ is irreducible, by Corollary \ref{lemma:irreducible-x-triple}, and consists of finitely many $G_L$-orbits, so contains a dense $G_L$-orbit. In particular, there is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\xprod[L]{A,B,C}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits are locally closed in $\xprod[L]{A,B,C}$. In particular, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}} = \xprod[L]{A,B,C}$. Therefore, there is an open $G_L$-orbit in $\xprod[L]{A,B,C}$. There is a unique open $G_L$-orbit since $\xprod[L]{A,B,C}$ is irreducible.
+There are only finitely many $G_L$-orbits in $\xprod[L]{A,B,C}$. In particular,
+\begin{equation*}
+\xprod[L]{A,B,C}=\bigcup_{D\in\matrices_{A,B}}\xprod[L]{D,C}=\bigcup_{D\in\matrices_{A,B}}\bigcup_{D'\in\matrices_{D,C}}\xprod[L]{D'}
+\end{equation*}
+and
+\begin{equation*}
+\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices_{A,B}}\bigcup_{D'\in\matrices_{D,C}}\overline{\xprod[L]{D'}}.
+\end{equation*}
+There is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, since $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-x-triple}. By Lemma \ref{lemma:orbits-are-quasiprojective}, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, so $\xprod[L]{D}$ is open in $\xprod[L]{A,B,C}$.
+
+If $\xprod[L]{D}$ and $\xprod[L]{D'}$ are open in $\xprod[L]{A,B,C}$, then $\xprod[L]{D}$ and $\xprod[L]{D'}$ have nonempty intersection since $\xprod[L]{A,B,C}$ is irreducible, then $\xprod[L]{D}=\xprod[L]{D'}$.
 \end{proof}
 
-\begin{lemma}\label{lemma:zprod-open-in-yprod-left}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $f^{-1}(\xprod[L]{A\ast B,C})$ is open in $\yprod[L]{A,B,C}$.
+\begin{lemma}\label{lemma:yprod-generic-A-B}
+$p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 \end{lemma}
 
 \begin{proof}
-\begin{equation*}
-f^{-1}(\xprod[L]{A\ast B,C}) = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i}{L_i\cap L_j''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
-\end{equation*}
-is open in $\yprod[L]{A,B,C}$ since $f^{-1}(\xprod[L]{A\ast B,C})$ is defined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A,B}$ given by $L''\mapsto \dim\left(\frac{L_i}{L_i\cap L_j''}\right)$ is lower semicontinuous, so maximising such a function is an open condition in $\xprod[L]{A,B}$.
+Projection onto the second component is a closed morphism of varieties $p_2\colon\overline{\yprod[L]{A,B,C}}\to\overline{\xprod[L]{A,B}}$ with $p_2(\yprod[L]{A,B,C})=\xprod[L]{A,B}$. It follows that $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$ since $p_3^{-1}(\xprod[L]{A\ast B,C})=p_2^{-1}(\xprod[L]{A\ast B})$ and $\xprod[L]{A\ast B}$ is open in $\overline{\xprod[L]{A,B}}$.
 \end{proof}
 
-\begin{lemma}\label{lemma:zprod-open-in-yprod-right}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, $f^{-1}(\xprod[L]{A,B\ast C})$ is open in $\yprod[L]{A,B,C}$.
+\begin{lemma}\label{lemma:yprod-generic-B-C}
+$p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 \end{lemma}
 
 \begin{proof}
-\begin{equation*}
-f^{-1}(\xprod[L]{A,B\ast C}) = \left\{ (L',L'',L''')\in\yprod[L]{A,B,C}: \dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right) \text{ is maximal, for each }i,j\in\integers \right\}
-\end{equation*}
-is open in $\yprod[L]{A,B,C}$, as it is defined by {\color{blue}finitely many} open conditions; the function on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$ given by $(L',L''')\mapsto\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)$ is lower semicontinuous, so maximising this function is an open condition on $\xprod[L]{A}\times\xprod[L]{A,B\ast C}$.
+$p_3^{-1}(\xprod[L]{A,B\ast C})$ consists of those $(L',L'',L''')\in\overline{\yprod[L]{A,B,C}}$ such that $\dim\left(L_i'/{L_i'\cap L_j'''}\right)\geq d_{i,j}(B\ast C)$ for $i<j$ and $\dim\left(L_j'''/{L_i'\cap L_j'''}\right)\geq\bar{d}_{i,j}(B\ast C)$ for $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[L]{A,B,C}}$ as a result of Lemma \ref{lemma:incidence-varieties-main} and only finitely many conditions are required to determine $p_3^{-1}(\xprod[L]{A,B\ast C})$, as before. Therefore $p_3^{-1}(\xprod[L]{A,B\ast C})$ is the intersection of finitely many open sets in $\overline{\yprod[L]{A,B,C}}$, so is open as claimed.
 \end{proof}
 
 \begin{proposition}\label{proposition:associativity}
-Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$, $(A\ast B)\ast C = A\ast (B\ast C)$.
+$\xprod[L]{A\ast (B\ast C)} = \xprod[L]{(A\ast B)\ast C}$.
 \end{proposition}
 
 \begin{proof}
-Take $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$.
+The unique open $G_L$-orbit in $\xprod[L]{A\ast B, C}$ is $\xprod[L]{(A\ast B)\ast C}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $p_3^{-1}(\xprod[L]{A\ast B,C})$. Lemma \ref{lemma:yprod-generic-A-B} shows that $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
-$\xprod[L]{(A\ast B)\ast C}$ is open in $\xprod[L]{A\ast B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $f^{-1}\xprod[L]{A\ast B,C}$. Lemma \ref{lemma:zprod-open-in-yprod-left} shows that $f^{-1}\xprod[L]{A\ast B,C}$ is open in $\yprod[L]{A,B,C}$, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ is open in $\yprod[L]{A,B,C}$. Similarly, $\xprod[L]{A\ast(B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$ and $f^{-1}\xprod[L]{A,B\ast C}$ is open in $\yprod[L]{A,B,C}$, by Lemma \ref{lemma:zprod-open-in-yprod-right}, so $f^{-1}\xprod[L]{A\ast(B\ast C)}$ is open in $\yprod[L]{A,B,C}$.
+Similarly, $\xprod[L]{A\ast (B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$, so $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $p_3^{-1}(\xprod[L]{A,B\ast C})$. Lemma \ref{lemma:yprod-generic-B-C} shows that $p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so it follows $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
-Lemma \ref{lemma:irreducible-y-triple} shows that $\yprod[L]{A,B,C}$ is irreducible, so $f^{-1}\xprod[L]{(A\ast B)\ast C}$ and $f^{-1}\xprod[L]{A\ast(B\ast C)}$ have nonempty intersection. Therefore the $G_L$-orbits $\xprod[L]{(A\ast B)\ast C}$ and $\xprod[L]{A\ast(B\ast C)}$ intersect nontrivially, so are the same $G_L$-orbit. In particular, $(A\ast B)\ast C= A\ast(B\ast C)$. 
+Therefore $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ has nonempty intersection with $f^{-1}(\xprod[L]{(A\ast B)\ast C})$, since $\yprod[L]{A,B,C}$ is irreducible by Lemma \ref{lemma:irreducible-y-triple}. It follows that the $G_L$-orbits $\xprod[L]{A\ast (B\ast C)}$ and $\xprod[L]{(A\ast B)\ast C}$ have nonempty intersection and therefore $\xprod[L]{A\ast (B\ast C)}$ equals $\xprod[L]{(A\ast B)\ast C}$.
 \end{proof}
 
 
