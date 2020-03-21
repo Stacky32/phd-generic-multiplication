@@ -11,7 +11,7 @@
 
 \section{Flag varieties as projective algebraic varieties}
 
-{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmannian in a projective space; flag varieties as a closed subset in a product of Grassmannians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogenous polynomials which should appear as minors of a matrix.}
+{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmannian in a projective space; flag varieties as a closed subset in a product of Grassmannians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogeneous polynomials which should appear as minors of a matrix.}
 
 References for this material include \cite{harris13}[J. Harris: A First Course in Algebraic Geometry]; \cite{hu07}[D. Hudec: The Grassmannian as a Projective Variety]; \cite{morandi98}[P. Morandi: Algebraic Groups, Grassmannians and Flag Varieties].
 
@@ -541,7 +541,7 @@ The purpose of this chapter is to define a category with objects $\compositions$
 
 The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
-\section{A partial order}
+\section{A combinatorial partial order}
 
 Given $i,j\in\integers$, define maps $d_{i,j}$ and $\bar{d}_{i,j}$ on $\matrices$ by setting
 \begin{equation*}
@@ -941,8 +941,8 @@ Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L
 $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)$. In particular, $\xprod[L]{A}$ is a quasiprojective variety.
 \end{lemma}
 
-\begin{proof}{\color{blue}
-Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ so that $\xprod[L]{A}$ is contained in $\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$ and $\lambda=\co{A}$. If $L'\in\Pi_{N,\lambda}^a(L)$ then
+\begin{proof}
+If $L'\in\Pi_{N,\lambda}^a(L)$ then
 \begin{equation*}
 L_{-Nn}=\epsilon^N L_0\subset L_0'\subset L_1'\subset L_n'\subset \epsilon^{-1-N}L_0 = L_{(N+1)n}.
 \end{equation*}
@@ -953,23 +953,20 @@ The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}
 On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
 Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in $\Pi_{N,\lambda}^a(L)$, so $\xprod[L]{A}$ is locally closed. It follows that $\xprod[L]{A}$ is an open subset of the projective variety $\overline{\xprod[L]{A}}$, so is a quasiprojective variety as claimed.
-}
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
 $\xprod[L]{A}$ is irreducible.
 \end{lemma}
 
-\begin{proof}{\color{blue}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $\lambda=\co{A}$ and $a=d_{nN,0}{A}$, using Lemma \ref{lemma:bounded-orbits}.
-
-Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)$, so each orbit is an irreducible locally closed set in $\Pi_{N,\lambda}^a(L)$. In particular, $\xprod[L]{A}$ is irreducible since $\xprod[L]{A} = G_L/{H_{N,L}}\cdot L'$ for any $L'\in\xprod[L]{A}$.
-}
+\begin{proof}
+For any $L'\in\xprod[L]{A}$, $\xprod[L]{A} = G_L/{H_{N,L}}\cdot L'$. Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{N,L}}$ is a connected algebraic group which acts algebraically on $\Pi_{N,\lambda}^a(L)$. The image of $G_L/{H_{N,L}}$ under the morphism $g\mapsto gL'$ equals $\xprod[L]{A}$, which shows $\xprod[L]{A}$ is irreducible since $G_L/{H_{N,L}}$ is irreducible.
 \end{proof}
 
 Consequently, $\overline{\xprod[L]{A}}$ is an irreducible projective variety and the action of $G_L/{H_{N,L}}$ on $\Pi_{N,\lambda}^a(L)$ restricts to an algebraic group action on $\overline{\xprod[L]{A}}$ for which there are finitely many orbits. In particular, $\overline{\xprod[L]{A}}\setminus\xprod[L]{A}$ is a union of finitely many orbits which are so-called degenerations of the orbit $\xprod[L]{A}$.
 
-\subsection{Geometry of orbit products}
+
+\section{Geometry of orbit products}
 
 Let $A,B\in\matrices$ with $\co{A}=\ro{B}$ and write $\lambda=\co{A}$ and $\mu=\co{B}$. Fix $L\in\flags_{\ro{A}}$. Recall
 
@@ -1058,7 +1055,7 @@ $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible to
 
 Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
 
-\section{Existence of a maximum}
+\section{Degenerations of orbits and a generic product}
 
 \begin{lemma}\label{lemma:compare-partial-orders}
 Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ if and only if $\xprod[L]{A'}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
@@ -1082,7 +1079,7 @@ Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:i
 This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices[A,B]$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices[A,B]$.
 \end{proof}
 
-\section{Associativity}
+\section{Associativity of the generic product}
 
 Let $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\flags_{\ro{A}}$. Write $\lambda=\co{A}$, $\mu=\co{B}$ and $\nu=\co{C}$. Define
 \begin{equation*}
