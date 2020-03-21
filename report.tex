@@ -519,13 +519,15 @@ Assume $\field = \complex$ and fix $n,r\geq 1$. Let $\laurent$ be the $\field$-a
 
 Let $G$ be the group of $\laurent$-module automorphisms of $V$. Thus $G$ is isomorphic to $\GL{r}{\laurent}$. $G$ acts on $\flags$ with orbits $\{\flags_\lambda:\lambda\in\compositions\}$, where $\compositions$ is the set of compositions of $r$ into $n$ parts, as in Definition \ref{def:compositions}.
 
-The diagonal action of $G$ on $\dblflags$ has orbits $\{\orbit{A}:A\in\matrices\}$, where $\orbit{A}$ consists of those pairs of flags with periodic characteristic matrix equal to $A$. Definitions of the periodic characteristic matrix and the set $\matrices$ are given in Definition \ref{def:characteristic-matrix} and Definition \ref{def:matrices} respectively. In particular, the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
+The diagonal action of $G$ on $\dblflags$ has orbits $\{\orbit{A}:A\in\matrices\}$, where $\orbit{A}$ consists of those pairs of flags with periodic characteristic matrix equal to $A$. Definitions of the periodic characteristic matrix and the set $\matrices$ are given in Definition \ref{def:characteristic-matrix} and Definition \ref{def:matrices} respectively.
+
+Recall that the periodic characteristic matrix of a pair $(L,L')\in\dblflags$ is the $\integers\times\integers$ matrix $A = (a_{i,j})_{i,j\in\integers}$, with
 \begin{equation*}
 a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right)
 \end{equation*}
 for each $i,j\in\integers$.
 
-Recall that $\ro$ and $\co$ are the maps $\matrices\to\compositions$ given by
+Recall that $\operatorname{ro}$ and $\operatorname{co}$ are the maps $\matrices\to\compositions$ given by
 \begin{equation*}
 \ro{A} = \left(\sum_{j\in\integers} a_{1,j},\ldots, \sum_{j\in\integers}a_{n,j}\right)
 \end{equation*}
@@ -535,7 +537,7 @@ and
 \end{equation*}
 for each $A\in\matrices$. Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$.
 
-The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices_{A,B}$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices_{A,B}$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
+The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices[A,B]$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices[A,B]$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
 The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
 
@@ -623,7 +625,21 @@ This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
 
 \section{Grassmannians and related varieties}
 
-Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map $\phi^{(d)}\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))$ given by $\phi^{(d)}(\alpha)(v)=\alpha\wedge v$ for $\alpha\in\Lambda^d(V)$ and $v\in V$. The kernel of $\phi^{(d)}(\alpha)$ is the space of divisors of $\alpha$, $D_\alpha=\{v\in V:\alpha\wedge v=0\}$. An element $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. The dimension of $D_\alpha$ is at most $d$ and $\dim(D_\alpha)=d$ precisely when $\alpha$ is totally decomposable. Consequently, the rank of $\phi^{(d)}(\alpha)$ is at least $n-d$ and $\alpha$ is totally decomposable if and only if $\rank{\phi^{(d)}(\alpha)}\le n-d$, which hold if and only if the $(n-d+1)\times(n-d+1)$-minors of a matrix of $\phi^{(d)}(\alpha)$ are all zero.
+Here we collect a few elementary results on Grassmannians and some related varieties. In this section, let $V$ be an $n$-dimensional $\field$-vector space and let $0\le d\le n$ be an integer. There is a linear map
+\begin{equation*}
+\phi^{(d)}\colon\Lambda^d(V)\to\HOM(V,\Lambda^{d+1}(V))
+\end{equation*}
+given by
+\begin{equation*}
+\phi^{(d)}(\alpha)(v)=\alpha\wedge v
+\end{equation*}
+for $\alpha\in\Lambda^d(V)$ and $v\in V$.
+The kernel of $\phi^{(d)}(\alpha)$ is the space of divisors of $\alpha$,
+\begin{equation*}
+D_\alpha=\{v\in V:\alpha\wedge v=0\}.
+\end{equation*}
+
+An element $\alpha\in\Lambda^d(V)$ is said to be totally decomposable if $\alpha = \alpha_1\wedge\cdots\wedge\alpha_d$, where $\alpha_1,\ldots,\alpha_d\in V$ are linearly independent. The dimension of $D_\alpha$ is at most $d$ and $\dim(D_\alpha)=d$ precisely when $\alpha$ is totally decomposable. Consequently, the rank of $\phi^{(d)}(\alpha)$ is at least $n-d$ and $\alpha$ is totally decomposable if and only if $\rank{\phi^{(d)}(\alpha)}\le n-d$, which holds if and only if the $(n-d+1)\times(n-d+1)$-minors of a matrix of $\phi^{(d)}(\alpha)$ are all zero.
 
 \begin{lemma}\label{lemma:grassmannian-incidence-varieties}
 $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ is a projective variety, for each $d_1,d_2,a\in\naturals$ with $d_1,d_2,a\le n$.
@@ -897,8 +913,10 @@ where $M\geq N$ is chosen so that $\epsilon^M L_0\subset L_i\subset\epsilon^{-M}
 
 \section{Geometry of orbits}
 
+Let $A\in\matrices$ and $L\in\flags_{\ro{A}}$ and write $\lambda=\co{A}$.
+
 \begin{lemma}\label{lemma:bounded-orbits}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, there is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\co{A}}^{a}(L)$, where $a=d_{nN,0}{A}$.
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$.
 \end{lemma}
 
 \begin{proof}
@@ -917,11 +935,13 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 as a result of Lemma \ref{lemma:codimension-formula-corner-sums}. 
 \end{proof}
 
+Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$, as in Lemma \ref{lemma:bounded-orbits}.
+
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\co{A}}^a(L)$ for some $N\in\naturals$ and where $a=d_{nN,0}{A}$. In particular, $\xprod[L]{A}$ is a quasiprojective variety.
+$\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)$. In particular, $\xprod[L]{A}$ is a quasiprojective variety.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{blue}
 Lemma \ref{lemma:bounded-orbits} shows that there is $N\in\naturals$ so that $\xprod[L]{A}$ is contained in $\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$ and $\lambda=\co{A}$. If $L'\in\Pi_{N,\lambda}^a(L)$ then
 \begin{equation*}
 L_{-Nn}=\epsilon^N L_0\subset L_0'\subset L_1'\subset L_n'\subset \epsilon^{-1-N}L_0 = L_{(N+1)n}.
@@ -932,17 +952,19 @@ The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}
 
 On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
-Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in $\Pi_{N,\lambda}^a(L)$, so $\xprod[L]{A}$ is locally closed. It follows that $\xprod[L]{A}$ is an open subset of the projective variety $\overline{\xprod[L]{A}}$, so is a quasiprojective variety as claimed. 
+Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in $\Pi_{N,\lambda}^a(L)$, so $\xprod[L]{A}$ is locally closed. It follows that $\xprod[L]{A}$ is an open subset of the projective variety $\overline{\xprod[L]{A}}$, so is a quasiprojective variety as claimed.
+}
 \end{proof}
 
 \begin{lemma}\label{lemma:orbits-are-irreducible}
-Given $A\in\matrices$ and $L\in\flags_{\ro{A}}$, $\xprod[L]{A}$ is irreducible.
+$\xprod[L]{A}$ is irreducible.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{blue}
 There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $\lambda=\co{A}$ and $a=d_{nN,0}{A}$, using Lemma \ref{lemma:bounded-orbits}.
 
 Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)$, so each orbit is an irreducible locally closed set in $\Pi_{N,\lambda}^a(L)$. In particular, $\xprod[L]{A}$ is irreducible since $\xprod[L]{A} = G_L/{H_{N,L}}\cdot L'$ for any $L'\in\xprod[L]{A}$.
+}
 \end{proof}
 
 Consequently, $\overline{\xprod[L]{A}}$ is an irreducible projective variety and the action of $G_L/{H_{N,L}}$ on $\Pi_{N,\lambda}^a(L)$ restricts to an algebraic group action on $\overline{\xprod[L]{A}}$ for which there are finitely many orbits. In particular, $\overline{\xprod[L]{A}}\setminus\xprod[L]{A}$ is a union of finitely many orbits which are so-called degenerations of the orbit $\xprod[L]{A}$.
@@ -1016,7 +1038,7 @@ $\yprod[L]{A,B}$ is irreducible.
 Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
 \end{proof}
 
-Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{N,\lambda}^a(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. Therefore $p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}$, since $p_2(\yprod[L]{A,B})=\xprod[L]{A,B}$.
+Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{2N,\mu}^{a+b}(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. Therefore $p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}$, since $p_2(\yprod[L]{A,B})=\xprod[L]{A,B}$.
 
 \begin{lemma}\label{lemma:irreducible-x-prod}
 $\xprod[L]{A,B}$ is irreducible and constructible.
@@ -1031,7 +1053,7 @@ There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
 \begin{proof}
-$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
+$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices[A,B]$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
 Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
@@ -1049,15 +1071,15 @@ Needs a proof.
 }
 
 \begin{proposition}\label{proposition:existence}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices_{A,B}$ has a maximum element.
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices[A,B]$ has a maximum element.
 \end{proposition}
 
 \begin{proof}
 Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-x-prod} and is the union of finitely many $G_L$-orbits, namely
 \begin{equation*}
-\xprod[L]{A,B} = \bigcup_{C\in\matrices_{A,B}} \xprod[L]{C}.
+\xprod[L]{A,B} = \bigcup_{C\in\matrices[A,B]} \xprod[L]{C}.
 \end{equation*}
-This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices_{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices_{A,B}$.
+This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices[A,B]$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices[A,B]$.
 \end{proof}
 
 \section{Associativity}
@@ -1171,11 +1193,11 @@ There is a unique open and dense $G_L$-orbit in $\xprod[L]{A,B,C}$.
 \begin{proof}
 There are only finitely many $G_L$-orbits in $\xprod[L]{A,B,C}$. In particular,
 \begin{equation*}
-\xprod[L]{A,B,C}=\bigcup_{D\in\matrices_{A,B}}\xprod[L]{D,C}=\bigcup_{D\in\matrices_{A,B}}\bigcup_{D'\in\matrices_{D,C}}\xprod[L]{D'}
+\xprod[L]{A,B,C}=\bigcup_{D\in\matrices[A,B]}\xprod[L]{D,C}=\bigcup_{D\in\matrices[A,B]}\bigcup_{D'\in\matrices[D,C]}\xprod[L]{D'}
 \end{equation*}
 and
 \begin{equation*}
-\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices_{A,B}}\bigcup_{D'\in\matrices_{D,C}}\overline{\xprod[L]{D'}}.
+\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices[A,B]}\bigcup_{D'\in\matrices[D,C]}\overline{\xprod[L]{D'}}.
 \end{equation*}
 There is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, since $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-x-triple}. By Lemma \ref{lemma:orbits-are-quasiprojective}, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, so $\xprod[L]{D}$ is open in $\xprod[L]{A,B,C}$.
 
@@ -1217,7 +1239,7 @@ Therefore $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ has nonempty intersection with $f
 Given $\lambda\in\compositions$ and $A\in\matrices$, $D_\lambda\ast A = A$ if $\ro{A}=\lambda$ and $A\ast D_\lambda = A$ if $\co{A}=\lambda$.
 \end{lemma}
 \begin{proof}
-Lemma \ref{lemma:product-with-diagonal-orbits} shows that $\matrices_{D_\lambda,A} = \{A\}$ if $\lambda=\ro{A}$ and $\matrices_{A,D_\lambda} = \{A\}$ if $\lambda=\co{A}$, which proves the result. 
+Lemma \ref{lemma:product-with-diagonal-orbits} shows that $\matrices[D_\lambda,A] = \{A\}$ if $\lambda=\ro{A}$ and $\matrices{A,D_\lambda} = \{A\}$ if $\lambda=\co{A}$, which proves the result. 
 \end{proof}
 
 \begin{theorem}\label{thm:generic-category}
@@ -1325,7 +1347,7 @@ Let $\Gamma =\presentationquiver$ be the quiver with set of vertices $\compositi
 If $n\geq 3$ then neighbouring vertices are connected by two arrows, one of each direction. In the case $n=2$, neighbouring vertices are joined by four arrows, two of each direction. The $\integers\Gamma$ denote the path $\integers$ algebra of $\Gamma$. By construction of $\Gamma$, there is a $\integers$-algebra homomorphism $\integers\Gamma\to\generic$ with $e_{i,\lambda}\mapsto E_{i,\lambda}$, $f_{i,\lambda}\mapsto F_{i,\lambda}$ and $k_\lambda = 1_\lambda$. We aim to describe the image and kernel of the morphism to give a presentation of the generic algebra by a quiver with relations, when possible. In general, we should obtain a presentation of a subalgebra of the generic algebra consisting of the so-called aperiodic elements (c.f. \cite{lusztig99}).
 
 \begin{definition}(aperiodicity)\label{def:aperiodic}
-$A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$. Denote the set of aperiodic elements in $\matrices$ by $\matrices^{ap}$. Note that $\matrices^{ap}=\matrices$ if $r<n$. Linear combinations of the basis elements corresponding to aperiodic matrices are also said to be aperiodic - if $A$ is aperiodic, we say $e_A$ is aperiodic.
+$A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$. If $r<n$ then and $A\in\matrices$ is aperiodic. Linear combinations of the basis elements corresponding to aperiodic matrices are also said to be aperiodic - if $A$ is aperiodic, we say $e_A$ is aperiodic.
 \end{definition}
 
 \begin{lemma}\label{lemma:words-are-aperiodic}
@@ -1359,7 +1381,7 @@ If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by
 \end{lemma}
 
 \begin{proposition}
-The $\integers$-subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$ has $\integers$-basis $\{e_A:A\in\matrices^{ap}\}$, where $\matrices^{ap}\subset\matrices$ is the set of aperiodic elements.
+The $\integers$-subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$ has $\integers$-basis $\{e_A:A\in\matrices\text{ is aperiodic.}\}$.
 \end{proposition}
 
 \begin{proof}
@@ -1414,6 +1436,10 @@ In this case, the quiver $\presentationquiver[2,r]$ has vertices $\compositions[
 [2] Degenerate group algebras of symmetric groups: write down a presentation of the degenerate group algebras, with generators given by the transpositions, or $2$-cycles. Type up the computations done for degenerate group algebras for $S_3$ and $S_4$. Formulate propositions for the general case: the transpositions generate the degenerate group algebra; lemma: `these' relations hold; these generators and relations give a presentation of the degenerate group algebras.
 
 Terminology: deformed group algebra.
+
+\section{back matter}
+
+[1] $\yprod[L]{A,B}$ is the image of $G_L\times G_{L'}$ under the action map $(\alpha,\beta)\mapsto \alpha\beta\cdot(L',L'')$, for any $(L',L'')\in\yprod[L]{A,B}$. Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{N,L}}$ is a connected algebraic group. Moreover, $G_{L'}/{H_{2N,L}}$ is an irreducible affine variety, so $G_{L}/{H_{N,L}}\times G_{L'}/{H_{2N,L}}$ is an irreducible affine variety. It follows that $\yprod[L]{A,B}$ is irreducible and constructible.
 
 % --- END OF DOCUMENT BODY --- %
 
