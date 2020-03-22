@@ -11,10 +11,6 @@
 
 \section{Flag varieties as projective algebraic varieties}
 
-{\color{blue}Include a discussion of flag varieties in a finite dimensional vector space. Explain: topology of projective space; Pl\"{u}cker embedding of Grassmannian in a projective space; flag varieties as a closed subset in a product of Grassmannians - show that the inclusion of one subspace into another is a closed condition - given by vanishing of some homogeneous polynomials which should appear as minors of a matrix.}
-
-References for this material include \cite{harris13}[J. Harris: A First Course in Algebraic Geometry]; \cite{hu07}[D. Hudec: The Grassmannian as a Projective Variety]; \cite{morandi98}[P. Morandi: Algebraic Groups, Grassmannians and Flag Varieties].
-
 \chapter{The cyclic flags approach to affine q-Schur algebras}
 
 Fix natural numbers $n$ and $r$.
@@ -539,7 +535,7 @@ for each $A\in\matrices$. Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$.
 
 The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices[A,B]$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices[A,B]$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
 
-The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category. It will be shown that $\hat{G}(n,r)$ gives a realisation of the affine $0$-Schur algebra $\hat{S}_0(n,r)$ when $r<n$. It is expected that a more refined presentation of the generic algebra and the $0$-Schur algebra will allow the conditions on the parameters to be relaxed slightly: the $r=n$ case is approachable, which may extend to the case $r<2n$.
+The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category.
 
 \section{A combinatorial partial order}
 
@@ -1055,7 +1051,7 @@ $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible to
 
 Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
 
-\section{Degenerations of orbits and a generic product}
+\section{Degenerations of orbits and the combinatorial partial order}
 
 \begin{lemma}\label{lemma:compare-partial-orders}
 Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ if and only if $\xprod[L]{A'}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
@@ -1440,6 +1436,7 @@ Terminology: deformed group algebra.
 
 % --- END OF DOCUMENT BODY --- %
 
+\nocite{*}
 \printbibliography
 
 \end{document}
