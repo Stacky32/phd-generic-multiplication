@@ -1140,12 +1140,17 @@ On the other hand, the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\geq d_{i,
 Therefore $\yprod[L]{A,B,C}$ is the intersection of finitely many closed sets in $\Pi$ with finitely many open subsets of $\Pi$, so $\yprod[L]{A,B,C}$ is locally closed. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{proof}
 
-{\color{red}
 \begin{lemma}
-Given $A,B,C\in\matrices$ with $\ro{C}=\co{B}$, $\ro{B}=\co{A}$ and a tuple of flags $(L,L',L'',L''')\in\flags^4$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L'',L''')\in\orbit{C}$,
+For any $(L',L'',L''')\in\yprod[L]{A,B,C}$, $\yprod[L]{A,B,C}$ is the image of the product of stabilisers $G_{L}\times G_{L'}\times G_{L''}$ under the map
 \begin{equation*}
-\xprod[L]{A,B,C} = G_L G_{L'} G_{L''} L'''.
+(\alpha,\beta,\gamma)\mapsto (\alpha L',\alpha\beta L'', \alpha\beta\gamma L''').
 \end{equation*}
+
+In particular,
+\begin{equation*}
+\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}),
+\end{equation*}
+for any $L'\in\xprod[L]{A}$.
 \end{lemma}
 
 \begin{proof}
@@ -1157,7 +1162,7 @@ Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_
 \end{equation*}
 where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
 \end{proof}
-}
+
 
 \begin{lemma}\label{lemma:irreducible-y-triple}
 $\yprod[L]{A,B,C}$ is irreducible.
