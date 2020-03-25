@@ -1141,26 +1141,41 @@ Therefore $\yprod[L]{A,B,C}$ is the intersection of finitely many closed sets in
 \end{proof}
 
 \begin{lemma}
-For any $(L',L'',L''')\in\yprod[L]{A,B,C}$, $\yprod[L]{A,B,C}$ is the image of the product of stabilisers $G_{L}\times G_{L'}\times G_{L''}$ under the map
+For any $(L',L'',L''')\in\yprod[L]{A,B,C}$,
 \begin{equation*}
-(\alpha,\beta,\gamma)\mapsto (\alpha L',\alpha\beta L'', \alpha\beta\gamma L''').
+\yprod[L]{A,B,C} = \left\{ \alpha\cdot (L',\beta L'',\beta\gamma L'''): \alpha\in G_L, \beta\in G_{L'}, \gamma\in G_{L''}\right\}.
 \end{equation*}
-
 In particular,
 \begin{equation*}
-\yprod[L]{A,B,C} = G_L\cdot (\{L'\}\times\yprod[L']{B,C}),
+\yprod[L]{A,B,C} = G_L\cdot\left(\{L'\}\times\yprod[L']{B,C}\right)
 \end{equation*}
-for any $L'\in\xprod[L]{A}$.
+for each $L'\in\xprod[L]{A}$.
 \end{lemma}
 
 \begin{proof}
-Given $\alpha\in G_L$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(L,\alpha L',\alpha\beta L'',\alpha\beta\gamma L''')\in\yprod{A,B,C}$ since $(L,\alpha L')=\alpha(L,L')\in\orbit{A}$, $(\alpha L',\alpha\beta L'')=\alpha\beta(L',L'')\in\orbit{B}$ and $(\alpha\beta L'',\alpha\beta\gamma L''')=\alpha\beta\gamma(L'',L''')\in\orbit{C}$. This shows $G_L G_{L'} G_{L''}L'''\in\xprod[L]{A,B,C}$.
+Let $(L',L'',L''')\in\yprod[L]{A,B,C}$. Given $\alpha\in G_{L}$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(L,\alpha L',\alpha\beta L'', \alpha\beta\gamma L''')$ is in $\yprod[L]{A,B,C}$ since
+\begin{align*}
+(L,\alpha L') &= \alpha (L,L')\in\orbit{A}\\
+(\alpha L', \alpha\beta L'') &= \alpha\beta (L',L'')\in\orbit{B}\\
+(\alpha\beta L'',\alpha\beta\gamma L''') &= \alpha\beta\gamma (L'',L''')\in\orbit{C}
+\end{align*}
 
-Given $(N',N'',N''')\in\yprod[L]{A,B,C}$, there exist $\sigma_1,\sigma_2,\sigma_3\in G$ such that $(L,N') = \sigma_1(L,L')$, $(N',N'') = \sigma_2(L',L'')$ and $(N'',N''') = \sigma_3(L'',L''')$; then $N' = \sigma_1 L' = \sigma_2 L'$, $N'' = \sigma_2 L'' = \sigma_3 L''$ and $N''' = \sigma_3 L'''$. Thus
+For each $(N',N'',N''')\yprod[L]{A,B,C}$ there exist $\sigma_1,\sigma_2,\sigma_3\in G$ with
+\begin{align*}
+(L,N') &= \sigma_1(L,L')\\
+(N',N'') &= \sigma_2(L',L'')\\
+(N'',N''') &= \sigma_3(L'',L''').
+\end{align*}
+
+Let $\alpha = \sigma_1$, $\beta = \sigma_1^{-1}\sigma_2$ and $\gamma = \sigma_2^{-1}\sigma_3$, so $\sigma_2=\alpha\beta$ and $\sigma_3=\alpha\beta\gamma$. It follows that
 \begin{equation*}
-(L,N',N'',N''') = (L,\sigma_1 L', \sigma_1(\sigma_1^{-1}\sigma_2)L'', \sigma_1(\sigma_1^{-1}\sigma_2)(\sigma_2^{-1}\sigma_3)L''')
+(N',N'',N''') = (\alpha L',\alpha\beta L'', \alpha\beta\gamma L'''),
 \end{equation*}
-where $\sigma_1\in G_L$, $\sigma_1^{-1}\sigma_2\in G_{L'}$ and $\sigma_2^{-1}\sigma_3\in G_{L''}$.
+which proves the first claim. The second claim follows from the first since $(L'',L''')\in\yprod[L']{B,C}$ and therefore
+\begin{equation*}
+\yprod[L']{B,C} = \{(\beta L'',\beta\gamma L'''):\beta\in G_{L'}, \gamma\in G_{L''}\},
+\end{equation*}
+as required.
 \end{proof}
 
 
