@@ -794,66 +794,47 @@ If $L'\in\Pi_{N,\lambda}^a(L)$, then $\epsilon^N L_0\subset L_0'\subset \epsilon
 
 \subsection{Action through an algebraic group}
 
-Given $N\in\naturals$, define
+Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. In particular, $W$ is a complex vector space of dimension $(2N+1)r$.
+
+Each element $g\in G_L$ determines an endomorphism $\overline{g}$ of $W$, given by
 \begin{equation*}
-H_N = \left\{ h\in G_L: h=1 \text{ on } \frac{\epsilon^{-(1+N)}L_0}{\epsilon^N L_0} \right\}.
+\overline{g}(x+\epsilon^N L_0) = g(x) + \epsilon^N L_0,
 \end{equation*}
-Explicitly, the condition $h=1$ on $\epsilon^{-(1+N)}L_0/{\epsilon^N L_0}$ means: $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ for $x\in\epsilon^{-(1+N)}L_0$. Observe that $H_{N+1}\subset H_N$ for $N\in\naturals$ since $h(x) + \epsilon^N L_0 = x + \epsilon^N L_0$ whenever $x\in\epsilon^{-(1+N)}L_0$.
-
-{\color{gray}
-EDITORIAL REMARK:
-
-Maybe the cleanest way to write this is to describe the natural group homomorphism $G_L\to \GL{}{W}$ and state that $H_{N,L}$ is the kernel of this group homomorphism. The next lemma should describe the image and deduce $G_L/{H_{N,L}}$ is a connected algebraic group, possibly with the last result relegated to a corollary.
-}
+for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$, $\overline{gh}=\overline{g}\overline{h}$ and so $\bar{g}$ is an automorphism of $W$ with $\overline{g}^{-1} = \overline{g^{-1}}$. Therefore the map $\bar{}\colon G_L\mapsto\GL{}{W}$ given by $g\mapsto \overline{g}$ is a group homomorphism with kernel
+\begin{equation*}
+H_{N,L}\coloneqq \{g\in G_L:\overline{g}=1\},
+\end{equation*}
+which consists of those $g\in G_L$ such that
+\begin{equation*}
+g(x) - x\in \epsilon^N L_0
+\end{equation*}
+for each $x\in\epsilon^{-1-N}L_0$. Thus $G_L/{H_{N,L}}$ may be identified with a subgroup of $\GL{}{W}$.
 
 \begin{lemma}\label{lemma:connected-algebraic-group}
-Given $L\in\flags$ and $N\in\naturals$, $G_L/{H_{N,L}}$ is a connected algebraic group.
+$G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
 
 \begin{proof}
-Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. $\epsilon^{2N+1}$ acts as zero on $W$ and $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W$ is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$. Given $g\in G_{L_0}$, $g$ is a $\complex[\epsilon]$-module automorphism of $\epsilon^{-(1+N)}L_0$ and $\epsilon^{N}L_0$ is a $g$-invariant submodule, so there is an automorphism $\bar{g}\colon W\to W$ fitting into a commutative diagram 
+As a result of the first isomorphism theorem, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly be equations in the coordinate functions on $\GL{}{W}$ with respect to a fixed basis of $W$.
 
+NOTE: need to choose a basis that is adapted to $L$.
+
+Let $\{x_1,\ldots,x_r\}$ be a basis for $W$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$ and set
 \begin{equation*}
-\begin{tikzpicture}[scale = 1.0, baseline = -0.5ex]
-\node (AA) at (0,1.5) {$0$};
-\node (AB) at (2,1.5) {$\epsilon^N L_0$};
-\node (AC) at (4,1.5) {$\epsilon^{-1-N}L_0$};
-\node (AD) at (6,1.5) {$W$};
-\node (AE) at (8,1.5) {$0$};
-
-\cdarrow (AA) edge (AB);
-\cdarrow (AB) edge (AC);
-\cdarrow (AC) edge (AD);
-\cdarrow (AD) edge (AE);
-
-\node (BA) at (0,0) {$0$};
-\node (BB) at (2,0) {$\epsilon^N L_0$};
-\node (BC) at (4,0) {$\epsilon^{-1-N} L_0$};
-\node (BD) at (6,0) {$W$};
-\node (BE) at (8,0) {$0$};
-
-\cdarrow (BA) edge (BB);
-\cdarrow (BB) edge (BC);
-\cdarrow (BC) edge (BD);
-\cdarrow (BD) edge (BE);
-
-\cdarrow (AB) edge (BB);
-\cdarrow (AC) edge (BC);
-\cdarrow (AD) edge (BD);
-\end{tikzpicture}
+y_{i+cr} = \epsilon^{-c+2N} x_i
 \end{equation*}
+for $c,i\in\integers$ with $1\le i\le r$ and $0\le c\le 2N$. Then $\{y_j:1\le j\le (2N+1)r\}$ is a basis for $W$ over $\complex$.
 
-The natural map $\bar{}\colon G_{L_0}\to \GL{}{W}$ is a group homomorphism with kernel consisting of those $g\in G_{L_0}$ such that $\bar{g}=1$: that is, $g(x)\in x+\epsilon^{2N+1}L_0$ for each $x\in L_0$.
-
-The image of $G_{L_0}$ in $\GL{}{W}$ may be described by equations in the coordinates on $\GL{}{W}$ with respect to a $\complex$-basis of $W$. $W$ has a basis $\{x_1,\ldots,x_r\}$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$, therefore the complex vector space $W$ has a basis $\{y_j:j\in\integers,1-2Nr\le j\le r\}$ given by
+The coordinate functions on $\GL{}{W}$ with respect to this choice of basis are
+the maps $\gamma_{i,j}\colon\GL{}{W}\to\complex$ for $i,j\in\integers$ with $1\le i,j\le (2N+1)r$, given by
 \begin{equation*}
-y_{i-cr} = \epsilon^c x_i
+g(y_j) = \sum_i \gamma_{ij}(g)y_i,
 \end{equation*}
-for $1\le i\le r$ and $0\le c\le 2N$. There are coordinate functions $\gamma_{i,j}\colon\GL{}{W}\to\complex$ with respect to this basis, given by
-\begin{equation*}
-g(y_j) = \sum_i \gamma_{ij}(g)y_i.
-\end{equation*}
-If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$. This shows that the image of $G_{L_0}$ in $\GL{}{W}$ is the parabolic subgroup consisting of elements of the form
+for each $j=1,\ldots,(2N+1)r$.
+
+If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$.
+
+So the image of $G_L$ in $\GL{}{W}$ consists of elements of the form
 \begin{align*}
 A_0 A_1 A_2 \cdots A_{2N}\\
 0 A_0 A_1 \cdots A_{2N-1}\\
@@ -861,9 +842,10 @@ A_0 A_1 A_2 \cdots A_{2N}\\
 0 0 \cdots A_0 A_1\\
 0 0 \cdots 0 A_0,
 \end{align*}
-where $A_0\in\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in\MAT{r}{\complex}$, which is a closed subgroup of $\GL{}{W}$. The image of $G_{L_0}$ in $\GL{}{W}$ is identified with the (nonempty) open set $\GL{r}{\complex}\times M_r(\complex)^{2N}$ in the affine space $M_r(\complex)^{2N+1}$, so the image of $G_{L_0}$ is irreducible. This shows that $G_{L_0}/{H_{N,L_0}}$ is a connected algebraic group.
+where $A_0\in\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in\MAT{r}{\complex}$.
 
-Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.
+{\color{gray}
+Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.}
 \end{proof}
 
 Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
