@@ -63,7 +63,7 @@ $L$ is a free $\polys$-module of rank $r$, with $L\subset V$. Given an $\polys$-
 
 Let $\flags=\flags_\field(n,r)$ be the set of collections $(L_i)_{i\in\integers}$ of lattices in $V$ with $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. These collections of lattices in $V$ are referred to as cyclic flags in $V$. 
 
-$G$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\in\integers$, given $g\in G$ and $L\in\flags$. The $G$-orbits in $\flags$ are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts: the $G$-orbit in $\flags$ corresponding to $\lambda\in\compositions$ is
+$G$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\in\integers$, $g\in G$ and $L\in\flags$. The $G$-orbits in $\flags$ are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts. In particular, the $G$-orbit in $\flags$ corresponding to $\lambda\in\compositions$ is
 \begin{equation*}
 \flags_\lambda = \left\{L\in\flags: \dim\left(\frac{L_i}{L_{i-1}}\right) = \lambda_i \text{ for each } i\in\integers\right\}
 \end{equation*}
@@ -138,7 +138,7 @@ Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\
 for each $\lambda\in\compositions$.
 \end{corollary}
 
-\subsection{A product on orbits}\label{sec:orbit-product}
+\subsection{A product of orbits}
 
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, define
 \begin{equation*}
@@ -531,10 +531,31 @@ and
 \end{equation*}
 for each $A\in\matrices$. Given $A\in\matrices$, write $A\colon\co{A}\to\ro{A}$.
 
-{\color{gray}
-The purpose of this chapter is to define a category with objects $\compositions$ and morphisms $\matrices$; where $\HOM(\lambda,\mu) = \{A\in\matrices: \ro{A}=\mu,\co{A}=\lambda\}$. Given $A,B\in\matrices$ let $\matrices[A,B]$ be the set of $C\in\matrices$ such that there exist $L,L',L''\in\flags$ with $(L,L')\in\orbit{A}$, $(L',L'')\in\orbit{B}$ and $(L,L'')\in\orbit{C}$. It will be shown that $\matrices$ admits a partial order $\le$ such that, given $A,B\in\matrices$ with $\ro{B}=\co{A}$, $\matrices[A,B]$ has a maximum element $A\ast B$. It will be shown that $\ast$ is associative, leading to the construction of a category with the described properties.
-
-The generic affine algebra $\generic$ is then defined to be the $\integers$-algebra of this category.}
+The purpose of this chapter is to define an associative $\integers$-algebra with a multiplicative basis by defining a modified form of the product in the affine $q$-Schur algebra. In particular, given $A,B\in\matrices$, the orbit product
+\begin{equation*}
+\xprod{A,B} = \{(L,L'')\in\dblflags: \exists L'\in\flags\text{ with } (L,L')\in\orbit{A}, (L',L'')\orbit{B}\}
+\end{equation*}
+consists of finitely many $G$-orbits and it will be shown that there is a unique `generic' orbit in $\xprod{A,B}$, denoted $\orbit{A\ast B}$, with the property that
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j''}\right)\le\dim\left(\frac{N_i}{N_i\cap N_j''}\right)
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_j''}{L_i\cap L_j''}\right)\le\dim\left(\frac{N_j''}{N_i\cap N_j''}\right)
+\end{equation*}
+for all $i,j\in\integers$, $(N,N'')\in\orbit{A\ast B}$ and $(L,L'')\in\xprod{A,B}$. It will be shown that the above `generic product' of orbits is associative, so the free $\integers$-module on the set of $G$-orbits in $\dblflags$ with $\integers$-bilinear multiplication given by
+\begin{equation*}
+\orbit{A}\ast\orbit{B}=\orbit{A\ast B},
+\end{equation*}
+for each $A,B\in\matrices$ with $\co{A}=\ro{B}$, and
+\begin{equation*}
+\orbit{A}\ast\orbit{B} = 0
+\end{equation*}
+for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$, is an associative $\integers$-algebra with multiplicative identity given by
+\begin{equation*}
+\sum_{\lambda\in\compositions} \orbit{D_\lambda},
+\end{equation*}
+where $D_\lambda$ is the diagonal matrix with $\co{D_\lambda}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted $\generic$.
 
 \section{A combinatorial partial order}
 
