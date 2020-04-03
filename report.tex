@@ -852,9 +852,9 @@ for each $i,j\in\{r+1,\ldots, (2N+1)r\}$ and
 \begin{equation*}
 \gamma_{i,j} = 0
 \end{equation*}
-for each $i,j\in\{1,\ldots,(2N+1)r\}$ with $i>\lambda_1+\cdots +\lambda_s$ and $j\le \lambda_1+\cdot +\lambda_s$ for some $s\in\{1,\ldots,r\}$. This shows that the image of $G_L$ in $\GL{}{W}$ is a parabolic subgroup, so is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
+for each $i,j\in\{1,\ldots,(2N+1)r\}$ with $i>\lambda_1+\cdots +\lambda_s$ and $j\le \lambda_1+\cdots +\lambda_s$ for some $s\in\{1,\ldots,r\}$. This shows that the image of $G_L$ in $\GL{}{W}$ is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
 
-In particular, $G_L/{H_{N,L}}$ is isomorphic to the subgroup of $\GL{}{W}$ consisting of elements of the form
+With respect to the basis $\{y_i:i\in\{1,\ldots,(2N+1)r\}\}$, the image of $G_L$ in $\GL{}{W}$ consists of matrices of the form
 \begin{equation*}
 \begin{pmatrix}
 A_0 & A_1 & A_2 & \cdots & A_{2N} \\
@@ -864,7 +864,10 @@ A_0 & A_1 & A_2 & \cdots & A_{2N} \\
 0 & 0 & 0 & \cdots & A_0
 \end{pmatrix}
 \end{equation*}
-where $A_0$ is in the parabolic subgroup $\mathcal{P}_\lambda$ in $\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in M_{r}(\complex)$.
+where $A_0\in\mathcal{P}_\lambda$ and $A_1,\ldots,A_{2N}\in M_{r}(\complex)$, where $\mathcal{P}_\lambda$ is the parabolic subgroup of $\GL{r}{\complex}$ which is the stabiliser of the flag
+\begin{equation*}
+L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0}.
+\end{equation*}
 \end{proof}
 
 Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
@@ -1074,9 +1077,9 @@ Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-or
 
 \section{Degenerations of orbits and the combinatorial partial order}
 
-\begin{lemma}\label{lemma:compare-partial-orders}
+\begin{theorem}\label{theorem:compare-partial-orders}
 Let $A,B\in\matrices$ with $\ro{A}=\ro{B}$ and $\co{A}=\co{B}$, then $B\le A$ if and only if $\xprod[L]{B}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 Let $\lambda=\co{A}$, $\mu=\ro{A}$ and fix $L\in\flags_\mu$. Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$ and $\xprod[L]{B}\subset\Pi_{N,\lambda}^b(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$. Then $\xprod[L]{A}$ is an open subset of the projective variety consisting of those $L'\in\Pi_{N,\lambda}^a(L)$ such that
@@ -1116,7 +1119,7 @@ Let $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and fix $L\in\f
 \end{equation*}
 and
 \begin{equation*}
-\xprod[L]{A,B,C} = \left\{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ with } (L',L'',L''')\in\yprod[L]{A,B,C}\right\}..
+\xprod[L]{A,B,C} = \left\{L'''\in\flags: \exists (L',L'')\in\flags^2 \text{ with } (L',L'',L''')\in\yprod[L]{A,B,C}\right\}.
 \end{equation*}
 
 \begin{lemma}\label{lemma:embedding-y-triple}
@@ -1343,7 +1346,7 @@ Assume $n\le r< 2n$. There is a unique homomorphism of $\integers$-algebras $\ha
 
 \section{Preliminary results}
 
-Recall from Definition \ref{def:generic-algebra} that the generic algebra $\generic$ is an associative $\integers$-algebra which is a free $\integers$-module with an atomic basis $\{e_A:A\in\matrices\}$: given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $e_Ae_B = e_{A\ast B}$.
+Recall from Definition \ref{def:generic-algebra} that the generic algebra $\generic$ is an associative $\integers$-algebra which is a free $\integers$-module with an multiplicative basis $\{e_A:A\in\matrices\}$: given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $e_Ae_B = e_{A\ast B}$.
 
 \subsection{Elementary basis elements}
 
@@ -1365,18 +1368,6 @@ and
 F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}.
 \end{equation*}
 
-\subsection{Transpose involution}
-
-\begin{lemma}\label{lemma:transpose-involution-generic}
-The $\integers$-module automorphism $\transpose$ of $\generic$ given by $e_A\mapsto e_{A^\transpose}$ is a $\integers$-algebra antihomomorphism: that is,
-\begin{equation*}
-e_{A^\transpose}\ast e_{B^\transpose} = e_B\ast e_A
-\end{equation*}
-for each $A,B\in\matrices$. Moreover, $\transpose(E_{i,\lambda}) = F_{i,\lambda+\alpha_i}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda - \alpha_i}$ and $\transpose(1_\lambda) = 1_\lambda$, for permissible $(i,\lambda)\in\integers\times\compositions$.
-\end{lemma}
-\begin{proof}
-This is a consequence of Lemma \ref{lemma:transpose-involution}. {\color{blue}It must also be shown that the transpose operation on $\matrices$ is order preserving.}
-\end{proof}
 
 \subsection{Multiplication rules}
 
@@ -1394,7 +1385,32 @@ F_ie_A = e_{A+\elem{i+1}{p}-\elem{i}{p}},
 where $p=\min\{p'\in\integers: a_{i,p'}>0\}$.
 \end{lemma}
 
-Similar formulas for right multiplication by $E_i$ and $F_i$ are obtained by applying the transpose.
+\begin{lemma}
+MULTIPLICATION RULES FOR MULTIPLICATION ON THE RIGHT.
+\end{lemma}
+
+\subsection{Shifting in the generic algebra}
+
+DEFINE THE ELEMENTS $R$ AND $R^{-1}$, GIVE MULTIPLICATION RULES.
+
+\subsection{Transpose involution}
+
+\begin{lemma}\label{lemma:transpose-involution-generic}
+The $\integers$-module automorphism $\transpose$ of $\generic$ given by $e_A\mapsto e_{A^\transpose}$ is a $\integers$-algebra antihomomorphism: that is,
+\begin{equation*}
+e_{A^\transpose}\ast e_{B^\transpose} = e_B\ast e_A
+\end{equation*}
+for each $A,B\in\matrices$. Moreover, $\transpose(E_{i,\lambda}) = F_{i,\lambda+\alpha_i}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda - \alpha_i}$ and $\transpose(1_\lambda) = 1_\lambda$, for permissible $(i,\lambda)\in\integers\times\compositions$.
+\end{lemma}
+\begin{proof}
+This is a consequence of Lemma \ref{lemma:transpose-involution}. {\color{blue}It must also be shown that the transpose operation on $\matrices$ is order preserving.}
+\end{proof}
+
+
+\section{Multiplicative bases in affine zero Schur algebras: motivating example}
+
+IN THIS SECTION IT IT WILL BE SHOWN THAT $\zeroschur[n,1]=\generic[n,1]$.
+
 
 \section{Presentation of the generic algebra.}
 
