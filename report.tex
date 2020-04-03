@@ -815,15 +815,27 @@ $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
 
 \begin{proof}
-As a result of the first isomorphism theorem, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly be equations in the coordinate functions on $\GL{}{W}$ with respect to a fixed basis of $W$.
+As a result of the first isomorphism theorem, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly by equations in the coordinate functions on $\GL{}{W}$, with respect to a fixed basis of $W$.
 
-NOTE: need to choose a basis that is adapted to $L$.
-
-Let $\{x_1,\ldots,x_r\}$ be a basis for $W$ over $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$ and set
+Let $\{\tilde{x}_1,\ldots,\tilde{x}_r\}$ be a basis of $L_n/{L_0}$ over $\complex$ which is adapted to the flag
 \begin{equation*}
-y_{i+cr} = \epsilon^{-c+2N} x_i
+L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0},
 \end{equation*}
-for $c,i\in\integers$ with $1\le i\le r$ and $0\le c\le 2N$. Then $\{y_j:1\le j\le (2N+1)r\}$ is a basis for $W$ over $\complex$.
+so that
+\begin{equation*}
+L_i/{L_0} = \left\langle \tilde{x}_1,\ldots,\tilde{x}_{\lambda_1+\cdots\lambda_i}\right\rangle
+\end{equation*}
+for each $i\in\{1,\ldots,n\}$. Fix $x_1,\ldots,x_r\in L_n$ such that $\tilde{x}_i=x_i+L_0$ for each $i=1,\ldots,r$, then
+\begin{equation*}
+L_i = L_0 + \left\langle x_1,\ldots,x_{\lambda_1+\cdots +\lambda_i}\right\rangle
+\end{equation*}
+for $i=1,\ldots,r$.
+
+Then $W$ has a $\complex$-basis $\{y_j:1\le j\le (2N+1)r\}$ given by
+\begin{equation*}
+y_{i+cr} = \epsilon^{-c+N}x_i
+\end{equation*}
+for each $i\in\{1,\ldots,r\}$ and $c\in\{0,\ldots,2N\}$. Observe that $\epsilon y_i = 0$ for $i\in\{1,\ldots,r\}$ and $\epsilon y_i = y_{i-r}$ for $r<i\le (2N+1)r$.
 
 The coordinate functions on $\GL{}{W}$ with respect to this choice of basis are
 the maps $\gamma_{i,j}\colon\GL{}{W}\to\complex$ for $i,j\in\integers$ with $1\le i,j\le (2N+1)r$, given by
@@ -832,20 +844,27 @@ g(y_j) = \sum_i \gamma_{ij}(g)y_i,
 \end{equation*}
 for each $j=1,\ldots,(2N+1)r$.
 
-If $g\in\GL{}{W}$ is $\epsilon$-linear, then $g(y_{i-r}) = g(\epsilon y_i) = \epsilon g(y_i)$ and therefore $\gamma_{i-r,j-r}(g) = \gamma_{i,j}(g)$ for all $i,j$.
+The image of $G_L$ in $\GL{}{W}$ is the subgroup defined by the conditions
+\begin{equation*}
+\gamma_{i,j} = \gamma_{i-r,j-r}
+\end{equation*}
+for each $i,j\in\{r+1,\ldots, (2N+1)r\}$ and
+\begin{equation*}
+\gamma_{i,j} = 0
+\end{equation*}
+for each $i,j\in\{1,\ldots,(2N+1)r\}$ with $i>\lambda_1+\cdots +\lambda_s$ and $j\le \lambda_1+\cdot +\lambda_s$ for some $s\in\{1,\ldots,r\}$. This shows that the image of $G_L$ in $\GL{}{W}$ is a parabolic subgroup, so is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
 
-So the image of $G_L$ in $\GL{}{W}$ consists of elements of the form
-\begin{align*}
-A_0 A_1 A_2 \cdots A_{2N}\\
-0 A_0 A_1 \cdots A_{2N-1}\\
-\cdots \cdots \cdots\\
-0 0 \cdots A_0 A_1\\
-0 0 \cdots 0 A_0,
-\end{align*}
-where $A_0\in\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in\MAT{r}{\complex}$.
-
-{\color{gray}
-Moreover, $G_L = G_{L_1}\cap\cdots\cap G_{L_n}$, so the image of $G_L$ in $\GL{}{W}$ is a closed subgroup. $G_L/{H_{N,L}}$ is naturally isomorphic to the subgroup of $\GL{}{W}$ defined by the equations $\gamma_{i-r,j-r} = \gamma_{i,j}$ and for $j=1,\ldots,r$ the equations $\gamma_{i,j}=0$ for $i>\lambda_1+\cdots +\lambda_s$, where $s$ is given by $\lambda_1+\cdots +\lambda_{s-1}< j\le\lambda_1+\cdots +\lambda_s$. Therefore $G_L/{H_{N,L}}$ is isomorphic to the product $\mathcal{P}_\lambda\times M_r(\complex)\times\cdots\times M_r(\complex)$, where $\mathcal{P}_\lambda$ is a parabolic subgroup of $\GL{}{W}$, so is irreducible.}
+In particular, $G_L/{H_{N,L}}$ is isomorphic to the subgroup of $\GL{}{W}$ consisting of elements of the form
+\begin{equation*}
+\begin{pmatrix}
+A_0 & A_1 & A_2 & \cdots & A_{2N} \\
+0 & A_0 & A_1 & \cdots & A_{2N-1} \\
+0 & 0 & A_0 & \cdots & A_{2N-2} \\
+ & & & & \\
+0 & 0 & 0 & \cdots & A_0
+\end{pmatrix}
+\end{equation*}
+where $A_0$ is in the parabolic subgroup $\mathcal{P}_\lambda$ in $\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in M_{r}(\complex)$.
 \end{proof}
 
 Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
@@ -1053,30 +1072,40 @@ $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible to
 
 Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
 
-\section{Degenerations of orbits and the combinatorial partial order}{\color{gray}
+\section{Degenerations of orbits and the combinatorial partial order}
 
 \begin{lemma}\label{lemma:compare-partial-orders}
-Given $A,A'\in\matrices$ with $\ro{A}=\ro{A'}$ and $\co{A}=\co{A'}$, $A'\le A$ if and only if $\xprod[L]{A'}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
+Let $A,B\in\matrices$ with $\ro{A}=\ro{B}$ and $\co{A}=\co{B}$, then $B\le A$ if and only if $\xprod[L]{B}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
 \end{lemma}
 
-{\color{blue}
 \begin{proof}
-Needs a proof.
-\end{proof}
-}
-
-\begin{proposition}\label{proposition:existence}
-Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, $\matrices[A,B]$ has a maximum element.
-\end{proposition}
-
-\begin{proof}
-Let $L\in\flags_{\ro{A}}$. $\xprod[L]{A,B}$ is irreducible by Lemma \ref{lemma:irreducible-x-prod} and is the union of finitely many $G_L$-orbits, namely
+Let $\lambda=\co{A}$, $\mu=\ro{A}$ and fix $L\in\flags_\mu$. Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$ and $\xprod[L]{B}\subset\Pi_{N,\lambda}^b(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$. Then $\xprod[L]{A}$ is an open subset of the projective variety consisting of those $L'\in\Pi_{N,\lambda}^a(L)$ such that
 \begin{equation*}
-\xprod[L]{A,B} = \bigcup_{C\in\matrices[A,B]} \xprod[L]{C}.
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right)\le d_{i,j}{(A)}
 \end{equation*}
-This shows that $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices[A,B]$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that the $G_L$-orbits in $\xprod[L]{A,B}$ are locally closed, so a dense $G_L$-orbit is open in $\xprod[L]{A,B}$. Lemma \ref{lemma:compare-partial-orders} shows that the characteristic matrix of the dense $G_L$-orbit is a maximum in $\matrices[A,B]$.
+and
+\begin{equation*}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right)\le\bar{d}_{i,j}{(A)},
+\end{equation*}
+for all $i,j\in\integers$.
+
+Assume $\xprod[L]{B}\subset \overline{\xprod[L]{A}}$, then
+\begin{equation*}
+d_{i,j}{(B)} = \dim\left(\frac{L_i}{L_i\cap L_j'}\right) \le d_{i,j}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(B)} = \dim\left(\frac{L_j'}{L_i\cap L_j'}\right) \le \bar{d}_{i,j}{(A)},
+\end{equation*}
+for each $i,j\in\integers$, for any $L'\in\xprod[L]{B}$. So $B\le A$ if $\xprod[L]{B}\le\overline{\xprod[L]{A}}$.
+
+Conversely, suppose $A\le B$.
+
 \end{proof}
-}
+
+\begin{corollary}
+The maximum in $\matrices[A,B]$ is $A\ast B$.
+\end{corollary}
 
 
 \section{Associativity of the generic product}
