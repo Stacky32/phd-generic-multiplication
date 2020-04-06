@@ -559,35 +559,48 @@ where $D_\lambda$ is the diagonal matrix with $\co{D_\lambda}=\lambda$. The resu
 
 \section{A combinatorial partial order}
 
-Given $i,j\in\integers$, define maps $d_{i,j}$ and $\bar{d}_{i,j}$ on $\matrices$ by setting
+For each $i,j\in\integers$, let $d_{i,j}$ and $\bar{d}_{i,j}$ be the maps from $\matrices$ to $\compositions$ given by
 \begin{equation*}
-d_{i,j}{A} = \sum_{s\le i,t>j} a_{s,t}
+d_{i,j}{(A)} = \sum_{s\le i,t>j} a_{s,t}
 \end{equation*}
 and
 \begin{equation*}
-\bar{d}_{i,j}{A} = \sum_{s>i, t\le j} a_{s,t}
+\bar{d}_{i,j}{(A)} = \sum_{s>i, t\le j} a_{s,t}
 \end{equation*}
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:differentials}
-Let $A\in\matrices$, with $A=(a_{i,j})_{i,j\in\integers}$ and write $d_{i,j} = d_{i,j}A$ for $i,j\in\integers$. Then
-\begin{equation*}
-d_{i,j} - d_{i-1,j} = \sum_{t>j}a_{i,t}
-\end{equation*}
-and
-\begin{equation*}
-d_{i,j}-d_{i,j-1} = - \sum_{s\le i}a_{s,j}.
-\end{equation*}
+For each $A\in\matrices$ and $i,j\in\integers$, the following equations hold:
+\begin{equation}
+d_{i,j}{(A)} - d_{i-1,j}{(A)} = \sum_{t>j}a_{i,t}
+\end{equation}
+\begin{equation}
+d_{i,j}{(A)}-d_{i,j-1}{(A)} = - \sum_{s\le i}a_{s,j}
+\end{equation}
+\begin{equation}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = -\sum_{t\le j} a_{i,t}
+\end{equation}
+\begin{equation}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = \sum_{s>i} a_{s,j}
+\end{equation}
 \end{lemma}
 
 \begin{proof}
-Let $i,j\in\integers$. Then
+Let $i,j\in\integers$ and $A\in\matrices$. Then
 \begin{equation*}
-d_{i,j} - d_{i-1,j} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}.
+d_{i,j}{(A)} - d_{i-1,j}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}
+\end{equation*}
+and
+\begin{equation*}
+d_{i,j}{(A)}-d_{i,j-1}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
 \end{equation*}
 Similarly,
 \begin{equation*}
-d_{i,j}-d_{i,j-1} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
+\bar{d}_{i,j}{(A)} - \bar{d}_{i-1,j}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i-1,t\le j} a_{s,t} = -\sum_{t\le j} a_{i,t}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i,t\le j-1} a_{s,t} = \sum_{s>i} a_{s,j}.
 \end{equation*}
 \end{proof}
 
