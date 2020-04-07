@@ -645,6 +645,25 @@ It is clear that $\le$ is reflexive and transitive.
 Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}{(A)} = d_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\le j$, which shows $a_{s,t}=b_{s,t}$ whenever $s<t$, as a result of Lemma \ref{lemma:antisymmetry}. Similarly, $\bar{d}_{i,j}{(A)} = \bar{d}_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\geq j$, so $a_{s,t}=b_{s,t}$ whenever $s>t$. Moreover, $a_{i,i}=b_{i,i}$ for each $i\in\integers$, since $\co{A}=\co{B}$. Thus $A=B$, which shows $\le$ is antisymmetric and therefore $\le$ is a partial order on $\matrices$.
 \end{proof}
 
+\begin{lemma}\label{lemma:transpose-preserves-order}
+The transpose operation on $\matrices$ is order preserving. In particular, $B\le A$ if and only if $B^\transpose\le A^\transpose$.
+\end{lemma}
+
+\begin{proof}
+Suppose $A,B\in\matrices$ with $B\le A$. The condition $\co{A}=\co{B}$ and $\ro{A}=\ro{B}$ is preserved by the transpose operation.
+
+For each $i,j\in\integers$,
+\begin{equation*}
+d_{i,j}{(A^\transpose)} = \sum_{s\le i,t>j} a_{t,s} = \bar{d}_{j,i}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(A^\transpose)} = \sum_{s>i,t\le j} a_{t,s} = d_{j,i}{(A)}.
+\end{equation*}
+
+It follows that $B^\transpose\le A^\transpose$ and therefore the transpose is order preserving.
+\end{proof}
+
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
 \begin{lemma}\label{lemma:codimension-formula-corner-sums}
@@ -1323,43 +1342,67 @@ Therefore $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ has nonempty intersection with $f
 \end{proof}
 
 
-\section{The generic algebra}{\color{gray}
+\section{The generic affine algebra}
 
-\begin{lemma}\label{lemma:identity-morphisms}
-Given $\lambda\in\compositions$ and $A\in\matrices$, $D_\lambda\ast A = A$ if $\ro{A}=\lambda$ and $A\ast D_\lambda = A$ if $\co{A}=\lambda$.
-\end{lemma}
+The generic affine algebra of rank $r$ and period $n$, denoted by $\generic$, is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and $\integers$-bilinear multiplication given by
+\begin{equation*}
+e_A\ast e_B = e_{A\ast B}
+\end{equation*}
+for $A,B\in\matrices$ with $\co{A}=\ro{B}$, and
+\begin{equation*}
+e_A\ast e_B = 0
+\end{equation*}
+for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$.
+
+\begin{proposition}
+The generic algebra $\generic$ is an associative $\integers$-algebra with $1$, with
+\begin{equation*}
+1=\sum_{\lambda\in\compositions} 1_\lambda
+\end{equation*}
+where
+\begin{equation*}
+1_\lambda = e_{D_\lambda},
+\end{equation*}
+for each $\lambda\in\compositions$.
+\end{proposition}
+
 \begin{proof}
-Lemma \ref{lemma:product-with-diagonal-orbits} shows that $\matrices[D_\lambda,A] = \{A\}$ if $\lambda=\ro{A}$ and $\matrices{A,D_\lambda} = \{A\}$ if $\lambda=\co{A}$, which proves the result. 
+Let $A,B,C\in\matrices$. If $\co{A}\neq\ro{B}$ or $\co{B}\neq\ro{C}$, then
+\begin{equation*}
+(e_A\ast e_B)\ast e_C = 0 = e_A\ast (e_B\ast e_C),
+\end{equation*}
+so we may now suppose $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$.
+
+As a result of Proposition \ref{proposition:associativity},
+\begin{align*}
+(e_A\ast e_B)\ast e_C &= e_{(A\ast B)\ast C}\\
+&= e_{A\ast (B\ast C)}\\
+&= e_A\ast (e_B\ast e_C),
+\end{align*}
+so it follows $\generic$ is an associative $\integers$-algebra.
+
+The expression for the multiplicative identity follows from Lemma \ref{lemma:product-with-diagonal-orbits}, since
+\begin{equation*}
+e_A\ast \left(\sum_{\lambda\in\compositions} 1_\lambda\right) = e_A\ast 1_{\co{A}} = e_A
+\end{equation*}
+and
+\begin{equation*}
+\left(\sum_{\lambda\in\compositions} 1_\lambda\right)\ast e_A = 1_{\ro{A}}\ast e_A = e_A,
+\end{equation*} 
+for each $A\in\matrices$.
 \end{proof}
 
-\begin{theorem}\label{thm:generic-category}
-The following constitutes a small category: the set of objects is $\compositions$ and the set of morphisms is $\matrices$. Given compositions $\lambda,\mu\in\compositions$, the morphisms with source $\lambda$ and target $\mu$ are those matrices $A\in\matrices$ with $\co{A}=\lambda$ and $\ro{A}=\mu$. Given $\lambda,\mu,\nu\in\compositions$ and $A,B\in\matrices$ with $B\colon\lambda\to\mu$ and $A\colon\mu\to\nu$ the composition is $A\ast B\colon\lambda\to\nu$.
-\end{theorem}
+\subsection{A categorical perspective}
+
+\begin{proposition}\label{prop:generic-category}
+The following constitutes a small category: the set of objects is $\compositions$ and the set of morphisms is $\matrices$. Given compositions $\lambda,\mu\in\compositions$, the morphisms with source $\mu$ and target $\lambda$ are those matrices $A\in\matrices$ with $\co{A}=\mu$ and $\ro{A}=\lambda$. Given $\lambda,\mu,\nu\in\compositions$ and $A,B\in\matrices$ with $\co{B}=\nu$, $\ro{B}=\mu=\co{A}$ and $\ro{A}=\lambda$, their composition is $A\ast B$, with source $\co{A\ast B}=\co{B}=\nu$ and target $\ro{A\ast B}=\ro{A}=\lambda$.
+\end{proposition}
 
 \begin{proof}
-Proposition \ref{proposition:existence} shows that the composition is well defined while Proposition \ref{proposition:associativity} establishes associativity of the composition. Lemma \ref{lemma:identity-morphisms} shows that $D_\lambda\colon\lambda\to\lambda$ is the identity morphism for each $\lambda\in\compositions$. Thus $(\compositions,\matrices,\co,\ro,\ast)$ is a category.
+Proposition \ref{proposition:associativity} shows that the generic product $\ast$ is associative. For each object $\lambda\in\compositions$, the identity morphism $\lambda\to\lambda$ is the diagonal matrix $D_\lambda$.
 \end{proof}
 
-Write $\gcat$ to denote this so-called `generic category'.
-
-\begin{example}
-The objects in $\gcat[2,2]$ are compositions of $2$ into $2$ parts, namely $(0,2)$, $(1,1)$ and $(2,0)$. The set of morphisms from $\lambda$ to $\mu$ is the set of infinite periodic matrices $A\in\matrices[2,2]$ with $\co{A}=\lambda$ and $\ro{A}=\mu$, which is a countably infinite set for any pair of compositions $\lambda,\mu\in\compositions[2,2]$.
-\end{example}
-
-\begin{definition}[Generic algebra]\label{def:generic-algebra}
-The generic affine algebra $\generic$ is the category $\integers$-algebra of $\gcat$. In particular, $\generic$ is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and with associative multiplication given by
-\begin{equation*}
-e_A\ast e_B = \begin{cases}
-e_{A\ast B} &\text{ if } \co{A}=\ro{B}\\
-0 			&\text{ if } \co{A}\neq \ro{B}.
-\end{cases}
-\end{equation*}
-The multiplicative identity in $\generic$ is
-\begin{equation*}
-1 = \sum_{\lambda\in\compositions}e_{D_\lambda}.
-\end{equation*}
-\end{definition}
-}
+Then the generic affine algebra $\generic$ may be realised as the $\integers$-algebra of this category. Observe that there are only finitely many objects in this category and distinct objects are non-isomorphic, so the isomorphism classes in this category are in one to one correspondence with $\compositions$. The $\integers$-algebra of this category is the free $\integers$-module on $\matrices$ with $\integers$-bilinear multiplication given by the generic product $\ast$.
 
 
 \chapter{A realisation of affine zero Schur algebras}
