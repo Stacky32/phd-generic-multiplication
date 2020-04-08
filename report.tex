@@ -335,6 +335,26 @@ e_AE_j
 \end{align*}
 \end{proof}
 
+\subsection{Shifting}
+
+{\color{blue} Introduce the elements $R_\lambda$ and $R$ and prove that $\antipode{R}=R^{-1}$. Also show multiplication by $R$ acts as a shift along by one row or column according to whether $R$ is acting on the left or the right.
+
+For $\lambda\in\compositions$, let $R_\lambda = e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}$. Write $R = \sum_{\lambda\in\compositions} R_\lambda$. Note $R_\lambda = R 1_\lambda$. Given $A\in\matrices$ and $m\in\integers$, let $A[m]\in\matrices$ be given by $A[m]_{i,j} = a_{i,j+m}$ and let $A^{[m]}$ be given by $A^{[m]}_{i,j} = a_{i+m,j}$ for each $i\in\integers$.
+
+\begin{lemma}[Shifting]
+If $A\in\matrices$ then
+\begin{equation*}
+R e_A = e_{A^{[\pm 1]}}
+\end{equation*}
+and
+\begin{equation*}
+e_A R = e_{A_{[\pm 1]}}.
+\end{equation*}
+\end{lemma}
+
+Conjugation by $R$ gives an automorphism $\rho$ of $\qschur$ satisfying $\rho^n = 1$.
+}
+
 \section{Relations}
 
 Note that $E_i^{r+1}=F_i^{r+1}=0$ while
@@ -405,22 +425,24 @@ E_i F_i - F_i E_i = \sum_{\lambda\in\compositions} ([\lambda_i] - [\lambda_{i+1}
 \end{equation*}
 \end{lemma}
 
-{\color{gray}
-For $\lambda\in\compositions$, let $R_\lambda = e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}$. Write $R = \sum_{\lambda\in\compositions} R_\lambda$. Note $R_\lambda = R 1_\lambda$. Given $A\in\matrices$ and $m\in\integers$, let $A[m]\in\matrices$ be given by $A[m]_{i,j} = a_{i,j+m}$ and let $A^{[m]}$ be given by $A^{[m]}_{i,j} = a_{i+m,j}$ for each $i\in\integers$.
-
-\begin{lemma}[Shifting]
-If $A\in\matrices$ then
+\begin{lemma}\label{lemma:relations-for-R}
+{\color{blue}The element $R$ satisfies the following relations:
 \begin{equation*}
-R e_A = e_{A^{[\pm 1]}}
+R\antipode{R} = 1 = \antipode{R}R,
 \end{equation*}
-and
 \begin{equation*}
-e_A R = e_{A_{[\pm 1]}}.
+R E_i \antipode{R} = E_{i-1},
 \end{equation*}
+\begin{equation*}
+R F_i \antipode{R} = F_{i-1}.
+\end{equation*}
+}
 \end{lemma}
 
-Conjugation by $R$ gives an automorphism $\rho$ of $\qschur$ satisfying $\rho^n = 1$.
-}
+\begin{proof}
+{\color{blue}COMPLETE THIS.}
+\end{proof}
+
 
 \section{quivers with relations}
 
@@ -1494,11 +1516,6 @@ q=\max\{i\in\integers:a_{i,j+1}>0\}.
 \end{equation*}
 \end{lemma}
 
-\subsection{Shifting and periodicity}
-{\color{blue}
-DEFINE THE ELEMENTS $R$ AND $R^{-1}$, GIVE MULTIPLICATION RULES.
-}
-
 \subsection{Transpose involution}
 
 Let $\antipode{}$ be the $\integers$-module automorphism of $\generic$ given by
@@ -1529,6 +1546,12 @@ Moreover,
 \antipode{(F_{i,\lambda})} &= E_{i,\lambda - \alpha_i}, \text{ and}\\
 \antipode{(1_\lambda)} &= 1_\lambda.
 \end{align*}
+
+\subsection{Shifting and periodicity}
+{\color{blue}
+DEFINE THE ELEMENTS $R$ AND $R^{-1}$, GIVE MULTIPLICATION RULES. What does the transpose do to $R$ and $R^{-1}$.
+}
+
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
 {\color{blue}
