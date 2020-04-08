@@ -422,14 +422,29 @@ and let
 R = \sum_{\lambda\in\compositions} R_\lambda.
 \end{equation*}
 
-\begin{lemma}\label{lemma:action-of-R}
-If $A\in\matrices$ then
+Recall that
 \begin{equation*}
-R e_A = e_{A^{[\pm 1]}}
+\orbit{D_\lambda} = \{(L,L):L\in\flags_\lambda\},
+\end{equation*}
+so
+\begin{equation*}
+\orbit{[m]D_\lambda} = \{([m]L,L):L\in\flags_\lambda\}
 \end{equation*}
 and
 \begin{equation*}
-e_A R = e_{A_{[\pm 1]}}.
+\orbit{D_\lambda [m]} = \{(L,[m]L):L\in\flags_\lambda\}.
+\end{equation*}
+
+This leads to a simple rule for multiplication by $R$ in terms of these shifts on matrices.
+
+\begin{lemma}\label{lemma:action-of-R}
+If $A\in\matrices$ then
+\begin{equation*}
+R e_A = e_{[1]A}
+\end{equation*}
+and
+\begin{equation*}
+e_A R = e_{A[-1]}.
 \end{equation*}
 \end{lemma}
 
@@ -437,8 +452,27 @@ e_A R = e_{A_{[\pm 1]}}.
 {\color{blue}TYPE THIS PROOF}
 \end{proof}
 
+As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by the row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
+
+{\color{blue}Although I can't be sure, I suspect that conjugation by $R$ gives a realisation of the Auslander-Reiten translation on the nilpotent representations of a cyclic quiver determined by the upper triangular matrices in $\matrices$. This is at least plausible since the A.R translation $\tau$ sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$, which is consistent with the conjugation by $R$, which sends $E_i$ to $E_{i-1}$.}
+
+\begin{lemma}\label{lemma:R-is-a-unit}
+The element $R$ is invertible and
+\begin{equation*}
+R \antipode{(R)} = \antipode{(R)} R = 1.
+\end{equation*}
+In particular,
+\begin{equation*}
+R^{-1} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
 {\color{blue}
-[STATE THAT CONJUGATION BY $R$ IS AN AUTOMORPHISM OF $\generic$ WHICH IS UNIPOTENT OF DEGREE $n$. I THINK THIS IS RELATED TO THE AUSLANDER-REITEN TRANSLATION ON THE CATEGORY OF NILPOTENT REPRESENTATIONS OF THE CYCLIC QUIVER ON $n$ VERTICES.}
+TYPE THIS PROOF.
+}
+\end{proof}
+
 
 \section{Relations}
 
