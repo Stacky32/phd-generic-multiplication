@@ -43,8 +43,11 @@ and
 \begin{equation*}
 \co{A} = \left( \sum_{i\in\integers} a_{i,1}, \ldots, \sum_{i\in\integers} a_{i,n}\right).
 \end{equation*}
-$A\in\matrices$ is said to go from $\co{A}$ to $\ro{A}$.
+The source is $\co{A}$ and the target is $\ro{A}$.
 \end{definition}
+
+These sums are finite since each row and column of $A$ contains only finitely many nonzero entries, by definition of the set $\matrices$.
+
 
 \begin{definition}[diagonal matrices]\label{def:diagonal-matrices}
 Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the matrix given by $(D_\lambda)_{i,j}=0$ for $i,j\in\integers$ with $i\neq j$ and $(D_\lambda)_{i,i}=\lambda_i$ for $i\in\integers$; where the indices are taken modulo $n$.
@@ -78,7 +81,7 @@ for each $i,j\in\integers$.
 
 The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of infinite periodic matrices (see definition \ref{def:matrices}). The $G$-orbit corresponding to $A\in\matrices$ is denoted $\orbit{A}$ and consists of those pairs $(L,L')\in\dblflags$ with periodic characteristic matrix $\type{L}{L'}$ equal to $A$.
 
-\begin{lemma}(alternative expression for characteristic matrix)
+\begin{lemma}[alternative expression for characteristic matrix]
 Alternatively,
 \begin{equation*}
 a_{i,j} = \dim_\field\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}'}\right)
@@ -248,16 +251,26 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 
 \section{Basic results and notation}
 
-\subsection{Elementary matrices}
+\subsection{Elementary basis elements}
 
-For each $i,j\in\integers$, let $\elem{i}{j}$ be the $\integers\times\integers$ `elementary periodic matrix' with entries given by $(\elem{i}{j})_{s,t}=1$ if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$. Recall from Definition \ref{def:diagonal-matrices} that the diagonal matrix associated to a composition $\lambda\in\compositions$ is
+For each $i,j\in\integers$, let $\elem{i}{j}$ be the $\integers\times\integers$ `elementary periodic matrix' with entries given by
+\begin{equation*}
+(\elem{i}{j})_{s,t}=1
+\end{equation*}
+if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$. 
+
+Recall from Definition \ref{def:diagonal-matrices} that the diagonal matrix associated to a composition $\lambda\in\compositions$ is
 \begin{equation*}
 D_\lambda = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n}.
 \end{equation*}
 
-$\{e_{D_\lambda}:\lambda\in\compositions\}$ is a set of pairwise orthogonal idempotents in $\qschur$ with $\sum_{\lambda\in\compositions}e_{D_\lambda} = 1$, as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
+The corresponding basis elements $e_{D_\lambda}$, for $\lambda\in\compositions$, are pairwise orthogonal idempotents in $\qschur$ with
+\begin{equation*}
+\sum_{\lambda\in\compositions}e_{D_\lambda} = 1,
+\end{equation*}
+as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
 
-Given $i\in[1,n]$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, define
+For each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, define
 \begin{equation*}
 E_{i,\lambda} = e_{D_\lambda + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
@@ -266,20 +279,43 @@ and define
 E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
 \end{equation*}
 
-Given $i\in[1,n]$ and $\lambda\in\compositions$ with $\lambda_i>0$, define
+Also define, for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$,
 \begin{equation*}
 F_{i,\lambda} = e_{D_\lambda + \elem{i+1}{i} - \elem{i}{i}}
 \end{equation*}
 and define
 \begin{equation*}
-F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}
+F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}.
+\end{equation*}
+
+For each $i\in\{1,\ldots,n\}$, let $\alpha_i=\epsilon_i-\epsilon_{i+1}$. Then
+\begin{equation*}
+\co{E_{i,\lambda}} = \co{F_{i,\lambda}}=\lambda,
+\end{equation*}
+\begin{equation*}
+\ro{E_{i,\lambda}} = \lambda +\alpha_i
+\end{equation*}
+and
+\begin{equation*}
+\ro{F_{i,\lambda}} = \lambda - \alpha_i.
 \end{equation*}
 
 \subsection{Transpose involution}
 
+Let $\antipode{}$ be the $\integers[q]$-module automorphism of $\qschur$ given by
+\begin{equation*}
+\antipode{(e_A)} = e_{A^\transpose},
+\end{equation*}
+for each $A\in\matrices$.
+
 \begin{lemma}\label{lemma:transpose-involution}
-Transposition gives a homomorphism of $\integers[q]$-modules $\transpose\colon\qschur\to\qschur$ with $\transpose(e_A) = e_{A^\transpose}$, $\transpose\circ\transpose = 1$ and $\transpose(e_A e_B) = \transpose(e_B)\transpose(e_A)$.
+The map $\antipode{}$ is a $\integers[q]$-algebra antihomomorphism of order $2$. In particular,
+\begin{equation*}
+\antipode{(e_A e_B)} = \antipode{(e_B)}\antipode{(e_A)}
+\end{equation*}
+for each $A,B\in\matrices$.
 \end{lemma}
+
 \begin{proof}
 Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\field$ elements. If $(L,L'')\in\orbit{C}$ then $(L'',L)\in\orbit{C^\transpose}$ and
 \begin{align*}
@@ -288,32 +324,57 @@ Let $A,B,C\in\matrices$ and let $\field$ be a finite field with $\mathrm{q}=\#\f
 &= \#\{L': (L'',L')\in\orbit{B^\transpose}\text{ and } (L',L)\in\orbit{A^\transpose}\}\\
 &= \gamma_{B^\transpose,A^\transpose, C^\transpose;\mathrm{q}}
 \end{align*}
-It then follows that $\transpose(e_A e_B) = \transpose(e_B) \transpose(e_A)$.
+
+It follows that
+\begin{equation*}
+\antipode{(e_A e_B)} = \antipode{(e_B)} \antipode{(e_A)},
+\end{equation*}
+for each $A,B\in\matrices$ and therefore $\antipode{}$ is a $\integers[q]$-algebra antihomomorphism. Moreover, $\antipode{}\circ\antipode{}$ is the identity map on $\qschur$ since $(A^\transpose)^\transpose = A$.
 \end{proof}
 
-The transpose relates the $E_i$, $F_i$ and $1_\lambda$ in the following way: $\transpose(E_{i,\lambda}) = F_{i,\lambda}$, $\transpose(F_{i,\lambda}) = E_{i,\lambda -\epsilon_i +\epsilon_{i+1}}$ and $\transpose(1_\lambda) = 1_\lambda$. In particular, $\transpose(E_i) = F_i$ and $\transpose(F_i) = E_i$.
+The action of $\antipode{}$ on $E_i$, $F_i$ and $1_\lambda$ is as follows:
+\begin{equation*}
+\antipode{(1_\lambda)} = 1_\lambda
+\end{equation*}
+for each $\lambda\in\compositions$,
+\begin{equation*}
+\antipode{(E_{i,\lambda})} = F_{i,\lambda+\alpha_i}
+\end{equation*}
+for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, and
+\begin{equation*}
+\antipode{(F_{i,\lambda})} = E_{i,\lambda -\alpha_i}
+\end{equation*}
+for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$.
 
-\subsection{A multiplication rule}
+In particular,
+\begin{align*}
+\antipode{(E_i)} &= F_i,\\
+\antipode{(F_i)} &= E_i,\\
+\antipode{(1_\lambda)} &= 1_\lambda
+\end{align*}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+
+\subsection{Fundamental multiplication rules}
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rules}
-Given $A\in\matrices$ and $i\in[1,n]$ with $\ro{A}_{i+1}>0$,
+Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$,
 \begin{equation*}
 E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
 \end{equation*}
-Given $A\in\matrices$ and $i\in[1,n]$ with $\ro{A}_i>0$,
+Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_i>0$,
 \begin{equation*}
 F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}.
 \end{equation*}
 \end{lemma}
 
-Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$, provided it is understood that $e_B = 0$ whenever $B\notin\matrices$. There are similar formulas for right multiplication by $E_i$ and $F_i$, obtained by applying the transpose involution to the above.
+Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$. If the convention that $e_B = 0$ whenever $B$ is not in $\matrices$ is used, then the conditions on $p$ in the above sums may be ignored.
 
 \begin{corollary}\label{corollary:fundamental-right-multiplication-rules}
-Given $A\in\matrices$ and $j\in[1,n]$ with $\co{A}_{j+1}>0$,
+Given $A\in\matrices$ and $j\in\{1,\ldots,n\}$ with $\co{A}_{j+1}>0$,
 \begin{equation*}
 e_AF_j = \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}}.
 \end{equation*}
-Given $A\in\matrices$ and $j\in[1,n]$ with $\co{A}_{j}>0$,
+Given $A\in\matrices$ and $j\in\{1,\ldots,n\}$ with $\co{A}_{j}>0$,
 \begin{equation*}
 e_AE_j = \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A+\elem{p}{j+1}-\elem{p}{j}}.
 \end{equation*}
@@ -322,26 +383,46 @@ e_AE_j = \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1
 \begin{proof}
 \begin{align*}
 e_AF_j
-&= \transpose\left(E_j e_{A^\transpose}\right)\\
-&= \transpose\left(\sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p} a_{i,j}} \qint{a_{p,j}+1} e_{A^\transpose +\elem{j}{p} -\elem{j+1}{p}}\right)\\
+&= \antipode{\left(E_j e_{A^\transpose}\right)}\\
+&= \antipode{\left(\sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p} a_{i,j}} \qint{a_{p,j}+1} e_{A^\transpose +\elem{j}{p} -\elem{j+1}{p}}\right)}\\
 &= \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}},
 \end{align*}
 where the second equality comes from Lemma \ref{lemma:fundamental-multiplication-rules}. Similarly,
 \begin{align*}
 e_AE_j
-&= \transpose\left(F_j e_{A^\transpose}\right)\\
-&= \transpose\left( \sum_{p\in\integers:a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A^\transpose +\elem{j+1}{p} - \elem{j}{p}}\right)\\
+&= \antipode{\left(F_j e_{A^\transpose}\right)}\\
+&= \antipode{\left( \sum_{p\in\integers:a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A^\transpose +\elem{j+1}{p} - \elem{j}{p}}\right)}\\
 &= \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p}a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A+\elem{p}{j+1} -\elem{p}{j}}.
 \end{align*}
 \end{proof}
 
 \subsection{Shifting}
 
-{\color{blue} Introduce the elements $R_\lambda$ and $R$ and prove that $\antipode{R}=R^{-1}$. Also show multiplication by $R$ acts as a shift along by one row or column according to whether $R$ is acting on the left or the right.
+In this subsection it is shown that the operations on $\matrices$ given by shifting up by one row or to the right by one column may be described by the action, on the left or right respectively, of an invertible element $R$ of $\qschur$.
 
-For $\lambda\in\compositions$, let $R_\lambda = e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}$. Write $R = \sum_{\lambda\in\compositions} R_\lambda$. Note $R_\lambda = R 1_\lambda$. Given $A\in\matrices$ and $m\in\integers$, let $A[m]\in\matrices$ be given by $A[m]_{i,j} = a_{i,j+m}$ and let $A^{[m]}$ be given by $A^{[m]}_{i,j} = a_{i+m,j}$ for each $i\in\integers$.
+For each $A\in\matrices$ and $m\in\integers$, the row shift of $A$ by $m$ is the element $[m]A$ of $\matrices$ given by
+\begin{equation*}
+([m]A)_{i,j} = a_{i+m,j},
+\end{equation*}
+for each $i,j\in\integers$.
 
-\begin{lemma}[Shifting]
+The column shift of $A$ by $m$ is the element $A[m]$ given by
+\begin{equation*}
+(A[m])_{i,j} = a_{i,j+m},
+\end{equation*}
+for each $i,j\in\integers$.
+
+For each $\lambda\in\compositions$, define
+\begin{align*}
+R_\lambda &= e_{[1]D_\lambda}\\
+&= e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}
+\end{align*}
+and let
+\begin{equation*}
+R = \sum_{\lambda\in\compositions} R_\lambda.
+\end{equation*}
+
+\begin{lemma}\label{lemma:action-of-R}
 If $A\in\matrices$ then
 \begin{equation*}
 R e_A = e_{A^{[\pm 1]}}
@@ -352,8 +433,12 @@ e_A R = e_{A_{[\pm 1]}}.
 \end{equation*}
 \end{lemma}
 
-Conjugation by $R$ gives an automorphism $\rho$ of $\qschur$ satisfying $\rho^n = 1$.
-}
+\begin{proof}
+{\color{blue}TYPE THIS PROOF}
+\end{proof}
+
+{\color{blue}
+[STATE THAT CONJUGATION BY $R$ IS AN AUTOMORPHISM OF $\generic$ WHICH IS UNIPOTENT OF DEGREE $n$. I THINK THIS IS RELATED TO THE AUSLANDER-REITEN TRANSLATION ON THE CATEGORY OF NILPOTENT REPRESENTATIONS OF THE CYCLIC QUIVER ON $n$ VERTICES.}
 
 \section{Relations}
 
@@ -446,11 +531,11 @@ R F_i \antipode{R} = F_{i-1}.
 
 \section{quivers with relations}
 
-Denote by $\compositions$ the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of $\alpha\in\integers^n$ with non-negative entries which sum to $r$. Let $\epsilon_i\in\integers^n$ be the $i$th elementary vector and write $\alpha_i = \epsilon_i  -\epsilon_{i+1}$ for each $i\in [1,n]$. Then $\lambda +\alpha_i\in\compositions$ if $\lambda_{i+1}>0$ and $\lambda -\alpha_i\in\compositions$ if $\lambda_i >0$.
+Denote by $\compositions$ the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of $\alpha\in\integers^n$ with non-negative entries which sum to $r$. Let $\epsilon_i\in\integers^n$ be the $i$th elementary vector and write $\alpha_i = \epsilon_i  -\epsilon_{i+1}$ for each $i\in \{1,\ldots,n\}$. Then $\lambda +\alpha_i\in\compositions$ if $\lambda_{i+1}>0$ and $\lambda -\alpha_i\in\compositions$ if $\lambda_i >0$.
 
 Let $\Gamma=\presentationquiver$ be the quiver with set of vertices $\compositions$, with the following arrows:
 
-For $\lambda\in\compositions$ and $i\in [1,n]$, there is an arrow $e_{i,\lambda}:\lambda\to\lambda +\alpha_i$ if $\lambda_{i+1}>0$ and there is an arrow $f_{i,\lambda}:\lambda\to\lambda -\alpha_i$ if $\lambda_i>0$.
+For $\lambda\in\compositions$ and $i\in \{1,\ldots,n\}$, there is an arrow $e_{i,\lambda}:\lambda\to\lambda +\alpha_i$ if $\lambda_{i+1}>0$ and there is an arrow $f_{i,\lambda}:\lambda\to\lambda -\alpha_i$ if $\lambda_i>0$.
 
 Denote by $\integers[q]\Gamma$ the path $\integers[q]$-algebra of $\Gamma$. Thus $\integers[q]\Gamma$ is a free $\integers[q]$-module with a basis given by the set of paths in $\Gamma$, with multiplication given by the concatenation of paths. If $p$ starts where $q$ ends, the product $pq$ is the path $q$ followed by $p$. Write $e_{i,\lambda}=0$ unless $\lambda,\lambda+\alpha_i\in\compositions$ and write $f_{i,\lambda}=0$ unless $\lambda,\lambda -\alpha_i\in\compositions$.
 
@@ -464,9 +549,9 @@ given by
 \phi(f_{i,\lambda}) &= F_{i,\lambda}\\
 \phi(k_\lambda) &= 1_{\lambda},
 \end{align*}
-for $i\in [1,n]$ and $\lambda\in\compositions$.
+for $i\in \{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
-The image of $\phi$ is the subalgebra of $\qschur$ generated by $E_i$, $F_i$ for $i\in [1,n]$ and $1_\lambda$ for $\lambda\in\compositions$, since $E_{i,\lambda}=E_i1_\lambda$ and $F_{i,\lambda}=F_i1_\lambda$, while $E_i = \sum_\lambda E_{i,\lambda}$ and $F_i = \sum_\lambda F_{i,\lambda}$. In general $\phi$ is not surjective, so this does not always lead to a presentation of $\qschur$.
+The image of $\phi$ is the subalgebra of $\qschur$ generated by $E_i$, $F_i$ for $i\in \{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$, since $E_{i,\lambda}=E_i1_\lambda$ and $F_{i,\lambda}=F_i1_\lambda$, while $E_i = \sum_\lambda E_{i,\lambda}$ and $F_i = \sum_\lambda F_{i,\lambda}$. In general $\phi$ is not surjective, so this does not always lead to a presentation of $\qschur$.
 
 \subsection{Exceptional case n=2.}
 
@@ -1218,13 +1303,13 @@ Write $\Pi=\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}(L)$
 \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) &= d_{i,j}{(B)},\\
 \dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) &= d_{i,j}{(C)},
 \end{align}
-for $(i,j)\in [1,n]\times\integers$ with $i<j<(N+1)n$, and
+for $(i,j)\in \{1,\ldots,n\}\times\integers$ with $i<j<(N+1)n$, and
 \begin{align}
 \dim\left(\frac{L_j'}{L_i\cap L_j'}\right) &= \bar{d}_{i,j}{(A)},\\
 \dim\left(\frac{L_j''}{L_i'\cap L_j''}\right) &= \bar{d}_{i,j}{(B)},\\
 \dim\left(\frac{L_j'''}{L_i''\cap L_j'''}\right) &= \bar{d}_{i,j}{(C)},
 \end{align}
-for $(i,j)\in [1,n]\times\integers$ with $-Nn<j<i$.
+for $(i,j)\in \{1,\ldots,n\}\times\integers$ with $-Nn<j<i$.
 
 For $i<j$, the conditions
 \begin{align*}
@@ -1494,6 +1579,10 @@ q=\min\{j\in\integers: a_{i,j}>0\}.
 \end{equation*}
 \end{lemma}
 
+\begin{proof}
+{\color{blue}TYPE PROOF.}
+\end{proof}
+
 \begin{lemma}\label{lemma:fundamental-multiplication-rule-right}
 Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\lambda=\co{A}$.
 
@@ -1516,11 +1605,15 @@ q=\max\{i\in\integers:a_{i,j+1}>0\}.
 \end{equation*}
 \end{lemma}
 
+\begin{proof}
+{\color{blue}TYPE PROOF	.}
+\end{proof}
+
 \subsection{Transpose involution}
 
 Let $\antipode{}$ be the $\integers$-module automorphism of $\generic$ given by
 \begin{equation*}
-\antipode{e_A}=e_{A^\transpose}
+\antipode{(e_A)}=e_{A^\transpose}
 \end{equation*}
 for each $A\in\matrices$.
 
@@ -1548,9 +1641,25 @@ Moreover,
 \end{align*}
 
 \subsection{Shifting and periodicity}
-{\color{blue}
-DEFINE THE ELEMENTS $R$ AND $R^{-1}$, GIVE MULTIPLICATION RULES. What does the transpose do to $R$ and $R^{-1}$.
-}
+
+For each $\lambda\in\compositions$, define
+\begin{equation*}
+R_\lambda = e_{[1]D_\lambda} = e_{\lambda_1\elem{0}{1} + \cdots + \lambda_n\elem{n-1}{n}}
+\end{equation*}
+and set
+\begin{equation*}
+R=\sum_{\lambda\in\compositions} R_\lambda.
+\end{equation*}
+
+Observe that
+\begin{equation*}
+\antipode{(R_\lambda)} = e_{\lambda_1\elem{1}{0}+\cdots +\lambda_n\elem{n}{n-1}},
+\end{equation*}
+which is $e_{[-1]D_{[1]\lambda}}$ using the shift notation, so
+\begin{equation*}
+\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+\end{equation*}
+
 
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
@@ -1562,9 +1671,9 @@ In particular, there is an isomorphism of $\integers$-algebras $\generic[2,1]\to
 
 \section{Presentation of the generic algebra.}
 
-Recall that $\compositions$ denotes the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of tuples $\lambda = (\lambda_1,\ldots,\lambda_n)\in\integers^n$ with each $\lambda_i$ non-negative and $\lambda_1 +\cdots +\lambda_n = r$. Given $i\in [1,n]$, let $\epsilon_i = (0,\ldots,1,\ldots,0)\in\integers^n$ be the $i$--th elementary vector and let $\alpha_i = \epsilon_i - \epsilon_{i+1}$. Then given $\lambda\in\compositions$, we have $\lambda + \alpha_i\in\compositions$ provided $\lambda_{i+1}>0$ and $\lambda - \alpha_i\in\compositions$ provided $\lambda_i>0$.
+Recall that $\compositions$ denotes the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of tuples $\lambda = (\lambda_1,\ldots,\lambda_n)\in\integers^n$ with each $\lambda_i$ non-negative and $\lambda_1 +\cdots +\lambda_n = r$. Given $i\in \{1,\ldots,n\}$, let $\epsilon_i = (0,\ldots,1,\ldots,0)\in\integers^n$ be the $i$--th elementary vector and let $\alpha_i = \epsilon_i - \epsilon_{i+1}$. Then given $\lambda\in\compositions$, we have $\lambda + \alpha_i\in\compositions$ provided $\lambda_{i+1}>0$ and $\lambda - \alpha_i\in\compositions$ provided $\lambda_i>0$.
 
-Let $\Gamma =\presentationquiver$ be the quiver with set of vertices $\compositions$ with arrows $e_{i,\lambda}\colon\lambda\to\lambda +\alpha_i$ (if $\lambda_{i+1}>0$) and $f_{i,\lambda}\colon\lambda\to\lambda -\alpha_i$ (if $\lambda_i>0$). Thus there are no arrows between $\lambda$ and $\mu$ unless $\lambda = \mu\pm \alpha_i$ for some $i\in [1,n]$.
+Let $\Gamma =\presentationquiver$ be the quiver with set of vertices $\compositions$ with arrows $e_{i,\lambda}\colon\lambda\to\lambda +\alpha_i$ (if $\lambda_{i+1}>0$) and $f_{i,\lambda}\colon\lambda\to\lambda -\alpha_i$ (if $\lambda_i>0$). Thus there are no arrows between $\lambda$ and $\mu$ unless $\lambda = \mu\pm \alpha_i$ for some $i\in \{1,\ldots,n\}$.
 
 If $n\geq 3$ then neighbouring vertices are connected by two arrows, one of each direction. In the case $n=2$, neighbouring vertices are joined by four arrows, two of each direction. The $\integers\Gamma$ denote the path $\integers$ algebra of $\Gamma$. By construction of $\Gamma$, there is a $\integers$-algebra homomorphism $\integers\Gamma\to\generic$ with $e_{i,\lambda}\mapsto E_{i,\lambda}$, $f_{i,\lambda}\mapsto F_{i,\lambda}$ and $k_\lambda = 1_\lambda$. We aim to describe the image and kernel of the morphism to give a presentation of the generic algebra by a quiver with relations, when possible. In general, we should obtain a presentation of a subalgebra of the generic algebra consisting of the so-called aperiodic elements (c.f. \cite{lusztig99}).
 
@@ -1585,7 +1694,7 @@ Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. 
 \begin{definition}(Weight function)\label{def:weight-function}
 Define the weight function $\weight\colon\matrices\to\integers$ by
 \begin{equation*}
-\weight{A} = \sum_{i\in[1,n],j\in\integers} |j-i|a_{i,j}
+\weight{A} = \sum_{i\in\{1,\ldots,n\},j\in\integers} |j-i|a_{i,j}
 \end{equation*}
 for each $A\in\matrices$. The sum is taken over a transversal of the set of congruence classes of $(i,j)$ modulo $(n,n)$ for $i,j\in\integers$.
 \end{definition}
@@ -1599,7 +1708,7 @@ Lemma \ref{lemma:fundamental-multiplication-rule} shows that $e_iA = A+\elem{i}{
 \end{proof}
 
 \begin{lemma}\label{lemma:factorising-aperiodic-elements}
-If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by finitely many applications of $E_i$ and $F_i$ for $i\in[1,n]$.
+If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by finitely many applications of $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$.
 \end{lemma}
 
 \begin{proposition}
