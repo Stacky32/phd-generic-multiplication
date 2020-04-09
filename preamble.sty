@@ -153,7 +153,7 @@
 \newcommand{\qint}[1]{[[#1]]}
 
 % compositions (of r into n parts)
-\newcommand{\compositions}{{\Lambda_0}}
+\newcommand{\compositions}[1][]{\Lambda_0{#1}}
 
 % elementary periodic matrices.
 \newcommand{\elem}[2]{\mathcal{E}_{#1,#2}}
@@ -162,7 +162,7 @@
 \newcommand{\type}[2]{\operatorname{A}(#1,#2)}
 
 % set of periodic characteristic matrices.
-\newcommand{\matrices}[1][]{\Lambda_1^{#1}}
+\newcommand{\matrices}[1][]{\Lambda_1{#1}}
 
 % row and column sums of characteristic matrix.
 \newcommand{\ro}[1]{\operatorname{ro}(#1)}

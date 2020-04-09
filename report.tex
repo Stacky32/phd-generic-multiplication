@@ -1271,7 +1271,7 @@ There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
 \begin{proof}
-$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices[A,B]$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
+$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices^{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
 Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
@@ -1310,7 +1310,7 @@ Conversely, suppose $A\le B$.
 \end{proof}
 
 \begin{corollary}
-The maximum in $\matrices[A,B]$ is $A\ast B$.
+The maximum in $\matrices^{A,B}$ is $A\ast B$.
 \end{corollary}
 
 
@@ -1457,11 +1457,11 @@ There is a unique open and dense $G_L$-orbit in $\xprod[L]{A,B,C}$.
 \begin{proof}
 There are only finitely many $G_L$-orbits in $\xprod[L]{A,B,C}$. In particular,
 \begin{equation*}
-\xprod[L]{A,B,C}=\bigcup_{D\in\matrices[A,B]}\xprod[L]{D,C}=\bigcup_{D\in\matrices[A,B]}\bigcup_{D'\in\matrices[D,C]}\xprod[L]{D'}
+\xprod[L]{A,B,C}=\bigcup_{D\in\matrices^{A,B}}\xprod[L]{D,C}=\bigcup_{D\in\matrices^{A,B}}\bigcup_{D'\in\matrices^{D,C}}\xprod[L]{D'}
 \end{equation*}
 and
 \begin{equation*}
-\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices[A,B]}\bigcup_{D'\in\matrices[D,C]}\overline{\xprod[L]{D'}}.
+\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices^{A,B}}\bigcup_{D'\in\matrices^{D,C}}\overline{\xprod[L]{D'}}.
 \end{equation*}
 There is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, since $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-x-triple}. By Lemma \ref{lemma:orbits-are-quasiprojective}, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, so $\xprod[L]{D}$ is open in $\xprod[L]{A,B,C}$.
 
@@ -1797,11 +1797,98 @@ for $i\in\{1,\ldots,r\}$.
 {\color{blue}As earlier, I can not be sure but I think this map $\tau$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\tau(E_i)=  E_{i-1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$.}
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
-{\color{blue}
-IN THIS SECTION IT IT WILL BE SHOWN THAT $\zeroschur[n,1]=\generic[n,1]$.
 
-In particular, there is an isomorphism of $\integers$-algebras $\generic[2,1]\to\zeroschur[2,1]$ which sends $e_A$ to $e_A$ for each $A\in\matrices$.
-}
+Recall that the affine $0$-Schur algebra $\zeroschur$ is an associative $\integers$-algebra with a $\integers$-basis
+\begin{equation*}
+\{e_A:A\in\matrices\}
+\end{equation*}
+and with $\integers$-bilinear product given by
+\begin{equation*}
+e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}(0) e_C,
+\end{equation*}
+with multiplicative identity
+\begin{equation*}
+\sum_{\lambda\in\compositions} 1_\lambda.
+\end{equation*}
+
+The result of the shifting lemma, Lemma \ref{lemma:action-of-R}, also holds in $\zeroschur$. In particular,
+\begin{equation*}
+Re_A = e_{[1]A}
+\end{equation*}
+and
+\begin{equation*}
+e_A R = e_{A[-1]},
+\end{equation*}
+for each $A\in\matrices$.
+
+Now assume $r=1$, so
+\begin{equation*}
+\matrices[(n,1)] = \{\elem{i}{j}:(i,j)\in\integers\times\{1,\ldots,n\}\}
+\end{equation*}
+and
+\begin{equation*}
+\compositions[(n,1)] = \{\epsilon_n,\ldots,\epsilon_1\}.
+\end{equation*}
+
+\begin{lemma}\label{lemma:multiplicative-basis-rank-1}
+The distinguished basis $\{e_A:A\in\matrices[(n,1)]\}$ is a multiplicative basis of $\zeroschur[n,1]$. More precisely,
+\begin{equation*}
+e_{\elem{i}{j}}e_{\elem{j}{k}} = e_{\elem{i}{k}}
+\end{equation*}
+for $i,j,k\in\integers$, and
+\begin{equation*}
+e_{\elem{i}{j}} e_{\elem{k}{l}} = 0
+\end{equation*}
+for $i,j,k,l\in\integers$ with $j\neq k$ modulo $n$.
+\end{lemma}
+
+\begin{proof}
+Let $i,j\in\integers$. Lemma \ref{lemma:action-of-R} shows that
+\begin{equation*}
+e_{\elem{i}{j}} = R^{j-i} 1_{\epsilon_j},
+\end{equation*}
+where the subscript of $\epsilon_j$ is taken modulo $n$.
+
+If $i,j,k,l\in\integers$ with $j\neq k$ modulo $n$, then
+\begin{equation*}
+\co{\elem{i}{j}} = \epsilon_j \neq \epsilon_k = \ro{\elem{k}{l}},
+\end{equation*}
+so
+\begin{equation*}
+e_{\elem{i}{j}}e_{\elem{k}{l}} = 0.
+\end{equation*}
+
+Finally, let $i,j,k\in\integers$. Then
+\begin{align*}
+e_{\elem{i}{j}} e_{\elem{j}{k}} &= R^{j-i} 1_{\epsilon_j} R^{k-j} 1_{\epsilon_k}\\
+&= R^{j-i}R^{k-j} 1_{\epsilon_k}\\
+&= R^{k-i} 1_{\epsilon_k}\\
+&= e_{\elem{i}{k}}.
+\end{align*}
+
+This proves that the basis $\{e_A:A\in\matrices[(n,1)]\}$ of $\zeroschur[n,1]$ is a multiplicative basis.
+\end{proof}
+
+This result also shows that the product in $\zeroschur[n,1]$ is the same as the generic product, since
+\begin{equation*}
+e_A e_B = e_{A\ast B}
+\end{equation*}
+if $\co{A}=\ro{B}$, and
+\begin{equation*}
+e_A e_B = 0
+\end{equation*}
+if $\co{A}\neq\ro{B}$, for $A,B\in\matrices[(n,1)]$.
+
+\begin{corollary}\label{lemma:generic-zero-schur-same-in-rank-1}
+For each integer $n\geq 1$,
+\begin{equation*}
+\zeroschur[n,1] = \generic[n,1].
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+This is a consequence of Lemma \ref{lemma:multiplicative-basis-rank-1} and the comment which follows the proof.
+\end{proof}
 
 \section{Presentation of the generic algebra.}
 
@@ -1893,7 +1980,7 @@ E_iFi - F_iE_i + \sum_{\lambda:\lambda_i = 0,\lambda_{i+1}>0} 1_\lambda - \sum_{
 
 \subsection{The period 2 case}
 
-In this case, the quiver $\presentationquiver[2,r]$ has vertices $\compositions[2,r]=\{(0,r), (1,r-1),\ldots, (r,0)\}$; adjacent vertices are connected by two pairs of arrows with opposite orientation: $(e_1,f_1)$ and $(e_2,f_2)$. The relations arising from $\generic[2,r]$ are of a more complicated form - in particular, the serre relations of total degree $3$ will not hold in this case - so this case will be treated separately and at a later date.
+In this case, the quiver $\presentationquiver[2,r]$ has vertices $\compositions[(2,r)]=\{(0,r), (1,r-1),\ldots, (r,0)\}$; adjacent vertices are connected by two pairs of arrows with opposite orientation: $(e_1,f_1)$ and $(e_2,f_2)$. The relations arising from $\generic[2,r]$ are of a more complicated form - in particular, the serre relations of total degree $3$ will not hold in this case - so this case will be treated separately and at a later date.
 
 However, the presentation of the subalgebra of $\generic[2,r]$ spanned by the aperiodic distinguished basis elements by a quiver with relations is not strictly needed for our study here, since we are considering the case where $r<n$, and we have already seen concretely why $\generic[2,1]$ and $\zeroschur[2,1]$ are the same.
 
