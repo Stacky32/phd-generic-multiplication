@@ -1,8 +1,8 @@
 \documentclass[a4paper, 11pt]{report}
 \usepackage{preamble}
 
-\begin{document}\maketitle
-
+\begin{document}
+\maketitle
 \tableofcontents
 
 \chapter{Introduction}
@@ -18,6 +18,8 @@ Fix natural numbers $n$ and $r$.
 \begin{definition}[compositions]\label{def:compositions}
 A composition of $r$ into $n$ parts is an $n$-tuple $\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n$ of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
 \end{definition}
+
+A composition $\lambda\in\compositions$ is said to be sincere if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is said to be insincere.
 
 \begin{definition}[infinite periodic matrices]\label{def:matrices}
 Let $\matrices$ be the set of matrices $A=(a_{i,j})_{i,j\in\integers}$ with integer entries $a_{i,j}$ satisfying the following conditions: 
@@ -356,7 +358,7 @@ for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
 \subsection{Fundamental multiplication rules}
 
-\begin{lemma}\label{lemma:fundamental-multiplication-rules}
+\begin{lemma}\label{lemma:fundamental-multiplication-rule}
 Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$,
 \begin{equation*}
 E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
@@ -387,7 +389,7 @@ e_AF_j
 &= \antipode{\left(\sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p} a_{i,j}} \qint{a_{p,j}+1} e_{A^\transpose +\elem{j}{p} -\elem{j+1}{p}}\right)}\\
 &= \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}},
 \end{align*}
-where the second equality comes from Lemma \ref{lemma:fundamental-multiplication-rules}. Similarly,
+where the second equality comes from Lemma \ref{lemma:fundamental-multiplication-rule}. Similarly,
 \begin{align*}
 e_AE_j
 &= \antipode{\left(F_j e_{A^\transpose}\right)}\\
@@ -1601,7 +1603,7 @@ F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}
 \end{equation*}
 for each $i\in\{1,\ldots,n\}$.
 
-\begin{lemma}\label{lemma:fundamental-multiplication-rule}
+\begin{lemma}\label{lemma:fundamental-multiplication-rule-generic}
 Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\mu=\ro{A}$.
 
 If $\mu_{i+1}=0$ then $E_i\ast e_A=0$. If $\mu_{i+1}>0$, then
@@ -1895,35 +1897,90 @@ This is a consequence of Lemma \ref{lemma:multiplicative-basis-rank-1} and the c
 
 {\color{gray}[SECTION NEEDS CHECKING.]}
 
-\begin{definition}(aperiodicity)\label{def:aperiodic}
-$A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$. If $r<n$ then and $A\in\matrices$ is aperiodic. Linear combinations of the basis elements corresponding to aperiodic matrices are also said to be aperiodic - if $A$ is aperiodic, we say $e_A$ is aperiodic.
+\begin{definition}\label{def:aperiodic}
+An element $A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$.
 \end{definition}
 
+An element of $\generic$ is said to be aperiodic if it is a $\integers$-linear combination of basis elements $e_A$ corresponding to the aperiodic elements in $\matrices$.
+
+For example, the diagonal matrix $D_\lambda$ is aperiodic so $1_\lambda$ is aperiodic, for any $\lambda\in\compositions$. The elementary basis elements $E_{i,\lambda}$ and $F_{i,\lambda}$ introduced earlier are also aperiodic.
+
+When $r<n$, any element $A\in\matrices$ is aperiodic since $\co{A}$ is insincere and therefore $A$ has a zero column.
+
 \begin{lemma}\label{lemma:words-are-aperiodic}
-Let $A\in\matrices$ and write $\lambda=\ro{A}$. If $A$ is aperiodic and $\lambda_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $A$ is aperiodic and $\lambda_i>0$, then $F_i\ast e_A$ is aperiodic.
+Suppose $A\in\matrices$ and write $\mu=\ro{A}$. If $\mu_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $\mu_i>0$, then $F_i\ast e_A$ is aperiodic.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{gray}NEEDS EDITING TO REFLECT CHANGES}
 Suppose $A\in\matrices$ is aperiodic and $\lambda_{i+1}>0$, where $\lambda=\ro{A}$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $E_i\ast e_A = e_B$, where $B=A+\elem{i}{p}-\elem{i+1}{p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\elem{i}{p}-\elem{i+1}{p}$ is aperiodic.
 
 Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $F_i\ast e_A = e_C$ where $C=A+\elem{i+1}{p}-\elem{i}{p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
 \end{proof}
 
-\begin{definition}(Weight function)\label{def:weight-function}
-Define the weight function $\weight\colon\matrices\to\integers$ by
+\begin{definition}\label{def:weight-of-matrix}
+For each $A\in\matrices$, define the weight of $A$ to be the non negative integer $\weight{A}$ given by
 \begin{equation*}
-\weight{A} = \sum_{i\in\{1,\ldots,n\},j\in\integers} |j-i|a_{i,j}
+\weight{A} = \sum_{i\in\integers,j\in\{1,\ldots,n\}} |j-i| a_{i,j}.
 \end{equation*}
-for each $A\in\matrices$. The sum is taken over a transversal of the set of congruence classes of $(i,j)$ modulo $(n,n)$ for $i,j\in\integers$.
 \end{definition}
 
-\begin{lemma}\label{lemma:decreasing-weight}
-Let $A\in\matrices$ and write $\lambda=\ro{A}$. Suppose $\lambda_{i+1}>0$ and set $p=\max\{p'\in\integers: a_{i+1,p'}>0\}$. If $p>i$ then $\weight{e_{i,\lambda}\ast A}=1+\weight{A}$. If $p\le i$ then $\weight{e_{i,\lambda}\ast A}=-1+\weight{A}$. Suppose $\lambda_i>0$ and set $q=\min\{q'\in\integers: a_{i,q'}>0\}$. If $q\le i$ then $\weight{f_{i,\lambda}\ast A}=1+\weight{A}$. If $q>i$ then $\weight{f_{i,\lambda}\ast A}=-1+\weight{A}$.
+% weight of e_A.
+
+\begin{lemma}\label{lemma:weight-change-E}
+Let $A\in\matrices$ and write $\mu=\ro{A}$. Suppose $\mu_{i+1}>0$ and set
+\begin{equation*}
+p=\max\{p'\in\integers: a_{i+1,p'}>0\}.
+\end{equation*}
+If $p>i$ then
+\begin{equation*}
+\weight{E_i\ast e_A}=1+\weight{e_A}
+\end{equation*}
+and if $p\le i$ then
+\begin{equation*}
+\weight{E_i\ast e_A}=-1+\weight{e_A}.
+\end{equation*}
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:fundamental-multiplication-rule} shows that $e_iA = A+\elem{i}{p}-\elem{i+1}{p}$, so $\weight{e_iA} - \weight{A} = |p-i| - |p-i-1|$, which equals $1$ if $p>i$ and equals $-1$ if $p\le i$. Similarly, $f_iA = A + \elem{i+1}{q} - \elem{i}{q}$ by Lemma \ref{lemma:fundamental-multiplication-rule}, so $\weight{f_iA} - \weight{A} = |q-i-1| - |q-i|$, which equals $-1$ if $q>i$ and equals $1$ if $q\le i$.
+Lemma \ref{lemma:fundamental-multiplication-rule-generic} shows that
+\begin{equation*}
+E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}}
+\end{equation*}
+so
+\begin{equation*}
+\weight{E_i\ast e_A} - \weight{e_A} = |p-i| - |p-i-1|,
+\end{equation*}
+which equals $1$ if $p>i$ and equals $-1$ if $p\le i$.
 \end{proof}
+
+\begin{lemma}\label{lemma:weight-change-F}
+Let $A\in\matrices$ and $\mu=\ro{A}$. Suppose $i\in\{1,\ldots,n\}$ is such that $\mu_i>0$ and let
+\begin{equation*}
+q = \min\{q'\in\integers:a_{i,q'}>0\}.
+\end{equation*}
+If $q\le i$ then
+\begin{equation*}
+\weight{F_i\ast e_A} = \weight{e_A} + 1
+\end{equation*}
+and if $q>i$ then
+\begin{equation*}
+\weight{F_i\ast e_A} = \weight{e_A} - 1.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Again using Lemma \ref{lemma:fundamental-multiplication-rule-generic},
+\begin{equation*}
+F_i\ast e_A = e_{A + \elem{i+1}{q} - \elem{i}{q}},
+\end{equation*}
+so
+\begin{equation*}
+\weight{F_i\ast e_A} - \weight{e_A} = |q-i-1| - |q-i|,
+\end{equation*}
+which equals $-1$ if $q>i$ and equals $1$ if $q\le i$.
+\end{proof}
+
+[CONTINUE HERE...]
 
 \begin{lemma}\label{lemma:factorising-aperiodic-elements}
 If $A\in\matrices$ is aperiodic, then $e_A$ may be obtained from $1_{\co{A}}$ by finitely many applications of $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$.
