@@ -1895,7 +1895,6 @@ This is a consequence of Lemma \ref{lemma:multiplicative-basis-rank-1} and the c
 
 \section{Aperiodicity in the generic affine algebra}
 
-{\color{gray}[SECTION NEEDS CHECKING.]}
 
 \begin{definition}\label{def:aperiodic}
 An element $A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$.
@@ -1908,13 +1907,15 @@ For example, the diagonal matrix $D_\lambda$ is aperiodic so $1_\lambda$ is aper
 When $r<n$, any element $A\in\matrices$ is aperiodic since $\co{A}$ is insincere and therefore $A$ has a zero column.
 
 \begin{lemma}\label{lemma:words-are-aperiodic}
-Suppose $A\in\matrices$ and write $\mu=\ro{A}$. If $\mu_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $\mu_i>0$, then $F_i\ast e_A$ is aperiodic.
+Suppose $A\in\matrices$ is aperiodic and write $\mu=\ro{A}$. If $\mu_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $\mu_i>0$, then $F_i\ast e_A$ is aperiodic.
 \end{lemma}
 
-\begin{proof}{\color{gray}NEEDS EDITING TO REFLECT CHANGES}
-Suppose $A\in\matrices$ is aperiodic and $\lambda_{i+1}>0$, where $\lambda=\ro{A}$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $E_i\ast e_A = e_B$, where $B=A+\elem{i}{p}-\elem{i+1}{p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\elem{i}{p}-\elem{i+1}{p}$ is aperiodic.
+\begin{proof}
+Let $A\in\matrices$ be aperiodic and let $\mu=\ro{A}$.
 
-Suppose $A\in\matrices$ is aperiodic and $\lambda_i>0$, where $\lambda=\ro{A}$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $F_i\ast e_A = e_C$ where $C=A+\elem{i+1}{p}-\elem{i}{p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
+Suppose $\mu_{i+1}>0$. There is $p\in\integers$ such that $a_{i+1,p}>0$ and $a_{i+1,p'}=0$ whenever $p'>p$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $E_i\ast e_A = e_B$, where $B=A+\elem{i}{p}-\elem{i+1}{p}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$, then $b_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $b_{s,s+l}=a_{s,s+l}=0$, since $A$ is aperiodic. If $l=p-i$, then $b_{i+1,i+1+l} = b_{i+1,p+1}=a_{i+1,p+1}=0$, by maximality of $p$. If $l=p-i-1$, there is $s\neq i+1$ such that $a_{s,s+l}=0$, since $A$ is aperiodic and $a_{i+1,i+1+l}=a_{i+1,p}>0$, so $b_{s,s+l}=a_{s,s+l}=0$. Therefore, $B=A+\elem{i}{p}-\elem{i+1}{p}$ is aperiodic.
+
+Suppose $\mu_i>0$. Lemma \ref{lemma:fundamental-multiplication-rule} shows that $F_i\ast e_A = e_C$ where $C=A+\elem{i+1}{p}-\elem{i}{p}$ and $p=\min\{p'\in\integers: a_{i,p'}>0\}$. Let $l\in\integers\setminus\{0\}$. If $l\notin\{p-i,p-i-1\}$ then $c_{s,s+l}=a_{s,s+l}$ for each $s\in\integers$, so there is $s\in\integers$ such that $c_{s,s+p}=a_{s,s+p}=0$, by aperiodicity of $A$. If $l=p-i$, then $a_{i,i+l}=a_{i,p}>0$, so there is $s\neq i$ such that $a_{s,s+l}=0$. Then $c_{s,s+l}=a_{s,s+l}=0$. Finally, if $l=p-i-1$, then $c_{i,i+l}=a_{i,p-1}=0$ by minimality of $p$. Thus $C$ is aperiodic as required.
 \end{proof}
 
 Suppose $\lambda\in\compositions$ and
@@ -1933,9 +1934,14 @@ The next step is to prove a converse of this result. It will be shown that each 
 \begin{definition}\label{def:weight-of-matrix}
 For each $A\in\matrices$, define the weight of $A$ to be the non negative integer $\weight{A}$ given by
 \begin{equation*}
-\weight{A} = \sum_{i\in\integers,j\in\{1,\ldots,n\}} |j-i| a_{i,j}.
+\weight{A} = \sum_{i\in\{1,\ldots,n\},j\in\integers} |j-i| a_{i,j}.
 \end{equation*}
 \end{definition}
+
+Observe that
+\begin{equation*}
+\weight{A} = \sum_{[i,j]:i<j}(j-i)a_{i,j} + \sum_{[i,j]:i>j}(i-j)a_{i,j}.
+\end{equation*}
 
 Also write $\weight{e_A} = \weight{A}$. Then $1_\lambda$ has weight $0$, and $E_{i,\lambda}$ and $F_{i,\lambda}$ have weight $1$. In fact, the converses also hold in that $\weight{e_A}=0$ implies $e_A=1_\lambda$ for some $\lambda$, and $\weight{e_A}=1$ implies $e_A$ is $E_{i,\lambda}$ or $F_{i,\lambda}$ for some $i$ and $\lambda$.
 
@@ -2006,22 +2012,21 @@ where $\lambda=\co{A}$.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}
-The proof will use induction on the weight of $A$.
+The proof uses induction on the weight of $A$.
 
 If $\weight{A}=0$ then $A=D_\lambda$, where $\lambda=\co{A}$, so
 \begin{equation*}
 e_A = 1_\lambda.
 \end{equation*}
 
-Assume $\weight{A}>0$. Then $A$ has at least one nonzero entry which is not on the diagonal and in the case the upper part of $A$ is nonzero, an $E_i$ may be factored out of $e_A$, while in the case the lower part of $A$ is nonzero, an $F_i$ may be factored out of $e_A$.
+Assume $\weight{A}>0$. Then $A$ has at least one nonzero entry which is not on the diagonal.
 
 Suppose the upper part of $A$ is nonzero and set
 \begin{equation*}
 h^+ = \max\{j-i:a_{i,j}\neq 0\}.
 \end{equation*}
 
-There is $i\in\{1,\ldots,n\}$ such that $a_{i,i+h^+}>0$ and $a_{i+1,i+1+h^+}=0$. Let $q=i+h^+$ and let $p$ be the smallest integer such that $a_{i,p}>0$ and $a_{i+1,j}=0$ for $j>p$.
+There is $i\in\{1,\ldots,n\}$ such that $a_{i,i+h^{+}}>0$ and $a_{i+1,i+1+h^{+}}=0$, using the aperiodicity property of $A$. Let $p$ be the smallest integer such that $p>i$, $a_{i,p}>0$ and $a_{i+1,j}=0$ for $j>p$.
 
 Then
 \begin{equation*}
@@ -2038,20 +2043,53 @@ Next suppose the lower part of $A$ is nonzero and set
 h^- = \max\{i-j:a_{i,j}>0\}.
 \end{equation*}
 
-[ARGUMENT FOR THE LOWER/SUBDIAGONAL PART OF A NEEDS TO BE TYPED.]
-}
+There is $i\in\{1,\ldots,n\}$ such that $a_{i,i-h^{-1}}=0$ and $a_{i+1,i+1-h^{-}}>0$, by the aperiodicity property of $A$. Let $q$ be the largest integer such that $q<i+1$, $a_{i+1,q}>0$ and $a_{i,j}=0$ for $j<q$. Then $q\geq i-h^{-}$ and
+\begin{equation*}
+e_A = F_i e_B,
+\end{equation*}
+where
+\begin{equation*}
+B = A + \elem{i}{q} - \elem{i+1}{q}.
+\end{equation*}
+
+Observe $B$ is aperiodic and
+\begin{equation*}
+\weight{B} = \weight{A}-1,
+\end{equation*}
+by Lemma \ref{lemma:weight-change-F}.
+
+Therefore, if $\weight{A}>0$ there exists an aperiodic element $B\in\matrices$ with
+\begin{equation*}
+\weight{B} = \weight{A} - 1
+\end{equation*}
+and such that
+\begin{equation*}
+e_A = \omega e_B
+\end{equation*}
+for some $\omega\in\{E_1,\ldots,E_n\}\cup\{F_1,\ldots,F_n\}$.
+
+It follows that any aperiodic basis element $e_A$ is the product of a word of length $\weight{A}$ in $E_1,\ldots,E_n$ and $F_1,\ldots,F_n$ with the idempotent $1_\lambda$, where $\lambda=\co{A}$.
 \end{proof}
 
-\begin{proposition}
-The $\integers$-subalgebra of $\generic$ generated by $E_{i,\lambda}$, $F_{i,\lambda}$ and $1_\lambda$ has $\integers$-basis
+\begin{proposition}\label{proposition:generating-aperiodic-elements}
+The subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$ has $\integers$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\text{ is aperiodic.}\}.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
-{\color{blue}COMPLETE THIS.}
+By definition, this subalgebra is spanned by the nonzero products in $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$, which are exactly the aperiodic basis elements, by Lemma \ref{lemma:words-are-aperiodic} and Lemma \ref{lemma:factorising-aperiodic-elements}.
 \end{proof}
+
+\begin{lemma}
+In the case $r<n$, $\generic$ is generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$.
+\end{lemma}
+
+\begin{proof}
+When $r<n$, any $A\in\matrices$ is aperiodic since $\co{A}$ has a zero entry, so $A$ has a column of zero entries. Therefore each of the basis elements $e_A$ in $\generic$ may be written as a product of the $E_i$, $F_i$ and $1_\lambda$, using Proposition \ref{proposition:generating-aperiodic-elements}.
+\end{proof}
+
 
 \section{Presentation of the generic affine algebra.}
 
@@ -2072,7 +2110,7 @@ prove this ideal is the kernel of the presentation.
 
 conclude the main theorem: isomorphism between $\generic$ and $\zeroschur$ when $r<n$.
 
-consequence: multiplicative basis in $\generic$.
+consequence: multiplicative basis in $\zeroschur$.
 }
 
 
