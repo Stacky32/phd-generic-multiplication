@@ -2006,7 +2006,40 @@ where $\lambda=\co{A}$.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}COMPLETE THIS.}
+{\color{blue}
+The proof will use induction on the weight of $A$.
+
+If $\weight{A}=0$ then $A=D_\lambda$, where $\lambda=\co{A}$, so
+\begin{equation*}
+e_A = 1_\lambda.
+\end{equation*}
+
+Assume $\weight{A}>0$. Then $A$ has at least one nonzero entry which is not on the diagonal and in the case the upper part of $A$ is nonzero, an $E_i$ may be factored out of $e_A$, while in the case the lower part of $A$ is nonzero, an $F_i$ may be factored out of $e_A$.
+
+Suppose the upper part of $A$ is nonzero and set
+\begin{equation*}
+h^+ = \max\{j-i:a_{i,j}\neq 0\}.
+\end{equation*}
+
+There is $i\in\{1,\ldots,n\}$ such that $a_{i,i+h^+}>0$ and $a_{i+1,i+1+h^+}=0$. Let $q=i+h^+$ and let $p$ be the smallest integer such that $a_{i,p}>0$ and $a_{i+1,j}=0$ for $j>p$.
+
+Then
+\begin{equation*}
+e_A = E_i\ast e_B
+\end{equation*}
+where $B=A+\elem{i+1}{p} -\elem{i}{p}$. Moreover, $B$ is aperiodic and
+\begin{equation*}
+\weight{B} = \weight{A}-1,
+\end{equation*}
+using Lemma \ref{lemma:weight-change-E}.
+
+Next suppose the lower part of $A$ is nonzero and set
+\begin{equation*}
+h^- = \max\{i-j:a_{i,j}>0\}.
+\end{equation*}
+
+[ARGUMENT FOR THE LOWER/SUBDIAGONAL PART OF A NEEDS TO BE TYPED.]
+}
 \end{proof}
 
 \begin{proposition}
