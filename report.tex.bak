@@ -1626,7 +1626,54 @@ q=\min\{j\in\integers: a_{i,j}>0\}.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}TYPE PROOF.}
+Suppose $\mu_{i+1}>0$. Recall that the corresponding product in the affine $q$-Schur algebra $\qschur$ is given by
+\begin{equation*}
+E_i\cdot e_A = \sum_{j\in\integers:a_{i+1,j}>0} q^{\sum_{t>j} a_{i,t}}\qint{a_{i,j}+1}e_{A+\elem{i}{j}-\elem{i+1}{j}},
+\end{equation*}
+by Lemma \ref{lemma:fundamental-multiplication-rule}. Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. Then for $s\in\{1,\ldots,n\}$ and $t\in\integers$,
+\begin{equation*}
+d_{s,t}{(B)} = d_{s,t}{(A)} + 1
+\end{equation*}
+if $s=i$ and $t<j$ and
+\begin{equation*}
+d_{s,t}{(B)} = d_{s,t}{(A)}
+\end{equation*}
+otherwise. It follows that if $j'<j$, then
+\begin{equation*}
+A+\elem{i}{j'}-\elem{i+1}{j'} < A+\elem{i}{j}-\elem{i+1}{j}.
+\end{equation*}
+Therefore, the product in $\generic$ is given by
+\begin{equation*}
+E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}},
+\end{equation*}
+where
+\begin{equation*}
+p=\max\{j\in\integers:a_{i+1,j}>0\}.
+\end{equation*}
+
+Now suppose $\mu_{i}>0$. Using Lemma \ref{lemma:fundamental-multiplication-rule},
+\begin{equation*}
+F_i\cdot e_A = \sum_{j\in\integers:a_{i,j}>0} q^{\sum_{t<j} a_{i+1,t}}\qint{a_{i+1,j}+1} e_{A+\elem{i+1}{j}-\elem{i}{j}},
+\end{equation*}
+in $\qschur$. Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $i\in\{1,\ldots,n\}$ and $j\in\integers$,
+\begin{equation*}
+d_{s,t}{(B)} = d_{s,t}{(A)} - 1
+\end{equation*}
+if $s=i$ and $t<j$ and
+\begin{equation*}
+d_{s,t}{(B)} = d_{s,t}{(A)}
+\end{equation*}
+otherwise. Then if $j'<j$ it follows
+\begin{equation*}
+A+\elem{i+1}{j'}-\elem{i}{j'} > A+\elem{i+1}{j}-\elem{i}{j},
+\end{equation*}
+so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally ordered, with maximal element
+\begin{equation*}
+F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
+\end{equation*}
+where $q=\min\{j\in\integers:a_{i,j}>0\}$.
+
+{\color{red}!!Need to mention the opposite corner sums}
 \end{proof}
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule-right}
