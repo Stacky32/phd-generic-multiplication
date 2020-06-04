@@ -1,0 +1,211 @@
+%\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble}
+
+% Preamble for doctoral thesis "A geometric realisation of affine 0-Schur algebras".
+% Author: Tom Crawley, working at University of Bath.
+% Supervisor: Dr Xiuping Su.
+% Funding: EPSRC grant.
+
+% -------------------------------------------- %
+% 				PACKAGES						 %
+% -------------------------------------------- %
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{enumerate}
+\RequirePackage{xcolor}
+\RequirePackage{mathtools}	% included for use of coloneqq.
+
+\usepackage{tikz} % Diagrams
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+
+% TIKZ PICTURE CONVENIENCE COMMANDS %
+% produces an arrow for a commutative diagram
+\newcommand{\cdarrow}{\path[->,font=\scriptsize,>=angle 90]}
+% makes a dashed arrow
+\newcommand{\cdarrowdashed}{\path[->,dashed,font=\scriptsize,>=angle 90]}
+% makes a dashed line
+\newcommand{\cdlinedashed}{\path[-,dashed,font=\scriptsize,>=angle 90]}
+% makes a line
+\newcommand{\cdline}{\path[-,font=\scriptsize,>=angle 90]}
+
+
+% BIBLIOGRAPHY
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+% OTHER PACKAGES:
+
+%\usepackage{extpfeil} 	% for interesting arrows.
+\usepackage{hyperref} 	% enable navigation hyperlinks
+
+%\usepackage{import}
+%For importing sections, bibliography etc.
+%Usage: \import[path]{filename}
+
+
+% -------------------------------------------- %
+% 				STYLE AND FORMATTING			 %
+% -------------------------------------------- %
+
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textwidth}{463pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{60pt}
+\setlength{\topmargin}{20pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{650pt}
+\setlength{\footskip}{20pt}
+
+
+% -------------------------------------------- %
+% 				THEOREM ENVIRONMENTS			 %
+% -------------------------------------------- %
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{conjecture}{Conjecture}
+
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{observation}{Observation}
+
+% -------------------------------------------- %
+%			 MATHEMATICAL OPERATORS				 %
+% -------------------------------------------- %
+
+% (linear) span
+\DeclareMathOperator{\SPAN}{span}
+
+% morphism spaces
+\DeclareMathOperator{\HOM}{Hom}
+
+% endomorphism ring
+\DeclareMathOperator{\END}{End}
+
+% automorphism group
+\DeclareMathOperator{\AUT}{Aut}
+
+% extension groups
+\DeclareMathOperator{\EXT}{Ext}
+
+% image
+\DeclareMathOperator{\IM}{im}
+
+% rank of a linear map
+\DeclareMathOperator{\rank}{rank}
+
+% --------------------------------------------- %
+% 				NOTATION					 	  %
+% --------------------------------------------- %
+
+% COMMON MATHEMATICAL NOTATION
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\field}{\mathbf{k}}
+
+% PROJECTIVE SPACES:
+\newcommand{\Proj}{\mathbb{P}}
+
+% GRASSMANNIANS:
+\newcommand{\GR}[2][]{\operatorname{Gr}_{#1}(#2)}
+
+% GENERAL LINEAR GROUPS:
+\newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
+% argument 1 denotes the rank while argument 2 denotes the ground ring
+% Usage: $\GL{~rank~}{~ring~}$.
+% alternative usage: $\GL{}{~free-module~} if the ring is apparent from context.
+
+% AFFINE SPACE OF MATRICES:
+\newcommand{\MAT}[2]{\operatorname{M}_{#1}(#2)}
+% Usage: %\MAT{r}{\field}% for the space of $r\times r$ matrices over $\field$
+% general usage: $\MAT{m\times n}{\field}$ for the space of $m\times n$ matrices over $\field$.
+
+% GROUND RINGS FOR LATTICES:
+% use curly epsilon
+\renewcommand{\epsilon}{\varepsilon}
+% laurent polynomial ring
+\newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
+% polynomial ring
+\newcommand{\polys}{{\field[\epsilon]}}
+
+% compact notation:
+\renewcommand{\laurent}{\mathcal{S}}
+\renewcommand{\polys}{\mathcal{R}}
+
+% CYCLIC FLAG VARIETIES [single, double, triple]
+\newcommand{\flags}{\mathcal{F}}
+\newcommand{\dblflags}{{\flags\!\times\!\flags}}
+\newcommand{\triflags}{{\flags\!\times\!\flags\!\times\!\flags}}
+
+% quantum integers
+\newcommand{\qint}[1]{[[#1]]}
+
+% compositions (of r into n parts)
+\newcommand{\compositions}[1][]{\Lambda_0{#1}}
+
+% elementary periodic matrices.
+\newcommand{\elem}[2]{\mathcal{E}_{#1,#2}}
+
+% periodic characteristic matrix of a pair.
+\newcommand{\type}[2]{\operatorname{A}(#1,#2)}
+
+% set of periodic characteristic matrices.
+\newcommand{\matrices}[1][]{\Lambda_1{#1}}
+
+% row and column sums of characteristic matrix.
+\newcommand{\ro}[1]{\operatorname{ro}(#1)}
+\newcommand{\co}[1]{\operatorname{co}(#1)}
+
+% weight of the characteristic matrix
+\newcommand{\weight}[1]{\operatorname{wt}(#1)}
+
+% orbits in double flag variety:
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+
+% PRODUCT(S) OF ORBITS
+\newcommand{\xprod}[2][]{X_{#2}^{#1}}
+\newcommand{\yprod}[2][]{Y_{#2}^{#1}}
+\newcommand{\zprod}[2][]{\tilde{Y}_{#2}^{#1}}
+
+% quiver for presentation of q schur algebras.
+\newcommand{\presentationquiver}[1][n,r]{\Gamma(#1)}
+
+% ideal of relations for the quiver presentation
+\newcommand{\quiverrelations}[1][n,r]{I(#1)}
+
+% Schur algebras
+
+% quantum affine Schur algebras
+\newcommand{\qschur}[1][n,r]{\hat{S}_q(#1)}
+% affine 0-Schur algebras
+\newcommand{\zeroschur}[1][n,r]{\hat{S}_0(#1)}
+% generic affine Schur algebras
+\newcommand{\generic}[1][n,r]{\hat{G}(#1)}
+
+% transpose symbol
+\newcommand{\transpose}{\top}
+
+% generic category
+\newcommand{\gcat}[1][n,r]{\mathcal{G}(#1)}
+
+% transpose involution on the generic algebra
+\newcommand{\antipode}[1]{S{#1}}
+
+% -------------------------------------------- %
+%				TITLE PAGE						 %
+% -------------------------------------------- %
+
+\author{Tom Crawley} % with Xiuping Su.
+\title{A geometric realisation of affine 0-Schur algebras.}
