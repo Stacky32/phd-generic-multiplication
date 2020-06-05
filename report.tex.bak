@@ -1626,19 +1626,28 @@ q=\min\{j\in\integers: a_{i,j}>0\}.
 \end{lemma}
 
 \begin{proof}
-Suppose $\mu_{i+1}>0$. Recall that the corresponding product in the affine $q$-Schur algebra $\qschur$ is given by
+Suppose $\mu_{i+1}>0$. Recall that the corresponding product in the affine $q$-Schur algebra $\qschur$ is
 \begin{equation*}
 E_i\cdot e_A = \sum_{j\in\integers:a_{i+1,j}>0} q^{\sum_{t>j} a_{i,t}}\qint{a_{i,j}+1}e_{A+\elem{i}{j}-\elem{i+1}{j}},
 \end{equation*}
-by Lemma \ref{lemma:fundamental-multiplication-rule}. Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. Then for $s\in\{1,\ldots,n\}$ and $t\in\integers$,
+by Lemma \ref{lemma:fundamental-multiplication-rule}.
+
+Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. For $s\in\{1,\ldots,n\}$ and $t\in\integers$,
 \begin{equation*}
-d_{s,t}{(B)} = d_{s,t}{(A)} + 1
+d_{s,t}{(B)} = \begin{cases}
+d_{s,t}{(A)} + 1 &: s=i \text{ and } t<j,\\
+d_{s,t}{(A)} &: \text{ otherwise,}
+\end{cases}
 \end{equation*}
-if $s=i$ and $t<j$ and
+and
 \begin{equation*}
-d_{s,t}{(B)} = d_{s,t}{(A)}
+\bar{d}_{s,t}{(B)} = \begin{cases}
+\bar{d}_{s,t}{(A)} - 1 &: s=i \text{ and } t\geq j,\\
+\bar{d}_{s,t}{(A)} &: \text{ otherwise.}
+\end{cases}
 \end{equation*}
-otherwise. It follows that if $j'<j$, then
+
+It follows that if $j'<j$, then
 \begin{equation*}
 A+\elem{i}{j'}-\elem{i+1}{j'} < A+\elem{i}{j}-\elem{i+1}{j}.
 \end{equation*}
@@ -1651,19 +1660,30 @@ where
 p=\max\{j\in\integers:a_{i+1,j}>0\}.
 \end{equation*}
 
+The argument for the action of $F_i$ is similar, but there is a pleasing symmetry in the two proofs.
+
 Now suppose $\mu_{i}>0$. Using Lemma \ref{lemma:fundamental-multiplication-rule},
 \begin{equation*}
 F_i\cdot e_A = \sum_{j\in\integers:a_{i,j}>0} q^{\sum_{t<j} a_{i+1,t}}\qint{a_{i+1,j}+1} e_{A+\elem{i+1}{j}-\elem{i}{j}},
 \end{equation*}
-in $\qschur$. Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $i\in\{1,\ldots,n\}$ and $j\in\integers$,
+in $\qschur$. 
+
+Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $i\in\{1,\ldots,n\}$ and $j\in\integers$,
 \begin{equation*}
-d_{s,t}{(B)} = d_{s,t}{(A)} - 1
+d_{s,t}{(B)} = \begin{cases}
+d_{s,t}{(A)} - 1 &: s=i \text{ and } t<j,\\
+d_{s,t}{(A)} &: \text{ otherwise,}
+\end{cases}
 \end{equation*}
-if $s=i$ and $t<j$ and
+and
 \begin{equation*}
-d_{s,t}{(B)} = d_{s,t}{(A)}
+\bar{d}_{s,t}{(B)} = \begin{cases}
+\bar{d}_{s,t}{(A)} + 1 &: s=i \text{ and } t\geq j,\\
+\bar{d}_{s,t}{(A)} &: \text{ otherwise.}
+\end{cases}
 \end{equation*}
-otherwise. Then if $j'<j$ it follows
+
+Then if $j'<j$ it follows
 \begin{equation*}
 A+\elem{i+1}{j'}-\elem{i}{j'} > A+\elem{i+1}{j}-\elem{i}{j},
 \end{equation*}
@@ -1672,34 +1692,6 @@ so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally
 F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
 \end{equation*}
 where $q=\min\{j\in\integers:a_{i,j}>0\}$.
-
-{\color{red}!!Need to mention the opposite corner sums}
-\end{proof}
-
-\begin{lemma}\label{lemma:fundamental-multiplication-rule-right}
-Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\lambda=\co{A}$.
-
-If $\lambda_j=0$ then $e_A\ast E_j=0$. If $\lambda_j>0$ then
-\begin{equation*}
-e_A\ast E_j =e_{A+\elem{p}{j+1}-\elem{p}{j}},
-\end{equation*}
-where
-\begin{equation*}
-p=\min\{i\in\integers:a_{i,j}>0\}.
-\end{equation*}
-
-If $\lambda_{j+1}=0$ then $e_A\ast F_j=0$. If $\lambda_{j+1}>0$ then
-\begin{equation*}
-e_A\ast F_j = e_{A+\elem{q}{j}-\elem{q}{j+1}},
-\end{equation*}
-where
-\begin{equation*}
-q=\max\{i\in\integers:a_{i,j+1}>0\}.
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-{\color{blue}TYPE PROOF	.}
 \end{proof}
 
 \subsection{Transpose involution}
@@ -1745,6 +1737,34 @@ and
 \antipode{(1_\lambda)} = 1_\lambda,
 \end{equation*}
 for each $\lambda\in\compositions$.
+
+\begin{lemma}\label{lemma:fundamental-multiplication-rule-generic-R}
+Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\lambda=\co{A}$.
+
+If $\lambda_j=0$ then $e_A\ast E_j=0$. If $\lambda_j>0$ then
+\begin{equation*}
+e_A\ast E_j =e_{A+\elem{p}{j+1}-\elem{p}{j}},
+\end{equation*}
+where
+\begin{equation*}
+p=\min\{i\in\integers:a_{i,j}>0\}.
+\end{equation*}
+
+If $\lambda_{j+1}=0$ then $e_A\ast F_j=0$. If $\lambda_{j+1}>0$ then
+\begin{equation*}
+e_A\ast F_j = e_{A+\elem{q}{j}-\elem{q}{j+1}},
+\end{equation*}
+where
+\begin{equation*}
+q=\max\{i\in\integers:a_{i,j+1}>0\}.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+This follows immediately on applying the transpose involution to the formulas for the action of $E_i$ and $F_i$ on the left given in Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
+
+Equally, this result can be proven directly using the formulas for the action of $E_i$ and $F_i$ on the right in Lemma \ref{corollary:fundamental-right-multiplication-rules}, as in the proof of Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
+\end{proof}
 
 \subsection{Shifting and periodicity}
 
