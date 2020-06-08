@@ -248,6 +248,8 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 1 = \sum_{\lambda\in\compositions} e_{D_\lambda}.
 \end{equation*}
 
+\section{Affine zero-Schur algebras}
+
 
 \chapter{Presenting affine q-Schur algebras}
 
@@ -451,10 +453,42 @@ e_A R = e_{A[-1]}.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}TYPE THIS PROOF}
+Let $\mu = \ro{A}$ and $\lambda=\co{A}[-1]$. Observe that
+\begin{equation*}
+\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{[1]D_\mu}, (L',L'')\in\orbit{A}\} = \{(L'[1],L',L''): (L',L'')\in\orbit{A}\},
+\end{equation*}
+and the image under the projection onto the first and last components is
+\begin{equation*}
+\{(L'[1],L''):(L,L'')\in\orbit{A}\} = \orbit{[1]A}.
+\end{equation*}
+The coefficient of $\orbit{[1]A}$ in the product $Re_A$ is $1$ since, for any $(N,N'')\in\orbit{[1]A}$,
+\begin{equation*}
+\{N'\in\flags: (N,N')\in\orbit{[1]D_\mu}, (N',N'')\in\orbit{A}\} = \{N[-1]\},
+\end{equation*}
+so it follows that $Re_A = e_{[1]A}$.
+
+To compute product $e_A R$, consider
+\begin{equation*}
+\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{[1]D_\lambda}\} = \{(L,L',L'[-1]):(L,L')\in\orbit{A}\}.
+\end{equation*}
+The image under the projection onto the first and last components is
+\begin{equation*}
+\{(L,L'[-1]):(L,L')\in\orbit{A}\} = \orbit{A[-1]}
+\end{equation*}
+and, for any $(N,N'')\in\orbit{A[-1]}$,
+\begin{equation*}
+\{N'\in\flags:(N,N')\in\orbit{A}, (N',N'')\in\orbit{[1]D_\lambda}\} = \{N''[1]\}.
+\end{equation*}
+Therefore $e_A R = e_{A[-1]}$.
 \end{proof}
 
-As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by the row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
+For $\lambda\in\compositions$ and $m\in\integers$, let $[m]\lambda$ be the element in $\compositions$ given by
+\begin{equation*}
+([m]\lambda)_i = \lambda_{i+m},
+\end{equation*}
+for each $i\in\integers$, where the indices of $\lambda$ are taken modulo $n$.
+
+For example, if $\lambda = (2,1,3)$, then $[1]\lambda = (1,3,2)$.
 
 \begin{lemma}\label{lemma:R-is-a-unit}
 The element $R$ is invertible and
@@ -468,18 +502,24 @@ R^{-1} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}
-TYPE THIS PROOF.
-}
+Recall that
+\begin{equation*}
+\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+\end{equation*}
+Then it follows from Lemma \ref{lemma:action-of-R} that
+\begin{equation*}
+R\antipode{(R)} = \sum_{\lambda\in\compositions}e_{[1][-1]D_\lambda} = 1
+\end{equation*}
+and
+\begin{align*}
+\antipode{(R)} R
+&= \sum_{\lambda\in\compositions} e_{[-1]D_\lambda[-1]}\\
+&= \sum_{\lambda\in\compositions} e_{D_{\lambda[-1]}}\\
+&= 1.
+\end{align*}
 \end{proof}
 
-For $\lambda\in\compositions$ and $m\in\integers$, let $[m]\lambda$ be the element in $\compositions$ given by
-\begin{equation*}
-([m]\lambda)_i = \lambda_{i+m},
-\end{equation*}
-for each $i\in\integers$, where the indices of $\lambda$ are taken modulo $n$.
-
-For example, if $\lambda = (2,1,3)$, then $[1]\lambda = (1,3,2)$.
+As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by the row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
 
 \begin{lemma}\label{lemma:conjugation-by-R}
 For each $\lambda\in\compositions$,
@@ -1615,7 +1655,7 @@ where
 p=\max\{j\in\integers:a_{i+1,j}>0\}.
 \end{equation*}
 
-If $\mu_i=0$ then $F_ie_A=0$. If $\mu_i>0$ then
+If $\mu_i=0$ then $F_i\ast e_A=0$. If $\mu_i>0$ then
 \begin{equation*}
 F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
 \end{equation*}
@@ -1867,15 +1907,22 @@ for $i\in\{1,\ldots,r\}$.
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
 
-Recall that the affine $0$-Schur algebra $\zeroschur$ is an associative $\integers$-algebra with a $\integers$-basis
+Recall that the affine $0$-Schur algebra $\zeroschur$ is defined as the associative $\integers$-algebra
+\begin{equation*}
+\zeroschur = {\integers[q]}/{(q)}\otimes_{\integers[q]} \qschur.
+\end{equation*}
+
+In particular, $\zeroschur$ has a $\integers$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\}
 \end{equation*}
-and with $\integers$-bilinear product given by
+with $\integers$-bilinear product given by
 \begin{equation*}
-e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}(0) e_C,
+e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}(0) e_C
 \end{equation*}
-with multiplicative identity
+for $A,B,C\in\matrices$; where $\gamma_{A,B,C}\in\integers[q]$ are the structure polynomials of the affine $q$-Schur algebra $\qschur$ with respect to this distinguished basis.
+
+The multiplicative identity in $\zeroschur$ is
 \begin{equation*}
 \sum_{\lambda\in\compositions} 1_\lambda.
 \end{equation*}
