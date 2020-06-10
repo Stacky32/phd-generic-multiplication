@@ -416,6 +416,14 @@ The column shift of $A$ by $m$ is the element $A[m]$ given by
 \end{equation*}
 for each $i,j\in\integers$.
 
+For $\lambda\in\compositions$ and $m\in\integers$, the translation of $\lambda$ by $m$ is the element $\lambda[m]$ of $\compositions$ given by
+\begin{equation*}
+(\lambda[m])_i = \lambda_{i+m},
+\end{equation*}
+for each $i\in\integers$, where the indices of $\lambda$ are taken modulo $n$.
+
+For example, if $\lambda = (2,1,3)$, then $\lambda[1] = (1,3,2)$ and $\lambda[2]=(3,2,1)$.
+
 For each $\lambda\in\compositions$, define
 \begin{align*}
 R_\lambda &= e_{[1]D_\lambda}\\
@@ -467,7 +475,7 @@ The coefficient of $\orbit{[1]A}$ in the product $Re_A$ is $1$ since, for any $(
 \end{equation*}
 so it follows that $Re_A = e_{[1]A}$.
 
-To compute product $e_A R$, consider
+To compute the product $e_A R$, consider
 \begin{equation*}
 \{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{[1]D_\lambda}\} = \{(L,L',L'[-1]):(L,L')\in\orbit{A}\}.
 \end{equation*}
@@ -481,8 +489,6 @@ and, for any $(N,N'')\in\orbit{A[-1]}$,
 \end{equation*}
 Therefore $e_A R = e_{A[-1]}$.
 \end{proof}
-
-As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by the row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
 
 \begin{lemma}\label{lemma:R-is-a-unit}
 The element $R$ is invertible and
@@ -505,19 +511,17 @@ Then it follows from Lemma \ref{lemma:action-of-R} that
 R\antipode{(R)} = \sum_{\lambda\in\compositions}e_{[1][-1]D_\lambda} = 1
 \end{equation*}
 and
-\begin{equation*}
-\antipode{(R)} R = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda[-1]}
-
-
+\begin{align*}
+\antipode{(R)} R
+&= \sum_{\lambda\in\compositions} e_{[-1]D_\lambda[-1]}\\
+&= \sum_{\lambda\in\compositions} e_{D_{(\lambda[-1])}}\\
+&= 1.
+\end{align*}
 \end{proof}
 
-For $\lambda\in\compositions$ and $m\in\integers$, let $[m]\lambda$ be the element in $\compositions$ given by
-\begin{equation*}
-([m]\lambda)_i = \lambda_{i+m},
-\end{equation*}
-for each $i\in\integers$, where the indices of $\lambda$ are taken modulo $n$.
+As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
 
-For example, if $\lambda = (2,1,3)$, then $[1]\lambda = (1,3,2)$.
+Multiplication on the left by $\antipode{(R)}$ sends $e_A$ to $e_{[-1]A}$, while multiplication on the right by $\antipode{(R)}$ sends $e_A$ to $e_{A[1]}$.
 
 \begin{lemma}\label{lemma:conjugation-by-R}
 For each $\lambda\in\compositions$,
@@ -535,33 +539,55 @@ R F_i \antipode{(R)} = F_{i-1}.
 \end{lemma}
 
 \begin{proof}
-{\color{blue}
-TYPE THIS PROOF.}
+It follows from Lemma \ref{lemma:action-of-R} and Lemma \ref{lemma:R-is-a-unit} that
+\begin{equation*}
+Re_A\antipode{(R)} = e_{[1]A[1]},
+\end{equation*}
+for each $A\in\matrices$. In particular,
+\begin{equation*}
+R1_\lambda \antipode{(R)} = 1_{\lambda[1]}
+\end{equation*}
+for each $\lambda\in\compositions$,
+\begin{equation*}
+R E_{i,\lambda} \antipode{(R)} = E_{i-1,\lambda[1]}
+\end{equation*}
+for each $(\lambda,i)\in\compositions\times\integers$ with $\lambda_{i+1}>0$, and
+\begin{equation*}
+R F_{i,\lambda} \antipode{(R)} = F_{i-1,\lambda[1]}
+\end{equation*}
+for each $(\lambda,i)\in\compositions\times\integers$ with $\lambda_i>0$.
+
+It now follows that
+\begin{equation*}
+R E_i \antipode{(R)} = E_{i-1}
+\end{equation*}
+and
+\begin{equation*}
+R F_i \antipode{(R)} = F_{i-1}
+\end{equation*}
+as claimed.
 \end{proof}
 
 {\color{blue}Although I can't be sure, I suspect that conjugation by $R$ gives a realisation of the Auslander-Reiten translation on the nilpotent representations of a cyclic quiver determined by the upper triangular matrices in $\matrices$. This is at least plausible since the A.R translation $\tau$ sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$, which is consistent with the conjugation by $R$, which sends $E_i$ to $E_{i-1}$.}
 
-{\color{gray}
-\section{Relations}
 
-Note that $E_i^{r+1}=F_i^{r+1}=0$ while
-\begin{equation*}
-E_i^r = [r]_! e_{r\elem{i}{i+1}}
-\end{equation*}
-and
-\begin{equation*}
-F_i^r = [r]_! e_{r\elem{i+1}{i}}.
-\end{equation*}
 
-\begin{lemma}[quantum Serre relations: $n\geq 3$]
-Suppose $n\geq 3$. The following relations hold in $\qschur$:
+\section{Quivers and relations}
+
+\subsection{Relations in affine q-Schur algebras}
+
+Assume $n$ and $r$ are integers with $n\geq 3$ and $r\geq 1$.
+
+\begin{lemma}\label{lemma:q-serre-relations}
+The following relations hold in $\qschur$:
 \begin{equation*}
 E_i E_j - E_j E_i = 0
 \end{equation*}
+and
 \begin{equation*}
 F_i F_j - F_j F_i = 0
 \end{equation*}
-unless $j=i\pm 1$;
+for $i,j\in\{1,\ldots,n\}$ such that $j\geq i+2$,
 \begin{align*}
 E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i &= 0\\
 E_i^2 E_{i+1} - (1+q)E_i E_{i+1} E_i + qE_{i+1} E_i^2 &= 0
@@ -571,32 +597,35 @@ and
 F_{i+1} F_i^2 - (1+q) F_i F_{i+1} F_i + qF_i^2 F_{i+1} &=0\\
 F_{i+1}^2 F_i - (1+q) F_{i+1} F_i F_{i+1} + q F_i F_{i+1}^2 &= 0.
 \end{align*}
+for $i\in\{1,\ldots,n\}$.
 \end{lemma}
+
 \begin{proof}
-Here we introduce temporary notation for the basis elements: Write $[A] = e_A$.
-
-% first relation for Es:
-Take $\lambda\in\compositions$.
-\begin{equation*}
-E_i E_{i+1}^2 1_\lambda = [2][ {D_\lambda + 2X_{i+1,i+2} + X_{i,i+2} }] + [2][ { D_\lambda + 2X_{i+1,i+2} + X_{i,i+1} }]
-\end{equation*}                                                                                                                                                                                                                                                                                                                                      
+Introduce the temporary notation $[A]=e_A$.
 
 \begin{equation*}
-E_{i+1} E_i E_{i+1} 1_\lambda = [ {D_\lambda + 2X_{i+1,i+2} + X_{i,i+1} } ] + [2][ { D_\lambda + 2X_{i+1,i+1} + X_{i,i+1} } ]
+E_i E_{i+1}^2 = \sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right] + \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]
 \end{equation*}
 
 \begin{equation*}
-E_{i+1}^2 E_i 1_\lambda = [2][ { D_\lambda + 2X_{i+1,i+2} + X_{i,i+1} } ]
+E_{i+1}E_i E_{i+1} = \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right] + \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{equation*}
-Then
-\begin{equation*}
-(E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i)1_\lambda = 0,
-\end{equation*}
-for each $\lambda\in\compositions$. The relation $E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i = 0$ then follows.
 
-% Second relation for Es:
-% ...
-% ...
+\begin{equation*}
+E_{i+1}^2 E_i = \sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
+\end{equation*}
+
+\begin{equation*}
+E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i = \sum_{\lambda\in\compositions} (\qint{2} -(1+q))e_X + (\qint{2} -(1+q)\qint{2} +q\qint{2})e_Y
+\end{equation*}
+where
+\begin{equation*}
+X=D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}
+\end{equation*}
+and
+\begin{equation*}
+Y=D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}.
+\end{equation*}
 
 The relations between $F_i$ and $F_{i+1}$ may be obtained directly, as above, or by applying the transpose operator to the relations already derived: note that the two sets of relations are related by swapping $E_i$ and $F_i$ and reversing the order of multiplication.
 \end{proof}
@@ -612,8 +641,6 @@ E_i F_i - F_i E_i = \sum_{\lambda\in\compositions} ([\lambda_i] - [\lambda_{i+1}
 \end{equation*}
 \end{lemma}
 
-
-\section{quivers with relations}
 
 Denote by $\compositions$ the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of $\alpha\in\integers^n$ with non-negative entries which sum to $r$. Let $\epsilon_i\in\integers^n$ be the $i$th elementary vector and write $\alpha_i = \epsilon_i  -\epsilon_{i+1}$ for each $i\in \{1,\ldots,n\}$. Then $\lambda +\alpha_i\in\compositions$ if $\lambda_{i+1}>0$ and $\lambda -\alpha_i\in\compositions$ if $\lambda_i >0$.
 
@@ -694,7 +721,7 @@ given by
 \phi(k_\lambda) = 1_\lambda.
 \end{equation*}
 \end{lemma}
-}
+
 
 \chapter{A generic affine algebra}
 
