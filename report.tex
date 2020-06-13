@@ -21,6 +21,12 @@ A composition of $r$ into $n$ parts is an $n$-tuple $\lambda=(\lambda_1,\ldots,\
 
 A composition $\lambda\in\compositions$ is said to be sincere if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is said to be insincere.
 
+For each $i\in\{1,\ldots,n\}$, let
+\begin{equation*}
+\alpha_i = \epsilon_i - \epsilon_{i+1},
+\end{equation*}
+where $\epsilon_{n+1}=\epsilon_1$.
+
 \begin{definition}[infinite periodic matrices]\label{def:matrices}
 Let $\matrices$ be the set of matrices $A=(a_{i,j})_{i,j\in\integers}$ with integer entries $a_{i,j}$ satisfying the following conditions: 
 \begin{itemize}
@@ -574,9 +580,75 @@ as claimed.
 
 \section{Quivers and relations}
 
+Assume $n$ and $r$ are integers with $n\geq 3$ and $r\geq 1$.
+
 \subsection{Relations in affine q-Schur algebras}
 
-Assume $n$ and $r$ are integers with $n\geq 3$ and $r\geq 1$.
+
+\begin{lemma}\label{lemma:q-commutators-E-F}
+If $i,j\in\{1,\ldots,n\}$ and $i\neq j$, then
+\begin{equation*}
+E_iF_j - F_jE_i = 0.
+\end{equation*}
+For each $i\in\{1,\ldots,n\}$,
+\begin{equation*}
+E_iF_i - F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} - \qint{\lambda_{i+1}})1_\lambda.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Denote $e_A$ by $\left[A\right]$. Fix $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
+\begin{align*}
+E_i F_j &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +\elem{j+1}{j} -\elem{j}{j}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{j+1}{j} -\elem{j}{j} +\elem{i}{i+1} -\elem{i+1}{i+1}\right].
+\end{align*}
+Observe that the nonzero terms in the above sum are those for which $\lambda_j>0$ and $\lambda_{i+1}>0$. Similarly,
+\begin{align*}
+F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{j+1}{j} -\elem{j}{j}\right],
+\end{align*}
+where the sum is taken over those $\lambda$ such that $\lambda_{i+1}>0$ and $\lambda_{j}>0$. Therefore
+\begin{equation*}
+E_iF_j -F_jE_i = 0.
+\end{equation*}
+
+Again using Lemma \ref{lemma:fundamental-multiplication-rule},
+\begin{align*}
+E_iF_i &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +\elem{i+1}{i} -\elem{i}{i}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i+1}{i} -\elem{i}{i} +\elem{i}{i+1} -\elem{i+1}{i+1}\right] + \qint{\lambda_i}\left[D_\lambda\right]
+\end{align*}
+and
+\begin{align*}
+F_iE_i &= \sum_{\lambda\in\compositions} F_i\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i+1}{i} -\elem{i}{i}\right] + \qint{\lambda_{i+1}}\left[D_\lambda\right].
+\end{align*}
+Therefore
+\begin{equation*}
+E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda_{i+1}})1_\lambda,
+\end{equation*}
+as required.
+\end{proof}
+
+A clearer version of the relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$.
+
+Then the expression for the commuator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
+\begin{itemize}
+\item
+If $\lambda$ is internal with respect to $i$ then
+\begin{equation*}
+E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0.
+\end{equation*}
+\item
+If $\lambda$ is initial with respect to $i$ then
+\begin{equation*}
+F_{i,\lambda+\alpha_i}E_{i,\lambda} - 1_{\lambda} = 0.
+\end{equation*}
+\item
+If $\lambda$ is final with respect to $i$ then
+\begin{equation*}
+E_{i,\lambda-\alpha_i}F_{i,\lambda} - 1_{\lambda} = 0.
+\end{equation*}
+\end{itemize}
 
 \begin{lemma}\label{lemma:q-serre-relations}
 The following relations hold in $\qschur$:
@@ -601,7 +673,7 @@ for $i\in\{1,\ldots,n\}$.
 \end{lemma}
 
 \begin{proof}
-Introduce the temporary notation $[A]=e_A$.
+Denote $e_A$ by $\left[A\right]$.
 
 \begin{align*}
 E_i E_{i+1}^2 = &\sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
@@ -677,25 +749,55 @@ F_{i+1}F_i^2 -(1+q)F_iF_{i+1}F_i +qF_i^2F_{i+1} = 0,
 where the second relation follows from the first by applying the transpose involution.
 \end{proof}
 
-\begin{lemma}
-$[E_i, F_j] = 0$ unless $j=i$.
+Recall the result of Lemma \ref{lemma:conjugation-by-R}, which gives relations involving $R$:
+\begin{align*}
+R1_\lambda R^{-1} &= 1_{\lambda[1]}\\
+RE_{i,\lambda}R^{-1} &= E_{i-1,\lambda[1]}\\
+RF_{i,\lambda}R^{-1} &= F_{i-1,\lambda[1]}.
+\end{align*}
+
+
+\subsection{A quiver presentation}
+% note: at section level we've assumed n\geq 3.
+
+Define a quiver $\Gamma=\presentationquiver$ associated with the affine $q$-Schur algebra $\qschur$ as follows:
+\begin{itemize}
+\item
+The set of vertices is $\Gamma_0=\compositions$.
+\item
+The set of edges is $\Gamma_1$, consisting of edges
 \begin{equation*}
-E_i F_i - F_i E_i = \sum_{\lambda\in\compositions} ([\lambda_i] - [\lambda_{i+1}])1_\lambda.
+e_{i,\lambda}\colon \lambda\to\lambda+\alpha_i
 \end{equation*}
-\end{lemma}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$ and
+\begin{equation*}
+f_{i,\lambda}\colon \lambda\to\lambda-\alpha_i
+\end{equation*}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$. 
+\end{itemize}
 
-\begin{proof}
-COMPLETE THIS!
-\end{proof}
+The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by the concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ is the source of $p$, or equals zero otherwise. 
+
+For each $\lambda\in\compositions$, denote the constant path at $\lambda$ by $k_\lambda$. These elements form a set of pairwise orthogonal idempotents, with
+\begin{equation*}
+1 = \sum_{\lambda\in\compositions} 1_\lambda
+\end{equation*}
+in $\integers[q]\Gamma$.
+
+For each $i\in\{1,\ldots,n\}$, define
+\begin{equation*}
+e_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}
+\end{equation*}
+and
+\begin{equation*}
+f_i = \sum_{\lambda\in\compositions: \lambda_i>0} f_{i,\lambda}.
+\end{equation*}
+
+To avoid long subscripts, define $e_{i,\lambda}=0$ if $\lambda_{i+1}=0$ and define $f_{i,\lambda}=0$ if $\lambda_i=0$.
 
 
-Denote by $\compositions$ the set of compositions of $r$ into $n$ parts. That is, $\compositions$ is the set of $\alpha\in\integers^n$ with non-negative entries which sum to $r$. Let $\epsilon_i\in\integers^n$ be the $i$th elementary vector and write $\alpha_i = \epsilon_i  -\epsilon_{i+1}$ for each $i\in \{1,\ldots,n\}$. Then $\lambda +\alpha_i\in\compositions$ if $\lambda_{i+1}>0$ and $\lambda -\alpha_i\in\compositions$ if $\lambda_i >0$.
-
-Let $\Gamma=\presentationquiver$ be the quiver with set of vertices $\compositions$, with the following arrows:
-
-For $\lambda\in\compositions$ and $i\in \{1,\ldots,n\}$, there is an arrow $e_{i,\lambda}:\lambda\to\lambda +\alpha_i$ if $\lambda_{i+1}>0$ and there is an arrow $f_{i,\lambda}:\lambda\to\lambda -\alpha_i$ if $\lambda_i>0$.
-
-Denote by $\integers[q]\Gamma$ the path $\integers[q]$-algebra of $\Gamma$. Thus $\integers[q]\Gamma$ is a free $\integers[q]$-module with a basis given by the set of paths in $\Gamma$, with multiplication given by the concatenation of paths. If $p$ starts where $q$ ends, the product $pq$ is the path $q$ followed by $p$. Write $e_{i,\lambda}=0$ unless $\lambda,\lambda+\alpha_i\in\compositions$ and write $f_{i,\lambda}=0$ unless $\lambda,\lambda -\alpha_i\in\compositions$.
+\subsection{-- draft --}
+{\color{gray}
 
 By construction, there is a homomorphism of $\integers[q]$-algebras
 \begin{equation*}
@@ -711,10 +813,6 @@ for $i\in \{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
 The image of $\phi$ is the subalgebra of $\qschur$ generated by $E_i$, $F_i$ for $i\in \{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$, since $E_{i,\lambda}=E_i1_\lambda$ and $F_{i,\lambda}=F_i1_\lambda$, while $E_i = \sum_\lambda E_{i,\lambda}$ and $F_i = \sum_\lambda F_{i,\lambda}$. In general $\phi$ is not surjective, so this does not always lead to a presentation of $\qschur$.
 
-
-\subsection{-- draft --}
-{\color{gray}
-Suppose $n\geq 3$. Then $\Gamma=\presentationquiver$ has vertex set $\compositions$.
 
 Define $e_i, f_i\in\integers[q]\presentationquiver$ by
 \begin{equation*}
@@ -762,6 +860,7 @@ given by
 \end{equation*}
 \end{lemma}
 }
+
 
 \chapter{A generic affine algebra}
 

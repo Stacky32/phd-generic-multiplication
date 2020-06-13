@@ -629,6 +629,16 @@ and
 Y_\lambda=D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}.
 \end{equation*}
 
+It follows
+\begin{equation*}
+E_i E_{i+1}^2 -(1+q)E_{i+1} E_i E_{i+1} +qE_{i+1}^2 E_i = 0
+\end{equation*}
+and so
+\begin{equation*}
+F_{i+1}^2F_i -(1+q)F_{i+1}F_iF_{i+1} +qF_iF_{i+1}^2 = 0,
+\end{equation*}
+by applying the transpose involution to the first relation.
+
 \begin{align*}
 E_i^2E_{i+1} = &\sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
 &+\qint{2}\left[D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} - \elem{i+2}{i+2}\right]
@@ -656,7 +666,15 @@ and
 B_\lambda = D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}.
 \end{equation*}
 
-
+Therefore
+\begin{equation*}
+E_i^2E_{i+1} -(1+q)E_iE_{i+1}E_i +qE_{i+1}E_i = 0
+\end{equation*}
+and
+\begin{equation*}
+F_{i+1}F_i^2 -(1+q)F_iF_{i+1}F_i +qF_i^2F_{i+1} = 0,
+\end{equation*}
+where the second relation follows from the first by applying the transpose involution.
 \end{proof}
 
 \begin{lemma}
