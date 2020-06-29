@@ -254,12 +254,19 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 1 = \sum_{\lambda\in\compositions} e_{D_\lambda}.
 \end{equation*}
 
+
 \section{Affine zero-Schur algebras}
+
+Given integers $n,r\geq 1$, the affine $0$-Schur algebra of rank $r$ and period $n$ is the $\integers$-algebra given by
+\begin{equation*}
+\zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur.
+\end{equation*}
+
 
 
 \chapter{Presenting affine q-Schur algebras}
 
-\section{Basic results and notation}
+\section{The distinguished basis}
 
 \subsection{Elementary basis elements}
 
@@ -364,7 +371,25 @@ In particular,
 \end{align*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
+
 \subsection{Fundamental multiplication rules}
+
+For each $m\in\naturals$, define the $q$-integer $\qint{m}\in\integers[q]$ by
+\begin{equation*}
+\qint{m} = \frac{1-q^m}{1-q},
+\end{equation*}
+so that
+\begin{align*}
+\qint{0} &= 0\\
+\qint{1} &= 1\\
+\qint{2} &= 1+q\\
+\qint{3} &= 1+q+q^2
+\end{align*}
+and
+\begin{equation*}
+\qint{m} = 1+q+\cdots +q^{m-1}
+\end{equation*}
+for $m\geq 1$.
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule}
 Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$,
@@ -629,7 +654,7 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-A clearer version of the relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$.
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$.
 
 Then the expression for the commuator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
 \begin{itemize}
@@ -757,7 +782,7 @@ RF_{i,\lambda}R^{-1} &= F_{i-1,\lambda[1]}.
 \end{align*}
 
 
-\subsection{A quiver presentation}
+\subsection{A quiver algebra}
 % note: at section level we've assumed n\geq 3.
 
 Define a quiver $\Gamma=\presentationquiver$ associated with the affine $q$-Schur algebra $\qschur$ as follows:
@@ -776,7 +801,7 @@ f_{i,\lambda}\colon \lambda\to\lambda-\alpha_i
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$. 
 \end{itemize}
 
-The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by the concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ is the source of $p$, or equals zero otherwise. 
+The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ is the source of $p$, or equals zero otherwise. 
 
 For each $\lambda\in\compositions$, denote the constant path at $\lambda$ by $k_\lambda$. These elements form a set of pairwise orthogonal idempotents, with
 \begin{equation*}
@@ -817,6 +842,8 @@ e_if_i-f_ie_i - \sum_{\lambda\in\compositions}(\qint{\lambda_i}-\qint{\lambda_{i
 \end{equation*}
 for $i\in\{1,\ldots,n\}$.
 
+\subsection{Mapping to the q-Schur algebra}
+
 \begin{lemma}
 There is a $\integers[q]$-algebra homomorphism
 \begin{equation*}
@@ -843,10 +870,84 @@ for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
 In fact, $\phi$ is determined by its values on $e_1,\ldots,e_n$, $f_1,\ldots,f_n$ and $k_\lambda$ for $\lambda\in\compositions$.
 
+\subsection{Change of rings}
 
-{\color{gray}
-Ok good.. now what can be said about this map... Try to show it is surjective when r<n after extending scalars to some other ring. Does it give an isomorphism? So like an acctual quiver presenttion?
-}
+Recall that the $q$-integers are given by
+\begin{equation*}
+\qint{0}=0
+\end{equation*}
+and
+\begin{equation*}
+\qint{m} = 1+q+\cdots +q^{m-1} = 1+q\qint{m-1}
+\end{equation*}
+for $m\in\integers$ with $m\geq 1$.
+
+Given integers $a$ and $b$ with $0<a<b$,
+\begin{equation*}
+\qint{b}-\qint{a} = q^a\qint{b-a}
+\end{equation*}
+and the product $\qint{a}\qint{b}$ can be computed recursively as follows:
+\begin{align*}
+\qint{a}\qint{b} &= (1+q\qint{a-1})(1+q\qint{b-1})\\
+&= 1 +q\qint{a-1} +q\qint{b-1} +q^2\qint{a-1}\qint{b-1}.
+\end{align*}
+
+The set of $q$-integers is not multiplicatively closed. For instance,
+\begin{align*}
+\qint{2}^2 &= q +\qint{3},\\
+\qint{2}\qint{3} &= \qint{4} +q\qint{2}.
+\end{align*}
+
+On the other hand, the set $1+q\integers[q]$ is multiplicatively closed and contains the set of $q$-integers.
+
+Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
+\begin{equation*}
+\qfrac = \left\{\frac{f}{1+qg}:f,g\in\integers[q]\right\}.
+\end{equation*}
+
+
+Observe that $\integers[q]$ is a subring of $\qfrac$, which makes $\qfrac$ into a $\integers[q]$-algebra. The $\qfrac$-form of the affine $q$-Schur algebra $\qschur$ is defined to be the $\qfrac$-algebra
+\begin{equation*} 
+\Qqschur = \qfrac\otimes_{\integers[q]}\qschur.
+\end{equation*}
+
+\begin{proposition}
+If $r<n$, the map
+\begin{equation*}
+\mathrm{id}_{\qfrac}\otimes_{\integers[q]}\phi\colon\qfrac\otimes_{\integers[q]}\left(\integers[q]\Gamma/I\right)\to\Qqschur
+\end{equation*}
+is a surjective homomorphism of $\qfrac$-algebras.
+\end{proposition}
+
+\begin{proof}
+{\color{blue}WRITE THIS PROOF}
+\end{proof}
+
+\begin{lemma}
+\begin{equation*}
+\qfrac\Gamma/{\qfrac I} = \qfrac\otimes_{\integers[q]}\left(\integers[q]\Gamma/I\right).
+\end{equation*}
+\end{lemma}
+
+\begin{theorem}[! Conjecture !]
+If $r<n$, the quiver with relations $(\Gamma,I)$ gives a presentation of $\Qqschur$ over $\qfrac$.
+\end{theorem}
+
+\begin{proof}[Ideas for proof]
+I hope to deduce this from the presentation of the affine generic algebra by tensoring the surjective map between $\qfrac$-forms of the path algebra and $q$-Schur algbebra with the $\qfrac$-algebra $\qfrac/{(q)}$ and observing this map is an isomorphism of $\integers$-algebras.
+\end{proof}
+
+\section{Affine zero Schur algebras}
+
+\begin{lemma}
+\begin{equation*}
+\qfrac/{q\qfrac}\otimes_{\qfrac}\Qqschur = \zeroschur.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+The natural ring homomorphism $\integers[q]/{q\integers[q]}\to\qfrac/{q\qfrac}$ sending $f+q\integers[q]$ to $f+q\qfrac$ is an isomorphism.
+\end{proof}
 
 
 \chapter{A generic affine algebra}
@@ -1878,7 +1979,7 @@ Then if $j'<j$ it follows
 \begin{equation*}
 A+\elem{i+1}{j'}-\elem{i}{j'} > A+\elem{i+1}{j}-\elem{i}{j},
 \end{equation*}
-so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally ordered, with maximal element
+so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally ordered and the maximum is
 \begin{equation*}
 F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
 \end{equation*}
