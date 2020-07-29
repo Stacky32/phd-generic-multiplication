@@ -945,8 +945,8 @@ I hope to deduce this from the presentation of the affine generic algebra by ten
 
 In this section we give relations in $\qschur[2,r]$. Compare with the relations given in {\color{red}[REFERENCE - a double hall algebra approach to affine quantum schur weyl theory p.13]} in the presentation of quantum affine $\mathfrak{sl}_n$.
 
-\begin{lemma}
-The following relations hold in $\qschur[2,r]$:
+\begin{lemma}\label{lemma:period-2-q-relations}
+The following equations hold in $\qschur[2,r]$:
 \begin{align*}
 qE_1 E_2^3 -\qint{3}E_2 E_1 E_2^2 +\qint{3}E_2^2 E_1 E_2 -qE_2^3 E_1 &= 0\\
 qE_1^3 E_2 -\qint{3}E_1^2 E_2 E_1 +\qint{3}E_1 E_2 E_1^2 -qE_2 E_1^3 &= 0\\
@@ -2183,41 +2183,37 @@ Similarly,
 \end{align*}
 \end{proof}
 
-Let $\tau$ be the $\integers$-algebra automorphism of $\generic$ given by conjugation by $R$, so
+Let $\rotation{}$ be the $\integers$-algebra automorphism of $\generic$ given by conjugation by $R$, so
 \begin{align*}
-\tau(e_A) &= R\ast e_A \ast \antipode{(R)}\\
+\rotation{(e_A)} &= R\ast e_A \ast \antipode{(R)}\\
 &= R\ast e_A \ast R^{-1},
 \end{align*}
 for each $A\in\matrices$.
 
-Then $\tau$ has order $n$, since
-\begin{equation*}
-\tau^n{(e_A)} = e_{[n]A[n]} = e_A,
-\end{equation*}
-by the $n$-periodicity condition on $\matrices$.
+Observe that $\rotation{}$ has order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
 
 As in Lemma \ref{lemma:conjugation-by-R}, it follows from Lemma \ref{lemma:action-of-R-generic} that
 \begin{equation*}
-\tau{(E_{i,\lambda})} = E_{i-1,[1]\lambda}
+\rotation{(E_{i,\lambda})} = E_{i-1,[1]\lambda}
 \end{equation*}
 for $i\in\{1,\ldots,r\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
 \begin{equation*}
-\tau{(F_{i,\lambda})} = F_{i-1,[1]\lambda}
+\rotation{(F_{i,\lambda})} = F_{i-1,[1]\lambda}
 \end{equation*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$, and
 \begin{equation*}
-\tau{(1_\lambda)} = 1_{[1]\lambda}
+\rotation{(1_\lambda)} = 1_{[1]\lambda}
 \end{equation*}
 for $\lambda\in\compositions$.
 
 In particular,
 \begin{align*}
-\tau{(E_i)} &= E_{i-1}\\
-\tau{(F_i)} &= F_{i-1}
+\rotation{(E_i)} &= E_{i-1}\\
+\rotation{(F_i)} &= F_{i-1}
 \end{align*}
 for $i\in\{1,\ldots,r\}$.
 
-{\color{blue}As earlier, I can not be sure but I think this map $\tau$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\tau(E_i)=  E_{i-1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$.}
+{\color{blue}As earlier, I can not be sure but I think this map $\rotation{}$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\rotation{(E_i)}=  E_{i-1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$.}
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
 
@@ -2642,7 +2638,64 @@ Then applying the transpose involution yields the second equation:
 F_iF_j-F_jF_i = -\antipode{(\left[E_i,E_j\right])} = 0.
 \end{equation*}
 
-{\color{red}COMPLETE THIS PROOF}
+Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:fundamental-multiplication-rule-generic-R}, for each $i\{1,\ldots,n\}$,
+\begin{align*}
+E_iE_{i+1}^2 &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +2\elem{i+1}{i+2} -2\elem{i+2}{i+2} +\elem{i}{i+2} -\elem{i+1}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
+\end{align*}
+and
+\begin{align*}
+E_{i+1}E_iE_{i+1} &= \sum_{\lambda\in\compositions} E_{i+1}\left[D_\lambda +\elem{i}{i+2}-\elem{i+2}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{i}{i+2}+\elem{i+1}{i+2}-2\elem{i+2}{i+2}\right],
+\end{align*}
+so $E_iE_{i+1}^2 = E_{i+1}E_iE_{i+1}$.
+
+\begin{align*}
+E_i^2E_{i+1} &= \sum_{\mu\in\compositions} \left[D_\mu+2\elem{i}{i+1}-2\elem{i}{i}\right]E_{i+1}\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right]
+\end{align*}
+and
+\begin{align*}
+E_iE_{i+1}E_i &= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}-\elem{i}{i}\right]E_i\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right],
+\end{align*}
+so $E_i^2E_{i+1}=E_iE_{i+1}E_i$.
+
+The relations between $F_i$ and $F_{i+1}$ may be deduced using the transpose involution as follows:
+\begin{equation*}
+F_{i+1}^2F_i = \antipode{(E_iE_{i+1}^2)} = \antipode{(E_{i+1}E_iE_{i+1})} = F_{i+1}F_iF_{i+1}
+\end{equation*}
+and
+\begin{equation*}
+F_{i+1}F_i^2 = \antipode{(E_i^2E_{i+1})} = \antipode{(E_iE_{i+1}E_i)} = F_iF_{i+1}F_i.
+\end{equation*}
+
+Suppose $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
+\begin{align*}
+E_iF_j &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda+\elem{j+1}{j}-\elem{j}{j}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{j+1}{j}-\elem{j}{j}+\elem{i}{i+1}-\elem{i+1}{i+1}\right]
+\end{align*}
+and
+\begin{align*}
+F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j+1}{j}-\elem{j}{j}\right],
+\end{align*}
+so $E_iF_j=F_jE_i$.
+
+Finally, for $i\in\{1,\ldots,n\}$,
+\begin{equation*}
+E_iF_i = \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right]
+\end{equation*}
+and
+\begin{equation*}
+F_iE_i = \sum_{\lambda:\lambda_i=0,\lambda_{i+1}>0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right],
+\end{equation*}
+so
+\begin{align*}
+E_iF_i-F_iE_i &= \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda -\sum_{\lambda:\lambda_i=0,\lambda_{i+1}>0}1_\lambda\\
+&= \sum_{\lambda\in\compositions} c_{i,\lambda}1_\lambda.
+\end{align*}
 \end{proof}
 
 
@@ -2662,17 +2715,64 @@ for all $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
 \end{proposition}
 
+\begin{proof}
+The image of $\rho$ is the subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$, which has $\integers$-basis
+\begin{equation*}
+\{e_A:A\in\matrices, A\text{ is aperiodic.}\},
+\end{equation*}
+using Proposition \ref{proposition:generating-aperiodic-elements}. If $r<n$ then every $A\in\matrices$ is aperiodic, since $A$ must contain a zero row or column. Therefore $\rho$ is surjective when $r<n$.
+\end{proof}
 
+\begin{theorem}
+If $r<n$ then $\rho$ is a $\integers$-algebra isomorphism. Thus $\generic$ admits a presentation by the quiver $\Gamma$ and the ideal of relations $\zerorelations$ in $\integers\Gamma$.
+\end{theorem}
 
-\section{~DRAFT BIN}
-{\color{brown}
+\begin{proof}
+Under the assumption $r<n$, $\rho$ is a surjective homomorphism of $\integers$-algebras, by Proposition \ref{proposition:image-of-quiver-algebra-generic}.
 
-\subsection{The period 2 case}
+{\color{red}PROVE INJECTIVITY.}
+\end{proof}
 
-In this case, the quiver $\presentationquiver[2,r]$ has vertices $\compositions[(2,r)]=\{(0,r), (1,r-1),\ldots, (r,0)\}$; adjacent vertices are connected by two pairs of arrows with opposite orientation: $(e_1,f_1)$ and $(e_2,f_2)$. The relations arising from $\generic[2,r]$ are of a more complicated form - in particular, the serre relations of total degree $3$ will not hold in this case - so this case will be treated separately and at a later date.
+\section{The period 2 case}
 
-However, the presentation of the subalgebra of $\generic[2,r]$ spanned by the aperiodic distinguished basis elements by a quiver with relations is not strictly needed for our study here, since we are considering the case where $r<n$, and we have already seen concretely why $\generic[2,1]$ and $\zeroschur[2,1]$ are the same.
-}
+In the case $n=2$ the quiver $\Gamma=\presentationquiver[2,r]$ associated to $\generic[2,r]$ is consists of $r+1$ vertices (totally ordered) with two pairs of edges between adjacent vertices, $(e_1,f_1)$ and $(e_2,f_2)$.
+
+The following equations are a $q=0$ form of the $q$-Serre relations in Lemma \ref{lemma:period-2-q-relations}:
+
+\begin{lemma}\label{lemma:period-2-0-relations}
+The following equations hold in $\generic[2,r]$, for $i\in\integers/{2\integers}$:
+\begin{align*}
+E_iE_{i+1}E_i^2 &= E_i^2E_{i+1}E_i\\
+F_iF_{i+1}F_i^2 &= F_i^2F_{i+1}F_i.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+E_1E_2E_1^2 &= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{3}-\elem{1}{1}\right]E_1^2\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}-\elem{1}{1}\right]E_1\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right]
+\end{align*}
+and
+\begin{align*}
+E_1^2E_2E_1 &= \sum_{\mu\in\compositions} \left[D_\mu+2\elem{1}{2}-2\elem{1}{1}\right]E_2E_1\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{3}+\elem{1}{2}-2\elem{1}{1}\right]E_1\\
+&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right],
+\end{align*}
+so $E_1E_2E_1^2 = E_1^2E_2E_1$.
+
+Recall that conjugation by $R$ defines an automorphism $\rotation{}$ of $\generic$ of degree $2$, with $\rotation{(E_1)}=E_2$ and $\rotation{(E_2)}=E_1$, so
+\begin{equation*}
+E_2E_1E_2^2 - E_2^2E_1E_2 = \rotation{(E_1E_2E_1^2-E_1^2E_2E_1)} = 0.
+\end{equation*}
+
+Finally, the equations involving $F_i$ and $F_{i+1}$ follow by applying the transpose involution:
+\begin{equation*}
+F_iF_{i+1}F_i^2 - F_i^2F_{i+1}F_i = \antipode{(E_i^2E_{i+1}E_i-E_iE_{i+1}E_i^2)} = 0,
+\end{equation*}
+for $i\in\{1,2\}$.
+\end{proof}
+
 
 
 \chapter{Further directions}
