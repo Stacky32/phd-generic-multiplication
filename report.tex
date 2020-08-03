@@ -2742,9 +2742,42 @@ where $\generic^{ap}$ is the subalgebra of $\generic$ spanned by the aperiodic b
 \end{theorem}
 
 \begin{proof}[Rough]
-I believe the proof of the preceding theorem will in fact prove the result of this conjecture.
+There will have to be an extended or new notion of standard path for the case of aperiodic basis elements which do not have a row or column of zero entries.
 \end{proof}
 
+\subsection{Standard paths}
+
+A distinguished path in $\Gamma$ is defined to be a path of the following form:
+\begin{equation*}
+p = k_\mu p_1\cdots p_l\cdot p_1'\cdots p_l',
+\end{equation*}
+where
+\begin{equation*}
+p_s = e_{i_0+s-1}^{a_{i_0,s}} e_{i_0+s-2}^{a_{i_0-1,s}}\cdots e_{i_0+s-n}^{a_{i_0-n+1,s}}
+\end{equation*}
+and
+\begin{equation*}
+p_s' = f_{i_1-s+1}^{b_{i_1,s}} f_{i_1-s+2}^{b_{i_1+1,s}}\cdots f_{i_1-s+n}^{b_{i_1+n-1,s}}
+\end{equation*}
+for $s\in\{1,\ldots,l\}$, determined by two collections of non-negative integers $(a_{i,s})$ and $(b_{i,s})$, for $i\in\{1,\ldots,n\}$ and $s\in\{1,\ldots,l\}$, satisfying the following conditions:
+\begin{equation*}
+a_{i,1}+b_{i-1,1} \le \mu_i,
+\end{equation*}
+\begin{equation*}
+a_{i,1}\geq a_{i,2}\geq\cdots\geq a_{i,l}\geq 0
+\end{equation*}
+and
+\begin{equation*}
+b_{i,1}\geq b_{i,2}\geq\cdots\geq b_{i,l}\geq 0,
+\end{equation*}
+for $i\in\{1,\ldots,n\}$; where
+\begin{equation*}
+i_0 = \max\{i:i\in\{1,\ldots,n\}\text{ with } a_{i+1,s}=0\text{ for } s\in\{1,\ldots,l\}\}
+\end{equation*}
+and
+\begin{equation*}
+i_1 = \min\{i:i\in\{1,\ldots,n\}\text{ with } b_{i,s}=0\text{ for } s\in\{1,\ldots,l\}\}.
+\end{equation*}
 
 \section{The period 2 case}
 
