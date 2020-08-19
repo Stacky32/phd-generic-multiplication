@@ -2747,7 +2747,7 @@ There will have to be an extended or new notion of standard path for the case of
 
 \subsection{Standard paths}
 
-A distinguished path in $\Gamma$ is defined to be a path of the following form:
+A standard path in $\Gamma$ is defined to be a path of the following form:
 \begin{equation*}
 p = k_\mu p_1\cdots p_l\cdot p_1'\cdots p_l',
 \end{equation*}
@@ -2778,6 +2778,30 @@ and
 \begin{equation*}
 i_1 = \min\{i:i\in\{1,\ldots,n\}\text{ with } b_{i,s}=0\text{ for } s\in\{1,\ldots,l\}\}.
 \end{equation*}
+
+Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
+
+\begin{lemma}\label{lemma:extending-standard-paths}
+Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\{1,\ldots,n\}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
+\end{lemma}
+
+\begin{proof}{\color{red}
+IMPORTANT: need to prove this without doubt.
+}
+\end{proof}
+
+\begin{proposition}\label{proposition:std-paths-span-quiver-algebra}
+When $r\le n$, any path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
+\end{proposition}
+
+\begin{proof}{\color{red}
+Let $p$ be a path in $\Gamma$ and proceed by induction on the length of $p$. If $p$ has length zero then $p=k_\mu$ for some $\mu\in\compositions$, so $p$ is a standard path. If $p$ has length one then $p=k_\mu e_i$ or $p=k_\mu f_i$ for some $\mu\in\compositions$ and $i\in\{1,\ldots,n\}$.
+
+Suppose $p$ has length at least two and that any strictly shorter path is congruent to a standard path. Pulling out the first arrow, write $p=p'e_i$ or $p=p'f_i$ for some $i\in\{1,\ldots,n\}$. Using the inductive hypothesis we may assume $p'$ is a standard path.
+
+The technical part of the proof is to show that extending a standard path by $e_i$ or $f_i$ gives a path which is congruent to a standard path by using the relations in $\zerorelations$ - this will complete the proof.}
+\end{proof}
+
 
 \section{The period 2 case}
 
