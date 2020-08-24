@@ -437,6 +437,158 @@ e_AE_j
 \end{align*}
 \end{proof}
 
+
+\subsection{A combinatorial partial order}
+
+For each $i,j\in\integers$, let $d_{i,j}$ and $\bar{d}_{i,j}$ be the maps from $\matrices$ to $\integers$ given by
+\begin{equation*}
+d_{i,j}{(A)} = \sum_{s\le i,t>j} a_{s,t}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(A)} = \sum_{s>i, t\le j} a_{s,t}
+\end{equation*}
+for each $A\in\matrices$.
+
+\begin{lemma}\label{lemma:differentials}
+For each $A\in\matrices$ and $i,j\in\integers$, the following equations hold:
+\begin{align*}
+d_{i,j}{(A)} - d_{i-1,j}{(A)} &= \sum_{t>j}a_{i,t}\\
+d_{i,j}{(A)}-d_{i,j-1}{(A)} &= - \sum_{s\le i}a_{s,j}
+\end{align*}
+and
+\begin{align*}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= -\sum_{t\le j} a_{i,t}\\
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= \sum_{s>i} a_{s,j}
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Let $i,j\in\integers$ and $A\in\matrices$. Then
+\begin{equation*}
+d_{i,j}{(A)} - d_{i-1,j}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}
+\end{equation*}
+and
+\begin{equation*}
+d_{i,j}{(A)}-d_{i,j-1}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
+\end{equation*}
+Similarly,
+\begin{equation*}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i-1,j}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i-1,t\le j} a_{s,t} = -\sum_{t\le j} a_{i,t}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i,t\le j-1} a_{s,t} = \sum_{s>i} a_{s,j}.
+\end{equation*}
+\end{proof}
+
+\begin{lemma}\label{lemma:antisymmetry}
+For each $A\in\matrices$ and $i,j\in\integers$,
+\begin{equation*}
+a_{i,j} = d_{i,j-1}{(A)} - d_{i-1,j-1}{(A)} - d_{i,j}{(A)} + d_{i-1,j}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+a_{i,j} = \bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \bar{d}_{i-1,j}{(A)}.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+As a result of Lemma \ref{lemma:differentials},
+\begin{align*}
+d_{i,j-1}{(A)} - d_{i-1,j-1}{(A)} - d_{i,j}{(A)} + d_{i-1,j}{(A)} &= \sum_{t>j-1} a_{i,t} - \sum_{t>j} a_{i,t}\\
+&= a_{i,j}
+\end{align*}
+and
+\begin{align*}
+\bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \bar{d}_{i-1,j}{(A)} &= -\sum_{t\le j-1} a_{i,t} + \sum_{t\le j} a_{i,t}\\
+&= a_{i,j}.
+\end{align*}
+\end{proof}
+
+Define a relation $\le$ on $\matrices$ by $A\le B$ if and only if the following conditions are satisfied:
+\begin{itemize}
+\item
+$\ro{A}=\ro{B}$ and $\co{A}=\co{B}$.
+\item
+For each $i,j\in\integers$, $d_{i,j}{(A)}\le d_{i,j}{(B)}$.
+\item
+For each $i,j\in\integers$, $\bar{d}_{i,j}{(A)} \le \bar{d}_{i,j}{(B)}$.
+\end{itemize}
+
+\begin{lemma}\label{lemma:orbit-poset}
+The relation $\le$ defines a partial order on $\matrices$.
+\end{lemma}
+
+\begin{proof}
+It is clear that $\le$ is reflexive and transitive.
+
+Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}{(A)} = d_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\le j$, which shows $a_{s,t}=b_{s,t}$ whenever $s<t$, as a result of Lemma \ref{lemma:antisymmetry}. Similarly, $\bar{d}_{i,j}{(A)} = \bar{d}_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\geq j$, so $a_{s,t}=b_{s,t}$ whenever $s>t$. Moreover, $a_{i,i}=b_{i,i}$ for each $i\in\integers$, since $\co{A}=\co{B}$. Thus $A=B$, which shows $\le$ is antisymmetric and therefore $\le$ is a partial order on $\matrices$.
+\end{proof}
+
+\begin{lemma}\label{lemma:transpose-preserves-order}
+The transpose operation on $\matrices$ is order preserving. In particular, $B\le A$ if and only if $B^\transpose\le A^\transpose$.
+\end{lemma}
+
+\begin{proof}
+Suppose $A,B\in\matrices$ with $B\le A$. The condition $\co{A}=\co{B}$ and $\ro{A}=\ro{B}$ is preserved by the transpose operation.
+
+For each $i,j\in\integers$,
+\begin{equation*}
+d_{i,j}{(A^\transpose)} = \sum_{s\le i,t>j} a_{t,s} = \bar{d}_{j,i}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{i,j}{(A^\transpose)} = \sum_{s>i,t\le j} a_{t,s} = d_{j,i}{(A)}.
+\end{equation*}
+It follows that $B^\transpose\le A^\transpose$ and therefore the transpose is order preserving.
+\end{proof}
+
+\begin{lemma}\label{lemma:numerical-degeneration}
+Suppose $A,B\in\matrices$ with
+\begin{equation*}
+B = A +\elem{i}{j} -\elem{s}{j} +\elem{s}{t} -\elem{i}{t}
+\end{equation*}
+for some $i,j,s,t\in\integers$ with $i<s$ and $j<t$. Then $B<A$.
+\end{lemma}
+
+\begin{proof}
+Let $p,q\in\integers$. Then
+\begin{equation*}
+d_{p,q}{(B)} =\begin{cases}
+d_{p,q}{(A)} -1 &: i\le p<s \text{ and } j\le q<t,\\
+d_{p,q}{(A)} &: \text{otherwise,}
+\end{cases}
+\end{equation*}
+and
+\begin{equation*}
+\bar{d}_{p,q}{(B)} =\begin{cases}
+d_{p,q}{(A)} -1 &: i\le p<s \text{ and } j\le q<t,\\
+d_{p,q}{(A)} &: \text{otherwise},
+\end{cases}
+\end{equation*}
+which proves that $B<A$.
+\end{proof}
+
+The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
+
+\begin{lemma}\label{lemma:codimension-formula-corner-sums}
+Let $A\in\matrices$ and $(L,L')\in\orbit{A}$. Then
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) = \bar{d}_{i,j}{(A)},
+\end{equation*}
+for each $i,j\in\integers$.
+\end{lemma}
+\begin{proof}
+This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
+\end{proof}
+
+
+
 \subsection{Shifting}
 
 In this subsection it is shown that the operations on $\matrices$ given by shifting up by one row or to the right by one column may be described by the action, on the left or right respectively, of an invertible element $R$ of $\qschur$.
@@ -459,7 +611,9 @@ For $\lambda\in\compositions$ and $m\in\integers$, the translation of $\lambda$ 
 \end{equation*}
 for each $i\in\integers$, where the indices of $\lambda$ are taken modulo $n$.
 
-For example, if $\lambda = (2,1,3)$, then $\lambda[1] = (1,3,2)$ and $\lambda[2]=(3,2,1)$.
+\begin{example}
+Let $\lambda = (2,1,3)$. Then $\lambda[1]=(1,3,2)$, $\lambda[2]=(3,2,1)$ and $\lambda[3]=\lambda$.
+\end{example}
 
 For each $\lambda\in\compositions$, define
 \begin{align*}
@@ -808,7 +962,7 @@ for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$.
 
 The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ equals the source of $p$, or equals zero otherwise. 
 
-For each $\lambda\in\compositions$, denote the constant path at $\lambda$ by $k_\lambda$. These elements form a set of pairwise orthogonal idempotents and the multiplicative identiy in $\integers[q]\Gamma$ is
+For each $\lambda\in\compositions$, denote the constant path at $\lambda$ by $k_\lambda$. These elements form a set of pairwise orthogonal idempotents and the multiplicative identity in $\integers[q]\Gamma$ is
 \begin{equation*}
 \sum_{\lambda\in\compositions} k_\lambda.
 \end{equation*}
@@ -884,7 +1038,10 @@ and
 \begin{equation*}
 \qint{m} = 1+q+\cdots +q^{m-1} = 1+q\qint{m-1}
 \end{equation*}
-for $m\in\integers$ with $m\geq 1$.
+for $m\in\integers$ with $m\geq 1$. For $m\in\naturals$, define the $q$-factorial
+\begin{equation*}
+\qfact{m} = \prod_{a=1}^{m}\qint{a}.
+\end{equation*}
 
 Given integers $a$ and $b$ with $0<a<b$,
 \begin{equation*}
@@ -893,7 +1050,7 @@ Given integers $a$ and $b$ with $0<a<b$,
 and the product $\qint{a}\qint{b}$ can be computed recursively as follows:
 \begin{align*}
 \qint{a}\qint{b} &= (1+q\qint{a-1})(1+q\qint{b-1})\\
-&= 1 +q\qint{a-1} +q\qint{b-1} +q^2\qint{a-1}\qint{b-1}.
+&= 1 +q(\qint{a-1} +\qint{b-1} +q\qint{a-1}\qint{b-1}).
 \end{align*}
 
 The set of $q$-integers is not multiplicatively closed. For instance,
@@ -924,6 +1081,10 @@ Observe that $\integers[q]$ is a subring of $\qfrac$, which makes $\qfrac$ into 
 {\color{red}COMPLETE THIS PROOF}
 \end{proof}
 
+\begin{lemma}\label{lemma:leading-term-q}
+{\color{red}LEADING TERM OF A PRODUCT OF GENERATORS.}
+\end{lemma}
+
 \begin{proposition}\label{proposition:q-schur-presentation}
 If $r<n$, the map
 \begin{equation*}
@@ -933,8 +1094,7 @@ is a surjective $\qfrac$-algebra homomorphism.
 \end{proposition}
 
 \begin{proof}
-{\color{red}WRITE THIS PROOF}
-
+{\color{red}WRITE THIS PROOF.}
 \end{proof}
 
 \begin{theorem}[! Conjecture !]
@@ -1071,129 +1231,6 @@ for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$, is an associative $\integers$-alg
 \end{equation*}
 where $D_\lambda$ is the diagonal matrix with $\co{D_\lambda}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted $\generic$.
 
-\section{A combinatorial partial order}
-
-For each $i,j\in\integers$, let $d_{i,j}$ and $\bar{d}_{i,j}$ be the maps from $\matrices$ to $\compositions$ given by
-\begin{equation*}
-d_{i,j}{(A)} = \sum_{s\le i,t>j} a_{s,t}
-\end{equation*}
-and
-\begin{equation*}
-\bar{d}_{i,j}{(A)} = \sum_{s>i, t\le j} a_{s,t}
-\end{equation*}
-for each $A\in\matrices$.
-
-\begin{lemma}\label{lemma:differentials}
-For each $A\in\matrices$ and $i,j\in\integers$, the following equations hold:
-\begin{align*}
-d_{i,j}{(A)} - d_{i-1,j}{(A)} &= \sum_{t>j}a_{i,t}\\
-d_{i,j}{(A)}-d_{i,j-1}{(A)} &= - \sum_{s\le i}a_{s,j}
-\end{align*}
-and
-\begin{align*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= -\sum_{t\le j} a_{i,t}\\
-\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= \sum_{s>i} a_{s,j}
-\end{align*}
-\end{lemma}
-
-\begin{proof}
-Let $i,j\in\integers$ and $A\in\matrices$. Then
-\begin{equation*}
-d_{i,j}{(A)} - d_{i-1,j}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}
-\end{equation*}
-and
-\begin{equation*}
-d_{i,j}{(A)}-d_{i,j-1}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
-\end{equation*}
-Similarly,
-\begin{equation*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i-1,j}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i-1,t\le j} a_{s,t} = -\sum_{t\le j} a_{i,t}
-\end{equation*}
-and
-\begin{equation*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i,t\le j-1} a_{s,t} = \sum_{s>i} a_{s,j}.
-\end{equation*}
-\end{proof}
-
-\begin{lemma}\label{lemma:antisymmetry}
-For each $A\in\matrices$ and $i,j\in\integers$,
-\begin{equation*}
-a_{i,j} = d_{i,j-1}{(A)} - d_{i-1,j-1}{(A)} - d_{i,j}{(A)} + d_{i-1,j}{(A)}
-\end{equation*}
-and
-\begin{equation*}
-a_{i,j} = \bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \bar{d}_{i-1,j}{(A)}.
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-As a result of Lemma \ref{lemma:differentials},
-\begin{align*}
-d_{i,j-1}{(A)} - d_{i-1,j-1}{(A)} - d_{i,j}{(A)} + d_{i-1,j}{(A)} &= \sum_{t>j-1} a_{i,t} - \sum_{t>j} a_{i,t}\\
-&= a_{i,j}
-\end{align*}
-and
-\begin{align*}
-\bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \bar{d}_{i-1,j}{(A)} &= -\sum_{t\le j-1} a_{i,t} + \sum_{t\le j} a_{i,t}\\
-&= a_{i,j}.
-\end{align*}
-\end{proof}
-
-Define a relation $\le$ on $\matrices$ by $A\le B$ if and only if the following conditions are satisfied:
-\begin{itemize}
-\item
-$\ro{A}=\ro{B}$ and $\co{A}=\co{B}$.
-\item
-For each $i,j\in\integers$, $d_{i,j}{(A)}\le d_{i,j}{(B)}$.
-\item
-For each $i,j\in\integers$, $\bar{d}_{i,j}{(A)} \le \bar{d}_{i,j}{(B)}$.
-\end{itemize}
-
-\begin{lemma}\label{lemma:orbit-poset}
-The relation $\le$ defines a partial order on $\matrices$.
-\end{lemma}
-
-\begin{proof}
-It is clear that $\le$ is reflexive and transitive.
-
-Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}{(A)} = d_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\le j$, which shows $a_{s,t}=b_{s,t}$ whenever $s<t$, as a result of Lemma \ref{lemma:antisymmetry}. Similarly, $\bar{d}_{i,j}{(A)} = \bar{d}_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\geq j$, so $a_{s,t}=b_{s,t}$ whenever $s>t$. Moreover, $a_{i,i}=b_{i,i}$ for each $i\in\integers$, since $\co{A}=\co{B}$. Thus $A=B$, which shows $\le$ is antisymmetric and therefore $\le$ is a partial order on $\matrices$.
-\end{proof}
-
-\begin{lemma}\label{lemma:transpose-preserves-order}
-The transpose operation on $\matrices$ is order preserving. In particular, $B\le A$ if and only if $B^\transpose\le A^\transpose$.
-\end{lemma}
-
-\begin{proof}
-Suppose $A,B\in\matrices$ with $B\le A$. The condition $\co{A}=\co{B}$ and $\ro{A}=\ro{B}$ is preserved by the transpose operation.
-
-For each $i,j\in\integers$,
-\begin{equation*}
-d_{i,j}{(A^\transpose)} = \sum_{s\le i,t>j} a_{t,s} = \bar{d}_{j,i}{(A)}
-\end{equation*}
-and
-\begin{equation*}
-\bar{d}_{i,j}{(A^\transpose)} = \sum_{s>i,t\le j} a_{t,s} = d_{j,i}{(A)}.
-\end{equation*}
-
-It follows that $B^\transpose\le A^\transpose$ and therefore the transpose is order preserving.
-\end{proof}
-
-The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
-
-\begin{lemma}\label{lemma:codimension-formula-corner-sums}
-Let $A\in\matrices$ and $(L,L')\in\orbit{A}$. Then
-\begin{equation*}
-\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{(A)}
-\end{equation*}
-and
-\begin{equation*}
-\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) = \bar{d}_{i,j}{(A)},
-\end{equation*}
-for each $i,j\in\integers$.
-\end{lemma}
-\begin{proof}
-This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
-\end{proof}
 
 
 \section{Grassmannians and related varieties}
