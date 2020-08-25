@@ -526,6 +526,24 @@ It is clear that $\le$ is reflexive and transitive.
 Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}{(A)} = d_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\le j$, which shows $a_{s,t}=b_{s,t}$ whenever $s<t$, as a result of Lemma \ref{lemma:antisymmetry}. Similarly, $\bar{d}_{i,j}{(A)} = \bar{d}_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\geq j$, so $a_{s,t}=b_{s,t}$ whenever $s>t$. Moreover, $a_{i,i}=b_{i,i}$ for each $i\in\integers$, since $\co{A}=\co{B}$. Thus $A=B$, which shows $\le$ is antisymmetric and therefore $\le$ is a partial order on $\matrices$.
 \end{proof}
 
+This partial order is sometimes called the hook order.{\color{red}(*) Is it 'Hook' or 'hook'?} The following lemma will be invoked later in induction arguments.
+
+\begin{lemma}\label{lemma:finite-descent-hook-order}
+For any $A\in\matrices$, the set $\{B\in\matrices:B\le A\}$ is finite.
+\end{lemma}
+
+\begin{proof}
+Let $B\in\matrices$. Only finitely many of the $d_{i,j}{(B)}$ and $\bar{d}_{i,j}{(B)}$ are sufficient to determine $B$ and $B\le A$ if and only if
+\begin{equation*}
+0\le d_{i,j}{(B)} \le d_{i,j}{(A)}
+\end{equation*}
+and
+\begin{equation*}
+0\le \bar{d}_{i,j}{(B)} \le \bar{d}_{i,j}{(A)}
+\end{equation*}
+for each $i,j\in\integers$, thus there are only finitely many possible values of $d_{i,j}{(B)}$ and $\bar{d}_{i,j}{(B)}$ provided $B\le A$. Therefore there are only finitely many $B\in\matrices$ such that $B\le A$.
+\end{proof}
+
 \begin{lemma}\label{lemma:transpose-preserves-order}
 The transpose operation on $\matrices$ is order preserving. In particular, $B\le A$ if and only if $B^\transpose\le A^\transpose$.
 \end{lemma}
@@ -569,6 +587,21 @@ d_{p,q}{(A)} &: \text{otherwise},
 \end{equation*}
 which proves that $B<A$.
 \end{proof}
+
+Let $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$. Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule} and Lemma \ref{lemma:numerical-degeneration},
+\begin{equation*}
+E_ie_A = \sum_{s=1}^{m} q^{\sum_{t>j_s}a_{i,t}}\qint{a_{i,j_s}+1} e_{A+\elem{i}{j_s}-\elem{i+1}{j_s}}
+\end{equation*}
+where $j_1,\ldots,j_m\in\integers$ with $j_1<j_2<\ldots<j_m$ and
+\begin{equation*}
+\{j_1,\ldots,j_m\}=\{j\in\integers: a_{i+1,j}>0\}.
+\end{equation*}
+
+The basis elements appearing in the above expression are totally ordered, with
+\begin{equation*}
+A+\elem{i}{j_s}-\elem{i+1}{j_s} < A+\elem{i}{j_{s+1}}-\elem{i+1}{j_{s+1}}
+\end{equation*}
+for $s=1,\ldots,m-1$. Thus the term with $s=m$ is the maximum.
 
 The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
@@ -1094,7 +1127,39 @@ is a surjective $\qfrac$-algebra homomorphism.
 \end{proposition}
 
 \begin{proof}
-{\color{red}WRITE THIS PROOF.}
+Let $A\in\matrices$ and define
+\begin{align*}
+\alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
+\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t},
+\end{align*}
+for $i\in\{1,\ldots,n\}$ and $s\geq 1$.
+
+Since $r<n$, there is $i_0\in\{1,\ldots,n\}$ such that $a_{i_0+1,j}=0$ for all $j\in\integers$. By the finiteness condition on rows and columns of $A$, there is $l\geq 1$ such that $\alpha_{i,l+1} = \beta_{i,l+1}=0$ for all $i\in\{1,\ldots,n\}$.
+
+Consider the path
+\begin{equation*}
+p = p_1\cdots p_l\cdot p_1'\cdots p_l'
+\end{equation*}
+given by
+\begin{equation*}
+p_s = e_{i_0+s-1}^{\alpha_{i_0,s}} e_{i_0+s-2}^{\alpha_{i_0-1,s}}\cdots e_{i_0+s-n}^{\alpha_{i_0-n+1,s}}
+\end{equation*}
+and
+\begin{equation*}
+p_s' = f_{i_0+2-s}^{\beta_{i_0+1,s}} f_{i_0+3-s}^{\beta_{i_0+2,s}}\cdots f_{i_0+n+1-s}^{\beta_{i_0+n,s}}
+\end{equation*}
+for $s=1,\ldots,l$.
+
+Then
+\begin{equation*}
+\phi(p) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
+\end{equation*}
+for some polynomials $g_B\in\integers[q]$.
+
+Thus the coefficient of $e_A$ in the above expression is a product of $q$-integers, so is invertible in $\qfrac$.
+
+{\color{red}COMPLETE THIS PROOF:
+The final step of the proof to be completed is an induction argument, that those $B:B<A$ are also the leading term in the expression for an image of a path.}
 \end{proof}
 
 \begin{theorem}[! Conjecture !]
