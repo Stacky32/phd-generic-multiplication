@@ -1,4 +1,3 @@
-
 \documentclass[a4paper, 11pt]{report}
 \usepackage{preamble}
 
@@ -22,8 +21,8 @@ Describe the original construction/ definition of affine q-Schur algebras via He
 
 Fix natural numbers $n$ and $r$.
 
-\begin{definition}[compositions]\label{def:compositions}
-A composition of $r$ into $n$ parts is an $n$-tuple $\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n$ of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
+\begin{definition}\label{def:compositions}
+A \emph{composition of $r$ into $n$ parts} is an $n$-tuple $\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n$ of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
 \end{definition}
 
 A composition $\lambda\in\compositions$ is said to be sincere if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is said to be insincere.
@@ -34,7 +33,7 @@ For each $i\in\{1,\ldots,n\}$, let
 \end{equation*}
 where $\epsilon_{n+1}=\epsilon_1$.
 
-\begin{definition}[infinite periodic matrices]\label{def:matrices}
+\begin{definition}\label{def:matrices}
 Let $\matrices$ be the set of matrices $A=(a_{i,j})_{i,j\in\integers}$ with integer entries $a_{i,j}$ satisfying the following conditions: 
 \begin{itemize}
 \item
@@ -46,10 +45,10 @@ the sum of the entries in any $n$ consecutive rows or columns equals $r$;
 \item
 $a_{i-n,j-n}=a_{i,j}$ for each $i,j\in\integers$.
 \end{itemize}
-These matrices are referred to as infinite periodic matrices.
+These matrices are referred to as \emph{infinite periodic matrices}.
 \end{definition}
 
-\begin{definition}[source and target]\label{def:source-target}
+\begin{definition}\label{def:source-target}
 Given $A\in\matrices$, let $\ro{A}$ and $\co{A}$ be the compositions of $r$ into $n$ parts given by
 \begin{equation*}
 \ro{A} = \left( \sum_{j\in\integers}a_{1,j}, \ldots, \sum_{j\in\integers} a_{n,j}\right)
@@ -58,15 +57,21 @@ and
 \begin{equation*}
 \co{A} = \left( \sum_{i\in\integers} a_{i,1}, \ldots, \sum_{i\in\integers} a_{i,n}\right).
 \end{equation*}
-The source is $\co{A}$ and the target is $\ro{A}$.
+The \emph{source of $A$} is $\co{A}$ and the \emph{target of $A$} is $\ro{A}$.
 \end{definition}
 
-These sums are finite since each row and column of $A$ contains only finitely many nonzero entries, by definition of the set $\matrices$.
+The row and column sums are finite since each row and column of $A$ contains only finitely many nonzero entries, according to the definition of $\matrices$.
 
+For each $i,j\in\integers$, let $\elem{i}{j}$ be the $\integers\times\integers$ `elementary periodic matrix' with entries given by
+\begin{equation*}
+(\elem{i}{j})_{s,t}=1
+\end{equation*}
+if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$.
 
-\begin{definition}[diagonal matrices]\label{def:diagonal-matrices}
-Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the matrix given by $(D_\lambda)_{i,j}=0$ for $i,j\in\integers$ with $i\neq j$ and $(D_\lambda)_{i,i}=\lambda_i$ for $i\in\integers$; where the indices are taken modulo $n$.
-\end{definition}
+Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the diagonal matrix with source and target $\lambda$, which is given by 
+\begin{equation}\label{eq:diagonal-matrices}
+D_\lambda = \lambda_1\elem{1}{1} +\cdots +\lambda_n\elem{n}{n}.
+\end{equation}
 
 \subsection{Cyclic flags}
 
@@ -96,13 +101,14 @@ for each $i,j\in\integers$.
 
 The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of infinite periodic matrices (see definition \ref{def:matrices}). The $G$-orbit corresponding to $A\in\matrices$ is denoted $\orbit{A}$ and consists of those pairs $(L,L')\in\dblflags$ with periodic characteristic matrix $\type{L}{L'}$ equal to $A$.
 
-\begin{lemma}[alternative expression for characteristic matrix]
-Alternatively,
+The following result gives another useful set of expressions for the entries of $A$.
+\begin{lemma}
+For each $i,j\in\integers$,
 \begin{equation*}
-a_{i,j} = \dim_\field\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}'}\right)
+a_{i,j} = \dim_\field\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}'}\right).
 \end{equation*}
-for each $i,j\in\integers$.
 \end{lemma}
+
 \begin{proof}
 Set $U=L_i\cap L_j'$ and $U'=L_{i-1}+L_i\cap L_{j-1}'$. Then $U+U'=L_{i-1}+L_i\cap L_j'$ and $U\cap U'= L_i\cap L_j'\cap L_{i-1} + L_i\cap L_{j-1}'$. Applying the isomorphism theorems, ${U+U'}/{U'}$ is naturally isomorphic to $U/{U\cap U'}$ as a vector space. In particular,
 \begin{equation*}
@@ -111,7 +117,7 @@ Set $U=L_i\cap L_j'$ and $U'=L_{i-1}+L_i\cap L_{j-1}'$. Then $U+U'=L_{i-1}+L_i\c
 and thus the dimensions of these spaces are both equal to $a_{i,j}$.
 \end{proof}
 
-\begin{lemma}[transposing characteristic matrix]
+\begin{lemma}
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
 \end{lemma}
 \begin{proof}
@@ -122,7 +128,7 @@ By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that 
 for each $i,j\in\integers$.
 \end{proof}
 
-\begin{lemma}[a codimension formula]\label{lemma:flags-codimension-formula}
+\begin{lemma}\label{lemma:flags-codimension-formula}
 Given $(L,L')\in\flags^2$ and $i,j\in\integers$,
 \begin{equation*}
 \dim_\field\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t},
@@ -133,7 +139,7 @@ where $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$.
 {\color{red}COMPLETE THIS PROOF}	
 \end{proof}
 
-\begin{lemma}[nested flags]
+\begin{lemma}
 Given $(L,L')\in\flags^2$, $L'\subset L$ if and only if $\type{L}{L'}_{i,j}=0$ for $i,j\in\integers$ with $i>j$.
 \end{lemma}
 \begin{proof}
@@ -148,7 +154,7 @@ as required. Conversely, suppose $\type{L}{L'}$ is upper triangular, meaning $\t
 so $L_i\cap L_i' = L_i'$ and thus $L_i'\subset L_i$ for each $i\in\integers$, as required.
 \end{proof}
 
-\begin{corollary}[diagonal orbits]\label{corollary:diagonal-orbits}
+\begin{corollary}\label{corollary:diagonal-orbits}
 Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\neq j$. In particular,
 \begin{equation*}
 \orbit{D_\lambda} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
@@ -173,9 +179,9 @@ If also $L\in\flags_{\ro{A}}$, define the $L$-slices of $\yprod{A,B}$ and $\xpro
 \xprod[L]{A,B} = \{L''\in\flags: (L,L'')\in\xprod{A,B}\}.
 \end{equation*}
 
-\begin{observation}
+\begin{remark}
 There are only finitely many $G$-orbits in $\xprod{A,B}$.
-\end{observation}
+\end{remark}
 
 \begin{lemma}\label{lemma:product-with-diagonal-orbits}
 Given $A\in\matrices$, $\xprod{D_\lambda,A}=\orbit{A}$ if $\lambda=\ro{A}$ and $\xprod{A,D_\lambda}=\orbit{A}$ if $\lambda=\co{A}$.
@@ -277,16 +283,17 @@ Given integers $n,r\geq 1$, the affine $0$-Schur algebra of rank $r$ and period 
 
 \subsection{Elementary basis elements}
 
-For each $i,j\in\integers$, let $\elem{i}{j}$ be the $\integers\times\integers$ `elementary periodic matrix' with entries given by
+Recall that $\elem{i}{j}$, for $i,j\in\integers$ is the $\integers\times\integers$ elementary periodic matrix, given by
 \begin{equation*}
 (\elem{i}{j})_{s,t}=1
 \end{equation*}
-if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$. 
+if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise.
 
-Recall from Definition \ref{def:diagonal-matrices} that the diagonal matrix associated to a composition $\lambda\in\compositions$ is
+Recall that the diagonal matrix with source and target $\lambda$ is
 \begin{equation*}
-D_\lambda = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n}.
+D_\lambda = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n},
 \end{equation*}
+as in Equation \ref{eq:diagonal-matrices}.
 
 The corresponding basis elements $e_{D_\lambda}$, for $\lambda\in\compositions$, are pairwise orthogonal idempotents in $\qschur$ with
 \begin{equation*}
@@ -1161,9 +1168,9 @@ Need to explain why all other terms are strictly smaller with respect to the num
 The final step of the proof to be completed is an induction argument, that those $B:B<A$ are also the leading term in the expression for an image of a path.}
 \end{proof}
 
-\begin{theorem}[! Conjecture !]
+\begin{conjecture}
 If $r<n$, the quiver with relations $(\Gamma,I)$ gives a presentation of $\Qqschur$ over $\qfrac$.
-\end{theorem}
+\end{conjecture}
 
 \begin{proof}[Ideas for proof]
 The only thing that remains to be shown is that the map from the quiver algebra is injective, since Proposition \ref{proposition:q-schur-presentation} shows that this map is surjective.
@@ -2919,13 +2926,13 @@ Suppose $p$ and $p'$ are paths in $\Gamma$ and $A\in\matrices$ with
 Proposition \ref{proposition:std-paths-span-quiver-algebra} shows that $p$ and $p'$ are both congruent modulo $\zerorelations$ to the standard path corresponding to $A$, so $p$ and $p'$ are congruent modulo $\zerorelations$. Therefore $\rho$ is injective, so is an isomorphism of $\integers$-algebras as claimed. 
 \end{proof}
 
-\begin{theorem}[Conjecture]
+\begin{conjecture}
 Even when $r\geq n$, $\rho$ gives a $\integers$-algebra isomorphism
 \begin{equation*}
 \integers\Gamma/{\zerorelations}\to\generic^{ap},
 \end{equation*}
 where $\generic^{ap}$ is the subalgebra of $\generic$ spanned by the aperiodic basis elements.
-\end{theorem}
+\end{conjecture}
 
 \begin{proof}[Rough]
 There will have to be an extended or new notion of standard path for the case of aperiodic basis elements which do not have a row or column of zero entries.

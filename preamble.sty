@@ -48,7 +48,7 @@
 
 
 % -------------------------------------------- %
-% 				STYLE AND FORMATTING			 %
+% 				STYLE AND FORMATTING		   %
 % -------------------------------------------- %
 
 \setlength{\oddsidemargin}{0pt}
@@ -63,24 +63,26 @@
 
 
 % -------------------------------------------- %
-% 				THEOREM ENVIRONMENTS			 %
+% 				THEOREM ENVIRONMENTS	       %
 % -------------------------------------------- %
 
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\newtheorem{conjecture}{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
 
-\newtheorem{definition}{Definition}[section]
-
-\newtheorem{remark}{Remark}
-\newtheorem{example}{Example}
-\newtheorem{observation}{Observation}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
 
 % -------------------------------------------- %
-%			 MATHEMATICAL OPERATORS				 %
+%			 MATHEMATICAL OPERATORS			   %
 % -------------------------------------------- %
 
 % (linear) span
@@ -222,5 +224,5 @@
 %				TITLE PAGE						 %
 % -------------------------------------------- %
 
-\author{Tom Crawley} % with Xiuping Su.
+\author{Tom Crawley}
 \title{A geometric realisation of affine 0-Schur algebras.}
