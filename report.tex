@@ -2826,6 +2826,40 @@ defined by
 \end{align*}
 for all $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
+The following lemma gives a few relations which may be derived from the relations given in Lemma \ref{lemma:generic-algebra-relations}. This lemma will be used later to show that certain paths are congruent modulo these relations.
+
+\begin{lemma}\label{lemma:generic-algebra-implied-relations}
+For each $a\geq 1$ and $i\in\{1,\ldots,n\}$ the following relations hold:
+\begin{align*}
+E_i^2 E_{i+1}^a -E_iE_{i+1}^a E_i &= 0\\
+E_{i+1}E_i^aE_{i+1} -E_i^aE_{i+1}^2 &= 0.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Proceed by induction on $a$. If $a=1$ the relation follows from Lemma \ref{lemma:generic-algebra-relations}. Now suppose $a\geq 2$ and the statement of the lemma holds for all smaller values. Then
+\begin{align*}
+E_iE_{i+1}^aE_i
+&= E_{i+1}E_iE_{i+1}^{a-1}E_i\\
+&= E_{i+1}E_i^2E_{i+1}^{a-1}\text{  (inductive hypothesis.)}\\
+&= E_{i+1}E_iE_{i+1}E_iE_{i+1}^{a-2}\\
+&= E_iE_{i+1}^2E_iE_{i+1}^{a-2}\\
+&= E_iE_{i+1}E_iE_{i+1}^{a-1}\\
+&= E_i^2E_{i+1}^a.
+\end{align*}
+
+Similarly, if $a=1$ the relation is known to hold. Suppose $a\geq 2$ and the result holds for all smaller values. Then
+\begin{align*}
+E_{i+1}E_i^aE_{i+1}
+&=E_{i+1}E_i^{a-1}E_{i+1}E_i\\
+&=E_i^{a-1}E_{i+1}^2E_i\text{  (inductive hypothesis.)}\\
+&=E_i^{a-2}E_{i+1}E_iE_{i+1}E_i\\
+&=E_i^{a-2}E_{i+1}E_i^2E_{i+1}\\
+&=E_i^{a-1}E_{i+1}E_iE_{i+1}\\
+&=E_i^aE_{i+1}^2.
+\end{align*}
+\end{proof}
+
 \begin{proposition}\label{proposition:image-of-quiver-algebra-generic}
 The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
 \end{proposition}
