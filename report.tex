@@ -121,7 +121,7 @@ and thus the dimensions of these spaces are both equal to $a_{i,j}$.
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
 \end{lemma}
 \begin{proof}
-By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that $\type{L}{L'}_{i,j}$ and $\type{L'}{L}_{j,i}$ are both given by the dimension of the $\field$-vector space
+By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that $\type{L}{L'}_{i,j}$ and $\type{L'}{L}_{j,i}$ are both equal to the dimension of the $\field$-vector space
 \begin{equation*}
 \frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'},
 \end{equation*}
@@ -129,11 +129,15 @@ for each $i,j\in\integers$.
 \end{proof}
 
 \begin{lemma}\label{lemma:flags-codimension-formula}
-Given $(L,L')\in\flags^2$ and $i,j\in\integers$,
+Given $A\in\matrices$ and $(L,L')\in\orbit{A}$,
 \begin{equation*}
-\dim_\field\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t},
+\dim_{\field}\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}
 \end{equation*}
-where $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$.
+and
+\begin{equation*}
+\dim_{\field}\left(\frac{L_j'}{L_i\cap L_j'}\right) = \sum_{s>i,t\le j}a_{s,t},
+\end{equation*}
+for each $i,j\in\integers$.
 \end{lemma}
 \begin{proof}
 {\color{red}COMPLETE THIS PROOF}	
@@ -2943,7 +2947,7 @@ IMPORTANT: need to prove this without doubt.
 \end{proof}
 
 \begin{proposition}\label{proposition:std-paths-span-quiver-algebra}
-When $r\le n$, any path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
+When $r<n$, any path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
 \end{proposition}
 
 \begin{proof}
