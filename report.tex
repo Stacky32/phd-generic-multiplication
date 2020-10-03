@@ -117,9 +117,10 @@ Set $U=L_i\cap L_j'$ and $U'=L_{i-1}+L_i\cap L_{j-1}'$. Then $U+U'=L_{i-1}+L_i\c
 and thus the dimensions of these spaces are both equal to $a_{i,j}$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:transpose-orbit}
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
 \end{lemma}
+
 \begin{proof}
 By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that $\type{L}{L'}_{i,j}$ and $\type{L'}{L}_{j,i}$ are both equal to the dimension of the $\field$-vector space
 \begin{equation*}
@@ -128,7 +129,7 @@ By swapping the roles of $i$ and $j$ and swapping $L$ and $L'$ it is clear that 
 for each $i,j\in\integers$.
 \end{proof}
 
-\begin{lemma}\label{lemma:flags-codimension-formula}
+\begin{lemma}\label{lemma:hook-codimension-formula}
 Given $A\in\matrices$ and $(L,L')\in\orbit{A}$,
 \begin{equation*}
 \dim_{\field}\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}
@@ -139,19 +140,85 @@ and
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
+
 \begin{proof}
-{\color{red}COMPLETE THIS PROOF}	
+For each $s,t\in\integers$ define a lattice
+\begin{equation*}
+M_{s,t} = L_i\cap L_j'+ L_{s-1} + L_s\cap L_t'.
+\end{equation*}
+
+Observe that $L_i\cap L_j'$ is a sublattice of each $M_{s,t}$ and when $s\le i$, $L_s$ is contained in $L_i$, so $M_{s,t}$ is a sublattice of $L_i$. The collection  of lattices ${(M_{s,t})}_{s\le i, t>j}$ are totally ordered by subset inclusion, as will be shown below, so give a chain of lattices each containing $L_i\cap L_j'$ and contained in $L_i$. This chain of lattices induces a filtration of $L_i/{L_i\cap L_j'}$ and it will be shown that the dimensions of the quotients are precisely $a_{s,t}$ for $s\le i$ and $t>j$.
+
+Let $s\le i$ and $t\geq j$.
+\begin{equation*}
+M_{s,t}\subset M_{s,t+1}
+\end{equation*}
+and
+\begin{align*}
+M_{s,j}
+&= L_i\cap L_j' + L_{s-1} +L_s\cap L_j'\\
+&= L_i\cap L_j' + L_{s-1}.
+\end{align*}
+
+If $t$ is sufficiently large, $L_s\subset L_t'$ and then
+\begin{align*}
+M_{s,t}
+&= L_i\cap L_j' + L_s\\
+&= M_{s+1,j}.
+\end{align*}
+
+It follows that the collection of lattices is totally ordered, with $M_{s,t}\le M_{u,v}$ if and only if $s<u$ or $s=u$ and $t\le v$. Thus $L_i/{L_i\cap L_j'}$ has a filtration given by the spaces $M_{s,t}/{L_i\cap L_j'}$ for all $s\le i$ and $t>j$.
+
+\begin{align*}
+M_{i,t}
+&= L_i\cap L_j' + L_{i-1} + L_i\cap L_t'\\
+&= L_{i-1} + L_i\cap L_t'
+\end{align*}
+and if $t$ is sufficiently large that $L_i\subset L_t'$, then $M_{i,t}=L_i$.
+
+If $s$ is sufficiently small that $L_s\subset L_i\cap L_j'$ then
+\begin{align*}
+M_{s,t}
+&= L_i\cap L_j' + L_{s-1} + L_s\cap L_t'\\
+&= L_i\cap L_j'.
+\end{align*}
+
+\begin{align*}
+\frac{M_{s,t}}{L_i\cap L_j'}
+&= \frac{L_i\cap L_j' + L_{s-1} + L_s\cap L_t'}{L_i\cap L_j'}\\
+&= \frac{L_{s-1} + L_s\cap L_t'}{L_i\cap L_j'\cap(L_{s-1} + L_s\cap L_t')}\\
+&= \frac{L_{s-1} + L_s\cap L_t'}{L_s\cap L_j'}
+\end{align*}
+
+Then for each $s\le i$ and $t>j$
+\begin{align*}
+\dim\left(\frac{M_{s,t}}{M_{s,t-1}}\right)
+&= \dim\left(\frac{L_{s-1} + L_s\cap L_t'}{L_{s-1} + L_s\cap L_{t-1}'}\right)\\
+&= a_{s,t},
+\end{align*}
+so
+\begin{equation*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}.
+\end{equation*}
+
+To deduce the second formula observe that $(L',L)\in\orbit{A^\transpose}$, by Lemma \ref{lemma:transpose-orbit}, so
+\begin{align*}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right)
+&= \sum_{t\le j, s>i} a_{t,s}^\transpose\\
+&= \sum_{s>i, t\le j} a_{s,t}.
+\end{align*}
 \end{proof}
 
 \begin{lemma}
 Given $(L,L')\in\flags^2$, $L'\subset L$ if and only if $\type{L}{L'}_{i,j}=0$ for $i,j\in\integers$ with $i>j$.
 \end{lemma}
+
 \begin{proof}
 Suppose $L,L'\in\flags$ with $L'\subset L$, meaning $L_j'\subset L_j$ for each $j\in\integers$. Then for $i>j$, $L_i\cap L_j' = L_j'$, $L_{i-1}\cap L_j' = L_j'$ and $L_i\cap L_{j-1}'$, which shows
 \begin{equation*}
 \type{L}{L'}_{i,j} = \dim_\field\left(\frac{L_j'}{L_{j-1}'+L_j'}\right) = 0
 \end{equation*}
-as required. Conversely, suppose $\type{L}{L'}$ is upper triangular, meaning $\type{L}{L'}_{i,j}=0$ when $i>j$. Using Lemma \ref{lemma:flags-codimension-formula},
+as required. Conversely, suppose $\type{L}{L'}$ is upper triangular, meaning $\type{L}{L'}_{i,j}=0$ when $i>j$. Using Lemma \ref{lemma:hook-codimension-formula},
 \begin{equation*}
 \dim_\field\left(\frac{L_i'}{L_i'\cap L_i}\right) = \sum_{s>i,t\le i} a_{s,t} = 0,
 \end{equation*}
@@ -615,9 +682,9 @@ A+\elem{i}{j_s}-\elem{i+1}{j_s} < A+\elem{i}{j_{s+1}}-\elem{i+1}{j_{s+1}}
 \end{equation*}
 for $s=1,\ldots,m-1$. Thus the term with $s=m$ is the maximum.
 
-The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following lemma is rephrased from Lemma \ref{lemma:flags-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
+The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following is a restatement of Lemma \ref{lemma:hook-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
 
-\begin{lemma}\label{lemma:codimension-formula-corner-sums}
+\begin{lemma}
 Let $A\in\matrices$ and $(L,L')\in\orbit{A}$. Then
 \begin{equation*}
 \dim\left(\frac{L_i}{L_i\cap L_j'}\right) = d_{i,j}{(A)}
@@ -628,9 +695,6 @@ and
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
-\begin{proof}
-This is a rephrasing of Lemma \ref{lemma:flags-codimension-formula}.
-\end{proof}
 
 
 
@@ -1628,7 +1692,7 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^{-N}L_0\cap L_0'}\right) = \sum_{s\le nN,t>0}a_{s,t} = d_{nN,0}(A),
 \end{equation*}
-as a result of Lemma \ref{lemma:codimension-formula-corner-sums}. 
+as a result of Lemma \ref{lemma:hook-codimension-formula}. 
 \end{proof}
 
 Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$, as in Lemma \ref{lemma:bounded-orbits}.
@@ -1696,7 +1760,7 @@ and
 &=\dim\left(\frac{\epsilon^{-N}L_0'}{L_0''}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &= a+b,
 \end{align*}
-as a result of Lemma \ref{lemma:codimension-formula-corner-sums}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ as required.
+as a result of Lemma \ref{lemma:hook-codimension-formula}, so $(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ as required.
 \end{proof}
 
 Now assume $N\in\naturals$ is chosen so that $\yprod[L]{A,B}\subset\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$, using Lemma \ref{lemma:embedding-orbit-products}.
