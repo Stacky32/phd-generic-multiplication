@@ -517,7 +517,7 @@ e_AE_j
 \end{proof}
 
 
-\subsection{A combinatorial partial order}
+\subsection{The hook order}
 
 For each $i,j\in\integers$, let $d_{i,j}$ and $\bar{d}_{i,j}$ be the maps from $\matrices$ to $\integers$ given by
 \begin{equation*}
@@ -682,7 +682,7 @@ A+\elem{i}{j_s}-\elem{i+1}{j_s} < A+\elem{i}{j_{s+1}}-\elem{i+1}{j_{s+1}}
 \end{equation*}
 for $s=1,\ldots,m-1$. Thus the term with $s=m$ is the maximum.
 
-The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following is a restatement of Lemma \ref{lemma:hook-codimension-formula} and gives some geometric significance to the partial order on $\matrices$.
+The partial order on $\matrices$ induces a partial order on the set of $G$-orbits in $\dblflags$, such that $\orbit{A}\le \orbit{B}$ if and only if $A\le B$. The following is a restatement of Lemma \ref{lemma:hook-codimension-formula} and gives some geometric significance to the hook order on $\matrices$.
 
 \begin{lemma}
 Let $A\in\matrices$ and $(L,L')\in\orbit{A}$. Then
@@ -695,7 +695,6 @@ and
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
-
 
 
 \subsection{Shifting}
@@ -868,7 +867,9 @@ R F_i \antipode{(R)} = F_{i-1}
 as claimed.
 \end{proof}
 
-{\color{blue}Although I can't be sure, I suspect that conjugation by $R$ gives a realisation of the Auslander-Reiten translation on the nilpotent representations of a cyclic quiver determined by the upper triangular matrices in $\matrices$. This is at least plausible since the A.R translation $\tau$ sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$, which is consistent with the conjugation by $R$, which sends $E_i$ to $E_{i-1}$.}
+{\color{blue}[THIS IS DEFINITELY TRUE -- PROVE IT.]
+
+Although I can't be sure, I suspect that conjugation by $R$ gives a realisation of the Auslander-Reiten translation on the nilpotent representations of a cyclic quiver determined by the upper triangular matrices in $\matrices$. This is at least plausible since the A.R translation $\tau$ sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$, which is consistent with the conjugation by $R$, which sends $E_i$ to $E_{i-1}$.}
 
 
 
@@ -1135,7 +1136,67 @@ Lemma \ref{lemma:q-commutators-E-F} and Lemma \ref{lemma:q-serre-relations} show
 for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \end{proof}
 
-In fact, $\phi$ is determined by its values on $e_1,\ldots,e_n$, $f_1,\ldots,f_n$ and $k_\lambda$ for $\lambda\in\compositions$.
+In fact, $\phi$ is determined by its values on $e_1,\ldots,e_n$, $f_1,\ldots,f_n$ and $k_\lambda$ for $\lambda\in\compositions$. In order to describe the image of this map we introduce the notion of standard paths in $\Gamma$.
+
+\begin{definition}\label{def:standard-paths}
+A standard path in $\Gamma$ is a path of the following form:
+\begin{equation*}
+p = k_\mu p_1\cdots p_l\cdot p_1'\cdots p_l'
+\end{equation*}
+for some $l\in\naturals$, where
+\begin{equation*}
+p_s = e_{i_0+s-1}^{\alpha_{i_0,s}} e_{i_0+s-2}^{\alpha_{i_0-1,s}}\cdots e_{i_0+s-n}^{\alpha_{i_0-n+1,s}}
+\end{equation*}
+and
+\begin{equation*}
+p_s' = f_{i_1-s+1}^{\beta_{i_1,s}} f_{i_1-s+2}^{\beta_{i_1+1,s}}\cdots f_{i_1-s+n}^{\beta_{i_1+n-1,s}}
+\end{equation*}
+for $s\in\{1,\ldots,l\}$, determined by two collections of non-negative integers $(\alpha_{i,s})$ and $(\beta_{i,s})$, for $i\in\{1,\ldots,n\}$ and $s\in\{1,\ldots,l\}$, satisfying the following conditions:
+\begin{equation*}
+\alpha_{i,1}+\beta_{i-1,1} \le \mu_i,
+\end{equation*}
+\begin{equation*}
+\alpha_{i,1}\geq \alpha_{i,2}\geq\cdots\geq \alpha_{i,l}\geq 0
+\end{equation*}
+and
+\begin{equation*}
+\beta_{i,1}\geq \beta_{i,2}\geq\cdots\geq \beta_{i,l}\geq 0,
+\end{equation*}
+for $i\in\{1,\ldots,n\}$; where
+\begin{equation*}
+i_0 = \max\{i:i\in\{1,\ldots,n\}\text{ with } \alpha_{i+1,s}=0\text{ for } s\in\{1,\ldots,l\}\}
+\end{equation*}
+and
+\begin{equation*}
+i_1 = \min\{i:i\in\{1,\ldots,n\}\text{ with } \beta_{i,s}=0\text{ for } s\in\{1,\ldots,l\}\}.
+\end{equation*}
+\end{definition}
+
+Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$. Suppose $p$ is a standard path and $A\in\matrices$ with $\rho(p+\zerorelations)=e_A$, then there are the following linear relations between the exponents in the standard expression for $p$ and the entries of $A$:
+\begin{align*}
+\alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
+\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t},
+\end{align*}
+for $i\in\{1,\ldots,n\}$ and $s\in\naturals$; and
+\begin{align*}
+a_{i,i+s} &= \alpha_{i,s}-\alpha_{i,s+1}\\
+a_{i,i-s} &= \beta_{i-1,s}-\beta_{i-1,s+1}\\
+a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}.
+\end{align*}
+
+Thus there is a bijection between the set of standard paths in $\Gamma$ and the standard basis of the affine $q$-Schur algebra indexed by $\matrices$.
+
+\begin{lemma}\label{lemma:image-of-standard-path}
+Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
+\begin{equation*}
+\phi(p) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+{\color{red}THIS IS A REALLY FUNDAMENTAL LEMMA -- PROVE IT!}
+\end{proof}
+
 
 \subsection{Change of rings}
 
@@ -1168,9 +1229,7 @@ The set of $q$-integers is not multiplicatively closed. For instance,
 \qint{2}\qint{3} &= \qint{4} +q\qint{2}.
 \end{align*}
 
-On the other hand, the set $1+q\integers[q]$ is multiplicatively closed and contains the set of $q$-integers.
-
-Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
+On the other hand, the set $1+q\integers[q]$ is multiplicatively closed and contains the set of $q$-integers. Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
 \begin{equation*}
 \qfrac = \left\{\frac{f}{1+qg}:f,g\in\integers[q]\right\}.
 \end{equation*}
@@ -1226,13 +1285,11 @@ Then
 \begin{equation*}
 \phi(p) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
 \end{equation*}
-for some polynomials $g_B\in\integers[q]$.
+for some polynomials $g_B\in\integers[q]$, by Lemma \ref{lemma:image-of-standard-path}.
 
-Thus the coefficient of $e_A$ in the above expression is a product of $q$-integers, so is invertible in $\qfrac$.
+The coefficient of $e_A$ in the above expression is a product of $q$-integers, so is invertible in $\qfrac$.
 
 {\color{red}COMPLETE THIS PROOF:
-Need to explain why all other terms are strictly smaller with respect to the numerical order.
-
 The final step of the proof to be completed is an induction argument, that those $B:B<A$ are also the leading term in the expression for an image of a path.}
 \end{proof}
 
@@ -1262,7 +1319,7 @@ qF_2^3 F_1 -\qint{3}F_2^2 F_1 F_2 +\qint{3}F_2 F_1 F_2^2 -qF_1 F_2^3 &= 0.
 \end{lemma}
 
 \begin{proof}
-It suffices to prove the first of these relations holds, since the second relation is obtained by applying the shifting automorphism of $\qschur$ given by conjugation by $R$, which sends $E_1$ to $E_2$ and $E_2$ to $E_1$, and then the last two relations are obtained by applying the transpose/ antipode operator $\antipode{}$ on $\qschur$, which sends $E_i$ to $F_i$ (for $i=1,2$) and reverses the order of multplication.
+It suffices to prove the first of these relations holds, since the second relation is obtained by applying the shifting automorphism of $\qschur$ given by conjugation by $R$, which sends $E_1$ to $E_2$ and $E_2$ to $E_1$, and then the last two relations are obtained by applying the transpose operator $\antipode{}$ on $\qschur$, which sends $E_i$ to $F_i$ (for $i=1,2$) and reverses the order of multplication.
 
 Next, the first relation will be established by an explicit computation using the fundamental multiplication rules \ref{corollary:fundamental-right-multiplication-rules}.
 
@@ -2102,7 +2159,7 @@ Then the generic affine algebra $\generic$ may be realised as the $\integers$-al
 
 \chapter{A realisation of affine zero Schur algebras}
 
-The purpose of this chapter is to study the link between the generic affine algebra $\generic$ to the affine $0$-Schur algebra $\zeroschur$.
+The purpose of this chapter is to study the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$.
 
 The main result is the construction of an isomorphism of $\integers$-algebras from $\generic$ to $\zeroschur$ such that $E_i\mapsto E_i$, $F_j\mapsto F_j$ and $1_\lambda\mapsto 1_\lambda$, in the case that $n,r\geq 1$ with $r<n$.
 
@@ -2751,7 +2808,7 @@ c_{i,\lambda} = \begin{cases}
 \end{cases}
 \end{equation*}
 
-Multiplying each expression above with the idempotents $k_\lambda$ for $\lambda\in\compositions$ gives a relation between paths with common source and target vertices, thus $\zerorelations$ is an ideal of $\integers$-linear relations in $\Gamma$.
+Multiplying each expression above with the idempotents $k_\lambda$ for $\lambda\in\compositions$ gives a relation involving paths with common source and target vertices, thus $\zerorelations$ is an ideal of $\integers$-linear relations in $\Gamma$.
 
 The ideal $\zerorelations$ in $\integers\Gamma$ is generated by the following set of relations:
 \begin{align*}
@@ -2951,62 +3008,17 @@ F_{i+1}^2F_i^a -F_{i+1}F_i^aF_{i+1} = \transpose{\left(E_{i+1}E_i^aE_{i+1} -E_i^
 \end{equation*}
 \end{proof}
 
+
 \subsection{Standard paths}
 
-A standard path in $\Gamma$ is defined to be a path of the following form:
-\begin{equation*}
-p = k_\mu p_1\cdots p_l\cdot p_1'\cdots p_l'
-\end{equation*}
-for some $l\in\naturals$, where
-\begin{equation*}
-p_s = e_{i_0+s-1}^{\alpha_{i_0,s}} e_{i_0+s-2}^{\alpha_{i_0-1,s}}\cdots e_{i_0+s-n}^{\alpha_{i_0-n+1,s}}
-\end{equation*}
-and
-\begin{equation*}
-p_s' = f_{i_1-s+1}^{\beta_{i_1,s}} f_{i_1-s+2}^{\beta_{i_1+1,s}}\cdots f_{i_1-s+n}^{\beta_{i_1+n-1,s}}
-\end{equation*}
-for $s\in\{1,\ldots,l\}$, determined by two collections of non-negative integers $(\alpha_{i,s})$ and $(\beta_{i,s})$, for $i\in\{1,\ldots,n\}$ and $s\in\{1,\ldots,l\}$, satisfying the following conditions:
-\begin{equation*}
-\alpha_{i,1}+\beta_{i-1,1} \le \mu_i,
-\end{equation*}
-\begin{equation*}
-\alpha_{i,1}\geq \alpha_{i,2}\geq\cdots\geq \alpha_{i,l}\geq 0
-\end{equation*}
-and
-\begin{equation*}
-\beta_{i,1}\geq \beta_{i,2}\geq\cdots\geq \beta_{i,l}\geq 0,
-\end{equation*}
-for $i\in\{1,\ldots,n\}$; where
-\begin{equation*}
-i_0 = \max\{i:i\in\{1,\ldots,n\}\text{ with } \alpha_{i+1,s}=0\text{ for } s\in\{1,\ldots,l\}\}
-\end{equation*}
-and
-\begin{equation*}
-i_1 = \min\{i:i\in\{1,\ldots,n\}\text{ with } \beta_{i,s}=0\text{ for } s\in\{1,\ldots,l\}\}.
-\end{equation*}
-
-Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
-
-Suppose $p$ is a standard path and $A\in\matrices$ with $\rho(p+\zerorelations)=e_A$, then there are the following linear relations between the exponents in the standard expression for $p$ and the entries of $A$:
-\begin{align*}
-\alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
-\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t},
-\end{align*}
-for $i\in\{1,\ldots,n\}$ and $s\in\naturals$; and
-\begin{align*}
-a_{i,i+s} &= \alpha_{i,s}-\alpha_{i,s+1}\\
-a_{i,i-s} &= \beta_{i-1,s}-\beta_{i-1,s+1}\\
-a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}.
-\end{align*}
-
-Thus there is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$.
+Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. As noted earlier, there is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$.
 
 \begin{lemma}\label{lemma:extending-standard-paths}
 Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\{1,\ldots,n\}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
 \end{lemma}
 
 \begin{proof}{\color{red}
-IMPORTANT: need to prove this without doubt.
+IMPORTANT: need to prove this beyond doubt.
 }
 \end{proof}
 
@@ -3051,14 +3063,13 @@ There will have to be an extended or new notion of standard path for the case of
 \end{proof}
 
 
-
 \section{The isomorphism result}
 
 Recall
 \begin{equation*}
 \phi\colon\integers[q]\Gamma/I \to\qschur
 \end{equation*}
-is the homomorphism of $\integers[q]$-algebras with
+is the homomorphism of $\integers[q]$-algebras defined by
 \begin{align*}
 \phi(e_{i,\lambda})&= E_{i,\lambda}\\
 \phi(f_{i,\lambda})&= F_{i,\lambda}\\
@@ -3077,13 +3088,13 @@ Identifying
 \end{equation*}
 gives the $\integers$-algebra homomorphism
 \begin{equation*}
-\hat{\phi}\colon\integers\Gamma/{\zerorelations}
+\hat{\phi}\colon\integers\Gamma/{\zerorelations}\to\zeroschur
 \end{equation*}
 defined by
 \begin{align*}
-\phi(e_{i,\lambda})&= E_{i,\lambda}\\
-\phi(f_{i,\lambda})&= F_{i,\lambda}\\
-\phi(k_\lambda)&= 1_\lambda,
+\phi(e_{i,\lambda}) &= E_{i,\lambda}\\
+\phi(f_{i,\lambda}) &= F_{i,\lambda}\\
+\phi(k_\lambda) &= 1_\lambda,
 \end{align*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
@@ -3107,7 +3118,10 @@ For each $A\in\matrices$,
 for some $c_B\in\naturals$.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}{\color{red}[NEEDS REDRAFTING]
+
+========================================================================================
+
 Given $A\in\matrices$, let $p$ be the standard path in $\Gamma$ characterised by $A$, so
 \begin{equation*}
 \rho(p+\zerorelations)=e_A.
@@ -3124,6 +3138,7 @@ Using the fundamental multiplication rules in $\qschur$, as in Lemma \ref{lemma:
 \begin{equation*}
 c_A = \left(\prod_{i,s:\alpha_{i,s}>0}\qint{\alpha_{i,s}}\prod_{i,s:\beta_{i,s}>0}\qint{\beta_{i,s}}\right)_{q=0} = 1.
 \end{equation*}
+}
 \end{proof}
 
 \begin{theorem}
@@ -3135,6 +3150,9 @@ is an isomorphism of $\integers$-algebras.
 \end{theorem}
 
 \begin{proof}
+In light of Proposition \ref{proposition:q-schur-presentation}, taking the tensor product with the $\integers[q]$-algebra $\integers[q]/{(q)}$ yields the map $\hat{\phi}\colon\integers\Gamma/{\zerorelations}\to\zeroschur$, which is therefore surjective by right exactness of the tensor product, so $\Psi$ is also surjective.
+
+Use Lemma \ref{lemma:leading-term-for-Psi} it will be shown that $Psi$ is injective.
 {\color{red}COMPLETE THIS PROOF.}
 \end{proof}
 
