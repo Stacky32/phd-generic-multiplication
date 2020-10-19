@@ -19,7 +19,7 @@
 
 \section{The cyclic flags realisation of affine q-Schur algebras}
 
-Fix natural numbers $n$ and $r$.
+Fix integers $n,r\geq 1$.
 
 \begin{definition}\label{def:compositions}
 A \emph{composition of $r$ into $n$ parts} is an $n$-tuple $\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n$ of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
@@ -169,7 +169,10 @@ For each $(L,L')\in\dblflags$, $\type{L}{L'}\in\matrices$.
 
 \begin{proof}
 Let $A=\type{L}{L'}$, fix $\lambda\in\compositions$ such that $L\in\flags_\lambda$ and let $i\in\{1,\ldots,n\}$.
+{\color{red}COMPLETE THIS PROOF}
 \end{proof}
+
+{\color{blue}Finish giving a complete and rigorous description of the orbit-matrix correspondence. It is fairly elementary but used extensively in the rest of the thesis, so it is worth giving a full account.}
 
 \begin{lemma}\label{lemma:transpose-orbit}
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
@@ -395,11 +398,20 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 
 \section{Affine zero-Schur algebras}
 
-Given integers $n,r\geq 1$, the affine $0$-Schur algebra of rank $r$ and period $n$ is the $\integers$-algebra given by
+Fix integers $n,r\geq 1$.
+
+\begin{definition}\label{definition:affine0schur}
+The affine zero Schur algebra $\zeroschur$ is the $\integers$-algebra
 \begin{equation*}
 \zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur.
 \end{equation*}
+\end{definition}
 
+Observe that $\zeroschur$ is a free $\integers$-module, since $\qschur$ is a free $\integers[q]$-module. Moreover, $\zeroschur$ has a $\integers$-basis $\{e_A:A\in\matrices\}$ with multiplication given by
+\begin{equation*}
+e_A\cdot e_B = \sum_{C\in\matrices} \gamma_{A,B,C}{(0)} e_C,
+\end{equation*}
+for each $A,B\in\matrices$.
 
 
 \chapter{Presenting affine q-Schur algebras}
@@ -2501,7 +2513,7 @@ for $i\in\{1,\ldots,r\}$.
 
 \section{Multiplicative bases in affine zero Schur algebras: motivating example}
 
-Recall that the affine $0$-Schur algebra $\zeroschur$ is defined as the associative $\integers$-algebra
+Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the associative $\integers$-algebra
 \begin{equation*}
 \zeroschur = {\integers[q]}/{(q)}\otimes_{\integers[q]} \qschur.
 \end{equation*}
