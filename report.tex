@@ -1269,6 +1269,81 @@ Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
 
 \subsection{Change of rings}
 
+Let $R$ and $S$ be commutative rings and suppose $f\colon R\to S$ is a ring homomorphism with $f(1)=1$. Let $\Sigma$ be a quiver and let $I\subset R\Sigma$ be an ideal of relations in $\Sigma$. The homomorphism $f$ defines an $R$-algebra structure on $S$ with $r\cdot s = f(r)s$ for all $r\in R$ and $s\in S$. Let $\bar{f}\colon R\Sigma\to S\Sigma$ be the $R$-algebra homomorphism induced by $f$, which is given by
+\begin{equation*}
+\bar{f}(rp)=f(r)p
+\end{equation*}
+for each path $p$ in $\Sigma$ and $r\in R$.
+
+Applying the right exact functor $S\otimes_R -$ to the short exact sequence
+\begin{equation*}
+0\to I \to R\Sigma \to R\Sigma/{I} \to 0
+\end{equation*}
+of $R$-modules gives the exact sequence
+\begin{equation*}
+S\otimes_R I \to S\otimes_R R\Sigma \to S\otimes_R R\Sigma/{I} \to 0
+\end{equation*}
+of $S$-modules.
+
+{\color{gray}the middle map $m$ is an isomorphism; the image of $m\circ (1\otimes i)$ is $S\bar{f}{(I)}$.}
+
+\begin{equation*}
+\begin{tikzpicture}[scale=2.5, baseline = -0.5ex]
+\node (A) at (2,3) {$0$};
+\node (B) at (3,3) {$\ker{\bar{m}}$};
+\node (C) at (1,2) {$S\otimes_R I$};
+\node (D) at (2,2) {$S\otimes_R R\Sigma$};
+\node (E) at (3,2) {$S\otimes_R R\Sigma/{I}$};
+\node (F) at (4,2) {$0$};
+\node (G) at (0,1) {$0$};
+\node (H) at (1,1) {$S\bar{f}{(I)}$};
+\node (I) at (2,1) {$S\Sigma$};
+\node (J) at (3,1) {$S\Sigma/{S\bar{f}{(I)}}$};
+\node (K) at (4,1) {$0$};
+\node (L) at (1,0) {$0$};
+\node (M) at (2,0) {$0$};
+\node (N) at (3,0) {$\coker{\bar{m}}$};
+
+\cdarrow (C) edge (D);
+\cdarrow (D) edge (E);
+\cdarrow (E) edge (F);
+
+\cdarrow (G) edge (H);
+\cdarrow (H) edge (I);
+\cdarrow (I) edge (J);
+\cdarrow (J) edge (K);
+
+\cdarrow (C) edge (H);
+\cdarrow (H) edge (L);
+
+\cdarrow (A) edge (D);
+\cdarrow (D) edge (I);
+\cdarrow (I) edge (M);
+
+\cdarrow (B) edge (E);
+\cdarrow (E) edge (J);
+\cdarrow (J) edge (N);
+
+
+\end{tikzpicture}
+\end{equation*}
+
+
+The following is based on Lemma 5.2 \cite{su12}.
+
+\begin{lemma}\label{lemma:change-of-rings-presentation}
+The map
+\begin{equation*}
+\bar{m}\colon S\otimes_R R\Sigma/{I} \to S\Sigma/{S\bar{f}(I)}
+\end{equation*}
+is both an isomorphism of $R$-algebras and an isomorphism of $S$-algebras.
+\end{lemma}
+
+\begin{proof}
+{\color{red}[complete this proof!] A proof that $\bar{m}$ is an $R$-algebra isomorphism is given in Lemma 5.2 in \cite{su12}. 
+Application of the snake lemma.}
+\end{proof}
+
 Recall that the $q$-integers are given by
 \begin{equation*}
 \qint{0}=0
