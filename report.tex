@@ -1269,7 +1269,7 @@ Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
 
 \subsection{Change of rings}
 
-Let $R$ and $S$ be commutative rings and suppose $f\colon R\to S$ is a ring homomorphism with $f(1)=1$. Let $\Sigma$ be a quiver and let $I\subset R\Sigma$ be an ideal of relations in $\Sigma$. The homomorphism $f$ defines an $R$-algebra structure on $S$ with $r\cdot s = f(r)s$ for all $r\in R$ and $s\in S$. Let $\bar{f}\colon R\Sigma\to S\Sigma$ be the $R$-algebra homomorphism induced by $f$, which is given by
+The following is based on the change of rings for quiver presentations result, Lemma 5.2 in \cite{su12}. Let $R$ and $S$ be commutative rings and suppose $f\colon R\to S$ is a ring homomorphism with $f(1)=1$. Let $\Sigma$ be a quiver and let $I\subset R\Sigma$ be an ideal of relations in $\Sigma$. The homomorphism $f$ defines an $R$-algebra structure on $S$ with $r\cdot s = f(r)s$ for all $r\in R$ and $s\in S$. Let $\bar{f}\colon R\Sigma\to S\Sigma$ be the $R$-algebra homomorphism induced by $f$, which is given by
 \begin{equation*}
 \bar{f}(rp)=f(r)p
 \end{equation*}
@@ -1277,15 +1277,27 @@ for each path $p$ in $\Sigma$ and $r\in R$.
 
 Applying the right exact functor $S\otimes_R -$ to the short exact sequence
 \begin{equation*}
-0\to I \to R\Sigma \to R\Sigma/{I} \to 0
+0\to I \overset{i}\to R\Sigma \to R\Sigma/{I} \to 0
 \end{equation*}
 of $R$-modules gives the exact sequence
 \begin{equation*}
-S\otimes_R I \to S\otimes_R R\Sigma \to S\otimes_R R\Sigma/{I} \to 0
+S\otimes_R I \overset{1\otimes i}\to S\otimes_R R\Sigma \to S\otimes_R R\Sigma/{I} \to 0
 \end{equation*}
 of $S$-modules.
 
-{\color{gray}the middle map $m$ is an isomorphism; the image of $m\circ (1\otimes i)$ is $S\bar{f}{(I)}$.}
+Let $m\colon S\otimes_R R\Sigma\to S\Sigma$ be the $S$-algebra homomorphism given by
+\begin{equation*}
+m(s\otimes (rp+I)) = sf(r)p + S\bar{f}{(I)},
+\end{equation*}
+for all $r\in R$, $s\in S$ and paths $p$ in $\Gamma$. The $S$-algebra homomorphism $S\Sigma\to S\otimes_R R\Sigma$ given by sending $sp$ to $s\otimes p$ is inverse to $m$, so $m$ is an isomorphism of $S$-algebras. Observe that $m$ is also $R$-linear, so is an isomorphism of $R$-algebras. The image of $m\circ (1\otimes i)\colon S\otimes_R I \to S\Sigma$ is $S\bar{f}{(I)}$ since the image is spanned by elements of the form
+\begin{align*}
+m((1\otimes i)(s\otimes x))
+&= m(s\otimes x)\\
+&= s\bar{f}{(x)},
+\end{align*}
+for $s\in S$ and $x\in I$.
+
+Thus we have a commuting diagram of $S$-modules with exact rows and columns:
 
 \begin{equation*}
 \begin{tikzpicture}[scale=2.5, baseline = -0.5ex]
@@ -1304,7 +1316,7 @@ of $S$-modules.
 \node (M) at (2,0) {$0$};
 \node (N) at (3,0) {$\coker{\bar{m}}$};
 
-\cdarrow (C) edge (D);
+\cdarrow (C) edge node[above]{$1\otimes i$} (D);
 \cdarrow (D) edge (E);
 \cdarrow (E) edge (F);
 
@@ -1317,22 +1329,27 @@ of $S$-modules.
 \cdarrow (H) edge (L);
 
 \cdarrow (A) edge (D);
-\cdarrow (D) edge (I);
+\cdarrow (D) edge node[right]{$m$} (I);
 \cdarrow (I) edge (M);
 
 \cdarrow (B) edge (E);
-\cdarrow (E) edge (J);
+\cdarrow (E) edge node[right]{$\bar{m}$} (J);
 \cdarrow (J) edge (N);
 
 
 \end{tikzpicture}
 \end{equation*}
 
+The morphism $\bar{m}$ is given by the universal property of cokernels and can be computed explicitly using the commuting diagram, with
+\begin{align*}
+\bar{m}(s\otimes (rp + I))
+&= m(s\otimes rp) + S\bar{f}{(I)}\\
+&= sf(r)p + S\bar{f}{(I)},
+\end{align*}
+for all $r\in R$, $s\in S$ and paths $p$ in $\Sigma$.
 
-The following is based on Lemma 5.2 \cite{su12}.
-
-\begin{lemma}\label{lemma:change-of-rings-presentation}
-The map
+\begin{lemma}\cite{su12}\label{lemma:change-of-rings-presentation}
+The morphism
 \begin{equation*}
 \bar{m}\colon S\otimes_R R\Sigma/{I} \to S\Sigma/{S\bar{f}(I)}
 \end{equation*}
@@ -1340,8 +1357,11 @@ is both an isomorphism of $R$-algebras and an isomorphism of $S$-algebras.
 \end{lemma}
 
 \begin{proof}
-{\color{red}[complete this proof!] A proof that $\bar{m}$ is an $R$-algebra isomorphism is given in Lemma 5.2 in \cite{su12}. 
-Application of the snake lemma.}
+Using the snake lemma on the above commuting diagram gives an exact sequence of $S$-modules
+\begin{equation*}
+0 \to \ker{\bar{m}} \to 0 \to 0 \to \coker{\bar{m}} \to 0,
+\end{equation*}
+so $\ker{\bar{m}}$ and $\coker{\bar{m}}$ are both zero and therefore $\bar{m}$ is an isomorphism of $S$-algebras. Moreover, $\bar{m}$ is $R$-linear, so is also an isomorphism of $R$-algebras.
 \end{proof}
 
 Recall that the $q$-integers are given by
@@ -1367,76 +1387,63 @@ and the product $\qint{a}\qint{b}$ can be computed recursively as follows:
 &= 1 +q(\qint{a-1} +\qint{b-1} +q\qint{a-1}\qint{b-1}).
 \end{align*}
 
-The set of $q$-integers is not multiplicatively closed. For instance,
-\begin{align*}
-\qint{2}^2 &= q +\qint{3},\\
-\qint{2}\qint{3} &= \qint{4} +q\qint{2}.
-\end{align*}
-
-On the other hand, the set $1+q\integers[q]$ is multiplicatively closed and contains the set of $q$-integers. Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
+The set of $q$-integers is not multiplicatively closed since, for example $\qint{2}^2 = 1+2q+q^2$, but the set $1+q\integers[q]$ is multiplicatively closed and contains the $q$-integers. Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
 \begin{equation*}
 \qfrac = \left\{\frac{f}{1+qg}:f,g\in\integers[q]\right\}.
 \end{equation*}
 
-Observe that $\integers[q]$ is a subring of $\qfrac$, which makes $\qfrac$ into a $\integers[q]$-algebra. The $\qfrac$-form of the affine $q$-Schur algebra $\qschur$ is defined to be the $\qfrac$-algebra
+Observe that $\integers[q]$ is a subring of $\qfrac$, so $\qfrac$ is a $\integers[q]$-algebra. The $\qfrac$-form of the affine $q$-Schur algebra $\qschur$ is defined to be the $\qfrac$-algebra
 \begin{equation*} 
 \Qqschur = \qfrac\otimes_{\integers[q]}\qschur.
 \end{equation*}
 
-
-
 \begin{lemma}
+The $\qfrac$-algebra homomorphism
 \begin{equation*}
-\qfrac\Gamma/{\qfrac \qrelations} = \qfrac\otimes_{\integers[q]}\left(\integers[q]\Gamma/\qrelations\right).
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-{\color{red}COMPLETE THIS PROOF}
-\end{proof}
-
-\begin{proposition}\label{proposition:q-schur-presentation}
-If $r<n$, the map
-\begin{equation*}
-\phi_{\qfrac} = \qfrac\otimes_{\integers[q]}\phi\colon \qfrac\Gamma/{\qfrac \qrelations}\to\Qqschur
-\end{equation*}
-is a surjective $\qfrac$-algebra homomorphism.
-\end{proposition}
-
-\begin{proof}
-Let $A\in\matrices$ and define
-\begin{align*}
-\alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
-\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t},
-\end{align*}
-for $i\in\{1,\ldots,n\}$ and $s\geq 1$.
-
-Since $r<n$, there is $i_0\in\{1,\ldots,n\}$ such that $a_{i_0+1,j}=0$ for all $j\in\integers$. By the finiteness condition on rows and columns of $A$, there is $l\geq 1$ such that $\alpha_{i,l+1} = \beta_{i,l+1}=0$ for all $i\in\{1,\ldots,n\}$.
-
-Consider the path
-\begin{equation*}
-p = p_1\cdots p_l\cdot p_1'\cdots p_l'
+\bar{m}\colon \qfrac\otimes_{\integers[q]} \integers[q]\Gamma/{I}\to \qfrac\Gamma/{\qfrac I}
 \end{equation*}
 given by
 \begin{equation*}
-p_s = e_{i_0+s-1}^{\alpha_{i_0,s}} e_{i_0+s-2}^{\alpha_{i_0-1,s}}\cdots e_{i_0+s-n}^{\alpha_{i_0-n+1,s}}
+\bar{m}(s\otimes (hp+I)) = shp + \qfrac I,
 \end{equation*}
-and
+for all $s\in\qfrac$, $h\in\integers[q]$ and paths $p$ in $\Gamma$, is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+Applying Lemma \ref{lemma:change-of-rings-presentation} for the inclusion $\integers[q]\hookrightarrow\qfrac$ proves that $\bar{m}$ is an isomorphism of $\qfrac$-algebras and an isomorphism of $\integers[q]$-algebras.
+\end{proof}
+
+Let $\phi_\qfrac$ be the $\qfrac$-algebra homomorphism
 \begin{equation*}
-p_s' = f_{i_0+2-s}^{\beta_{i_0+1,s}} f_{i_0+3-s}^{\beta_{i_0+2,s}}\cdots f_{i_0+n+1-s}^{\beta_{i_0+n,s}}
+\phi_\qfrac=(1\otimes \phi)\circ \bar{m}^{-1}\colon \qfrac\Gamma/{\qfrac I}\to\Qqschur,
 \end{equation*}
-for $s=1,\ldots,l$.
+which is given by
+\begin{align*}
+\phi_\qfrac(e_{i,\lambda}) &= E_{i,\lambda}\\
+\phi_\qfrac(f_{i,\lambda}) &= F_{i,\lambda}\\
+\phi_\qfrac(k_\lambda) &= 1_\lambda,
+\end{align*}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
-Then
+\begin{proposition}\label{proposition:q-schur-presentation}
+If $r<n$ then $\phi_\qfrac$ is surjective.
+\end{proposition}
+
+\begin{proof}
+Fix $A\in\matrices$ and let $p$ be the standard path in $\Gamma$ corresponding to $A$. Then
 \begin{equation*}
-\phi(p) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
+\phi_\qfrac(p+\qfrac I) = \sum_{B:B\le A} g_Be_B
 \end{equation*}
-for some polynomials $g_B\in\integers[q]$, by Lemma \ref{lemma:image-of-standard-path}.
+for some $g_B\in\integers[q]$, where
+\begin{equation*}
+g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
+\end{equation*}
+by Lemma \ref{lemma:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
+\begin{equation*}
+e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
+\end{equation*}
 
-The coefficient of $e_A$ in the above expression is a product of $q$-integers, so is invertible in $\qfrac$.
-
-{\color{red}COMPLETE THIS PROOF:
-The final step of the proof to be completed is an induction argument, that those $B:B<A$ are also the leading term in the expression for an image of a path.}
+There are only finitely many $B\in\matrices$ with $B<A$ and for each such $B$, $e_B$ admits a similar expression, which shows that $e_A$ can be expressed as the image of a $\qfrac$-linear combination of the standard paths corresponding to the matrices $B$ with $B\le A$ and therefore $\phi_\qfrac$ is surjective.
 \end{proof}
 
 \begin{conjecture}
