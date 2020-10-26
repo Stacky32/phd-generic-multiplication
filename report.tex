@@ -113,7 +113,7 @@ Consider the space $\dblflags$ of pairs of flags with the diagonal action of $G$
 \begin{equation*}
 g\cdot(L,L') = (gL,gL')
 \end{equation*}
-for $g\in G$ and $(L,L')\in\dblflags$. Denote the $G$-orbit of $(L,L')$ by $[L,L']$. The set of $G$-orbits in $\dblflags$ admits a combinatorial description as will be described below.
+for $g\in G$ and $(L,L')\in\dblflags$. Denote the $G$-orbit of $(L,L')$ by $[L,L']$. The set of $G$-orbits in $\dblflags$ admits a combinatorial description as described below.
 
 \begin{definition}\label{def:characteristic-matrix}
 The periodic characteristic matrix of a pair of cyclic flags $(L,L')\in\dblflags$ is the matrix $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$ with entries
@@ -148,7 +148,7 @@ since the action of $g$ commutes with sums and intersections of lattices. Theref
 \end{proof}
 
 The following result gives another useful set of expressions for the characteristic matrix.
-\begin{lemma}
+\begin{lemma}\label{lemma:characteristic-matrix-alternative}
 For each $i,j\in\integers$,
 \begin{equation*}
 a_{i,j} = \dim\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}'}\right).
@@ -168,11 +168,47 @@ For each $(L,L')\in\dblflags$, $\type{L}{L'}\in\matrices$.
 \end{lemma}
 
 \begin{proof}
+Let $(L,L')\in\dblflags$. The \emph{periodic characteristic matrix} $\type{L}{L'}$ is $(n,n)$-periodic since
+\begin{equation*}
+\type{L}{L'}_{i-n,j-n} = \type{\epsilon L}{\epsilon L'}_{i,j} = \type{L}{L'}_{i,j}
+\end{equation*}
+for each $i,j\in\integers$.
+
+For each $i\in\integers$ there is a chain of lattices
+\begin{equation*}
+M_{i,j} = L_{i-1} + L_i\cap L_j'
+\end{equation*}
+for $j\in\integers$ such that $M_{i,j}=L_{i-1}$ for sufficiently small $j$ and $M_{i,j}=L_i$ for sufficiently large $j$. The chain of lattices gives a filtration $M_{i,j}/{L_{i-1}}_{j\in\integers}$ of $L_i/{L_{i-1}}$ where the dimensions of the factors in the filtration are
+\begin{align*}
+\dim\left(M_{i,j}/{M_{i,j-1}}\right)
+&= \dim\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}}\right)\\
+&= a_{i,j},
+\end{align*}
+using Lemma \ref{lemma:characteristic-matrix-alternative}.
+
+Let $\mu=|L|$. Then
+\begin{align*}
+\mu_i
+&= \dim\left(L_i/{L_{i-1}}\right)\\
+&= \sum_{j\in\integers} a_{i,j},
+\end{align*}
+so the sum of the entries in rows $1$ to $n$ is
+\begin{equation*}
+\mu_1+\cdots +\mu_n = r
+\end{equation*}
+and therefore $\type{L}{L'}\in\matrices$.
+\end{proof}
+
+\begin{lemma}
+Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ gives a bijection between the set of $G$-orbits in $\dblflags$ and the set $\matrices$.
+\end{lemma}
+
+\begin{proof}
 Let $A=\type{L}{L'}$, fix $\lambda\in\compositions$ such that $L\in\flags_\lambda$ and let $i\in\{1,\ldots,n\}$.
 {\color{red}COMPLETE THIS PROOF}
 \end{proof}
 
-{\color{blue}Finish giving a complete and rigorous description of the orbit-matrix correspondence. It is fairly elementary but used extensively in the rest of the thesis, so it is worth giving a full account.}
+{\color{red}Finish giving a complete and rigorous description of the orbit-matrix correspondence. It is fairly elementary but used extensively in the rest of the thesis, so it is worth giving a full account.}
 
 \begin{lemma}\label{lemma:transpose-orbit}
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
@@ -189,11 +225,11 @@ for each $i,j\in\integers$.
 \begin{lemma}\label{lemma:hook-codimension-formula}
 Given $A\in\matrices$ and $(L,L')\in\orbit{A}$,
 \begin{equation*}
-\dim_{\field}\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}
 \end{equation*}
 and
 \begin{equation*}
-\dim_{\field}\left(\frac{L_j'}{L_i\cap L_j'}\right) = \sum_{s>i,t\le j}a_{s,t},
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) = \sum_{s>i,t\le j}a_{s,t},
 \end{equation*}
 for each $i,j\in\integers$.
 \end{lemma}
