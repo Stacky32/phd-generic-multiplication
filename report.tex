@@ -199,17 +199,6 @@ so the sum of the entries in rows $1$ to $n$ is
 and therefore $\type{L}{L'}\in\matrices$.
 \end{proof}
 
-\begin{lemma}
-Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ gives a bijection between the set of $G$-orbits in $\dblflags$ and the set $\matrices$.
-\end{lemma}
-
-\begin{proof}
-Let $A=\type{L}{L'}$, fix $\lambda\in\compositions$ such that $L\in\flags_\lambda$ and let $i\in\{1,\ldots,n\}$.
-{\color{red}COMPLETE THIS PROOF}
-\end{proof}
-
-{\color{red}Finish giving a complete and rigorous description of the orbit-matrix correspondence. It is fairly elementary but used extensively in the rest of the thesis, so it is worth giving a full account.}
-
 \begin{lemma}\label{lemma:transpose-orbit}
 Given a pair of flags $(L,L')\in\flags^2$, the matrices $\type{L}{L'}$ and $\type{L'}{L}$ are related by the transpose. In particular, $\type{L}{L'}_{i,j} = \type{L'}{L}_{j,i}$ for each $i,j\in\integers$.
 \end{lemma}
@@ -223,7 +212,7 @@ for each $i,j\in\integers$.
 \end{proof}
 
 \begin{lemma}\label{lemma:hook-codimension-formula}
-Given $A\in\matrices$ and $(L,L')\in\orbit{A}$,
+Given $A\in\matrices$ and $(L,L')\in\dblflags$ with $\type{L}{L'}=A$,
 \begin{equation*}
 \dim\left(\frac{L_i}{L_i\cap L_j'}\right) = \sum_{s\le i, t>j} a_{s,t}
 \end{equation*}
@@ -300,6 +289,52 @@ To deduce the second formula observe that $(L',L)\in\orbit{A^\transpose}$, by Le
 &= \sum_{t\le j, s>i} a_{t,s}^\transpose\\
 &= \sum_{s>i, t\le j} a_{s,t}.
 \end{align*}
+\end{proof}
+
+The following is a construction of a pair of flags corresponding to a matrix $A\in\matrices$. Recall that $V$ is the free $\laurent$-module $\laurent^r$ and let $V_\field$ be the underlying vector space together with the linear operator $\epsilon\colon V_\field\to V_\field$.
+
+Fix an $r$-dimensional subspace $U$ of $V_\field$ such that
+\begin{equation*}
+\laurent\otimes_{\field}U = V_\field
+\end{equation*}
+and write
+\begin{equation*}
+U = \bigoplus_{i\in\{1,\ldots,n\},j\in\integers} M_{i,j},
+\end{equation*}
+given subspaces $M_{i,j}$ of dimension $a_{i,j}$. Then as vector spaces
+\begin{equation*}
+V_\field = \bigoplus_{i\in\{1,\ldots,n\},j\in\integers}\bigoplus_{h\in\integers} \epsilon^hM_{i,j}.
+\end{equation*}
+
+Define $M_{i,j}$ for $i,j\in\integers$ by setting
+\begin{equation*}
+M_{i-cn,j-cn} = \epsilon^c M_{i,j}
+\end{equation*}
+and define
+\begin{equation*}
+L_i = \bigoplus_{s\le i, t\in\integers} M_{s,t}
+\end{equation*}
+and
+\begin{equation*}
+L_j' = \bigoplus_{s\in\integers, t\le j} M_{s,t}
+\end{equation*}
+for each $i,j\in\integers$.
+
+Each such $L_i$ and $L_j'$ is a direct sum of free $\field[\epsilon]$-modules $\field[\epsilon]M_{s,t}$ for $i-n<s\le i$ and $t\in\integers$, or $s\in\integers$ and $j-n<t\le j$ respectively, so each is a free $\field[\epsilon]$-module of rank $r$ and therefore is a lattice in $V$.
+
+Observe that the vector space $L_{i-1}+L_i\cap L_j'$ is the direct sum of those $M_{s,t}$ such that $s<i$ or $s=i$ and $t\le j$, so
+\begin{equation*}
+\dim\left(\frac{L_{i-1} + L_i\cap L_j'}{L_{i-1} + L_i\cap L_{j-1}'}\right) = \dim\left(M_{i,j}\right) = a_{i,j}
+\end{equation*}
+for each $i,j\in\integers$ and therefore $\type{L}{L'}=A$.
+
+\begin{lemma}
+Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ gives a bijection between the set of $G$-orbits in $\dblflags$ and the set $\matrices$.
+\end{lemma}
+
+\begin{proof}
+The construction of a pair of flags corresponding to a matrix preceding this lemma shows that this map is surjective.
+{\color{red}PROVE INJECTIVITY.}
 \end{proof}
 
 \begin{lemma}
