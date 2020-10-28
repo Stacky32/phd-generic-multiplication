@@ -3229,6 +3229,25 @@ Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_
 \begin{proof}{\color{red}
 IMPORTANT: need to prove this beyond doubt.
 }
+
+First suppose $p$ is a positive standard path
+\begin{equation*}
+p=k_\mu p_1\cdots p_{h^+}k_\lambda,
+\end{equation*}
+where
+\begin{equation*}
+p_s = e_{i_0 +s-1}^{\alpha_{i_0,s}}\cdots e_{i_0+s-n+1}^{\alpha_{i_0-n+2,s}}
+\end{equation*}
+for $s=1,\ldots,h^+$, such that $\alpha_{i,s}\geq \alpha_{i,s+1}$ for each $i,s$ and $\alpha_{i_0+1,s}=0$ for all $s$.
+
+The index $i$ in $e_i$ and $\alpha_{i,s}$ is taken modulo $n$. Observe that $\alpha_{i,s}$ is the exponent of $e_{i+s-1}$ in $p_s$ and so the exponent of $e_i$ in $p_s$ is $\alpha_{i-s+1,s}$. Even when $p$ is a positive path there are many cases to consider.
+
+For the first case, if the exponent of $e_{j-1}$ in $p_{h^+}$, which is $\alpha_{j-h^+,h^+}$, is nonzero then $q=pe_j$ is a standard path.
+
+For the second case, suppose the exponent of $e_{j-1}$ in $p_{h^+}$ is zero and the exponent of $e_j$ in $p_{h^+}$ is strictly less than the exponent of $e_{j-1}$ in $p_{h^+-1}$. [continue...]
+
+For the third case, suppose the exponent of $e_{j-1}$ in $p_{h^+}$ is zero and the exponent of $e_j$ in $p_{h^+}$ equals the exponent of $e_{j-1}$ in $p_{h^+-1}$. [continue...][I'm stuck on this case.]
+
 \end{proof}
 
 \begin{proposition}\label{proposition:std-paths-span-quiver-algebra}
