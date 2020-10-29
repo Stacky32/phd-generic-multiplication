@@ -3278,6 +3278,7 @@ Suppose $p$ and $p'$ are paths in $\Gamma$ and $A\in\matrices$ with
 Proposition \ref{proposition:std-paths-span-quiver-algebra} shows that $p$ and $p'$ are both congruent modulo $\zerorelations$ to the standard path corresponding to $A$, so $p$ and $p'$ are congruent modulo $\zerorelations$. Therefore $\rho$ is injective, so is an isomorphism of $\integers$-algebras as claimed. 
 \end{proof}
 
+{\color{red}
 \begin{conjecture}
 Even when $r\geq n$, $\rho$ gives a $\integers$-algebra isomorphism
 \begin{equation*}
@@ -3286,9 +3287,20 @@ Even when $r\geq n$, $\rho$ gives a $\integers$-algebra isomorphism
 where $\generic^{ap}$ is the subalgebra of $\generic$ spanned by the aperiodic basis elements.
 \end{conjecture}
 
-\begin{proof}[Rough]
-There will have to be an extended or new notion of standard path for the case of aperiodic basis elements which do not have a row or column of zero entries.
-\end{proof}
+I now doubt this conjecture, since we have seen that when $r\geq n$ extra relations are needed in order to transform any path to a standard path using the relations, thus proving injectivity of the quiver presentation. These are thought to be of the form
+\begin{equation*}
+e_i^2e_{i-1}\cdots e_{i+1}e_i = e_ie_{i-1}\cdots e_{i+1}e_i^2
+\end{equation*}
+and
+\begin{equation*}
+f_i^2f_{i+1}\cdots f_{i-1}f_i = f_if_{i+1}\cdots f_{i-1}f_i^2
+\end{equation*}
+for $i\in\{1,\ldots,n\}$.
+
+There may also be more general relations with arbitrary exponents for $e_{i-1},\ldots,e_{i+1}$ and $f_{i+1},\ldots,f_{i-1}$ respectively.
+
+This seems a little odd as these relations don't seem to hold in the affine zero Schur algebra, unless there are more $q$-Schur algebra relations we are not aware of.
+}
 
 
 \section{The isomorphism result}
@@ -3464,10 +3476,6 @@ for $i\in\{1,2\}$.
 [2] Degenerate group algebras of symmetric groups: write down a presentation of the degenerate group algebras, with generators given by the transpositions, or $2$-cycles. Type up the computations done for degenerate group algebras for $S_3$ and $S_4$. Formulate propositions for the general case: the transpositions generate the degenerate group algebra; lemma: `these' relations hold; these generators and relations give a presentation of the degenerate group algebras.
 
 Terminology: deformed group algebra.
-
-\section{back matter}
-
-[1] $\yprod[L]{A,B}$ is the image of $G_L\times G_{L'}$ under the action map $(\alpha,\beta)\mapsto \alpha\beta\cdot(L',L'')$, for any $(L',L'')\in\yprod[L]{A,B}$. Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{N,L}}$ is a connected algebraic group. Moreover, $G_{L'}/{H_{2N,L}}$ is an irreducible affine variety, so $G_{L}/{H_{N,L}}\times G_{L'}/{H_{2N,L}}$ is an irreducible affine variety. It follows that $\yprod[L]{A,B}$ is irreducible and constructible.
 
 
 \nocite{*}
