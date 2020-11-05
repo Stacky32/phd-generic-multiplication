@@ -1342,18 +1342,6 @@ a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}.
 
 Thus there is a bijection between the set of standard paths in $\Gamma$ and the standard basis of the affine $q$-Schur algebra indexed by $\matrices$.
 
-\begin{definition}\label{def:reduced-path}
-A path is said to be \emph{reduced} if it is not equivalent to a shorter path.
-\end{definition}
-
-\begin{lemma}\label{lemma:standard-path-reduced}
-A standard path is reduced.
-\end{lemma}
-
-\begin{proof}
-{\color{red}COMPLETE THIS PROOF.}
-\end{proof}
-
 \begin{lemma}\label{lemma:image-of-standard-path}
 Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
 \begin{equation*}
@@ -2909,7 +2897,7 @@ for some
 \begin{equation*}
 \omega_1,\ldots,\omega_m\in\{E_1,\ldots,E_n\}\cup\{F_1,\ldots,F_n\},
 \end{equation*}
-where $\lambda=\co{A}$.
+where $\lambda=\co{A}$ and $m=\weight{A}$.
 \end{lemma}
 
 \begin{proof}
@@ -3249,6 +3237,18 @@ F_{i+1}^2F_i^a -F_{i+1}F_i^aF_{i+1} = \transpose{\left(E_{i+1}E_i^aE_{i+1} -E_i^
 \subsection{Standard paths}
 
 Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. As noted earlier, there is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$.
+
+\begin{definition}\label{def:reduced-path}
+A path is said to be \emph{reduced} if it is not equivalent to a shorter path.
+\end{definition}
+
+\begin{lemma}\label{lemma:standard-path-reduced}
+A standard path is reduced.
+\end{lemma}
+
+\begin{proof}
+{\color{red}COMPLETE THIS PROOF.}
+\end{proof}
 
 \begin{lemma}\label{lemma:extending-standard-paths}
 Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\{1,\ldots,n\}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
