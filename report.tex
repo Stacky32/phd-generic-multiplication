@@ -1328,19 +1328,34 @@ for $j\in\{1,\ldots,n\}$.
 If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'$ is a standard path.
 \end{remark}
 
-Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$. Suppose $p$ is a standard path and $A\in\matrices$ with $\rho(p+\zerorelations)=e_A$, then there are the following linear relations between the exponents in the standard expression for $p$ and the entries of $A$:
+Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
+
+\begin{definition}\label{def:std-path-for-matrix}
+Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ p^-$, where $\lambda=\ro{A}$ and the exponents in $p^+$ and $p^-$ are given by
 \begin{align*}
 \alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
-\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t},
+\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t}
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $s\in\naturals$; and
+for $i\in\{1,\ldots,n\}$ and $s\geq 1$, respectively.
+\end{definition}
+
+\begin{lemma}\label{lemma:correspondence-std-paths-to-basis}
+If $p$ is a standard path then there is a unique element $A\in\matrices$ such that $p=p_A$. Thus there is a bijection between the set of standard paths in $\Gamma$ and $\matrices$.
+\end{lemma}
+
+\begin{proof}
+The map
+\begin{equation*}
+\matrices\to \{\text{ standard paths in }\Gamma\}:A\mapsto p_A
+\end{equation*}
+is injective since distinct elements of $\matrices$ define distinct standard paths. Finally, if $p$ is a standard path then $p=p_A$ where
 \begin{align*}
 a_{i,i+s} &= \alpha_{i,s}-\alpha_{i,s+1}\\
 a_{i,i-s} &= \beta_{i-1,s}-\beta_{i-1,s+1}\\
-a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}.
+a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}
 \end{align*}
-
-Thus there is a bijection between the set of standard paths in $\Gamma$ and the standard basis of the affine $q$-Schur algebra indexed by $\matrices$.
+for all $i\in\{1,\ldots,n\}$ and $s\geq 1$.
+\end{proof}
 
 \begin{lemma}\label{lemma:image-of-standard-path}
 Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
@@ -2818,10 +2833,10 @@ where
 
 Either $\omega\ast 1_\lambda=0$ or $\omega\ast 1_\lambda = e_A$ for some $A\in\matrices$, where $A$ is aperiodic, as a result of Lemma \ref{lemma:words-are-aperiodic}.
 
-The next step is to prove a converse of this result. It will be shown that each of the aperiodic basis elements $e_A$ in $\generic$ can be expressed in the form $\omega 1_\lambda$, where $\omega$ is a word in $E_1,\ldots E_n$ and $F_1,\ldots, F_n$ and $\lambda=\co{A}$. This will be proven by induction on the `weight' of a matrix by showing how any aperiodic basis element can be written as the product of some $E_i$ or $F_i$ with an aperiodic basis element of strictly smaller weight.
+The next step is to prove a converse of this result. It will be shown that each of the aperiodic basis elements $e_A$ in $\generic$ can be expressed in the form $\omega 1_\lambda$, where $\omega$ is a word in $E_1,\ldots E_n$ and $F_1,\ldots, F_n$ and $\lambda=\co{A}$. This will be proven by induction on the \emph{weight} of a matrix by showing how any aperiodic basis element can be written as the product of some $E_i$ or $F_i$ with an aperiodic basis element of strictly smaller weight.
 
 \begin{definition}\label{def:weight-of-matrix}
-For each $A\in\matrices$, define the weight of $A$ to be the non negative integer $\weight{A}$ given by
+For each $A\in\matrices$, define the \emph{weight of $A$} to be the non negative integer
 \begin{equation*}
 \weight{A} = \sum_{i\in\{1,\ldots,n\},j\in\integers} |j-i| a_{i,j}.
 \end{equation*}
@@ -2832,7 +2847,7 @@ Observe that
 \weight{A} = \sum_{[i,j]:i<j}(j-i)a_{i,j} + \sum_{[i,j]:i>j}(i-j)a_{i,j}.
 \end{equation*}
 
-Also write $\weight{e_A} = \weight{A}$. Then $1_\lambda$ has weight $0$, and $E_{i,\lambda}$ and $F_{i,\lambda}$ have weight $1$. In fact, the converses also hold in that $\weight{e_A}=0$ implies $e_A=1_\lambda$ for some $\lambda$, and $\weight{e_A}=1$ implies $e_A$ is $E_{i,\lambda}$ or $F_{i,\lambda}$ for some $i$ and $\lambda$.
+Also write $\weight{e_A} = \weight{A}$. Then $1_\lambda$ has weight $0$, and $E_{i,\lambda}$ and $F_{i,\lambda}$ have weight $1$. In fact, the converse also holds: If $\weight{A}=0$ then $e_A=1_\lambda$ where $\lambda=\co{A}$, and if $\weight{A}=1$ then $e_A$ is $E_{i,\lambda}$ or $F_{i,\lambda}$ for some $i$, where $\lambda=\co{A}$.
 
 \begin{lemma}\label{lemma:weight-change-E}
 Let $A\in\matrices$ and write $\mu=\ro{A}$. Suppose $\mu_{i+1}>0$ and set
@@ -3236,7 +3251,22 @@ F_{i+1}^2F_i^a -F_{i+1}F_i^aF_{i+1} = \transpose{\left(E_{i+1}E_i^aE_{i+1} -E_i^
 
 \subsection{Standard paths}
 
-Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. As noted earlier, there is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$.
+Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. There is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$, using Lemma \ref{lemma:correspondence-std-paths-to-basis}.
+
+\begin{lemma}\label{lemma:image-of-standard-path-generic}
+Let $A\in\matrices$. If $p$ if the standard path for $A$, as in Definition \ref{def:std-path-for-matrix}, then
+\begin{equation*}
+\rho(p+\zerorelations) = e_A.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+{\color{red}COMPLETE THIS PROOF.}
+\end{proof}
+
+\begin{remark}
+The result of Lemma \ref{lemma:image-of-standard-path-generic} gives another way to see that the homomorphism $\rho$ from the quiver algebra to $\generic$ is surjective provided $r<n$. When $r\geq n$, the image of the quiver algebra in $\generic$ is spanned by the aperiodic basis elements, by Proposition \ref{proposition:image-of-quiver-algebra-generic}.
+\end{remark}
 
 \begin{definition}\label{def:reduced-path}
 A path is said to be \emph{reduced} if it is not equivalent to a shorter path.
@@ -3247,7 +3277,43 @@ A standard path is reduced.
 \end{lemma}
 
 \begin{proof}
-{\color{red}COMPLETE THIS PROOF.}
+If $p$ is a standard positive or negative path then $p$ is reduced, since the relations only involving the edges $e_i:i\in\{1,\ldots,n\}$ or $f_i:i\in\{1,\ldots,n\}$ are homogeneous polynomials, so any equivalent path is of the same length.
+
+Now suppose $p=k_\lambda p^+p^-$ is a standard path for a standard positive path $k_\lambda p^+$ and a standard negative path $k_\mu p^-$. The number of arrows in $p$ is
+\begin{equation*}
+l=\sum_{i\in\{1,\ldots,n\},s\geq 1} \alpha_{i,s} + \beta_{i,s}.
+\end{equation*}
+
+Let $A$ be the matrix corresponding to the standard path $p$, so that $p=p_A$ as in Lemma \ref{lemma:correspondence-std-paths-to-basis}. The minimum number of $E_i$ and $F_i$ in an expression for $e_A$ in $\generic$ is
+\begin{equation*}
+\weight{A} = \sum_{i\in\{1,\ldots,n\},j\in\integers} |j-i|a_{i,j},
+\end{equation*}
+using Lemma \ref{lemma:factorising-aperiodic-elements}, so $l\geq \weight{A}$.
+
+Recall that
+\begin{equation*}
+\alpha_{i,s} = \sum_{t\geq s} a_{i,i+t}
+\end{equation*}
+and
+\begin{equation*}
+\beta_{i-1,s} = \sum_{t\geq s} a_{i,i-s},
+\end{equation*}
+so
+\begin{equation*}
+\sum_{s\geq 1} \alpha_{i,s} = \sum_{s\geq 1} sa_{i,i+s}
+\end{equation*}
+and
+\begin{equation*}
+\sum_{s\geq 1} \beta_{i-1,s} = \sum_{s\geq 1} sa_{i,i-s}.
+\end{equation*}
+
+Therefore
+\begin{align*}
+l &= \sum_{i\in\{1,\ldots,n\},s\geq 1} \alpha_{i,s} + \beta_{i,s}\\
+&= \sum_{i\in\{1,\ldots,n\},s\geq 1} s(a_{i,i+s} + a_{i,i-s})\\
+&= \weight{A},
+\end{align*}
+which proves that $p$ is reduced.
 \end{proof}
 
 \begin{lemma}\label{lemma:extending-standard-paths}
