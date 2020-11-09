@@ -7,8 +7,10 @@
 
 \chapter{Introduction}
 
+\section{The double flag variety approach to q-Schur algebras}
 
-\chapter{Background: The double flag variety approach to q-Schur algebras}
+\section{The cyclic flags approach to affine q-Schur algebras}
+
 
 
 \chapter{Geometric approach to affine q-Schur algebras}
@@ -334,7 +336,35 @@ Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ giv
 
 \begin{proof}
 The construction of a pair of flags corresponding to a matrix preceding this lemma shows that this map is surjective.
-{\color{red}PROVE INJECTIVITY.}
+
+Suppose $(L,L')$ and $(N,N')$ are pairs of flags with $\type{L}{L'}=\type{N,N'}=A$. There are decompositions of $V$ which are adapted to $(L,L')$ and $(N,N')$ as below:
+There are subspaces $U_{i,j}$ of $V$ for $i,j\in\integers$ such that the dimension of $U_{i,j}$ is $a_{i,j}$, $\epsilon U_{i,j}=U_{i-n,j-n}$ and
+\begin{equation*}
+V=\bigoplus_{i,j\in\integers} U_{i,j};
+\end{equation*}
+\begin{equation*}
+L_i = \bigoplus_{s\le i,j\in\integers} U_{s,j}
+\end{equation*}
+for each $i\in\integers$;
+\begin{equation*}
+L_j' = \bigoplus_{i\in\integers,t\le j} U_{i,t}
+\end{equation*}
+for each $j\in\integers$.
+
+There are subspaces $V_{i,j}$ of $V$ for each $i,j\in\integers$ such that the dimension of $V_{i,j}$ is $a_{i,j}$, $\epsilon V_{i,j} = V_{i-n,j-n}$ and
+\begin{equation*}
+V = \bigoplus_{i,j\in\integers} V_{i,j};
+\end{equation*}
+\begin{equation*}
+N_i = \bigoplus_{s\le i,j\in\integers} V_{s,j}
+\end{equation*}
+for each $i\in\integers$;
+\begin{equation*}
+N_j' = \bigoplus_{i\in\integers,t\le j} V_{i,t}
+\end{equation*}
+for each $j\in\integers$.
+
+There exist $\field$-linear isomorphisms $g_{i,j}\colon U_{i,j}\to V_{i,j}$ for $i,j\in\integers$ such that $g_{i-n,j-n}=\epsilon g_{i,j}\epsilon^{-1}$. Then $g=(g_{i,j})_{i,j\in\integers}$ is a $\laurent$-linear automorphism of $V$ with $g(L_i)=N_i$ and $g(L_i')=N_i'$ for each $i\in\integers$, so $g(L,L')=(N,N')$. Therefore the map sending a $G$-orbit to its characteristic matrix is injective.
 \end{proof}
 
 \begin{lemma}
@@ -1003,11 +1033,6 @@ R F_i \antipode{(R)} = F_{i-1}
 \end{equation*}
 as claimed.
 \end{proof}
-
-{\color{blue}[THIS IS DEFINITELY TRUE -- PROVE IT.]
-
-Although I can't be sure, I suspect that conjugation by $R$ gives a realisation of the Auslander-Reiten translation on the nilpotent representations of a cyclic quiver determined by the upper triangular matrices in $\matrices$. This is at least plausible since the A.R translation $\tau$ sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$, which is consistent with the conjugation by $R$, which sends $E_i$ to $E_{i-1}$.}
-
 
 
 \section{Quivers and relations}
@@ -2156,13 +2181,13 @@ There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 $\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices^{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
-Let $A\ast B\in\matrices$ be the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
+Let $A\ast B\in\matrices$ denote the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
 
 \section{Degenerations of orbits and the combinatorial partial order}
 
-\begin{theorem}\label{theorem:compare-partial-orders}
-Let $A,B\in\matrices$ with $\ro{A}=\ro{B}$ and $\co{A}=\co{B}$, then $B\le A$ if and only if $\xprod[L]{B}\subset\overline{\xprod[L]{A}}$ for any $L\in\flags_{\ro{A}}$.
-\end{theorem}
+\begin{proposition}\label{proposition:compare-partial-orders}
+Let $A,B\in\matrices$ with $\ro{A}=\ro{B}$ and $\co{A}=\co{B}$. If $\xprod[L]{B}\subset\overline{\xprod[L]{A}}$ for some $L\in\flags_{\ro{A}}$ then $B\le A$ with respect to the hook order.
+\end{proposition}
 
 \begin{proof}
 Let $\lambda=\co{A}$, $\mu=\ro{A}$ and fix $L\in\flags_\mu$. Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$ and $\xprod[L]{B}\subset\Pi_{N,\lambda}^b(L)$, where $a=d_{nN,0}{(A)}$ and $b=d_{nN,0}{(B)}$. Then $\xprod[L]{A}$ is an open subset of the projective variety consisting of those $L'\in\Pi_{N,\lambda}^a(L)$ such that
@@ -2184,17 +2209,15 @@ and
 \bar{d}_{i,j}{(B)} = \dim\left(\frac{L_j'}{L_i\cap L_j'}\right) \le \bar{d}_{i,j}{(A)},
 \end{equation*}
 for each $i,j\in\integers$, for any $L'\in\xprod[L]{B}$. So $B\le A$ if $\xprod[L]{B}\le\overline{\xprod[L]{A}}$.
-
-{\color{red}
-Conversely, suppose $A\le B$.
-}
-
 \end{proof}
+
+\begin{remark}
+In practice it seems that the converse of Proposition \ref{proposition:compare-partial-orders} is true, so that the closure order and the hook order are the same, although I have not been able to find a proof.
+\end{remark}
 
 \begin{corollary}
 The maximum in $\matrices^{A,B}$ is $A\ast B$.
 \end{corollary}
-
 
 
 \section{Associativity of the generic product}
@@ -3328,7 +3351,7 @@ and in terms of $G$-orbits,
 \end{lemma}
 
 \begin{proof}
-Let $p$ be the standard path for $A$. Then $p=p^+ p^-$ where $p^+$ is the standard path for $A^+$ and $p^-$ is the standard path for $A^-$, by Lemma \ref{lemma:pos-neg-path-to-matrix}. Lemma \ref{lemma:image-of-standard-path-generic} then proves that
+Let $p$ be the standard path for $A$. Then $p=p^+ p^-$ where $p^+$ is the standard path for $A^+$ and $p^-$ is the standard path for $A^-$, by Lemma \ref{lemma:pos-neg-path-to-matrix}. Then Lemma \ref{lemma:image-of-standard-path-generic} proves that
 \begin{align*}
 e_A
 &= \rho(p+\zerorelations)\\
@@ -3443,16 +3466,7 @@ Suppose $p$ and $p'$ are paths in $\Gamma$ and $A\in\matrices$ with
 Proposition \ref{proposition:std-paths-span-quiver-algebra} shows that $p$ and $p'$ are both congruent modulo $\zerorelations$ to the standard path corresponding to $A$, so $p$ and $p'$ are congruent modulo $\zerorelations$. Therefore $\rho$ is injective, so is an isomorphism of $\integers$-algebras as claimed. 
 \end{proof}
 
-{\color{red}
-\begin{conjecture}
-Even when $r\geq n$, $\rho$ gives a $\integers$-algebra isomorphism
-\begin{equation*}
-\integers\Gamma/{\zerorelations}\to\generic^{ap},
-\end{equation*}
-where $\generic^{ap}$ is the subalgebra of $\generic$ spanned by the aperiodic basis elements.
-\end{conjecture}
-
-I now doubt this conjecture, since we have seen that when $r\geq n$ extra relations are needed in order to transform any path to a standard path using the relations, thus proving injectivity of the quiver presentation. These are thought to be of the form
+{\color{red}When $r\geq n$ extra relations are needed in order to transform any path to a standard path using the relations, thus proving injectivity of the quiver presentation. These are thought to be of the form
 \begin{equation*}
 e_i^2e_{i-1}\cdots e_{i+1}e_i = e_ie_{i-1}\cdots e_{i+1}e_i^2
 \end{equation*}
@@ -3563,7 +3577,7 @@ by Lemma \ref{lemma:image-of-standard-path}.
 \end{proof}
 
 \begin{theorem}
-In the case $r<n$, the map
+When $r<n$, the map
 \begin{equation*}
 \Psi\colon\generic\to\zeroschur
 \end{equation*}
@@ -3635,12 +3649,6 @@ for $i\in\{1,2\}$.
 \section{Further results on affine zero Schur algebras}
 
 [1] Investigate link between this generic product and the generic extension of representations. Shifting to the non-negative subalgebra to do computations purely in terms of generic extensions of quiver representations.
-
-\section{Deformed group algebras of symmetric groups}
-
-[2] Degenerate group algebras of symmetric groups: write down a presentation of the degenerate group algebras, with generators given by the transpositions, or $2$-cycles. Type up the computations done for degenerate group algebras for $S_3$ and $S_4$. Formulate propositions for the general case: the transpositions generate the degenerate group algebra; lemma: `these' relations hold; these generators and relations give a presentation of the degenerate group algebras.
-
-Terminology: deformed group algebra.
 
 
 \nocite{*}
