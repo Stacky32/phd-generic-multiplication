@@ -1321,7 +1321,7 @@ A path $p=k_\lambda p^{+}p^{-}$ is a \emph{standard path} if $p^{+}$ is a standa
 \begin{equation*}
 \alpha_{j,s} + \beta_{j-1,s} \le \lambda_j
 \end{equation*}
-for $j\in\{1,\ldots,n\}$.
+for $j\in\{1,\ldots,n\}$. Call $p^+$ the \emph{positive part} of $p$ and $p^-$ the \emph{negative part} of $p$.
 \end{definition}
 
 \begin{remark}
@@ -1331,11 +1331,14 @@ If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'
 Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
 
 \begin{definition}\label{def:std-path-for-matrix}
-Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ p^-$, where $\lambda=\ro{A}$ and the exponents in $p^+$ and $p^-$ are given by
-\begin{align*}
-\alpha_{i,s} &= \sum_{t\geq i+s} a_{i,t}\\
-\beta_{i,s} &= \sum_{t\le i-s+1} a_{i+1,t}
-\end{align*}
+Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ k_p^-$, where $\lambda=\ro{A}$, $p^+$ is the standard positive path given by
+\begin{equation*}
+\alpha_{i,s} = \sum_{t\geq i+s} a_{i,t}
+\end{equation*}
+and $p^-$ is the standard negative path given by
+\begin{equation*}
+\beta_{i,s} = \sum_{t\le i-s+1} a_{i+1,t}
+\end{equation*}
 for $i\in\{1,\ldots,n\}$ and $s\geq 1$, respectively.
 \end{definition}
 
@@ -1355,6 +1358,49 @@ a_{i,i-s} &= \beta_{i-1,s}-\beta_{i-1,s+1}\\
 a_{i,i} &= \mu_i - \alpha_{i,1} -\beta_{i-1,1}
 \end{align*}
 for all $i\in\{1,\ldots,n\}$ and $s\geq 1$.
+\end{proof}
+
+\begin{definition}\label{def:matrix-pos-neg-parts}
+Let $A\in\matrices$. The \emph{positive part} of $A$ is the element $A^+\in\matrices$ with $\ro{A^+}=\ro{A}$ and off diagonal entries
+\begin{align*}
+a_{i,j}^+ &= a_{i,j} \text{ if } i<j;\\
+a_{i,j}^+ &= 0 \text{ if } i>j,
+\end{align*}
+for $i,j\in\integers$.
+
+The negative part of $A$ is the element $A^-\in\matrices$ with $\co{A^-}=\co{A}$ and off-diagonal entries
+\begin{align*}
+a_{i,j}^- &= 0 \text{ if } i<j;\\
+a_{i,j}^- &= a_{i,j} \text{ if } i>j,
+\end{align*}
+for $i,j\in\integers$.
+\end{definition}
+
+Recall that the $G$-orbit of a pair of flags $(L,L')$ is denoted by $[L,L']$.
+
+\begin{lemma}\label{lemma:pos-neg-orbits}
+Let $A\in\matrices$. If $(L,L')\in\orbit{A}$, then $[L,L\cap L']=\orbit{A^+}$ and $[L\cap L',L']=\orbit{A^-}$.
+\end{lemma}
+
+\begin{proof}
+Let $B\in\matrices$ with $\orbit{B} = [L,L\cap L']$. The row sum of $B$ is $|L|=\ro{A}$ and $B$ is upper triangular since $L\cap L'\subset L$. For $i<j$,
+\begin{align*}
+b_{i,j}
+&= \dim\left(\frac{L_i\cap L_j\cap L_j'}{L_{i-1}\cap L_j\cap L_j' + L_i\cap L_{j-1}\cap L_{j-1}'}\right)\\
+&= \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right)\\
+&= a_{i,j},
+\end{align*}
+so $B$ is the positive part of $A$ as in Definition \ref{def:matrix-pos-neg-parts}. The transpose of the negative part of $A$ is the positive part of the transpose of $A$, so it follows that $\orbit{A^-}=[L\cap L',L']$.
+\end{proof}
+
+\begin{lemma}\label{lemma:pos-neg-path-to-matrix}
+Let $A\in\matrices$ and let $p$ be the standard path for $A$. The positive part of $p$ is the standard path for $A^+$ and the negative part of $p$ is the standard path for $A^-$.
+\end{lemma}
+
+\begin{proof}
+Write $p=k_\lambda p^+ p^-k_\mu$, where $p^+$ and $p^-$ are the positive and negative parts of $p$ respectively. The exponents $\alpha_{i,s}$ in $p^+$ are determined by the entries of $A$ strictly above the diagonal, so the $\alpha_{i,s}$ are also the exponents in the standard path for $A^+$. It follows that $k_\lambda p^+$ is the standard path for $A^+$ since $\lambda=\ro{A}=\ro{A^+}$.
+
+Similarly, the exponents in the standard path for $A$ are given by the entries in $A$ strictly below the diagonal and $\mu=\co{A}=\co{A^-}$, so $p^- k_\mu$ is the standard path for $A^-$.
 \end{proof}
 
 \begin{lemma}\label{lemma:image-of-standard-path}
@@ -3267,6 +3313,31 @@ Let $A\in\matrices$. If $p$ if the standard path for $A$, as in Definition \ref{
 \begin{remark}
 The result of Lemma \ref{lemma:image-of-standard-path-generic} gives another way to see that the homomorphism $\rho$ from the quiver algebra to $\generic$ is surjective provided $r<n$. When $r\geq n$, the image of the quiver algebra in $\generic$ is spanned by the aperiodic basis elements, by Proposition \ref{proposition:image-of-quiver-algebra-generic}.
 \end{remark}
+
+Recall the definition of the positive and negative parts $A^+$ and $A^-$ of a matrix $A\in\matrices$, as in Definition \ref{def:matrix-pos-neg-parts}.
+
+\begin{lemma}
+Let $A\in\matrices$. Then
+\begin{equation*}
+e_A = e_{A^+}e_{A^-}
+\end{equation*}
+and in terms of $G$-orbits,
+\begin{equation*}
+[L,L']=[L,L\cap L'][L\cap L',L'].
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $p$ be the standard path for $A$. Then $p=p^+ p^-$ where $p^+$ is the standard path for $A^+$ and $p^-$ is the standard path for $A^-$, by Lemma \ref{lemma:pos-neg-path-to-matrix}. Lemma \ref{lemma:image-of-standard-path-generic} then proves that
+\begin{align*}
+e_A
+&= \rho(p+\zerorelations)\\
+&= \rho(p^+ +\zerorelations)\rho(p^- +\zerorelations)\\
+&= e_{A^+}e_{A^-}.
+\end{align*}
+
+The second part then follows from Lemma \ref{lemma:pos-neg-orbits} which states that $\orbit{A^+}=[L,L\cap L']$ and $\orbit{A^-}=[L\cap L',L']$ for any $(L,L')\in\orbit{A}$.
+\end{proof}
 
 \begin{definition}\label{def:reduced-path}
 A path is said to be \emph{reduced} if it is not equivalent to a shorter path.
