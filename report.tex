@@ -1356,7 +1356,7 @@ If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'
 Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
 
 \begin{definition}\label{def:std-path-for-matrix}
-Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ k_p^-$, where $\lambda=\ro{A}$, $p^+$ is the standard positive path given by
+Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ p^-$, where $\lambda=\ro{A}$, $p^+$ is the standard positive path given by
 \begin{equation*}
 \alpha_{i,s} = \sum_{t\geq i+s} a_{i,t}
 \end{equation*}
@@ -3544,7 +3544,7 @@ is a surjective $\qfrac$-algebra homomorphism, so
 \begin{equation*}
 \phi_0 = \qfrac/{(q)}\otimes_\qfrac\phi_\qfrac \colon \integers\Gamma/{\zerorelations}\to\zeroschur
 \end{equation*}
-is a surjective $\integers$-algebra homomorphism, using right exactness of tensor products. It follows that $\Psi$ is surjective since $\Psi\circ\rho=\phi_0$ and $\rho$ is an isomorphism.
+is a surjective $\integers$-algebra homomorphism, using right exactness of tensor products. It follows that $\Psi$ is surjective since $\Psi\circ\rho=\phi_0$ and $\rho$ is an isomorphism of $\integers$-algebras.
 \end{proof}
 
 \begin{lemma}\label{lemma:transfer-map-leading-term}
@@ -3556,10 +3556,11 @@ for some $c_B\in\naturals$.
 \end{lemma}
 
 \begin{proof}
-Given $A\in\matrices$, let $p$ be the standard path in $\Gamma$ corresponding to $A$, so
+Fix $A\in\matrices$ and let $p$ be the standard path for $A$ as in Definition \ref{def:std-path-for-matrix}, so that
 \begin{equation*}
-\rho(p+\zerorelations)=e_A.
+\rho(p+\zerorelations)=e_A,
 \end{equation*}
+using Lemma \ref{lemma:image-of-standard-path-generic}.
 
 Then
 \begin{align*}
