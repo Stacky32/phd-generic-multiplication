@@ -70,9 +70,9 @@ The row and column sums are finite since each row and column of $A$ contains onl
 \end{equation*}
 if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise. Clearly $\elem{i}{j} = \elem{i+n}{j+n}$ for each $i,j\in\integers$.
 
-Given $\lambda\in\compositions$, let $D_\lambda\in\matrices$ be the diagonal matrix with source and target $\lambda$, which is given by 
+Given $\lambda\in\compositions$, let $\diag{\lambda}\in\matrices$ be the diagonal matrix with source and target $\lambda$, which is given by 
 \begin{equation}\label{eq:diagonal-matrices}
-D_\lambda = \lambda_1\elem{1}{1} +\cdots +\lambda_n\elem{n}{n}.
+\diag{\lambda} = \lambda_1\elem{1}{1} +\cdots +\lambda_n\elem{n}{n}.
 \end{equation}
 
 \subsection{Cyclic flags}
@@ -386,7 +386,7 @@ so $L_i\cap L_i' = L_i'$ and thus $L_i'\subset L_i$ for each $i\in\integers$, as
 \begin{corollary}\label{corollary:diagonal-orbits}
 Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\neq j$. In particular,
 \begin{equation*}
-\orbit{D_\lambda} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
+\orbit{\diag{\lambda}} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
 \end{equation*}
 for each $\lambda\in\compositions$.
 \end{corollary}
@@ -413,13 +413,13 @@ There are only finitely many $G$-orbits in $\xprod{A,B}$.
 \end{remark}
 
 \begin{lemma}\label{lemma:product-with-diagonal-orbits}
-Given $A\in\matrices$, $\xprod{D_\lambda,A}=\orbit{A}$ if $\lambda=\ro{A}$ and $\xprod{A,D_\lambda}=\orbit{A}$ if $\lambda=\co{A}$.
+Given $A\in\matrices$, $\xprod{\diag{\lambda},A}=\orbit{A}$ if $\lambda=\ro{A}$ and $\xprod{A,\diag{\lambda}}=\orbit{A}$ if $\lambda=\co{A}$.
 \end{lemma}
 
 \begin{proof}
-Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{D_\lambda,A}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{D_\lambda}$, thus $L=L'$ by Corollary \ref{corollary:diagonal-orbits}, and $(L',L'')\in\orbit{A}$. $\xprod{D_\lambda,A}$ is the projection of $\yprod{D_\lambda,A}$, which equals $\orbit{A}$.
+Let $A\in\matrices$ and set $\lambda=\ro{A}$. $\yprod{\diag{\lambda},A}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{\diag{\lambda}}$, thus $L=L'$ by Corollary \ref{corollary:diagonal-orbits}, and $(L',L'')\in\orbit{A}$. $\xprod{\diag{\lambda},A}$ is the projection of $\yprod{\diag{\lambda},A}$, which equals $\orbit{A}$.
 
-Similarly, if $\lambda=\co{A}$, $\yprod{A,D_\lambda}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $L''=L'$, so $\xprod{A,D_\lambda}$ is exactly the orbit $\orbit{B}$.
+Similarly, if $\lambda=\co{A}$, $\yprod{A,\diag{\lambda}}$ is the set of triples $(L,L',L'')\in\flags^3$ with $(L,L')\in\orbit{A}$ and $L''=L'$, so $\xprod{A,\diag{\lambda}}$ is exactly the orbit $\orbit{B}$.
 \end{proof}
 
 \subsection{Triple products}
@@ -493,7 +493,7 @@ e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 
 Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers[q]$, it follows from Lemma \ref{lemma:convolution-algebra} that $\qschur$ is an associative $\integers[q]$-algebra with multiplicative identity given by
 \begin{equation*}
-1 = \sum_{\lambda\in\compositions} e_{D_\lambda}.
+1 = \sum_{\lambda\in\compositions} e_{\diag{\lambda}}.
 \end{equation*}
 
 
@@ -529,19 +529,19 @@ if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ ot
 
 Recall that the diagonal matrix with source and target $\lambda$ is
 \begin{equation*}
-D_\lambda = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n},
+\diag{\lambda} = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n},
 \end{equation*}
 as in Equation \ref{eq:diagonal-matrices}.
 
-The corresponding basis elements $e_{D_\lambda}$, for $\lambda\in\compositions$, are pairwise orthogonal idempotents in $\qschur$ with
+The corresponding basis elements $e_{\diag{\lambda}}$, for $\lambda\in\compositions$, are pairwise orthogonal idempotents in $\qschur$ with
 \begin{equation*}
-\sum_{\lambda\in\compositions}e_{D_\lambda} = 1,
+\sum_{\lambda\in\compositions}e_{\diag{\lambda}} = 1,
 \end{equation*}
 as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
 
 For each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, define
 \begin{equation*}
-E_{i,\lambda} = e_{D_\lambda + \elem{i}{i+1} - \elem{i+1}{i+1}}
+E_{i,\lambda} = e_{\diag{\lambda} + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
 and define
 \begin{equation*}
@@ -550,7 +550,7 @@ E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
 
 Also define, for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$,
 \begin{equation*}
-F_{i,\lambda} = e_{D_\lambda + \elem{i+1}{i} - \elem{i}{i}}
+F_{i,\lambda} = e_{\diag{\lambda} + \elem{i+1}{i} - \elem{i}{i}}
 \end{equation*}
 and define
 \begin{equation*}
@@ -892,7 +892,7 @@ Let $\lambda = (2,1,3)$. Then $\lambda[1]=(1,3,2)$, $\lambda[2]=(3,2,1)$ and $\l
 
 For each $\lambda\in\compositions$, define
 \begin{align*}
-R_\lambda &= e_{[1]D_\lambda}\\
+R_\lambda &= e_{[1]\diag{\lambda}}\\
 &= e_{\lambda_1\elem{0}{1}+\cdots +\lambda_n\elem{n-1}{n}}
 \end{align*}
 and let
@@ -902,15 +902,15 @@ R = \sum_{\lambda\in\compositions} R_\lambda.
 
 Recall that
 \begin{equation*}
-\orbit{D_\lambda} = \{(L,L):L\in\flags_\lambda\},
+\orbit{\diag{\lambda}} = \{(L,L):L\in\flags_\lambda\},
 \end{equation*}
 so
 \begin{equation*}
-\orbit{[m]D_\lambda} = \{([m]L,L):L\in\flags_\lambda\}
+\orbit{[m]\diag{\lambda}} = \{([m]L,L):L\in\flags_\lambda\}
 \end{equation*}
 and
 \begin{equation*}
-\orbit{D_\lambda [m]} = \{(L,[m]L):L\in\flags_\lambda\}.
+\orbit{\diag{\lambda} [m]} = \{(L,[m]L):L\in\flags_\lambda\}.
 \end{equation*}
 
 This leads to a simple rule for multiplication by $R$ in terms of these shifts on matrices.
@@ -929,7 +929,7 @@ e_A R = e_{A[-1]}.
 \begin{proof}
 Let $\mu = \ro{A}$ and $\lambda=\co{A}[-1]$. Observe that
 \begin{equation*}
-\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{[1]D_\mu}, (L',L'')\in\orbit{A}\} = \{(L'[1],L',L''): (L',L'')\in\orbit{A}\},
+\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{[1]\diag{\mu}}, (L',L'')\in\orbit{A}\} = \{(L'[1],L',L''): (L',L'')\in\orbit{A}\},
 \end{equation*}
 and the image under the projection onto the first and last components is
 \begin{equation*}
@@ -937,13 +937,13 @@ and the image under the projection onto the first and last components is
 \end{equation*}
 The coefficient of $\orbit{[1]A}$ in the product $Re_A$ is $1$ since, for any $(N,N'')\in\orbit{[1]A}$,
 \begin{equation*}
-\{N'\in\flags: (N,N')\in\orbit{[1]D_\mu}, (N',N'')\in\orbit{A}\} = \{N[-1]\},
+\{N'\in\flags: (N,N')\in\orbit{[1]\diag{\mu}}, (N',N'')\in\orbit{A}\} = \{N[-1]\},
 \end{equation*}
 so it follows that $Re_A = e_{[1]A}$.
 
 To compute the product $e_A R$, consider
 \begin{equation*}
-\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{[1]D_\lambda}\} = \{(L,L',L'[-1]):(L,L')\in\orbit{A}\}.
+\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{[1]\diag{\lambda}}\} = \{(L,L',L'[-1]):(L,L')\in\orbit{A}\}.
 \end{equation*}
 The image under the projection onto the first and last components is
 \begin{equation*}
@@ -951,7 +951,7 @@ The image under the projection onto the first and last components is
 \end{equation*}
 and, for any $(N,N'')\in\orbit{A[-1]}$,
 \begin{equation*}
-\{N'\in\flags:(N,N')\in\orbit{A}, (N',N'')\in\orbit{[1]D_\lambda}\} = \{N''[1]\}.
+\{N'\in\flags:(N,N')\in\orbit{A}, (N',N'')\in\orbit{[1]\diag{\lambda}}\} = \{N''[1]\}.
 \end{equation*}
 Therefore $e_A R = e_{A[-1]}$.
 \end{proof}
@@ -963,24 +963,24 @@ R \antipode{(R)} = \antipode{(R)} R = 1.
 \end{equation*}
 In particular,
 \begin{equation*}
-R^{-1} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+R^{-1} = \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}}.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
 Recall that
 \begin{equation*}
-\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}}.
 \end{equation*}
 Then it follows from Lemma \ref{lemma:action-of-R} that
 \begin{equation*}
-R\antipode{(R)} = \sum_{\lambda\in\compositions}e_{[1][-1]D_\lambda} = 1
+R\antipode{(R)} = \sum_{\lambda\in\compositions}e_{[1][-1]\diag{\lambda}} = 1
 \end{equation*}
 and
 \begin{align*}
 \antipode{(R)} R
-&= \sum_{\lambda\in\compositions} e_{[-1]D_\lambda[-1]}\\
-&= \sum_{\lambda\in\compositions} e_{D_{(\lambda[-1])}}\\
+&= \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}[-1]}\\
+&= \sum_{\lambda\in\compositions} e_{\diag{(\lambda[-1])}}\\
 &= 1.
 \end{align*}
 \end{proof}
@@ -1056,13 +1056,13 @@ E_iF_i - F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} - \qint{\lamb
 \begin{proof}
 Denote $e_A$ by $\left[A\right]$. Fix $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
 \begin{align*}
-E_i F_j &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +\elem{j+1}{j} -\elem{j}{j}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{j+1}{j} -\elem{j}{j} +\elem{i}{i+1} -\elem{i+1}{i+1}\right].
+E_i F_j &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +\elem{j+1}{j} -\elem{j}{j}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{j+1}{j} -\elem{j}{j} +\elem{i}{i+1} -\elem{i+1}{i+1}\right].
 \end{align*}
 Observe that the nonzero terms in the above sum are those for which $\lambda_j>0$ and $\lambda_{i+1}>0$. Similarly,
 \begin{align*}
-F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{j+1}{j} -\elem{j}{j}\right],
+F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{j+1}{j} -\elem{j}{j}\right],
 \end{align*}
 where the sum is taken over those $\lambda$ such that $\lambda_{i+1}>0$ and $\lambda_{j}>0$. Therefore
 \begin{equation*}
@@ -1071,13 +1071,13 @@ E_iF_j -F_jE_i = 0.
 
 Again using Lemma \ref{lemma:fundamental-multiplication-rule},
 \begin{align*}
-E_iF_i &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +\elem{i+1}{i} -\elem{i}{i}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i+1}{i} -\elem{i}{i} +\elem{i}{i+1} -\elem{i+1}{i+1}\right] + \qint{\lambda_i}\left[D_\lambda\right]
+E_iF_i &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +\elem{i+1}{i} -\elem{i}{i}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i+1}{i} -\elem{i}{i} +\elem{i}{i+1} -\elem{i+1}{i+1}\right] + \qint{\lambda_i}\left[\diag{\lambda}\right]
 \end{align*}
 and
 \begin{align*}
-F_iE_i &= \sum_{\lambda\in\compositions} F_i\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i+1}{i} -\elem{i}{i}\right] + \qint{\lambda_{i+1}}\left[D_\lambda\right].
+F_iE_i &= \sum_{\lambda\in\compositions} F_i\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i+1}{i} -\elem{i}{i}\right] + \qint{\lambda_{i+1}}\left[\diag{\lambda}\right].
 \end{align*}
 Therefore
 \begin{equation*}
@@ -1133,17 +1133,17 @@ for $i\in\{1,\ldots,n\}$.
 Denote $e_A$ by $\left[A\right]$.
 
 \begin{align*}
-E_i E_{i+1}^2 = &\sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
-&+\qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]
+E_i E_{i+1}^2 = &\sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
+&+\qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]
 \end{align*}
 
 \begin{align*}
-E_{i+1}E_i E_{i+1} = &\sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]\\
-&+\qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
+E_{i+1}E_i E_{i+1} = &\sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]\\
+&+\qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{align*}
 
 \begin{equation*}
-E_{i+1}^2 E_i = \sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
+E_{i+1}^2 E_i = \sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{equation*}
 
 \begin{equation*}
@@ -1151,11 +1151,11 @@ E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i = \sum_{\lambda\in\com
 \end{equation*}
 where
 \begin{equation*}
-X_\lambda=D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}
+X_\lambda=\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}
 \end{equation*}
 and
 \begin{equation*}
-Y_\lambda=D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}.
+Y_\lambda=\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}.
 \end{equation*}
 
 It follows
@@ -1169,17 +1169,17 @@ F_{i+1}^2F_i -(1+q)F_{i+1}F_iF_{i+1} +qF_iF_{i+1}^2 = 0,
 by applying the transpose involution to the first relation.
 
 \begin{align*}
-E_i^2E_{i+1} = &\sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
-&+\qint{2}\left[D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} - \elem{i+2}{i+2}\right]
+E_i^2E_{i+1} = &\sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
+&+\qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} - \elem{i+2}{i+2}\right]
 \end{align*}
 
 \begin{align*}
-E_i E_{i+1} E_i = &\sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
-&+\qint{2}\left[D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
+E_i E_{i+1} E_i = &\sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
+&+\qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
 \end{align*}
 
 \begin{equation*}
-E_{i+1}E_i^2 = \sum_{\lambda\in\compositions} \qint{2}\left[D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
+E_{i+1}E_i^2 = \sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
 \end{equation*}
 
 So
@@ -1188,11 +1188,11 @@ E_i^2E_{i+1} -(1+q)E_iE_{i+1}E_i +qE_{i+1}E_i &= \sum_{\lambda\in\compositions} 
 \end{align*}
 where
 \begin{equation*}
-A_\lambda = D_\lambda +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}
+A_\lambda = \diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}
 \end{equation*}
 and
 \begin{equation*}
-B_\lambda = D_\lambda +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}.
+B_\lambda = \diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}.
 \end{equation*}
 
 Therefore
@@ -1651,10 +1651,10 @@ Next, the first relation will be established by an explicit computation using th
 
 Write
 \begin{align*}
-W &= D_\lambda +\elem{1}{2} -\elem{1}{1} +3\elem{2}{3} -3\elem{2}{2}\\
-X &= D_\lambda +2\elem{2}{3} +\elem{2}{4} -3\elem{2}{2}\\
-Y &= D_\lambda +\elem{1}{3} -\elem{1}{1} +2\elem{2}{3} -2\elem{2}{2}\\
-Z &= D_\lambda +\elem{2}{3} +\elem{2}{5} -2\elem{2}{2}.
+W &= \diag{\lambda} +\elem{1}{2} -\elem{1}{1} +3\elem{2}{3} -3\elem{2}{2}\\
+X &= \diag{\lambda} +2\elem{2}{3} +\elem{2}{4} -3\elem{2}{2}\\
+Y &= \diag{\lambda} +\elem{1}{3} -\elem{1}{1} +2\elem{2}{3} -2\elem{2}{2}\\
+Z &= \diag{\lambda} +\elem{2}{3} +\elem{2}{5} -2\elem{2}{2}.
 \end{align*}
 
 \begin{equation*}
@@ -1734,9 +1734,9 @@ for each $A,B\in\matrices$ with $\co{A}=\ro{B}$, and
 \end{equation*}
 for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$, is an associative $\integers$-algebra with multiplicative identity given by
 \begin{equation*}
-\sum_{\lambda\in\compositions} \orbit{D_\lambda},
+\sum_{\lambda\in\compositions} \orbit{\diag{\lambda}},
 \end{equation*}
-where $D_\lambda$ is the diagonal matrix with $\co{D_\lambda}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted $\generic$.
+where $\diag{\lambda}$ is the diagonal matrix with $\co{\diag{\lambda}}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted $\generic$.
 
 
 
@@ -2421,7 +2421,7 @@ The generic algebra $\generic$ is an associative $\integers$-algebra with $1$, w
 \end{equation*}
 where
 \begin{equation*}
-1_\lambda = e_{D_\lambda},
+1_\lambda = e_{\diag{\lambda}},
 \end{equation*}
 for each $\lambda\in\compositions$.
 \end{proposition}
@@ -2459,7 +2459,7 @@ The following constitutes a small category: the set of objects is $\compositions
 \end{proposition}
 
 \begin{proof}
-Proposition \ref{proposition:associativity} shows that the generic product $\ast$ is associative. For each object $\lambda\in\compositions$, the identity morphism $\lambda\to\lambda$ is the diagonal matrix $D_\lambda$.
+Proposition \ref{proposition:associativity} shows that the generic product $\ast$ is associative. For each object $\lambda\in\compositions$, the identity morphism $\lambda\to\lambda$ is the diagonal matrix $\diag{\lambda}$.
 \end{proof}
 
 Then the generic affine algebra $\generic$ may be realised as the $\integers$-algebra of this category. Observe that there are only finitely many objects in this category and distinct objects are non-isomorphic, so the isomorphism classes in this category are in one to one correspondence with $\compositions$. The $\integers$-algebra of this category is the free $\integers$-module on $\matrices$ with $\integers$-bilinear multiplication given by the generic product $\ast$.
@@ -2488,7 +2488,7 @@ for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$.
 
 For $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
 \begin{equation*}
-E_{i,\lambda} = e_{D_\lambda + \elem{i}{i+1} - \elem{i+1}{i+1}}
+E_{i,\lambda} = e_{\diag{\lambda} + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
 and let
 \begin{equation*}
@@ -2498,7 +2498,7 @@ for each $i\in\{1,\ldots,n\}$
 
 For $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$, define
 \begin{equation*}
-F_{i,\lambda} = e_{D_\lambda + \elem{i+1}{i} - \elem{i}{i}}
+F_{i,\lambda} = e_{\diag{\lambda} + \elem{i+1}{i} - \elem{i}{i}}
 \end{equation*}
 and let
 \begin{equation*}
@@ -2673,7 +2673,7 @@ Equally, this result can be proven directly using the formulas for the action of
 
 For each $\lambda\in\compositions$, define
 \begin{equation*}
-R_\lambda = e_{[1]D_\lambda} = e_{\lambda_1\elem{0}{1} + \cdots + \lambda_n\elem{n-1}{n}}
+R_\lambda = e_{[1]\diag{\lambda}} = e_{\lambda_1\elem{0}{1} + \cdots + \lambda_n\elem{n-1}{n}}
 \end{equation*}
 and set
 \begin{equation*}
@@ -2698,11 +2698,11 @@ Lemma \ref{lemma:action-of-R} shows that the same formulas hold in $\qschur$, th
 Observe that
 \begin{align*}
 \antipode{(R_\lambda)} &= e_{\lambda_1\elem{1}{0}+\cdots +\lambda_n\elem{n}{n-1}}\\
-&= e_{[-1]D_{[1]\lambda}}
+&= e_{[-1]\diag{[1]\lambda}}
 \end{align*}
 so
 \begin{equation*}
-\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]D_\lambda}.
+\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}}.
 \end{equation*}
 
 \begin{lemma}\label{lemma:R-is-a-unit-generic}
@@ -2715,8 +2715,8 @@ R \ast\antipode{(R)} = 1 = \antipode{(R)}\ast R.
 \begin{proof}
 Lemma \ref{lemma:action-of-R-generic} shows that
 \begin{align*}
-R\ast \antipode{(R)} 1_\lambda &= R e_{[-1]D_{[1]\lambda}}\\
-&= e_{D_{[1]\lambda}}\\
+R\ast \antipode{(R)} 1_\lambda &= R e_{[-1]\diag{[1]\lambda}}\\
+&= e_{\diag{[1]\lambda}}\\
 &= 1_{[1]\lambda}
 \end{align*}
 for each $\lambda\in\compositions$, so
@@ -2726,8 +2726,8 @@ R \ast\antipode{(R)} = 1.
 
 Similarly,
 \begin{align*}
-\antipode{(R)}\ast R &= \sum_{\lambda\in\compositions} e_{D_\lambda [1]}\ast R\\
-&= \sum_{\lambda\in\compositions} e_{D_\lambda}\\
+\antipode{(R)}\ast R &= \sum_{\lambda\in\compositions} e_{\diag{\lambda} [1]}\ast R\\
+&= \sum_{\lambda\in\compositions} e_{\diag{\lambda}}\\
 &= 1.
 \end{align*}
 \end{proof}
@@ -2875,7 +2875,7 @@ An element $A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}
 
 An element of $\generic$ is said to be aperiodic if it is a $\integers$-linear combination of basis elements $e_A$ corresponding to the aperiodic elements in $\matrices$.
 
-For example, the diagonal matrix $D_\lambda$ is aperiodic so $1_\lambda$ is aperiodic, for any $\lambda\in\compositions$. The elementary basis elements $E_{i,\lambda}$ and $F_{i,\lambda}$ introduced earlier are also aperiodic.
+For example, the diagonal matrix $\diag{\lambda}$ is aperiodic so $1_\lambda$ is aperiodic, for any $\lambda\in\compositions$. The elementary basis elements $E_{i,\lambda}$ and $F_{i,\lambda}$ introduced earlier are also aperiodic.
 
 When $r<n$, any element $A\in\matrices$ is aperiodic since $\co{A}$ is insincere and therefore $A$ has a zero column.
 
@@ -2987,7 +2987,7 @@ where $\lambda=\co{A}$ and $m=\weight{A}$.
 \begin{proof}
 The proof uses induction on the weight of $A$.
 
-If $\weight{A}=0$ then $A=D_\lambda$, where $\lambda=\co{A}$, so
+If $\weight{A}=0$ then $A=\diag{\lambda}$, where $\lambda=\co{A}$, so
 \begin{equation*}
 e_A = 1_\lambda.
 \end{equation*}
@@ -3177,8 +3177,8 @@ for $i\in\{1,\ldots,n\}$.
 \begin{proof}
 Suppose $i,j\in\{1,\ldots,n\}$ with $j>i+1$, so $\{i,i+1\}$ and $\{j,j+1\}$ are disjoint, then
 \begin{align*}
-E_iE_j &= \sum_{\lambda\in\compositions} E_i\left[ D_\lambda+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
-&= \sum_{\lambda\in\compositions} \left[ D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
+E_iE_j &= \sum_{\lambda\in\compositions} E_i\left[ \diag{\lambda}+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[ \diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
 &= E_jE_i
 \end{align*}
 
@@ -3189,25 +3189,25 @@ F_iF_j-F_jF_i = -\antipode{(\left[E_i,E_j\right])} = 0.
 
 Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:fundamental-multiplication-rule-generic-R}, for each $i\{1,\ldots,n\}$,
 \begin{align*}
-E_iE_{i+1}^2 &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +2\elem{i+1}{i+2} -2\elem{i+2}{i+2} +\elem{i}{i+2} -\elem{i+1}{i+2}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
+E_iE_{i+1}^2 &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2} +\elem{i}{i+2} -\elem{i+1}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{align*}
 and
 \begin{align*}
-E_{i+1}E_iE_{i+1} &= \sum_{\lambda\in\compositions} E_{i+1}\left[D_\lambda +\elem{i}{i+2}-\elem{i+2}{i+2}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{i}{i+2}+\elem{i+1}{i+2}-2\elem{i+2}{i+2}\right],
+E_{i+1}E_iE_{i+1} &= \sum_{\lambda\in\compositions} E_{i+1}\left[\diag{\lambda} +\elem{i}{i+2}-\elem{i+2}{i+2}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda}+\elem{i}{i+2}+\elem{i+1}{i+2}-2\elem{i+2}{i+2}\right],
 \end{align*}
 so $E_iE_{i+1}^2 = E_{i+1}E_iE_{i+1}$.
 
 \begin{align*}
-E_i^2E_{i+1} &= \sum_{\mu\in\compositions} \left[D_\mu+2\elem{i}{i+1}-2\elem{i}{i}\right]E_{i+1}\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right]
+E_i^2E_{i+1} &= \sum_{\mu\in\compositions} \left[\diag{\mu}+2\elem{i}{i+1}-2\elem{i}{i}\right]E_{i+1}\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right]
 \end{align*}
 and
 \begin{align*}
-E_iE_{i+1}E_i &= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}-\elem{i}{i}\right]E_i\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right],
+E_iE_{i+1}E_i &= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{i}{i+2}-\elem{i}{i}\right]E_i\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{i}{i+2}+\elem{i}{i+1}-2\elem{i}{i}\right],
 \end{align*}
 so $E_i^2E_{i+1}=E_iE_{i+1}E_i$.
 
@@ -3222,23 +3222,23 @@ F_{i+1}F_i^2 = \antipode{(E_i^2E_{i+1})} = \antipode{(E_iE_{i+1}E_i)} = F_iF_{i+
 
 Suppose $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
 \begin{align*}
-E_iF_j &= \sum_{\lambda\in\compositions} E_i\left[D_\lambda+\elem{j+1}{j}-\elem{j}{j}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{j+1}{j}-\elem{j}{j}+\elem{i}{i+1}-\elem{i+1}{i+1}\right]
+E_iF_j &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda}+\elem{j+1}{j}-\elem{j}{j}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda}+\elem{j+1}{j}-\elem{j}{j}+\elem{i}{i+1}-\elem{i+1}{i+1}\right]
 \end{align*}
 and
 \begin{align*}
-F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}\right]\\
-&= \sum_{\lambda\in\compositions} \left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j+1}{j}-\elem{j}{j}\right],
+F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[\diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}\right]\\
+&= \sum_{\lambda\in\compositions} \left[\diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j+1}{j}-\elem{j}{j}\right],
 \end{align*}
 so $E_iF_j=F_jE_i$.
 
 Finally, for $i\in\{1,\ldots,n\}$,
 \begin{equation*}
-E_iF_i = \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right]
+E_iF_i = \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[\diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right]
 \end{equation*}
 and
 \begin{equation*}
-F_iE_i = \sum_{\lambda:\lambda_i=0,\lambda_{i+1}>0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[D_\lambda+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right],
+F_iE_i = \sum_{\lambda:\lambda_i=0,\lambda_{i+1}>0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[\diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right],
 \end{equation*}
 so
 \begin{align*}
@@ -3322,15 +3322,88 @@ F_{i+1}^2F_i^a -F_{i+1}F_i^aF_{i+1} = \transpose{\left(E_{i+1}E_i^aE_{i+1} -E_i^
 
 Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. There is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$, using Lemma \ref{lemma:correspondence-std-paths-to-basis}.
 
+The expression for the standard path of $A$ is derived by contracting the rows of $A$ so that each step produces zero entries on the highest or lowest diagonal, yielding the element $\diag{\lambda}$ where $\lambda=\ro{A}$ after finitely many steps. Computing the image of a standard path in $\generic$ by computing the segments from left to right constructs $e_A$ slice by slice. In particular, the segment $p_s^+$ produces the diagonal at level $s$ while the segment $p_s^-$ produces the diagonal at level $-s$. In order to describe this process precisely we now give some notation for the row contractions of $A$.
+
+Given $A\in\matrices$ and $s\geq 1$ define elements $(s)A$ and $A(s)$ in $\matrices$ by
+\begin{equation*}
+\left((s)A\right)_{i,j} = \begin{cases}
+a_{i,j} &\text{ if } i-j<s,\\
+0 &\text{ if } i-j>s,\\
+\sum_{t\le j} a_{i,t} &\text{ if } i-j=s
+\end{cases}
+\end{equation*}
+and
+\begin{equation*}
+\left(A(s)\right)_{i,j} = \begin{cases}
+a_{i,j} &\text{ if } j-i<s,\\
+0 &\text{ if } j-i>s,\\
+\sum_{t\geq j} a_{i,t} &\text{ if } j-i=s
+\end{cases}
+\end{equation*}
+for $i,j\in\integers$. Observe that $(0)A(0)=\diag{\lambda}$ where $\lambda=\ro{A}$; $(0)A$ is upper triangular and coincides with $A$ above the diagonal; $A(0)$ is lower triangular and coincides with $A$ below the diagonal; $\ro{(s)A}=\ro{A}$ and $\ro{A(s)}=\ro{A}$. Also define the \emph{height} of $A$ as
+\begin{equation*}
+\height{A} = \max\{|j-i|:i,j\in\integers, a_{i,j}>0\}
+\end{equation*}
+so that $(h)A=A$ and $A(h)=A$ for $h\geq\height{A}$.
+
+\begin{lemma}\label{lemma:slice-by-slice}
+Let $A\in\matrices$ and let $p=k_\lambda p_1^+ \cdots p_h^+ p_1^-\cdots p_h^-$ be the standard path for $A$. Then
+\begin{equation*}
+e_{A(s-1)}\cdot p_s^+ = e_{A(s)}
+\end{equation*}
+and
+\begin{equation*}
+e_{(s-1)A}\cdot p_s^- = e_{(s)A}
+\end{equation*}
+for each $s\in\{1,\ldots,h\}$.
+\end{lemma}
+
+\begin{proof}
+Let $B=A(s-1)\cdot p_s^+$. Using the fundamental multiplication rules in $\generic$, Lemma \ref{lemma:fundamental-multiplication-rule-generic-R}, it follows that
+\begin{equation*}
+B = A(s-1) + \sum_{i\in\{1,\ldots,n\}} \alpha_{i,s}(\elem{i}{i+s} -\elem{i}{i+s-1}).
+\end{equation*}
+
+So $b_{i,j}=a_{i,j}$ if $j-i<s-1$,
+\begin{align*}
+b_{i,i+s-1}
+&= \alpha_{i,s-1}-\alpha_{i,s}\\
+&= a_{i,i+s-1}
+\end{align*}
+and
+\begin{equation*}
+b_{i,i+s} = \alpha_{i,s},
+\end{equation*}
+which proves that $B=A(s)$.
+
+Similarly, let $B=(s-1)A\cdot p_s^-$. Using Lemma \ref{lemma:fundamental-multiplication-rule-generic-R} it follows that
+\begin{equation*}
+B = (s-1)A + \sum_{i\in\{1,\ldots,n\}} \beta_{i-1,s}(\elem{i}{i-s} - \elem{i}{i-s+1}).
+\end{equation*}
+
+So $b_{i,j}=a_{i,j}$ if $i-j<s-1$,
+\begin{align*}
+b_{i,i-s+1}
+&= \beta_{i-1,s-1} - \beta_{i-1,s}\\
+&= a_{i,i-s+1}
+\end{align*}
+and
+\begin{equation*}
+b_{i,i-s} = \beta_{i-1,s},
+\end{equation*}
+which proves $B=(s)A$.
+\end{proof}
+
+
 \begin{lemma}\label{lemma:image-of-standard-path-generic}
-Let $A\in\matrices$. If $p$ if the standard path for $A$, as in Definition \ref{def:std-path-for-matrix}, then
+Let $A\in\matrices$. If $p$ if the standard path for $A$, then
 \begin{equation*}
 \rho(p+\zerorelations) = e_A.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-{\color{red}COMPLETE THIS PROOF.}
+{\color{red}[COMPLETE THIS PROOF.]}
 \end{proof}
 
 \begin{remark}
@@ -3619,15 +3692,15 @@ F_iF_{i+1}F_i^2 &= F_i^2F_{i+1}F_i.
 
 \begin{proof}
 \begin{align*}
-E_1E_2E_1^2 &= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{3}-\elem{1}{1}\right]E_1^2\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}-\elem{1}{1}\right]E_1\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right]
+E_1E_2E_1^2 &= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{1}{3}-\elem{1}{1}\right]E_1^2\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{1}{4}-\elem{1}{1}\right]E_1\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right]
 \end{align*}
 and
 \begin{align*}
-E_1^2E_2E_1 &= \sum_{\mu\in\compositions} \left[D_\mu+2\elem{1}{2}-2\elem{1}{1}\right]E_2E_1\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{3}+\elem{1}{2}-2\elem{1}{1}\right]E_1\\
-&= \sum_{\mu\in\compositions} \left[D_\mu+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right],
+E_1^2E_2E_1 &= \sum_{\mu\in\compositions} \left[\diag{\mu}+2\elem{1}{2}-2\elem{1}{1}\right]E_2E_1\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{1}{3}+\elem{1}{2}-2\elem{1}{1}\right]E_1\\
+&= \sum_{\mu\in\compositions} \left[\diag{\mu}+\elem{1}{4}+\elem{1}{2}-2\elem{1}{1}\right],
 \end{align*}
 so $E_1E_2E_1^2 = E_1^2E_2E_1$.
 
