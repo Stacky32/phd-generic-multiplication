@@ -3258,7 +3258,11 @@ defined by
 \rho(e_{i,\lambda} +\zerorelations) &= E_{i,\lambda}\\
 \rho(f_{i,\lambda} +\zerorelations) &= F_{i,\lambda},
 \end{align*}
-for all $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for all $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. Thus $\generic$ may also be regarded as an algebra over $\integers\Gamma$ where the action of a path $p$ is given by
+\begin{equation*}
+e_A\cdot p = e_A\rho(p+\zerorelations)
+\end{equation*}
+for all $A\in\matrices$.
 
 \begin{proposition}\label{proposition:image-of-quiver-algebra-generic}
 The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
@@ -3394,16 +3398,35 @@ b_{i,i-s} = \beta_{i-1,s},
 which proves $B=(s)A$.
 \end{proof}
 
-
 \begin{lemma}\label{lemma:image-of-standard-path-generic}
-Let $A\in\matrices$. If $p$ if the standard path for $A$, then
+Let $A\in\matrices$ and let $p$ be the standard path for $A$. Then
 \begin{equation*}
 \rho(p+\zerorelations) = e_A.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-{\color{red}[COMPLETE THIS PROOF.]}
+Let $A\in\matrices$, $\lambda=\ro{A}$, $\mu=\co{A}$, $h=\height{A}$ and let $p=k_\lambda p_1^+\cdots p_h^+ p_1^-\cdots p_h^- k_\mu$ be the standard path for $A$.
+
+The standard path for $(0)A$ is $k_\lambda p_1^+\cdots p_h^+$, by Lemma \ref{lemma:pos-neg-path-to-matrix}, so
+\begin{align*}
+e_{(0)A}
+&= e_{(0)A(h)}\\
+&= e_{(0)A(0)}\cdot p_1^+\cdots p_h^+
+\end{align*}
+by repeatedly applying Lemma \ref{lemma:slice-by-slice}. Similarly,
+\begin{align*}
+e_A
+&= e_{(h)A}\\
+&= e_{(0)A}\cdot p_1^-\cdots p_h^-,
+\end{align*}
+since $p$ is the standard path for $A$. Therefore
+\begin{align*}
+e_A
+&= e_{(0)A(0)}\cdot p_1^+\cdots p_h^+ p_1^-\cdots p_h^-\\
+&= e_{\diag{\lambda}}\cdot p\\
+&= \rho(p+\zerorelations).
+\end{align*}
 \end{proof}
 
 \begin{remark}
@@ -3446,7 +3469,7 @@ A standard path is reduced.
 \begin{proof}
 If $p$ is a standard positive or negative path then $p$ is reduced, since the relations only involving the edges $e_i:i\in\{1,\ldots,n\}$ or $f_i:i\in\{1,\ldots,n\}$ are homogeneous polynomials, so any equivalent path is of the same length.
 
-Now suppose $p=k_\lambda p^+p^-$ is a standard path for a standard positive path $k_\lambda p^+$ and a standard negative path $k_\mu p^-$. The number of arrows in $p$ is
+Now suppose $p=k_\lambda p^+p^- k_\mu$ is a standard path for a standard positive path $k_\lambda p^+$ and a standard negative path $p^- k_\mu$. The number of arrows in $p$ is
 \begin{equation*}
 l=\sum_{i\in\{1,\ldots,n\},s\geq 1} \alpha_{i,s} + \beta_{i,s}.
 \end{equation*}
