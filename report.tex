@@ -11,13 +11,45 @@
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
+The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su12} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
+
+Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using affine double flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
+
+The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of peridoic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+
+Below is a statement of the main results of the thesis.
+
+\begin{proposition*}
+There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
+\end{proposition*}
+
+\begin{proposition*}
+The generic algebra $\generic$ is an associative $\integers$-algebra with $1$, with
+\begin{equation*}
+1=\sum_{\lambda\in\compositions} 1_\lambda
+\end{equation*}
+where
+\begin{equation*}
+1_\lambda = e_{\diag{\lambda}},
+\end{equation*}
+for each $\lambda\in\compositions$.
+\end{proposition*}
+
+\begin{theorem*}
+If $r<n$ then $\rho$ is a $\integers$-algebra isomorphism. Thus $\generic$ admits a presentation by the quiver $\Gamma$ and the ideal of relations $\zerorelations$ in $\integers\Gamma$.
+\end{theorem*}
+
+\begin{theorem*}
+When $r<n$, the map
+\begin{equation*}
+\Psi\colon\generic\to\zeroschur
+\end{equation*}
+is an isomorphism of $\integers$-algebras.
+\end{theorem*}
 
 
 \chapter{Geometric approach to affine q-Schur algebras}
 
-\section{Affine q-Schur algebras via Hecke algebras}
-
-{\color{red}Describe the original construction/ definition of affine q-Schur algebras via Hecke endomorphism algebras.}
 
 \section{The cyclic flags realisation of affine q-Schur algebras}
 
@@ -1428,15 +1460,15 @@ Write $p=k_\lambda p^+ p^-k_\mu$, where $p^+$ and $p^-$ are the positive and neg
 Similarly, the exponents in the standard path for $A$ are given by the entries in $A$ strictly below the diagonal and $\mu=\co{A}=\co{A^-}$, so $p^- k_\mu$ is the standard path for $A^-$.
 \end{proof}
 
-\begin{lemma}\label{lemma:image-of-standard-path}
+\begin{proposition}\label{proposition:image-of-standard-path}
 Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
 \begin{equation*}
 \phi(p+\qrelations) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
 \end{equation*}
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
-{\color{red}THIS IS A REALLY FUNDAMENTAL LEMMA -- PROVE IT!}
+{\color{red}THIS IS A REALLY FUNDAMENTAL PROPOSITION -- PROVE IT!}
 \end{proof}
 
 
@@ -1611,7 +1643,7 @@ for some $g_B\in\integers[q]$, where
 \begin{equation*}
 g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
 \end{equation*}
-by Lemma \ref{lemma:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
+by Proposition \ref{proposition:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
 \begin{equation*}
 e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
 \end{equation*}
@@ -3615,7 +3647,7 @@ g_A(0)
 &= \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)_{q=0}\\
 &= 1,
 \end{align*}
-by Lemma \ref{lemma:image-of-standard-path}.
+by Proposition \ref{proposition:image-of-standard-path}.
 \end{proof}
 
 \begin{theorem}
@@ -3686,7 +3718,7 @@ for $i\in\{1,2\}$.
 
 
 
-\chapter{Further directions}
+\chapter{Conclusion}
 
 \section{The case of large r}
 
