@@ -7,17 +7,49 @@
 
 \chapter{Introduction}
 
+The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su12} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
+
+
+{\color{gray}
+
+To include in introduction:
+quantum groups
+
+
+The first part of the introduction should discuss the context of the topic and mention references. Then proceed to describe the double flag variety realisations of (affine) $q$-Schur algebras in the next two sections.
+}
+
 \section{The double flag variety approach to q-Schur algebras}
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su12} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
-
 Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using affine double flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
 
-The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of peridoic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+
 
 Below is a statement of the main results of the thesis.
+
+{\color{gray}
+Results to include:
+
+Define $\flags$, the automorphism group $G$ and orbit-matrix correspondence.
+Define the product of orbits in $\dblflags$.
+Fundamental multiplication rules in $\qschur$.
+Shifting in $\qschur$.
+
+Define the quiver with relations for $\qschur$ and define the homomorphism from the path algebra to $\qschur$.
+
+Define the slices of orbit products $\xprod[L]{A,B}$.
+$\xprod[L]{A,B}$ is an irreducible quasiprojective algebraic variety and is a union of finitely many $G_L$ orbits, so there is a unique dense open orbit; so defining a generic product of orbits.
+Theorem: the generic product is associative, so there is a $\integers$-algebra $\generic$.
+
+Give the quiver with relations for $\generic$; define the map from the path algebra.
+State that these are surjective over $\integers$, both generic product and the $q=0$ form, and $\qfrac$.
+Define standard paths; state the conjecture that any path is congruent to a standard path when $r<n$.
+Image of a standard path in $\qschur$ and $\generic$.
+}
+
+
 
 \begin{proposition*}
 There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
@@ -46,6 +78,11 @@ When $r<n$, the map
 \end{equation*}
 is an isomorphism of $\integers$-algebras.
 \end{theorem*}
+
+
+The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+
+
 
 
 \chapter{Geometric approach to affine q-Schur algebras}
@@ -2498,7 +2535,7 @@ Then the generic affine algebra $\generic$ may be realised as the $\integers$-al
 
 
 
-\chapter{A realisation of affine zero Schur algebras}
+\chapter{Towards a realisation of affine zero Schur algebras}
 
 The purpose of this chapter is to study the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$.
 
@@ -2687,11 +2724,11 @@ p=\min\{i\in\integers:a_{i,j}>0\}.
 
 If $\lambda_{j+1}=0$ then $e_A\ast F_j=0$. If $\lambda_{j+1}>0$ then
 \begin{equation*}
-e_A\ast F_j = e_{A+\elem{q}{j}-\elem{q}{j+1}},
+e_A\ast F_j = e_{A+\elem{p'}{j}-\elem{p'}{j+1}},
 \end{equation*}
 where
 \begin{equation*}
-q=\max\{i\in\integers:a_{i,j+1}>0\}.
+p'=\max\{i\in\integers:a_{i,j+1}>0\}.
 \end{equation*}
 \end{lemma}
 
