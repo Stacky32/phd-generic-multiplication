@@ -38,9 +38,7 @@ for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$
 \begin{equation*}
 \gamma_{A,B,C}(\#\field) = \#\{L'\in\flags: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
-for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
-
-The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$, with a $\integers[q]$-basis
+for any finite field $\field$ and $(L,L'')\in\orbit{C}$. The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$, with a $\integers[q]$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\}
 \end{equation*}
@@ -56,51 +54,85 @@ Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associativ
 \end{equation*}
 called the affine $0$-Schur algebra.
 
-{\color{gray}
-Fundamental multiplication rules in $\qschur$.
-Shifting in $\qschur$.
-Define the quiver with relations for $\qschur$ and define the homomorphism from the path algebra to $\qschur$.
+===========================
 
-Define the slices of orbit products $\xprod[L]{A,B}$.
-$\xprod[L]{A,B}$ is an irreducible quasiprojective algebraic variety and is a union of finitely many $G_L$ orbits, so there is a unique dense open orbit; so defining a generic product of orbits.
-Theorem: the generic product is associative, so there is a $\integers$-algebra $\generic$.
-
-Give the quiver with relations for $\generic$; define the map from the path algebra.
-State that these are surjective over $\integers$, both generic product and the $q=0$ form, and $\qfrac$.
-Define standard paths; state the conjecture that any path is congruent to a standard path when $r<n$.
-Image of a standard path in $\qschur$ and $\generic$.
-
-\begin{proposition*}
-There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
-\end{proposition*}
-
-\begin{proposition*}
-The generic algebra $\generic$ is an associative $\integers$-algebra with $1$, with
+For an integer $m\geq 1$, the $q$-integer $\qint{m}$ is the polynomial
 \begin{equation*}
-1=\sum_{\lambda\in\compositions} 1_\lambda
+\frac{1-q^m}{1-q} = 1 + q +\cdots + q^{m-1}\in\integers[q]
 \end{equation*}
-where
-\begin{equation*}
-1_\lambda = e_{\diag{\lambda}},
-\end{equation*}
-for each $\lambda\in\compositions$.
-\end{proposition*}
+and $\qint{0}=0$. For $i,j\in\integers$, let $\elem{i}{j}$ be the elementary periodic matrix with entries equal to $1$ in positions $(i+cn,j+cn)$ for $c\in\integers$ and all other entries equal to zero.
 
-\begin{theorem*}
-If $r<n$ then $\rho$ is a $\integers$-algebra isomorphism. Thus $\generic$ admits a presentation by the quiver $\Gamma$ and the ideal of relations $\zerorelations$ in $\integers\Gamma$.
-\end{theorem*}
-
-\begin{theorem*}
-When $r<n$, the map
+\begin{lemma*}
+Given $A\in\matrices$,
 \begin{equation*}
-\Psi\colon\generic\to\zeroschur
+E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
 \end{equation*}
-is an isomorphism of $\integers$-algebras.
-\end{theorem*}
+Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_i>0$,
+\begin{equation*}
+F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}.
+\end{equation*}
+for each $i\in\{1,\ldots,n\}$
+\end{lemma*}
+
+{\color{red}
+quiver and relations with homomorphism; standard path for matrix; conjecture: image of a standard path.
 }
 
-The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+\begin{lemma*}
+There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the map
+\begin{equation*}
+e_A\mapsto Re_A R^{-1}
+\end{equation*}
+is a unipotent automorphism of $\qschur$ of degree $n$, corresponding to a shift along the diagonal of $A$.
+\end{lemma*}
 
+In order to gain geometric insight on the product of $G$-orbits in $\dblflags$ we consider finite dimensional slices of the orbits and orbit products together with the action of a finite dimensional quotient of a stabiliser in $G$. Given $A\in\matrices$ the row sum of $A$ is the composition $\ro{A}$ given by adding up the entries in each row and the column sum $\co{A}$ is the composition given by adding up the entries in each column of $A$.
+
+For $A,B\in\matrices$ and $L\in\flags_{\ro{A}}$ we consider the spaces
+\begin{equation*}
+\xprod[L]{A} = \{L'\in\flags:(L,L')\in\orbit{A}\},
+\end{equation*}
+\begin{equation*}
+\xprod[L]{A,B} = \{L''\in\flags:\exists L'\in\flags \text{ with } (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
+\end{equation*}
+and
+\begin{equation*}
+\yprod[L]{A,B} = \{(L',L'')\in\dblflags:(L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
+\end{equation*}
+together with the action of the stabiliser $G_L$.
+
+\begin{lemma*}
+The $G_L$-orbit $\xprod[L]{A}$ is an irreducible quasiprojective variety.
+\end{lemma*}
+
+\begin{lemma*}
+The space $\yprod[L]{A,B}$ is an irreducible quasiprojective variety.
+\end{lemma*}
+
+\begin{lemma*}
+The space $\xprod[L]{A,B}$ is irreducible and constructible.
+\end{lemma*}
+
+\begin{proposition*}
+Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, there is a unique element $A\ast B\in\matrices$ such that $\xprod[L]{A\ast B}$ is open in $\xprod[L]{A,B}$ for any $L\in\flags_{\ro{A}}$.
+\end{proposition*}
+
+This proposition leads to the definition of the generic affine algebra $\generic$, which is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ together with the generic product $\ast$ given by
+\begin{equation*}
+e_A\ast e_B = \begin{cases}
+e_{A\ast B} &: \text{ if } \co{A}=\ro{B},\\
+0 &: \text{ if } \co{A}\neq\ro{B}.
+\end{cases}
+\end{equation*}
+
+\begin{theorem*}
+The generic affine algebra $\generic$ is an associative $\integers$-algebra with $1$.
+\end{theorem*}
+
+{\color{red}
+factorising aperiodic basis elements; quiver and relations for generic algebra, with surjective map; conjecture: the presenting map is an isomorphism. relies on technical lemma; conjecture: isomorphism from generic algebra to 0-schur algebra. also depends on the technical lemma.}
+
+The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
 
 
 
