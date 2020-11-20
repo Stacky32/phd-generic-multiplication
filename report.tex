@@ -25,18 +25,40 @@ The first part of the introduction should discuss the context of the topic and m
 
 Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using affine double flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
 
+Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\laurent$-submodule of $V$ which is a free module of rank $r$ over $\polys$. The space of $n$-periodic flags in $V$ is denoted $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
+\begin{equation*}
+\flags_\lambda = \left\{L\in\flags:\dim\left(L_i/{L_{i-1}}\right)=\lambda_i \text{ for all }i\in\integers\right\}.
+\end{equation*}
 
+The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of \emph{infinite periodic matrices}, which consists of the $\integers\times\integers$ matrices with non-negative integer entries $a_{i,j}$ such that $a_{i,j}=a_{i-n,j-n}$ for all $i,j\in\integers$ and the sum of the entries in any $n$ consecutive rows or columns is $r$. The orbit corresponding to $A\in\matrices$ is denoted $\orbit{A}$ and is the set of pairs of flags $(L,L')$ such that
+\begin{equation*}
+\dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right) = a_{i,j}
+\end{equation*}
+for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that
+\begin{equation*}
+\gamma_{A,B,C}(\#\field) = \#\{L'\in\flags: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
+\end{equation*}
+for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
 
-Below is a statement of the main results of the thesis.
+The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$, with a $\integers[q]$-basis
+\begin{equation*}
+\{e_A:A\in\matrices\}
+\end{equation*}
+and multiplication given by
+\begin{equation*}
+e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}e_C
+\end{equation*}
+for $A,B\in\matrices$.
+
+Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associative $\integers$-algebra
+\begin{equation*}
+\zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
+\end{equation*}
+called the affine $0$-Schur algebra.
 
 {\color{gray}
-Results to include:
-
-Define $\flags$, the automorphism group $G$ and orbit-matrix correspondence.
-Define the product of orbits in $\dblflags$.
 Fundamental multiplication rules in $\qschur$.
 Shifting in $\qschur$.
-
 Define the quiver with relations for $\qschur$ and define the homomorphism from the path algebra to $\qschur$.
 
 Define the slices of orbit products $\xprod[L]{A,B}$.
@@ -47,9 +69,6 @@ Give the quiver with relations for $\generic$; define the map from the path alge
 State that these are surjective over $\integers$, both generic product and the $q=0$ form, and $\qfrac$.
 Define standard paths; state the conjecture that any path is congruent to a standard path when $r<n$.
 Image of a standard path in $\qschur$ and $\generic$.
-}
-
-
 
 \begin{proposition*}
 There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
@@ -78,7 +97,7 @@ When $r<n$, the map
 \end{equation*}
 is an isomorphism of $\integers$-algebras.
 \end{theorem*}
-
+}
 
 The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
 
@@ -89,6 +108,9 @@ The first chapter introduces the construction of affine $q$-Schur algebras via a
 
 
 \section{The cyclic flags realisation of affine q-Schur algebras}
+% Shorthand notation for polynomial/ laurent polynomial rings.
+\renewcommand{\laurent}{\mathcal{S}}
+\renewcommand{\polys}{\mathcal{R}}
 
 Fix integers $n,r\geq 1$.
 
@@ -3316,7 +3338,6 @@ E_iF_i-F_iE_i &= \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda -\sum_{\lam
 \end{align*}
 \end{proof}
 
-
 Lemma \ref{lemma:generic-algebra-relations} shows that there is a homomorphism of $\integers$-algebras
 \begin{equation*}
 \rho\colon\integers\Gamma/{\zerorelations}\to\generic
@@ -3344,11 +3365,6 @@ The image of $\rho$ is the subalgebra of $\generic$ generated by $E_i$ and $F_i$
 \end{equation*}
 using Proposition \ref{proposition:generating-aperiodic-elements}. If $r<n$ then every $A\in\matrices$ is aperiodic, since $A$ must contain a zero row or column. Therefore $\rho$ is surjective when $r<n$.
 \end{proof}
-
-{\color{red}
-Note: I've realised the relations I wrote down were totally wrong. Implicitly my proof assumed the $a=2$ case which turns out to be false. Replace these with a correct version of the higher braid relations.
-
-The following lemma gives a few relations which may be derived from the relations given in Lemma \ref{lemma:generic-algebra-relations}. This lemma will be used later to show that certain paths are congruent modulo $\zerorelations$. Observe that the relations given below also correspond to relations in the bound quiver algebra, since they are derived only from the braid type relations in Lemma \ref{lemma:generic-algebra-relations} and the corresponding relations in $\zerorelations$, respectively.}
 
 
 \subsection{Standard paths}
@@ -3533,6 +3549,40 @@ l &= \sum_{i\in\{1,\ldots,n\},s\geq 1} \alpha_{i,s} + \beta_{i,s}\\
 &= \weight{A},
 \end{align*}
 which proves that $p$ is reduced.
+\end{proof}
+
+The next result gives a more general form of the $0$-Serre relations in the quiver algebra for $\generic$, which will be useful in transforming a path into a standard path.
+
+\begin{lemma}\label{lemma:higher-Serre-relations-plus}
+Let $t>s\geq 0$ be integers. Then
+\begin{equation*}
+e_i^s e_{i+1}^s e_i - e_i^{s+1}e_{i+1}^s = 0
+\end{equation*}
+and
+\begin{equation*}
+e_i^s e_{i+1}^t - e_{i+1}^{t-s} e_i^s e_{i+1}^s = 0
+\end{equation*}
+in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
+\end{lemma}
+
+\begin{proof}
+{\color{red}COMPLETE THIS PROOF.}
+\end{proof}
+
+\begin{corollary}\label{corollary:higher-Serre-relations-minus}
+Let $t>s\geq 0$ be integers. Then
+\begin{equation*}
+f_{i+1}^s f_i^{s+1} - f_i f_{i+1}^s f_i^s = 0
+\end{equation*}
+and
+\begin{equation*}
+f_{i+1}^s f_i^s f_{i+1}^{t-s} - f_{i+1}^t f_i^s = 0
+\end{equation*}
+in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
+\end{corollary}
+
+\begin{proof}
+Applying the transpose involution to the relations in Lemma \ref{lemma:higher-Serre-relations-plus} yields these relations, since $e_i$ is mapped to $f_i$ and the order of multiplication is reversed.
 \end{proof}
 
 \begin{lemma}\label{lemma:extending-standard-paths}
