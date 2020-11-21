@@ -96,25 +96,18 @@
 
 % cokernel of a morphism
 \DeclareMathOperator{\coker}{coker}
-
 % (linear) span
 \DeclareMathOperator{\SPAN}{span}
-
 % morphism spaces
 \DeclareMathOperator{\HOM}{Hom}
-
 % endomorphism ring
 \DeclareMathOperator{\END}{End}
-
 % automorphism group
 \DeclareMathOperator{\AUT}{Aut}
-
 % extension groups
 \DeclareMathOperator{\EXT}{Ext}
-
 % image
 \DeclareMathOperator{\IM}{im}
-
 % rank of a linear map
 \DeclareMathOperator{\rank}{rank}
 
@@ -131,21 +124,17 @@
 
 % PROJECTIVE SPACES:
 \newcommand{\Proj}{\mathbb{P}}
-
 % GRASSMANNIANS:
 \newcommand{\GR}[2][]{\operatorname{Gr}_{#1}(#2)}
-
 % GENERAL LINEAR GROUPS:
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 % argument 1 denotes the rank while argument 2 denotes the ground ring
 % Usage: $\GL{~rank~}{~ring~}$.
 % alternative usage: $\GL{}{~free-module~} if the ring is apparent from context.
-
 % AFFINE SPACE OF MATRICES:
 \newcommand{\MAT}[2]{\operatorname{M}_{#1}(#2)}
 % Usage: %\MAT{r}{\field}% for the space of $r\times r$ matrices over $\field$
 % general usage: $\MAT{m\times n}{\field}$ for the space of $m\times n$ matrices over $\field$.
-
 % GROUND RINGS FOR LATTICES:
 % use curly epsilon
 \renewcommand{\epsilon}{\varepsilon}
@@ -153,62 +142,45 @@
 \newcommand{\laurent}{{\field[\epsilon,\epsilon^{-1}]}}
 % polynomial ring
 \newcommand{\polys}{{\field[\epsilon]}}
-
 % CYCLIC FLAG VARIETIES [single, double, triple]
 \newcommand{\flags}{\mathcal{F}}
 \newcommand{\dblflags}{{\flags\!\times\!\flags}}
 \newcommand{\triflags}{{\flags\!\times\!\flags\!\times\!\flags}}
-
 % q-integers
 \newcommand{\qint}[1]{[[#1]]}
-
 % q-factorials
 \newcommand{\qfact}[1]{[[#1]]_!}
-
 % compositions (of r into n parts)
 \newcommand{\compositions}[1][]{\Lambda_0{#1}}
-
 % elementary periodic matrices.
 \newcommand{\elem}[2]{\mathcal{E}_{#1,#2}}
-
 % periodic characteristic matrix of a pair.
 \newcommand{\type}[2]{\operatorname{A}(#1,#2)}
-
 % set of periodic characteristic matrices.
 \newcommand{\matrices}[1][]{\Lambda_1{#1}}
-
 % diagonal matrix.
 \newcommand{\diag}[1]{D_{#1}}
-
 % row and column sums of characteristic matrix.
 \newcommand{\ro}[1]{\operatorname{ro}(#1)}
 \newcommand{\co}[1]{\operatorname{co}(#1)}
-
 % weight of the characteristic matrix.
 \newcommand{\weight}[1]{\operatorname{wt}(#1)}
-
 % height of the characteristic matrix.
 \newcommand{\height}[1]{\operatorname{ht}(#1)}
-
 % orbits in double flag variety:
 \newcommand{\orbit}[1]{\mathcal{O}_{#1}}
-
 % PRODUCT(S) OF ORBITS
 \newcommand{\xprod}[2][]{X_{#2}^{#1}}
 \newcommand{\yprod}[2][]{Y_{#2}^{#1}}
 \newcommand{\zprod}[2][]{\tilde{Y}_{#2}^{#1}}
-
 % quiver for presentation of q schur algebras.
 \newcommand{\presentationquiver}[1][n,r]{\Gamma(#1)}
-
 % ideal of relations for presentation of q-Schur algebras.
 \newcommand{\qrelations}[1][n,r]{I(#1)}
-
 % ideal of relations for presentation of generic algebra
 \newcommand{\zerorelations}{\mathcal{J}}
 
 % Schur algebras
-
 % quantum affine Schur algebras
 \newcommand{\qschur}[1][n,r]{\hat{S}_q(#1)}
 % affine 0-Schur algebras
@@ -216,10 +188,9 @@
 % generic affine Schur algebras
 \newcommand{\generic}[1][n,r]{\hat{G}(#1)}
 
+%% Automorphisms of the generic algebra:
 % transpose symbol
 \newcommand{\transpose}{\top}
-
-%% Automorphisms of the generic algebra:
 % transpose involution on the generic algebra
 \newcommand{\antipode}[1]{S{#1}}
 % cyclic translation on generic algebra
@@ -227,7 +198,6 @@
 
 %localisation at elements of the form 1+qf
 \newcommand{\qfrac}{\mathcal{Q}}
-
 % the $\qfrac form of the q-Schur algebra
 \newcommand{\Qqschur}[1][n,r]{\hat{S}_{\qfrac}(#1)}
 

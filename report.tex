@@ -115,9 +115,17 @@ e_i &= \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}\\
 f_i &= \sum_{\lambda\in\compositions:\lambda_i>0} f_{i,\lambda}.
 \end{align*}
 
-
-
-
+There is a unique homomorphism of $\integers[q]$-algebras
+\begin{equation*}
+\phi\colon\integers[q]\Gamma/{\qrelations}\to\qschur
+\end{equation*}
+given by
+\begin{align*}
+\phi(k_\lambda) &= 1_\lambda\\
+\phi(e_{i,\lambda}) &= E_i1_\lambda\\
+\phi(f_{i,\lambda}) &= F_i1_\lambda
+\end{align*}
+and it is {\color{red}conjectured} that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. {\color{red}(!)}Surjectivity is all but proven and I believe injectivity will follow once the presentation of $\generic$ is proven to be an isomorphism, which depends on the technical lemma on transforming paths in $\Gamma$ to standard paths.
 
 % geometry of double flags varieties.
 
