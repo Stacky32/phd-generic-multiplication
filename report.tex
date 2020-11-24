@@ -124,7 +124,7 @@ given by
 \phi(e_{i,\lambda} + \qrelations) &= E_i1_\lambda\\
 \phi(f_{i,\lambda} + \qrelations) &= F_i1_\lambda
 \end{align*}
-and it is {\color{red}conjectured} that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. {\color{red}(!)}Surjectivity is all but proven in Proposition \ref{proposition:q-schur-presentation} and I believe injectivity will follow once the presentation of $\generic$ is proven to be an isomorphism, which depends on the technical lemma on transforming paths in $\Gamma$ to standard paths.
+and it is {\color{red}conjectured} that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. Surjectivity is proven in Proposition \ref{proposition:q-schur-presentation} and I believe injectivity will follow once the presentation of $\generic$ is proven to be an isomorphism, which depends on the technical lemma on transforming paths in $\Gamma$ to standard paths.
 
 In order to gain geometric insight on the product of $G$-orbits in $\dblflags$ we consider finite dimensional slices of the orbits and orbit products together with the action of a finite dimensional quotient of a stabiliser in $G$. For $A,B\in\matrices$ and $L\in\flags_{\ro{A}}$ we consider the spaces
 \begin{equation*}
@@ -1786,9 +1786,9 @@ Let $\phi_\qfrac$ be the $\qfrac$-algebra homomorphism
 \end{equation*}
 which is given by
 \begin{align*}
-\phi_\qfrac(e_{i,\lambda}) &= E_{i,\lambda}\\
-\phi_\qfrac(f_{i,\lambda}) &= F_{i,\lambda}\\
-\phi_\qfrac(k_\lambda) &= 1_\lambda,
+\phi_\qfrac(e_{i,\lambda} +\qfrac\qrelations) &= E_{i,\lambda}\\
+\phi_\qfrac(f_{i,\lambda} +\qfrac\qrelations) &= F_{i,\lambda}\\
+\phi_\qfrac(k_\lambda +\qfrac\qrelations) &= 1_\lambda,
 \end{align*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
@@ -1797,21 +1797,38 @@ If $r<n$ then $\phi_\qfrac$ is surjective.
 \end{proposition}
 
 \begin{proof}
-Fix $A\in\matrices$ and let $p$ be the standard path in $\Gamma$ corresponding to $A$. Then
-\begin{equation*}
-\phi_\qfrac(p+\qfrac I) = \sum_{B:B\le A} g_Be_B
-\end{equation*}
-for some $g_B\in\integers[q]$, where
-\begin{equation*}
-g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
-\end{equation*}
-by Proposition \ref{proposition:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
-\begin{equation*}
-e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
-\end{equation*}
+Let $A\in\matrices$ and proceed by induction on the weight of $A$. If $\weight{A}=0$ or $\weight{A}=1$ then $e_A$ is in the image of $\phi_\qfrac$ since
+\begin{align*}
+\phi_\qfrac(k_\lambda +\qfrac\qrelations) &= 1_\lambda\\
+\phi_\qfrac(e_{i,\lambda} +\qfrac\qrelations) &= E_{i,\lambda}\\
+\phi_\qfrac(f_{i,\lambda} +\qfrac\qrelations) &= F_{i,\lambda}.
+\end{align*}
 
-There are only finitely many $B\in\matrices$ with $B<A$ and for each such $B$, $e_B$ admits a similar expression, which shows that $e_A$ can be expressed as the image of a $\qfrac$-linear combination of the standard paths corresponding to the matrices $B$ with $B\le A$ and therefore $\phi_\qfrac$ is surjective.
+Assume $\weight{A}>1$ and the image of $\phi_\qfrac$ contains those basis elements of lower weight. First suppose $A$ has nonzero entries above the diagonal and write $h=\max\{j-i:a_{i,j}>0\}$. Fix $j$ such that $a_{j-h,h}=0$ and $a_{j+1-h,j+1}>0$ and let $B=A+\elem{j+1-h}{j}-\elem{j+1-h}{j+1}$. Then
+\begin{equation*}
+e_BF_j = \qint{b_{j+1-h,j+1} +1}e_A +\sum_{t>j+1-h:b_{t,j}>0} q^{\sum_{s<t} b_{s,j+1}} \qint{b_{s,j+1}+1} e_{B+\elem{s}{j+1}-\elem{s}{j}},
+\end{equation*}
+using Corollary \ref{corollary:fundamental-right-multiplication-rules}. Each term in the sum on the right hand side is of strictly lower weight than $A$ so is in the image of $\phi_\qfrac$ by induction. The image of $\phi_\qfrac$ contains $e_B$ since $\weight{B}=\weight{A}-1$, so $e_BF_j$ is also in the image of $\phi_\qfrac$. The coefficient of $e_A$ is invertible in $\qfrac$ so it follows that $e_A$ is in the image of $\phi_\qfrac$.
+
+If there are nonzero entries in $A$ below the diagonal then $e_{A^\transpose}$ is in the image of $\phi_\qfrac$, which is closed under the transpose operation, so $e_A$ is in the image of $\phi_\qfrac$.
 \end{proof}
+
+%\begin{proof}
+%Fix $A\in\matrices$ and let $p$ be the standard path in $\Gamma$ corresponding to $A$. Then
+%\begin{equation*}
+%\phi_\qfrac(p+\qfrac I) = \sum_{B:B\le A} g_Be_B
+%\end{equation*}
+%for some $g_B\in\integers[q]$, where
+%\begin{equation*}
+%g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
+%\end{equation*}
+%by Proposition \ref{proposition:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
+%\begin{equation*}
+%e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
+%\end{equation*}
+%
+%There are only finitely many $B\in\matrices$ with $B<A$ and for each such $B$, $e_B$ admits a similar expression, which shows that $e_A$ can be expressed as the image of a $\qfrac$-linear combination of the standard paths corresponding to the matrices $B$ with $B\le A$ and therefore $\phi_\qfrac$ is surjective.
+%\end{proof}
 
 \begin{conjecture}
 If $r<n$, the quiver with relations $(\Gamma,\qrelations)$ gives a presentation of $\Qqschur$ over $\qfrac$.
@@ -3658,18 +3675,43 @@ The next result gives a more general form of the $0$-Serre relations in the quiv
 
 \begin{lemma}\label{lemma:higher-Serre-relations-plus}
 Let $t>s\geq 0$ be integers. Then
-\begin{equation*}
-e_i^s e_{i+1}^s e_i - e_i^{s+1}e_{i+1}^s = 0
-\end{equation*}
-and
-\begin{equation*}
-e_i^s e_{i+1}^t - e_{i+1}^{t-s} e_i^s e_{i+1}^s = 0
-\end{equation*}
+\begin{align}
+e_i^s e_{i+1}^s e_i - e_i^{s+1}e_{i+1}^s &= 0 \label{eq:higher-serre-1}\\
+e_i^s e_{i+1}^t - e_{i+1}^{t-s} e_i^s e_{i+1}^s &= 0 \label{eq:higher-serre-2}
+\end{align}
 in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
 \end{lemma}
 
 \begin{proof}
-{\color{red}COMPLETE THIS PROOF.}
+First we prove \ref{eq:higher-serre-1}. If $s=0$ the result is a tautology and if $s=1$ this is the usual $0$-Serre relation. Suppose $s>1$ and equation \ref{eq:higher-serre-1} holds for smaller values. By repeatedly using the $0$-Serre relations
+\begin{equation*}
+e_i^2e_{i+1} - e_ie_{i+1}e_i = 0
+\end{equation*}
+it follows that
+\begin{equation}
+e_i^se_{i+1} = e_i e_{i+1} e_i^{s-1} \label{eq:iterated-serre-1}
+\end{equation}
+and so
+\begin{align*}
+e_i^se_{i+1}^se_i
+&= e_ie_{i+1}e_i^{s-1}e_{i+1}^{s-1}e_i \quad\text{ (by \ref{eq:iterated-serre-1}.)}\\
+&= e_ie_{i+1}e_i^s e_{i+1}^{s-1} \quad\text{ (by induction.)}\\
+&= e_i^{s+1}e_{i+1}e_{i+1}^{s-1} \quad\text{ (by \ref{eq:iterated-serre-1}.})\\
+&= e_i^{s+1}e_{i+1}^s.
+\end{align*}
+
+Now we prove \ref{eq:higher-serre-2}. If $s=0$ the result is clear. Suppose $s>0$ and the result of \ref{eq:higher-serre-2} holds for smaller values. Using the $0$-Serre relations repeatedly gives
+\begin{equation}
+e_ie_{i+1}^t = e_{i+1}^{t-1}e_ie_{i+1} \label{eq:iterated-serre-2}
+\end{equation}
+and so
+\begin{align*}
+e_i^se_{i+1}^t
+&= e_i^{s-1}e_{i+1}^{t-1}e_ie_{i+1} \quad\text{ (by \ref{eq:iterated-serre-2}.)}\\
+&= e_{i+1}^{t-s}e_i^{s-1}e_{i+1}^{s-1}e_ie_{i+1} \quad\text{ (by induction.)}\\
+&= e_{i+1}^{t-s}e_i^se_{i+1}^{s-1}e_{i+1} \quad\text{ (by \ref{eq:higher-serre-1}.)}\\
+&= e_{i+1}^{t-s} e_i^se_{i+1}^s.
+\end{align*}
 \end{proof}
 
 \begin{corollary}\label{corollary:higher-Serre-relations-minus}
@@ -3686,6 +3728,26 @@ in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
 
 \begin{proof}
 Applying the transpose involution to the relations in Lemma \ref{lemma:higher-Serre-relations-plus} yields these relations, since $e_i$ is mapped to $f_i$ and the order of multiplication is reversed.
+\end{proof}
+
+\begin{lemma}\label{lemma:breaking-the-cycle}
+Assume that $r<n$ and let $p$ be a nonzero path. Then $p$ does not contain a cyclic section
+\begin{equation*}
+c = e_i^{a_i}e_{i-1}^{a_{i-1}}\cdots e_{i+1}^{e_{i+1}}
+\end{equation*}
+with the sum of the exponents $\sum_{j\neq i} a_j >r$.
+\end{lemma}
+
+\begin{proof}
+Suppose $p$ contains such a cyclic section $c$ and write $p=p'k_\lambda c k_\mu p''$. As $p$ is nonzero it follows that
+\begin{equation*}
+\mu = \lambda +a_i(\epsilon_{i+1}-\epsilon_i) +a_{i-1}(\epsilon_i -\epsilon_{i-1})+\cdots +a_{i+1}(\epsilon_{i+2}-\epsilon_{i+1})
+\end{equation*}
+so $a_j\le \lambda_j$ for $j\neq i+1$ and $a_{i+1}\le\lambda_{i+1} +a_i$. Then
+\begin{equation*}
+\sum_{j\neq i} a_j \le \sum_{j} \lambda_j = r,
+\end{equation*}
+contradicting the hypothesis that such a cyclic section exists.
 \end{proof}
 
 \begin{lemma}\label{lemma:extending-standard-paths}
