@@ -23,14 +23,14 @@ The first part of the introduction should discuss the context of the topic and m
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using affine double flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
+Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using double affine flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
 
-Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\laurent$-submodule of $V$ which is a free module of rank $r$ over $\polys$. The space of $n$-periodic flags in $V$ is denoted $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
+Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\laurent$-submodule of $V$ which is a free module of rank $r$ over $\polys$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
 \flags_\lambda = \left\{L\in\flags:\dim\left(L_i/{L_{i-1}}\right)=\lambda_i \text{ for all }i\in\integers\right\}.
 \end{equation*}
 
-The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of \emph{infinite periodic matrices}, which consists of the $\integers\times\integers$ matrices with non-negative integer entries $a_{i,j}$ such that $a_{i,j}=a_{i-n,j-n}$ for all $i,j\in\integers$ and the sum of the entries in any $n$ consecutive rows or columns is $r$. The row sum of $A$ is the composition $\ro{A}$ given by adding up the entries in each row and the column sum $\co{A}$ is the composition given by adding up the entries in each column. The orbit corresponding to $A\in\matrices$ is denoted $\orbit{A}$ and is the set of pairs of flags $(L,L')$ such that
+The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matrices$ of $\integers\times\integers$ matrices with non-negative integer entries $a_{i,j}$ such that $a_{i,j}=a_{i-n,j-n}$ for all $i,j\in\integers$ and the sum of the entries in any $n$ consecutive rows or columns is $r$. The row vector of $A$ is the composition $\ro{A}$ given by adding up the entries in each row and the column vector $\co{A}$ is the composition given by adding up the entries in each column. The orbit corresponding to $A\in\matrices$ is denoted by $\orbit{A}$ and is the set of pairs of flags $(L,L')$ such that
 \begin{equation*}
 \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right) = a_{i,j}
 \end{equation*}
@@ -48,32 +48,29 @@ e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}e_C
 \end{equation*}
 for $A,B\in\matrices$.
 
-Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associative $\integers$-algebra
-\begin{equation*}
-\zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
-\end{equation*}
-called the affine $0$-Schur algebra.
-
-There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$ in $\qschur$ with $1=\sum_{\lambda\in\compositions} 1_\lambda$, where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column sum equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ with all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero. After localising the ground ring to make the $q$-integers invertible, the affine $q$-Schur algebra $\qschur$ is generated by the $1_\lambda$, $E_i$ and $F_i$ in the case that $r<n$.
+There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$ in $\qschur$ with $1=\sum_{\lambda\in\compositions} 1_\lambda$, where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column vector equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ with all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero.
 
 There are the following multiplication rules for $E_i$ and $F_i$ which allow computations to be done in a clear combinatorial way and are later used to derive a set of relations. For an integer $m\geq 1$, the $q$-integer $\qint{m}$ is the polynomial
 \begin{equation*}
 \frac{1-q^m}{1-q} = 1 + q +\cdots + q^{m-1}\in\integers[q]
 \end{equation*}
-and $\qint{0}=0$. For $i,j\in\integers$, let $\elem{i}{j}$ be the elementary periodic matrix with entries equal to $1$ in positions $(i+cn,j+cn)$ for $c\in\integers$ and all other entries equal to zero.
+and $\qint{0}=0$. For $i,j\in\integers$, let $\elem{i}{j}$ be the elementary periodic matrix with entries equal to $1$ in positions $(i+cn,j+cn)$ for $c\in\integers$ and all other entries equal to zero. Given $A\in\matrices$,
+\begin{align*}
+E_ie_A &= \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}\\
+F_ie_A &= \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}
+\end{align*}
+for each $i\in\{1,\ldots,n\}$.
 
-\begin{lemma*}
-Given $A\in\matrices$,
-\begin{equation*}
-E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
-\end{equation*}
-Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_i>0$,
-\begin{equation*}
-F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}.
-\end{equation*}
-for each $i\in\{1,\ldots,n\}$
-\end{lemma*}
 
+\section{Main results}
+
+Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associative $\integers$-algebra
+\begin{equation*}
+\zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
+\end{equation*}
+called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $q$-Schur algebra and to define a new associative algebra with a modified version of the product in $\qschur$, the generic affine algebra, where the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the corresponding product given by generic extensions of representations.
+
+[Replace lemma with some sentences.]
 \begin{lemma*}
 There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the map
 \begin{equation*}
@@ -203,7 +200,7 @@ such that
 \end{align*}
 \end{conjecture*}
 
-The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in affine double flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in double affine flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
 
 
 
@@ -1602,7 +1599,7 @@ Let $A\in\matrices$. If $(L,L')\in\orbit{A}$, then $[L,L\cap L']=\orbit{A^+}$ an
 \end{lemma}
 
 \begin{proof}
-Let $B\in\matrices$ with $\orbit{B} = [L,L\cap L']$. The row sum of $B$ is $|L|=\ro{A}$ and $B$ is upper triangular since $L\cap L'\subset L$. For $i<j$,
+Let $B\in\matrices$ with $\orbit{B} = [L,L\cap L']$. The row vector of $B$ is $|L|=\ro{A}$ and $B$ is upper triangular since $L\cap L'\subset L$. For $i<j$,
 \begin{align*}
 b_{i,j}
 &= \dim\left(\frac{L_i\cap L_j\cap L_j'}{L_{i-1}\cap L_j\cap L_j' + L_i\cap L_{j-1}\cap L_{j-1}'}\right)\\
@@ -1927,7 +1924,7 @@ The purpose of this chapter is to define an associative $\integers$-algebra with
 \begin{equation*}
 \xprod{A,B} = \{(L,L'')\in\dblflags: \exists L'\in\flags\text{ with } (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
-consists of finitely many $G$-orbits and it will be shown that there is a unique `generic' orbit in $\xprod{A,B}$, denoted $\orbit{A\ast B}$, with the property that
+consists of finitely many $G$-orbits and it will be shown that there is a unique `generic' orbit in $\xprod{A,B}$, denoted by $\orbit{A\ast B}$, with the property that
 \begin{equation*}
 \dim\left(\frac{L_i}{L_i\cap L_j''}\right)\le\dim\left(\frac{N_i}{N_i\cap N_j''}\right)
 \end{equation*}
@@ -1947,7 +1944,7 @@ for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$, is an associative $\integers$-alg
 \begin{equation*}
 \sum_{\lambda\in\compositions} \orbit{\diag{\lambda}},
 \end{equation*}
-where $\diag{\lambda}$ is the diagonal matrix with $\co{\diag{\lambda}}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted $\generic$.
+where $\diag{\lambda}$ is the diagonal matrix with $\co{\diag{\lambda}}=\lambda$. The resulting $\integers$-algebra is called the \emph{generic affine algebra} (of rank $r$ and period $n$), denoted by $\generic$.
 
 
 

@@ -1,51 +1,52 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.1.1}{The double flag variety approach to q-Schur algebras}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{The cyclic flags approach to affine q-Schur algebras}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Geometric approach to affine q-Schur algebras}{}% 4
-\BOOKMARK [1][-]{section.2.1}{The cyclic flags realisation of affine q-Schur algebras}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.1.1}{Cyclic flags}{section.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.1.2}{A product of orbits}{section.2.1}% 7
-\BOOKMARK [2][-]{subsection.2.1.3}{Triple products}{section.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.1.4}{Convolution algebras}{section.2.1}% 9
-\BOOKMARK [2][-]{subsection.2.1.5}{Affine q-Schur algebras}{section.2.1}% 10
-\BOOKMARK [1][-]{section.2.2}{Affine zero-Schur algebras}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{Presenting affine q-Schur algebras}{}% 12
-\BOOKMARK [1][-]{section.3.1}{The distinguished basis}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.1.1}{Elementary basis elements}{section.3.1}% 14
-\BOOKMARK [2][-]{subsection.3.1.2}{Transpose involution}{section.3.1}% 15
-\BOOKMARK [2][-]{subsection.3.1.3}{Fundamental multiplication rules}{section.3.1}% 16
-\BOOKMARK [2][-]{subsection.3.1.4}{The hook order}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.5}{Shifting}{section.3.1}% 18
-\BOOKMARK [1][-]{section.3.2}{Quivers and relations}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.2.1}{Relations in affine q-Schur algebras}{section.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.2.2}{A quiver algebra}{section.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.2.3}{Mapping to the q-Schur algebra}{section.3.2}% 22
-\BOOKMARK [2][-]{subsection.3.2.4}{Change of rings}{section.3.2}% 23
-\BOOKMARK [1][-]{section.3.3}{Relations for the n=2 case}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{A generic affine algebra}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.2}{Grassmannians and related varieties}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.3}{Geometry of affine flag varieties}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.3.1}{Action through an algebraic group}{section.4.3}% 29
-\BOOKMARK [2][-]{subsection.4.3.2}{Incidence in affine flag varieties}{section.4.3}% 30
-\BOOKMARK [1][-]{section.4.4}{Geometry of orbits}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.5}{Geometry of orbit products}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.6}{Degenerations of orbits and the combinatorial partial order}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.7}{Associativity of the generic product}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.8}{The generic affine algebra}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.8.1}{A categorical perspective}{section.4.8}% 36
-\BOOKMARK [0][-]{chapter.5}{Towards a realisation of affine zero Schur algebras}{}% 37
-\BOOKMARK [1][-]{section.5.1}{Preliminary results on the generic affine algebra}{chapter.5}% 38
-\BOOKMARK [2][-]{subsection.5.1.1}{Elementary basis elements}{section.5.1}% 39
-\BOOKMARK [2][-]{subsection.5.1.2}{Transpose involution}{section.5.1}% 40
-\BOOKMARK [2][-]{subsection.5.1.3}{Shifting and periodicity}{section.5.1}% 41
-\BOOKMARK [1][-]{section.5.2}{Multiplicative bases in affine zero Schur algebras: motivating example}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.3}{Aperiodicity in the generic affine algebra}{chapter.5}% 43
-\BOOKMARK [1][-]{section.5.4}{Quiver presentation of the generic affine algebra.}{chapter.5}% 44
-\BOOKMARK [2][-]{subsection.5.4.1}{Standard paths}{section.5.4}% 45
-\BOOKMARK [1][-]{section.5.5}{The isomorphism result}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.6}{The period 2 case}{chapter.5}% 47
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 48
-\BOOKMARK [1][-]{section.6.1}{The case of large r}{chapter.6}% 49
-\BOOKMARK [1][-]{section.6.2}{Further results on affine zero Schur algebras}{chapter.6}% 50
-\BOOKMARK [1][-]{section.6.3}{Combinatorial characterisation of degenerations}{chapter.6}% 51
+\BOOKMARK [1][-]{section.1.3}{Main results}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Geometric approach to affine q-Schur algebras}{}% 5
+\BOOKMARK [1][-]{section.2.1}{The cyclic flags realisation of affine q-Schur algebras}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.1.1}{Cyclic flags}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.2}{A product of orbits}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.3}{Triple products}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.4}{Convolution algebras}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.5}{Affine q-Schur algebras}{section.2.1}% 11
+\BOOKMARK [1][-]{section.2.2}{Affine zero-Schur algebras}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Presenting affine q-Schur algebras}{}% 13
+\BOOKMARK [1][-]{section.3.1}{The distinguished basis}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.1.1}{Elementary basis elements}{section.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.1.2}{Transpose involution}{section.3.1}% 16
+\BOOKMARK [2][-]{subsection.3.1.3}{Fundamental multiplication rules}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.4}{The hook order}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.5}{Shifting}{section.3.1}% 19
+\BOOKMARK [1][-]{section.3.2}{Quivers and relations}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.2.1}{Relations in affine q-Schur algebras}{section.3.2}% 21
+\BOOKMARK [2][-]{subsection.3.2.2}{A quiver algebra}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.3}{Mapping to the q-Schur algebra}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.4}{Change of rings}{section.3.2}% 24
+\BOOKMARK [1][-]{section.3.3}{Relations for the n=2 case}{chapter.3}% 25
+\BOOKMARK [0][-]{chapter.4}{A generic affine algebra}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Grassmannians and related varieties}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.3}{Geometry of affine flag varieties}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.3.1}{Action through an algebraic group}{section.4.3}% 30
+\BOOKMARK [2][-]{subsection.4.3.2}{Incidence in affine flag varieties}{section.4.3}% 31
+\BOOKMARK [1][-]{section.4.4}{Geometry of orbits}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.5}{Geometry of orbit products}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.6}{Degenerations of orbits and the combinatorial partial order}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.7}{Associativity of the generic product}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.8}{The generic affine algebra}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.8.1}{A categorical perspective}{section.4.8}% 37
+\BOOKMARK [0][-]{chapter.5}{Towards a realisation of affine zero Schur algebras}{}% 38
+\BOOKMARK [1][-]{section.5.1}{Preliminary results on the generic affine algebra}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.1.1}{Elementary basis elements}{section.5.1}% 40
+\BOOKMARK [2][-]{subsection.5.1.2}{Transpose involution}{section.5.1}% 41
+\BOOKMARK [2][-]{subsection.5.1.3}{Shifting and periodicity}{section.5.1}% 42
+\BOOKMARK [1][-]{section.5.2}{Multiplicative bases in affine zero Schur algebras: motivating example}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.3}{Aperiodicity in the generic affine algebra}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.4}{Quiver presentation of the generic affine algebra.}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.4.1}{Standard paths}{section.5.4}% 46
+\BOOKMARK [1][-]{section.5.5}{The isomorphism result}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.6}{The period 2 case}{chapter.5}% 48
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 49
+\BOOKMARK [1][-]{section.6.1}{The case of large r}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.2}{Further results on affine zero Schur algebras}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.3}{Combinatorial characterisation of degenerations}{chapter.6}% 52
