@@ -1495,36 +1495,36 @@ for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 In fact, $\phi$ is determined by its values on $e_1,\ldots,e_n$, $f_1,\ldots,f_n$ and $k_\lambda$ for $\lambda\in\compositions$. In order to describe the image of this map we introduce the notion of standard paths in $\Gamma$.
 
 \begin{definition}\label{def:standard-positive-path}
-A path $p=k_\lambda p_1\cdots p_h$ with
+A path $p=k_\lambda p_1^+\cdots p_h^+$ with
 \begin{equation*}
-p_s = e_{i+s-1}^{\alpha_{i,s}} e_{i+s-2}^{\alpha_{i-1,s}}\cdots e_{i+s-n}^{\alpha_{i-n+1,s}},
+p_s^+ = e_{i+s-1}^{\alpha_{i,s}} e_{i+s-2}^{\alpha_{i-1,s}}\cdots e_{i+s-n}^{\alpha_{i-n+1,s}},
 \end{equation*}
 for $s\in\{1,\ldots,h\}$, is a \emph{standard positive path} if
-\begin{equation*}
-i = \max\{t:1\le t\le n, \lambda_t = 0\} - 1;
-\end{equation*}
 \begin{equation*}
 \alpha_{j,s}\geq \alpha_{j,s+1} \text{ for } s\in\{1,\ldots,h-1\};
 \end{equation*}
 \begin{equation*}
 0\le \alpha_{j,1}\le\lambda_j \text{ for } j\in\{1,\ldots,n\}.
 \end{equation*}
+\begin{equation*}
+i = \max\{t:1\le t\le n, \alpha_{t,1} = 0\} - 1;
+\end{equation*}
 \end{definition}
 
 \begin{definition}\label{def:standard-negative-path}
-A path $p=k_\lambda p_1\cdots p_h$ with
+A path $p=k_\lambda p_1^-\cdots p_h^-$ with
 \begin{equation*}
-p_s = f_{i-s+1}^{\beta_{i,s}}f_{i-s+2}^{\beta_{i+1,s}}\cdots f_{i-s+n}^{\beta_{i+n-1,s}},
+p_s^- = f_{i-s+1}^{\beta_{i,s}}f_{i-s+2}^{\beta_{i+1,s}}\cdots f_{i-s+n}^{\beta_{i+n-1,s}},
 \end{equation*}
 for $s\in\{1,\ldots,h\}$, is a \emph{standard negative path} if
-\begin{equation*}
-i = \min\{t:1\le t\le n, \lambda_t=0\};
-\end{equation*}
 \begin{equation*}
 \beta_{j,s}\geq \beta_{j,s+1} \text{ for } s\in\{1,\ldots,h-1\};
 \end{equation*}
 \begin{equation*}
-0\le \beta_{j,s}\le\lambda_{j+1} \text{ for } j\in\{1,\ldots,n\}.
+0\le \beta_{j,1}\le\lambda_{j+1} \text{ for } j\in\{1,\ldots,n\}.
+\end{equation*}
+\begin{equation*}
+i = \min\{t:1\le t\le n, \beta_{t-1,1}=0\};
 \end{equation*}
 \end{definition}
 
@@ -1533,7 +1533,7 @@ The subindex $j$ in $e_j$ and $f_j$ and the subindex $j$ in $\alpha_{j,s}$ is re
 \end{remark}
 
 \begin{definition}\label{def:standard-paths}
-A path $p=k_\lambda p^{+}p^{-}$ is a \emph{standard path} if $p^{+}$ is a standard positive path, $p^{-}$ is a standard negative path and
+A path $p=k_\lambda p^{+}k_\mu p^{-}$ is a \emph{standard path} if $k_\lambda p^{+}$ is a standard positive path, $k_\mu p^{-}$ is a standard negative path and the exponents satisfy the conditions
 \begin{equation*}
 \alpha_{j,s} + \beta_{j-1,s} \le \lambda_j
 \end{equation*}
