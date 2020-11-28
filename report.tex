@@ -1620,14 +1620,47 @@ Similarly, the exponents in the standard path for $A$ are given by the entries i
 \end{proof}
 
 \begin{proposition}\label{proposition:image-of-standard-path}
-Let $A\in\matrices$ and let $p$ be the standard path associated to $A$. Then
-\begin{equation*}
-\phi(p+\qrelations) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B
-\end{equation*}
+Let $A\in\matrices$ and let $p$ be the standard path corresponding to $A$. Then
+\begin{equation}
+\phi(p+\qrelations) = \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right) e_A + \sum_{B\in\matrices:B<A} g_Be_B \label{eq:image-of-std-path}
+\end{equation}
 \end{proposition}
 
 \begin{proof}
-{\color{red}THIS IS A REALLY FUNDAMENTAL PROPOSITION -- PROVE IT!}
+Proceed by induction on the length of $p$. If the length of $p$ is zero then $p=k_\lambda$ and $A=\diag{\lambda}$ for some $\lambda\in\compositions$, then \ref{eq:image-of-std-path} holds since $\phi(k_\lambda +\qrelations)=1_\lambda$. Assume $p$ has positive length and the formula holds for standard paths of smaller length.
+
+First suppose $p=p_1^+\cdots p_h^+$ is a standard positive path, where $h=\max\{j-i:a_{i,j}>0\}$. Factoring out the first arrow $p=p'e_j$ and $p'$ is a standard positive path with length less than that of $p$. The exponent of $e_j$ in $p_h^+$ is $\alpha_{j-h+1,h}=a_{j-h+1,j+1}$ and so $a_{j-h,j}=0$ since $e_j$ is the first arrow in $p$ and the exponent of $e_{j-1}$ in $p_h^+$ is zero. Then $p'$ is the standard path corresponding to $B=A+\elem{j+1-h}{j}-\elem{j+1-h}{j+1}$ so
+\begin{equation*}
+\phi(p'+\qrelations) = \frac{1}{\qint{\alpha_{j-h+1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\right) e_B + \sum_{C\in\matrices:C<B} g_C'e_C,
+\end{equation*}
+using the inductive hypothesis. Using the fundamental multiplication rules
+\begin{equation*}
+e_BE_j = \qint{\alpha_{j-h+1,h}}e_A + \sum_{s>j+1-h:b_{s,j}>0} q^{\sum_{t<s}b_{t,j+1}}\qint{b_{s,j+1}+1}e_{B+\elem{s}{j+1}-\elem{s}{j}}.
+\end{equation*}
+For each $C<B$, $c_{s,t}=0$ if $t-s>h$ and $c_{j-h,j}=0$, so the product $e_CE_j$ is a $\integers[q]$-linear combination of the terms $e_{C+\elem{s}{j+1}-\elem{s}{j}}$ for $s\geq j+1-h$, which are totally ordered with respect to the hook order and the maximum term $C+\elem{j+1-h}{j+1}-\elem{j-h}{j}$ is strictly less than $B+\elem{j+1-h}{j+1}-\elem{j-h}{h}=A$. Therefore
+\begin{align*}
+\phi(p+\qrelations)
+&= \phi(p'+\qrelations)E_j\\
+&= \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\right)e_A + \sum_{B\in\matrices:B<A} g_Be_B,
+\end{align*}
+which completes the case where $p$ is a standard positive path.
+
+Now suppose the negative part of $p$ is nontrivial, so $p=p'f_j$ for some $j$ and a standard path $p'=p_1^-\cdots p_h^-$, where $h=\max\{i-j:a_{i,j}>0\}$. Since $f_j$ is the first arrow in $p$ the exponent of $f_{j+1}$ in $p_h^-$ is zero, so $0=\beta_{j+h,h}=a_{j+1+h,j+1}$. The matrix corresponding to the standard path $p'$ is $B=A+\elem{j+h}{j+1}-\elem{j+h}{j}$ so
+\begin{equation*}
+\phi(p'+\qrelations) = \frac{1}{\qint{\beta_{j+h-1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)e_B + \sum_{C\in\matrices:C<B} g_C'e_C
+\end{equation*}
+by the inductive hypothesis. Using the fundamental multiplication rules
+\begin{equation*}
+e_BF_j = \qint{\beta_{j+h-1,h}}e_A + \sum_{C<A} g_C''e_C.
+\end{equation*}
+
+For each $C<B$, $c_{s,t}=0$ is $s-t>h$ and $c_{j+h+1,j+1}=0$, so the product $e_CF_j$ is a $\integers[q]$-linear combination of the terms $e_{C+\elem{s}{j}-\elem{s}{j+1}}$ for $s\le j+h$, which are all strictly smaller than $B+\elem{j+h}{j}-\elem{j+h}{j+1}=A$. Therefore
+\begin{align*}
+\phi(p+\zerorelations)
+&= \phi(p'+\zerorelations)F_j\\
+&= \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)e_A + \sum_{B<A} g_Be_B
+\end{align*}
+for some $g_B\in\integers[q]$.
 \end{proof}
 
 
@@ -1794,38 +1827,21 @@ If $r<n$ then $\phi_\qfrac$ is surjective.
 \end{proposition}
 
 \begin{proof}
-Let $A\in\matrices$ and proceed by induction on the weight of $A$. If $\weight{A}=0$ or $\weight{A}=1$ then $e_A$ is in the image of $\phi_\qfrac$ since
-\begin{align*}
-\phi_\qfrac(k_\lambda +\qfrac\qrelations) &= 1_\lambda\\
-\phi_\qfrac(e_{i,\lambda} +\qfrac\qrelations) &= E_{i,\lambda}\\
-\phi_\qfrac(f_{i,\lambda} +\qfrac\qrelations) &= F_{i,\lambda}.
-\end{align*}
-
-Assume $\weight{A}>1$ and the image of $\phi_\qfrac$ contains those basis elements of lower weight. First suppose $A$ has nonzero entries above the diagonal and write $h=\max\{j-i:a_{i,j}>0\}$. Fix $j$ such that $a_{j-h,h}=0$ and $a_{j+1-h,j+1}>0$ and let $B=A+\elem{j+1-h}{j}-\elem{j+1-h}{j+1}$. Then
+Fix $A\in\matrices$ and let $p$ be the standard path in $\Gamma$ corresponding to $A$. Then
 \begin{equation*}
-e_BF_j = \qint{b_{j+1-h,j+1} +1}e_A +\sum_{t>j+1-h:b_{t,j}>0} q^{\sum_{s<t} b_{s,j+1}} \qint{b_{s,j+1}+1} e_{B+\elem{s}{j+1}-\elem{s}{j}},
+\phi_\qfrac(p+\qfrac I) = \sum_{B:B\le A} g_Be_B
 \end{equation*}
-using Corollary \ref{corollary:fundamental-right-multiplication-rules}. Each term in the sum on the right hand side is of strictly lower weight than $A$ so is in the image of $\phi_\qfrac$ by induction. The image of $\phi_\qfrac$ contains $e_B$ since $\weight{B}=\weight{A}-1$, so $e_BF_j$ is also in the image of $\phi_\qfrac$. The coefficient of $e_A$ is invertible in $\qfrac$ so it follows that $e_A$ is in the image of $\phi_\qfrac$.
+for some $g_B\in\integers[q]$, where
+\begin{equation*}
+g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
+\end{equation*}
+by Proposition \ref{proposition:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
+\begin{equation*}
+e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
+\end{equation*}
 
-If there are nonzero entries in $A$ below the diagonal then $e_{A^\transpose}$ is in the image of $\phi_\qfrac$, which is closed under the transpose operation, so $e_A$ is in the image of $\phi_\qfrac$.
+There are only finitely many $B\in\matrices$ with $B<A$ and for each such $B$, $e_B$ admits a similar expression, which shows that $e_A$ can be expressed as the image of a $\qfrac$-linear combination of the standard paths corresponding to the matrices $B$ with $B\le A$ and therefore $\phi_\qfrac$ is surjective.
 \end{proof}
-
-%\begin{proof}
-%Fix $A\in\matrices$ and let $p$ be the standard path in $\Gamma$ corresponding to $A$. Then
-%\begin{equation*}
-%\phi_\qfrac(p+\qfrac I) = \sum_{B:B\le A} g_Be_B
-%\end{equation*}
-%for some $g_B\in\integers[q]$, where
-%\begin{equation*}
-%g_A = \prod_{i\in\{1,\ldots,n\},s\geq 1}\qfact{\alpha_{i,s}}\qfact{\beta_{i,s}},
-%\end{equation*}
-%by Proposition \ref{proposition:image-of-standard-path}. The coefficient of the leading term $g_A$ is a unit in $\qfrac$, so
-%\begin{equation*}
-%e_A = \phi_\qfrac(g_A^{-1}p+\qfrac I) - \sum_{B:B<A} g_Bg_A^{-1} e_B.
-%\end{equation*}
-%
-%There are only finitely many $B\in\matrices$ with $B<A$ and for each such $B$, $e_B$ admits a similar expression, which shows that $e_A$ can be expressed as the image of a $\qfrac$-linear combination of the standard paths corresponding to the matrices $B$ with $B\le A$ and therefore $\phi_\qfrac$ is surjective.
-%\end{proof}
 
 \begin{conjecture}
 If $r<n$, the quiver with relations $(\Gamma,\qrelations)$ gives a presentation of $\Qqschur$ over $\qfrac$.
