@@ -19,15 +19,43 @@ quantum groups
 The first part of the introduction should discuss the context of the topic and mention references.
 }
 
-\section{The double flag variety approach to q-Schur algebras}
+\section{The geometric realisation of 0-Schur algebras}
 
+Fix integers $n,r\geq 1$ and let $\field$ be a finite or algebraically closed field. Let $V$ be an $r$ dimensional vector space over $\field$ and let $\flags$ denote the space of partial $n$-step flags
+\begin{equation*}
+f\colon 0=f_0\subset f_1\subset\cdots\subset f_n=V
+\end{equation*}
+in $V$. The general linear group $\GL{}{V}$ acts on $\flags$ through the natural action on $V$ and the $\GL{}{V}$-orbits in $\flags$ are in bijection with the compositions of $r$ into $n$ parts. Given $\lambda\in\naturals^n$ with $\lambda_1+\cdots +\lambda_n=r$, the corresponding $\GL{}{V}$-orbit in $\flags$ is
+\begin{equation*}
+\flags_\lambda = \{f\in\flags:\lambda_i=\dim(f_i)-\dim(f_{i-1})\text{ for all }i\in\{1,\ldots,n\}\}.
+\end{equation*}
+
+The diagonal action of $\GL{}{V}$ on $\dblflags$ has orbits indexed by the set $\Theta(n,r)$ of $n\times n$ matrices with natural number entries which sum to $r$. In particular, the orbit $[L,L']$ of a pair of flags $(f,f')$ is characterised by the matrix $A\in M_n(\naturals)$ with entries
+\begin{equation*}
+a_{i,j} = \dim(f_{i-1} + f_i\cap f_j') - \dim(f_{i-1} + f_i\cap f_{j-1}')
+\end{equation*}
+for each $i,j\in\{1,\ldots,n\}$. Let $\orbit{A}\subset\dblflags$ denote the orbit corresponding to $A\in\Theta(n,r)$.
+
+The $q$-Schur algebra $S_q(n,r)$ is an associative $\integers[q]$-algebra with a basis $\{e_A:A\in\Theta(n,r)\}$ and multiplication given by
+\begin{equation*}
+e_Ae_B = \sum_{C\in\Theta(n,r)}g_{A,B,C}e_C
+\end{equation*}
+for each $A,B\in\Theta(n,r)$, where the structure constants $g_{A,B,C}\in\integers[q]$ satisfy
+\begin{equation*}
+g_{A,B,C}(\#\field) = \#\left\{ f'\in\flags: (f,f')\in\orbit{A}, (f',f'')\in\orbit{B}\right\}
+\end{equation*}
+for any finite field $\field$ and $(f,f'')\in\orbit{C}$.
+
+The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin {\color{red}CITATION.}, Deng and Yang \cite{deng12} and Jensen and Su \cite{su10,su12,su15,su17} and others. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su12} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and a new realisation of $0$-Schur algebras is based on a generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen and Su \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between the indecomposable projective modules and later considered deformations of $0$-Schur algebras depending on a tuple of parameters which leads to a construction of $0$-Hecke and nil-Hecke algebras as well as a geometric realisation of nil-Temperley-Lieb algebras using double flag varieties.
+
+The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su12} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now look at some of the main results from the finite case.
 
 
 
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using double affine flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12} by Deng, Du and Fu.
+Affine $q$-Schur algebras arose from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using double affine flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12book} by Deng, Du and Fu.
 
 Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\laurent$-submodule of $V$ which is a free module of rank $r$ over $\polys$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
