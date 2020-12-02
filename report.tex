@@ -46,7 +46,7 @@ g_{A,B,C}(\#\field) = \#\left\{ f'\in\flags: (f,f')\in\orbit{A}, (f',f'')\in\orb
 \end{equation*}
 for any finite field $\field$ and $(f,f'')\in\orbit{C}$.
 
-The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng and Yang \cite{deng12} and Jensen and Su \cite{su10,su12,su15,su17} and others. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su12} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and a new realisation of $0$-Schur algebras is based on a generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen and Su \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them and later considered deformations of $0$-Schur algebras depending on a tuple of parameters which leads to a construction of $0$-Hecke and nil-Hecke algebras as well as a geometric realisation of nil-Temperley-Lieb algebras using double flag varieties.
+The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng and Yang \cite{deng12} and Jensen and Su \cite{su10,su12,su15,su17} and others. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su12} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen and Su \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them and later considered deformations of $0$-Schur algebras depending on a tuple of parameters which leads to a construction of $0$-Hecke and nil-Hecke algebras as well as a geometric realisation of nil-Temperley-Lieb algebras using double flag varieties.
 
 The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su12} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now look at some of the main results from the finite case.
 
@@ -315,6 +315,7 @@ The first chapter introduces the construction of affine $q$-Schur algebras via a
 
 \chapter{Geometric approach to affine q-Schur algebras}
 
+{\color{red}Add a couple of sentences to say we're giving the Lusztig realisation in more detail.}
 
 \section{The cyclic flags realisation of affine q-Schur algebras}
 % Shorthand notation for polynomial/ laurent polynomial rings.
@@ -786,7 +787,7 @@ for any $(L,L'')\in\orbit{C}$.
 
 \subsection{Affine q-Schur algebras}
 
-There exist polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+There exist polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following Lusztig \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
 \end{equation*}
@@ -816,6 +817,8 @@ for each $A,B\in\matrices$.
 
 
 \chapter{Presenting affine q-Schur algebras}
+
+{\color{red}A couple of sentences to begin the chapter.}
 
 \section{The distinguished basis}
 
@@ -943,6 +946,8 @@ and
 \end{equation*}
 for $m\geq 1$.
 
+These fundamental multiplication rules for products with $E_i$ and $F_i$ in $\qschur$ are derived from the $v$-form of these expressions, where $q=v^2$, given by Lusztig in Proposition 3.5 \cite{lusztig99}.
+
 \begin{lemma}\label{lemma:fundamental-multiplication-rule}
 Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$,
 \begin{equation*}
@@ -954,7 +959,7 @@ F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+
 \end{equation*}
 \end{lemma}
 
-Note that these formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$. If the convention that $e_B = 0$ whenever $B$ is not in $\matrices$ is used, then the conditions on $p$ in the above sums may be ignored.
+These formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$. If the convention that $e_B = 0$ whenever $B$ is not in $\matrices$ is used, then the conditions on $p$ in the above sums may be ignored.
 
 \begin{corollary}\label{corollary:fundamental-right-multiplication-rules}
 Given $A\in\matrices$ and $j\in\{1,\ldots,n\}$ with $\co{A}_{j+1}>0$,
@@ -1053,14 +1058,14 @@ and
 \end{proof}
 
 Define a relation $\le$ on $\matrices$ by $A\le B$ if and only if the following conditions are satisfied:
-\begin{itemize}
+\begin{enumerate}[i.]
 \item
 $\ro{A}=\ro{B}$ and $\co{A}=\co{B}$.
 \item
 For each $i,j\in\integers$, $d_{i,j}{(A)}\le d_{i,j}{(B)}$.
 \item
 For each $i,j\in\integers$, $\bar{d}_{i,j}{(A)} \le \bar{d}_{i,j}{(B)}$.
-\end{itemize}
+\end{enumerate}
 
 \begin{lemma}\label{lemma:orbit-poset}
 The relation $\le$ defines a partial order on $\matrices$.
@@ -1285,9 +1290,7 @@ and
 \end{align*}
 \end{proof}
 
-As a visual cue, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
-
-Multiplication on the left by $\antipode{(R)}$ sends $e_A$ to $e_{[-1]A}$, while multiplication on the right by $\antipode{(R)}$ sends $e_A$ to $e_{A[1]}$.
+Visually, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
 
 \begin{lemma}\label{lemma:conjugation-by-R}
 For each $\lambda\in\compositions$,
@@ -1386,26 +1389,18 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$.
-
-Then the expression for the commuator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
-\begin{itemize}
-\item
-If $\lambda$ is internal with respect to $i$ then
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
 \begin{equation*}
-E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0.
+E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0;
 \end{equation*}
-\item
-If $\lambda$ is initial with respect to $i$ then
+if $\lambda$ is initial with respect to $i$ then
 \begin{equation*}
-F_{i,\lambda+\alpha_i}E_{i,\lambda} - 1_{\lambda} = 0.
+F_{i,\lambda+\alpha_i}E_{i,\lambda} - 1_{\lambda} = 0;
 \end{equation*}
-\item
-If $\lambda$ is final with respect to $i$ then
+if $\lambda$ is final with respect to $i$ then
 \begin{equation*}
 E_{i,\lambda-\alpha_i}F_{i,\lambda} - 1_{\lambda} = 0.
 \end{equation*}
-\end{itemize}
 
 \begin{lemma}\label{lemma:q-serre-relations}
 The following relations hold in $\qschur$, when $n\geq 3$:
@@ -1516,21 +1511,12 @@ RF_{i,\lambda}R^{-1} &= F_{i-1,\lambda[1]}.
 
 \subsection{A quiver algebra}\label{section:q-quiver}
 
-Define a quiver $\Gamma=\presentationquiver$ associated with the affine $q$-Schur algebra $\qschur$ as follows:
-\begin{itemize}
-\item
-The set of vertices is $\Gamma_0=\compositions$.
-\item
-The set of edges is $\Gamma_1$, consisting of edges
-\begin{equation*}
-e_{i,\lambda}\colon \lambda\to\lambda+\alpha_i
-\end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$ and
-\begin{equation*}
-f_{i,\lambda}\colon \lambda\to\lambda-\alpha_i
-\end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$. 
-\end{itemize}
+Let $\Gamma=\Gamma(n,r)$ be the quiver with set of vertices $\compositions$ and arrows
+\begin{align*}
+e_{i,\lambda}&\colon\lambda\to\lambda+\alpha_i \quad\text{ if } \lambda_{i+1}>0\\
+f_{i,\lambda}&\colon\lambda\to\lambda-\alpha_i \quad\text{ if } \lambda_i>0,
+\end{align*}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 
 The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ equals the source of $p$, or equals zero otherwise. 
 
@@ -1557,10 +1543,10 @@ f_if_j &-f_jf_i
 \end{align*}
 for $i,j\in\{1,\ldots,n\}$ such that $j\neq i\pm 1$,
 \begin{align*}
-e_ie_{i+1}^2 -&\qint{2}e_{i+1}e_ie_{i+1} +qe_{i+1}^2e_i\\
-e_i^2e_{i+1} -&\qint{2}e_ie_{i+1}e_i +qe_{i+1}e_i^2\\
-f_{i+1}^2f_i -&\qint{2}f_{i+1}f_if_{i+1} +qf_if_{i+1}^2\\
-f_{i+1}f_i^2 -&\qint{2}f_if_{i+1}f_i +qf_i^2f_{i+1}
+e_ie_{i+1}^2 -&(1+q)e_{i+1}e_ie_{i+1} +qe_{i+1}^2e_i\\
+e_i^2e_{i+1} -&(1+q)e_ie_{i+1}e_i +qe_{i+1}e_i^2\\
+f_{i+1}^2f_i -&(1+q)f_{i+1}f_if_{i+1} +qf_if_{i+1}^2\\
+f_{i+1}f_i^2 -&(1+q)f_if_{i+1}f_i +qf_i^2f_{i+1}
 \end{align*}
 for $i\in\{1,\ldots,n\}$,
 \begin{equation*}
@@ -1572,10 +1558,10 @@ e_if_i-f_ie_i - \sum_{\lambda\in\compositions}(\qint{\lambda_i}-\qint{\lambda_{i
 \end{equation*}
 for $i\in\{1,\ldots,n\}$.
 
-\renewcommand{\qrelations}{I}
 
 
 \subsection{Mapping to the q-Schur algebra}
+\renewcommand{\qrelations}{I}
 
 \begin{lemma}
 There is a $\integers[q]$-algebra homomorphism
@@ -1584,9 +1570,9 @@ There is a $\integers[q]$-algebra homomorphism
 \end{equation*}
 defined by
 \begin{align*}
+\phi(k_\lambda +\qrelations) &= 1_\lambda,\\
 \phi(e_{i,\lambda} +\qrelations) &= E_{i,\lambda},\\
-\phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},\\
-\phi(k_\lambda +\qrelations) &= 1_\lambda,
+\phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},
 \end{align*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \end{lemma}
@@ -1594,9 +1580,9 @@ for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \begin{proof}
 Lemma \ref{lemma:q-commutators-E-F} and Lemma \ref{lemma:q-serre-relations} shows that each equation defining the ideal $\qrelations$ corresponds to a zero relation in $\qschur$, so there is a unique homomorphism of $\integers[q]$-algebras given by
 \begin{align*}
+\phi(k_\lambda +\qrelations) &= 1_\lambda,\\
 \phi(e_{i,\lambda} +\qrelations) &= E_{i,\lambda},\\
-\phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},\\
-\phi(k_\lambda +\qrelations) &= 1_\lambda,
+\phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},
 \end{align*}
 for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \end{proof}
@@ -1804,7 +1790,6 @@ m((1\otimes i)(s\otimes x))
 for $s\in S$ and $x\in I$.
 
 Thus we have a commuting diagram of $S$-modules with exact rows and columns:
-
 \begin{equation*}
 \begin{tikzpicture}[scale=2.5, baseline = -0.5ex]
 \node (A) at (2,3) {$0$};
@@ -1841,7 +1826,6 @@ Thus we have a commuting diagram of $S$-modules with exact rows and columns:
 \cdarrow (B) edge (E);
 \cdarrow (E) edge node[right]{$\bar{m}$} (J);
 \cdarrow (J) edge (N);
-
 
 \end{tikzpicture}
 \end{equation*}
@@ -1893,7 +1877,7 @@ and the product $\qint{a}\qint{b}$ can be computed recursively as follows:
 &= 1 +q(\qint{a-1} +\qint{b-1} +q\qint{a-1}\qint{b-1}).
 \end{align*}
 
-The set of $q$-integers is not multiplicatively closed since, for example $\qint{2}^2 = 1+2q+q^2$, but the set $1+q\integers[q]$ is multiplicatively closed and contains the $q$-integers. Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
+The set of $q$-integers is not multiplicatively closed since, for example $\qint{2}^2 = 1+2q+q^2$, but the $q$-integers are contained in the multiplicatively closed set $1+q\integers[q]$. Let $\qfrac$ be the localisation of $\integers[q]$ at the set of elements of the form $1+qf$ for $f\in\integers[q]$, so $\qfrac$ is the subring of $\rationals(q)$ given by
 \begin{equation*}
 \qfrac = \left\{\frac{f}{1+qg}:f,g\in\integers[q]\right\}.
 \end{equation*}
@@ -1965,7 +1949,7 @@ I hope to deduce this from the presentation of the affine generic algebra by ten
 
 \section{Relations for the n=2 case}
 
-In this section we give relations in $\qschur[2,r]$. Compare with the relations given in {\color{red}[REFERENCE - a double hall algebra approach to affine quantum schur weyl theory p.13]} in the presentation of quantum affine $\mathfrak{sl}_n$.
+In this section we give relations in $\qschur[2,r]$ which are modified from the relations in the presentation of the affine quantum loop algebra $U(\hat{\mathfrak{gl}}_n)$, as in Definition 1.3.3 \cite{deng12book} for example.
 
 \begin{lemma}\label{lemma:period-2-q-relations}
 The following equations hold in $\qschur[2,r]$:
@@ -2105,7 +2089,7 @@ More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogen
 
 \begin{lemma}\label{lemma:grassmannian-incidence-lemmas}
 Let $V$ be an $n$-dimensional vector space over $\field$ and let $d_1,d_2,a\in\naturals$ with $d_1,d_2,a\le n$. The following hold:
-\begin{enumerate}
+\begin{enumerate}[i.]
 \item
 $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2) = a\}$ is a quasiprojective variety;
 \item
@@ -2122,7 +2106,7 @@ Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}: U_2\subset U_1\}$ is a projecti
 \end{lemma}
 
 \begin{proof}
-Let $X_i$ denote the space in statement \emph{i} of the lemma. To emphasise the dependence of $X_i$ on $a$, write $X_{i,a}$.
+Let $X_i$ denote the space in $i$-th statement of the lemma and write $X_{i,a}$ to emphasise the dependence of $a$.
 
 $X_1$ is a quasiprojective variety since it is equal to the intersection of the projective variety $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ with the open set $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\le a\}$.
 
@@ -3028,16 +3012,6 @@ e_A\ast R = e_{A[-1]}.
 Lemma \ref{lemma:action-of-R} shows that the same formulas hold in $\qschur$, then the result follows for the generic multiplication $\ast$, since each product $R\ast e_A$ and $e_A \ast R$ is supported on one orbit, so the generic multiplication and the product on $\qschur$ are the same in this instance.
 \end{proof} 
 
-Observe that
-\begin{align*}
-\antipode{(R_\lambda)} &= e_{\lambda_1\elem{1}{0}+\cdots +\lambda_n\elem{n}{n-1}}\\
-&= e_{[-1]\diag{[1]\lambda}}
-\end{align*}
-so
-\begin{equation*}
-\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}}.
-\end{equation*}
-
 \begin{lemma}\label{lemma:R-is-a-unit-generic}
 The element $R$ of $\generic$ is invertible, with
 \begin{equation*}
@@ -3046,16 +3020,17 @@ R \ast\antipode{(R)} = 1 = \antipode{(R)}\ast R.
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:action-of-R-generic} shows that
-\begin{align*}
-R\ast \antipode{(R)} 1_\lambda &= R e_{[-1]\diag{[1]\lambda}}\\
-&= e_{\diag{[1]\lambda}}\\
-&= 1_{[1]\lambda}
-\end{align*}
-for each $\lambda\in\compositions$, so
+Observe that
 \begin{equation*}
-R \ast\antipode{(R)} = 1.
+\antipode{(R)} = \sum_{\lambda\in\compositions} e_{[-1]\diag{\lambda}},
 \end{equation*}
+so
+\begin{align*}
+R\ast \antipode{(R)} &= \sum_{\lambda\in\compositions}R e_{[-1]\diag{\lambda}}\\
+&= \sum_{\lambda\in\compositions} e_{\diag{\lambda}}\\
+&= 1,
+\end{align*}
+using Lemma \ref{lemma:action-of-R-generic}.
 
 Similarly,
 \begin{align*}
@@ -3065,16 +3040,13 @@ Similarly,
 \end{align*}
 \end{proof}
 
-Let $\rotation{}$ be the $\integers$-algebra automorphism of $\generic$ given by conjugation by $R$, so
-\begin{align*}
-\rotation{(e_A)} &= R\ast e_A \ast \antipode{(R)}\\
-&= R\ast e_A \ast R^{-1},
-\end{align*}
-for each $A\in\matrices$.
+Let $\rotation{}$ be the $\integers$-algebra automorphism of $\generic$ defined by
+\begin{equation*}
+\rotation{(e_A)}=R^{-1}e_A R
+\end{equation*}
+for each $A\in\matrices$. Observe that $\rotation{}$ is unipotent of order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
 
-Observe that $\rotation{}$ has order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
-
-As in Lemma \ref{lemma:conjugation-by-R}, it follows from Lemma \ref{lemma:action-of-R-generic} that
+It follows from Lemma \ref{lemma:action-of-R-generic} that
 \begin{equation*}
 \rotation{(E_{i,\lambda})} = E_{i-1,[1]\lambda}
 \end{equation*}
@@ -3086,18 +3058,15 @@ for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$, and
 \begin{equation*}
 \rotation{(1_\lambda)} = 1_{[1]\lambda}
 \end{equation*}
-for $\lambda\in\compositions$.
-
-In particular,
+for each $\lambda\in\compositions$, so
 \begin{align*}
 \rotation{(E_i)} &= E_{i-1}\\
 \rotation{(F_i)} &= F_{i-1}
 \end{align*}
 for $i\in\{1,\ldots,r\}$.
 
-{\color{blue}As earlier, I can not be sure but I think this map $\rotation{}$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\rotation{(E_i)}=  E_{i-1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$.}
 
-\section{Multiplicative bases in affine zero Schur algebras: motivating example}
+\section{Multiplicative bases in affine zero Schur algebras: example}
 
 Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the associative $\integers$-algebra
 \begin{equation*}
@@ -3206,11 +3175,8 @@ This is a consequence of Lemma \ref{lemma:multiplicative-basis-rank-1} and the c
 An element $A\in\matrices$ is aperiodic if for each $l\in\integers\setminus\{0\}$ there exists $i\in\integers$ such that $a_{i,i+l}=0$.
 \end{definition}
 
-An element of $\generic$ is said to be aperiodic if it is a $\integers$-linear combination of basis elements $e_A$ corresponding to the aperiodic elements in $\matrices$.
-
-For example, the diagonal matrix $\diag{\lambda}$ is aperiodic so $1_\lambda$ is aperiodic, for any $\lambda\in\compositions$. The elementary basis elements $E_{i,\lambda}$ and $F_{i,\lambda}$ introduced earlier are also aperiodic.
-
-When $r<n$, any element $A\in\matrices$ is aperiodic since $\co{A}$ is insincere and therefore $A$ has a zero column.
+An element of $\generic$ is said to be aperiodic if it is a $\integers$-linear combination of basis elements $e_A$ corresponding to the aperiodic elements in $\matrices$. For example, the elements $1_\lambda$, $E_{i,\lambda}$ and $F_{i,\lambda}$ are all aperiodic.
+When $r<n$, any element $A\in\matrices$ is aperiodic since there must be a zero row and a zero column in $A$.
 
 \begin{lemma}\label{lemma:words-are-aperiodic}
 Suppose $A\in\matrices$ is aperiodic and write $\mu=\ro{A}$. If $\mu_{i+1}>0$, then $E_i\ast e_A$ is aperiodic. If $\mu_i>0$, then $F_i\ast e_A$ is aperiodic.
@@ -3951,9 +3917,9 @@ Let $n,r\geq 1$ with $r<n$. Recall
 \end{equation*}
 is the homomorphism of $\integers[q]$-algebras defined by
 \begin{align*}
-\phi(e_{i,\lambda})&= E_{i,\lambda}\\
-\phi(f_{i,\lambda})&= F_{i,\lambda}\\
-\phi(k_\lambda)&= 1_\lambda,
+\phi(e_{i,\lambda} +\qrelations)&= E_{i,\lambda}\\
+\phi(f_{i,\lambda} +\qrelations)&= F_{i,\lambda}\\
+\phi(k_\lambda +\qrelations)&= 1_\lambda,
 \end{align*}
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. Let $\phi_0$ be the $\integers$-algebra homomorphism
 \begin{equation*}
@@ -4112,6 +4078,10 @@ Further research could focus on the relation between the generic affine algebra 
 \section{Further results on affine zero Schur algebras}
 
 Investigate link between this generic product and the generic extension of representations. Shifting to the non-negative subalgebra to do computations purely in terms of generic extensions of quiver representations.
+
+
+This map $\rotation{}$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\rotation{(E_i)}=  E_{i+1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$. More generally in terms of nilpotent representations...
+
 
 \section{Combinatorial characterisation of degenerations}
 
