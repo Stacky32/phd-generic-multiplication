@@ -2453,7 +2453,15 @@ Therefore $\xprod[L]{A}$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the 
 
 The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{A}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{A}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a closed subset of $\Pi_{N,\lambda}^a(L)$, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
-On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}$ (for $i<j$) and $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}$ (for $i>j$) is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
+On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions
+\begin{equation*}
+\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}
+\end{equation*}
+for $i<j$ and
+\begin{equation*}
+\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}
+\end{equation*}
+for $i>j$ is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
 Therefore $\xprod[L]{A}$ is the intersection of an open set and a closed set in $\Pi_{N,\lambda}^a(L)$, so $\xprod[L]{A}$ is locally closed. It follows that $\xprod[L]{A}$ is an open subset of the projective variety $\overline{\xprod[L]{A}}$, so is a quasiprojective variety as claimed.
 \end{proof}
@@ -2515,9 +2523,23 @@ $\yprod[L]{A,B}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2
 \begin{proof}
 $\yprod[L]{A,B}$ is the subset of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ consisting of those $(L',L'')$ satisfying the following conditions: $\dim(L_i/{L_i\cap L_j'}) = d_{i,j}{(A)}$ for $i<j$, $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{(A)}$ for $i>j$, $\dim(L_i'/{L_i'\cap L_j''})=d_{i,j}{(B)}$ for $i<j$ and $\dim(L_j''/{L_i'\cap L_j''})=\bar{d}_{i,j}{(B)}$. Only finitely many conditions are required to define $\yprod[L]{A,B}$ since there are only finitely many nonzero entries in $A$ and $B$ modulo the $(n,n)$-periodicity.
 
-The conditions $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\le d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\le\bar{d}_{i,j}{(B)}$ define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
+The conditions
+\begin{align*}
+\dim(L_i/{L_i\cap L_j'}) &\le d_{i,j}{(A)}\\
+\dim(L_i'/{L_i'\cap L_j''}) &\le d_{i,j}{(B)}\\
+\dim(L_j'/{L_i\cap L_j'}) &\le\bar{d}_{i,j}{(A)}\\
+\dim(L_j''/{L_i'\cap L_j''}) &\le\bar{d}_{i,j}{(B)}
+\end{align*}
+define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
 
-On the other hand, the conditions $\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{(A)}$, $\dim(L_i'/{L_i'\cap L_j''})\geq d_{i,j}{(B)}$, $\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{(A)}$ and $\dim(L_j''/{L_i'\cap L_j''})\geq\bar{d}_{i,j}{(B)}$ define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
+On the other hand, the conditions
+\begin{align*}
+\dim(L_i/{L_i\cap L_j'}) &\geq d_{i,j}{(A)}\\
+\dim(L_i'/{L_i'\cap L_j''}) &\geq d_{i,j}{(B)}\\
+\dim(L_j'/{L_i\cap L_j'}) &\geq \bar{d}_{i,j}{(A)}\\
+\dim(L_j''/{L_i'\cap L_j''}) &\geq \bar{d}_{i,j}{(B)}
+\end{align*}
+define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
 
 Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{proof}
@@ -2607,7 +2629,11 @@ and
 \end{equation*}
 
 \begin{lemma}\label{lemma:embedding-y-triple}
-There is $N\in\naturals$ such that $\yprod[L]{A,B,C}$ is contained in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$, where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$.
+There is $N\in\naturals$ such that $\yprod[L]{A,B,C}$ is contained in
+\begin{equation*}
+\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L),
+\end{equation*}
+where $a=d_{nN,0}{(A)}$, $b=d_{nN,0}{(B)}$ and $c=d_{nN,0}{(C)}$.
 \end{lemma}
 
 \begin{proof}
@@ -2637,25 +2663,33 @@ for $(i,j)\in \{1,\ldots,n\}\times\integers$ with $-Nn<j<i$.
 
 For $i<j$, the conditions
 \begin{align*}
-\dim\left(L_i/{L_i\cap L_j'}\right)&\le d_{i,j}{(A)},\\
-\dim\left(L_i'/{L_i'\cap L_j''}\right)&\le d_{i,j}{(B)}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) &\le d_{i,j}{(A)}\\
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) &\le d_{i,j}{(B)}\\
+\dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) &\le d_{i,j}{(C)}
 \end{align*}
-and
-\begin{equation*} 
-\dim\left(L_i''/{L_i''\cap L_j'''}\right)\le d_{i,j}{(C)}
-\end{equation*}
-define closed subsets of $\Pi$, by Lemma \ref{lemma:incidence-varieties-main}. For $i>j$, the conditions
+define closed subsets of $\Pi$, by Lemma \ref{lemma:incidence-varieties-main}.
+
+For $i>j$, the conditions
 \begin{align*}
-\dim\left(L_j'/{L_i\cap L_j'}\right)&\le \bar{d}_{i,j}{(A)},\\
-\dim\left(L_j''/{L_i'\cap L_j''}\right)&\le \bar{d}_{i,j}{(B)}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) &\le \bar{d}_{i,j}{(A)}\\
+\dim\left(\frac{L_j''}{L_i'\cap L_j''}\right) &\le \bar{d}_{i,j}{(B)}\\
+\dim\left(\frac{L_j'''}{L_i''\cap L_j'''}\right) &\le \bar{d}_{i,j}{(C)}
 \end{align*}
-and
-\begin{equation*}
-\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\le \bar{d}_{i,j}{(C)}
-\end{equation*}
 also define closed subsets of $\Pi$.
 
-On the other hand, the conditions $\dim\left(L_i/{L_i\cap L_j'}\right)\geq d_{i,j}{(A)}$, $\dim\left(L_i'/{L_i'\cap L_j''}\right)\geq d_{i,j}{(B)}$ and $\dim\left(L_i''/{L_i''\cap L_j'''}\right)\geq d_{i,j}{(C)}$ for $i<j$ define open subsets of $\Pi$. Similarly, the conditions $\dim\left(L_j'/{L_i\cap L_j'}\right)\geq \bar{d}_{i,j}{(A)}$, $\dim\left(L_j''/{L_i'\cap L_j''}\right)\geq \bar{d}_{i,j}{(B)}$ and $\dim\left(L_j'''/{L_i''\cap L_j'''}\right)\geq \bar{d}_{i,j}{(C)}$ for $i>j$ define open subsets of $\Pi$.
+On the other hand, the conditions
+\begin{align*}
+\dim\left(\frac{L_i}{L_i\cap L_j'}\right) &\geq d_{i,j}{(A)}\\
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) &\geq d_{i,j}{(B)}\\
+\dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) &\geq d_{i,j}{(C)}
+\end{align*}
+define open subsets of $\Pi$ for $i<j$. Similarly, the conditions
+\begin{align*}
+\dim\left(\frac{L_j'}{L_i\cap L_j'}\right) &\geq \bar{d}_{i,j}{(A)}\\
+\dim\left(\frac{L_j''}{L_i'\cap L_j''}\right) &\geq \bar{d}_{i,j}{(B)}\\
+\dim\left(\frac{L_j'''}{L_i''\cap L_j'''}\right) &\geq \bar{d}_{i,j}{(C)}
+\end{align*}
+define open subsets of $\Pi$ for $i>j$.
 
 Therefore $\yprod[L]{A,B,C}$ is the intersection of finitely many closed sets in $\Pi$ with finitely many open subsets of $\Pi$, so $\yprod[L]{A,B,C}$ is locally closed. In particular, $\yprod[L]{A,B,C}$ is a quasiprojective variety.
 \end{proof}
@@ -2673,7 +2707,11 @@ for each $L'\in\xprod[L]{A}$.
 \end{lemma}
 
 \begin{proof}
-Let $(L',L'',L''')\in\yprod[L]{A,B,C}$. Given $\alpha\in G_{L}$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$, $(\alpha L',\alpha\beta L'', \alpha\beta\gamma L''')$ is in $\yprod[L]{A,B,C}$ since
+Let $(L',L'',L''')\in\yprod[L]{A,B,C}$. If $\alpha\in G_{L}$, $\beta\in G_{L'}$ and $\gamma\in G_{L''}$ then
+\begin{equation*}
+(\alpha L',\alpha\beta L'', \alpha\beta\gamma L''')\in\yprod[L]{A,B,C}
+\end{equation*}
+since
 \begin{align*}
 (L,\alpha L') &= \alpha (L,L')\in\orbit{A}\\
 (\alpha L', \alpha\beta L'') &= \alpha\beta (L',L'')\in\orbit{B}\\
@@ -2757,11 +2795,19 @@ Projection onto the second component is a closed morphism of varieties $p_2\colo
 \end{proof}
 
 \begin{lemma}\label{lemma:yprod-generic-B-C}
-$p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
+$p_3^{-1}(\xprod[L]{A,B\ast C})$ is an open subset of $\overline{\yprod[L]{A,B,C}}$.
 \end{lemma}
 
 \begin{proof}
-$p_3^{-1}(\xprod[L]{A,B\ast C})$ consists of those $(L',L'',L''')\in\overline{\yprod[L]{A,B,C}}$ such that $\dim\left(L_i'/{L_i'\cap L_j'''}\right)\geq d_{i,j}(B\ast C)$ for $i<j$ and $\dim\left(L_j'''/{L_i'\cap L_j'''}\right)\geq\bar{d}_{i,j}(B\ast C)$ for $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[L]{A,B,C}}$ as a result of Lemma \ref{lemma:incidence-varieties-main} and only finitely many conditions are required to determine $p_3^{-1}(\xprod[L]{A,B\ast C})$, as before. Therefore $p_3^{-1}(\xprod[L]{A,B\ast C})$ is the intersection of finitely many open sets in $\overline{\yprod[L]{A,B,C}}$, so is open as claimed.
+$p_3^{-1}(\xprod[L]{A,B\ast C})$ consists of those $(L',L'',L''')\in\overline{\yprod[L]{A,B,C}}$ such that
+\begin{equation*}
+\dim\left(L_i'/{L_i'\cap L_j'''}\right)\geq d_{i,j}(B\ast C)
+\end{equation*}
+for $i<j$ and
+\begin{equation*}
+\dim\left(L_j'''/{L_i'\cap L_j'''}\right)\geq\bar{d}_{i,j}(B\ast C)
+\end{equation*}
+for $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[L]{A,B,C}}$ as a result of Lemma \ref{lemma:incidence-varieties-main} and only finitely many conditions are required to determine $p_3^{-1}(\xprod[L]{A,B\ast C})$, as before. Therefore $p_3^{-1}(\xprod[L]{A,B\ast C})$ is the intersection of finitely many open sets in $\overline{\yprod[L]{A,B,C}}$, so is open as claimed.
 \end{proof}
 
 \begin{proposition}\label{proposition:associativity}
@@ -3717,7 +3763,11 @@ Let $A\in\matrices$ and let $p$ be the standard path for $A$. Then
 \end{lemma}
 
 \begin{proof}
-Let $A\in\matrices$, $\lambda=\ro{A}$, $\mu=\co{A}$, $h=\height{A}$ and let $p=k_\lambda p_1^+\cdots p_h^+ p_1^-\cdots p_h^- k_\mu$ be the standard path for $A$.
+Let $A\in\matrices$, $\lambda=\ro{A}$, $\mu=\co{A}$, $h=\height{A}$ and let
+\begin{equation*}
+p=k_\lambda p_1^+\cdots p_h^+ p_1^-\cdots p_h^- k_\mu
+\end{equation*}
+be the standard path for $A$.
 
 The standard path for $(0)A$ is $k_\lambda p_1^+\cdots p_h^+$, by Lemma \ref{lemma:pos-neg-path-to-matrix}, so
 \begin{align*}
