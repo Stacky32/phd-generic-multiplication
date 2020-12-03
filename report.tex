@@ -1,9 +1,24 @@
-\documentclass[a4paper, 11pt]{report}
+\documentclass[a4paper, 11pt, twoside]{report}
 \usepackage{preamble}
 
 \begin{document}
-\maketitle
+\input{titlepage}
+
+\chapter*{Dedication}
+
+Dedicated to Midnight and Marmite.
+
+\chapter*{Abstract}
+
+Write an abstract.
+
+\chapter*{Acknowledgements}
+
+Thanks everyone...
+
+
 \tableofcontents
+
 
 \chapter{Introduction}
 
@@ -55,11 +70,7 @@ Assume $\field$ is an algebraically closed field so that $\flags$ is a projectiv
 \pi\colon\flags^3 &\to\flags\times\flags\\
 \delta\colon\flags^3 &\to\flags^4
 \end{align*}
-by $\pi(f,f',f'')=(f,f'')$ and $\delta(f,f',f'')=(f,f',f',f'')$ for each $(f,f',f'')\in\flags^3$. The $\GL{}{V}$-orbits in $\dblflags$ are locally closed and given orbits $\orbit{A}$ and $\orbit{B}$ such that $e_Ae_B$ is nonzero, the space
-\begin{equation*}
-\pi(\delta^{-1}(\orbit{A}\times\orbit{B})) = \{(f,f'')\in\dblflags: \exists f'\in\flags\text{ with } (f,f')\in\orbit{A}, (f',f'')\in\orbit{B}\}
-\end{equation*}
-is irreducible, so there is a unique open orbit denoted by $\orbit{A\ast B}$, as in Corollary 6.2 \cite{su12}. The generic algebra $G(n,r)$ is then defined to be the free $\integers$-module on $\dblflags/{\GL{}{V}}$ equipped with $\integers$-bilinear product defined by
+by $\pi(f,f',f'')=(f,f'')$ and $\delta(f,f',f'')=(f,f',f',f'')$ for each $(f,f',f'')\in\flags^3$. Then $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is the union of the orbits $\orbit{C}$ such that the structure polynomial $g_{A,B,C}$ is nonzero. The $\GL{}{V}$-orbits in $\dblflags$ are locally closed and given orbits $\orbit{A}$ and $\orbit{B}$ such that $e_Ae_B$ is nonzero, the space $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is irreducible, so there is a unique open orbit denoted by $\orbit{A\ast B}$, as in Corollary 6.2 \cite{su12}. The generic algebra $G(n,r)$ is then defined to be the free $\integers$-module on $\dblflags/{\GL{}{V}}$ equipped with $\integers$-bilinear product defined by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
 0 &:\text{ if } e_Ae_B=0\\
@@ -91,7 +102,11 @@ e_if_j - f_je_i -\delta_{i,j}\sum_{\lambda\in\compositions} \frac{q^{\lambda_i}-
 \end{equation*}
 for $i,j\in\{1,\ldots,n-1\}$.
 
-There is a homomorphism of $\integers[q]$-algebras $\phi\colon\integers[q]\Sigma(n,r)/{I(n,r)}\to S_q(n,r)$ given by
+There is a homomorphism of $\integers[q]$-algebras
+\begin{equation*}
+\phi\colon\integers[q]\Sigma(n,r)/{I(n,r)}\to S_q(n,r)
+\end{equation*}
+given by
 \begin{align*}
 \phi(k_\lambda + I) &= 1_\lambda,\\
 \phi(e_{i,\lambda} +I) &= E_{i,\lambda},\\ 
@@ -100,7 +115,11 @@ There is a homomorphism of $\integers[q]$-algebras $\phi\colon\integers[q]\Sigma
 where $E_{i,\lambda}$ is the basis element corresponding to the matrix with $(i,i+1)$-entry equal to $1$, diagonal entries $(\lambda_1,\ldots,\lambda_{i+1}-1,\ldots,\lambda_n)$ and all other entries equal to zero and $F_{i,\lambda}$ is the basis element corresponding to the matrix with $(i+1,i)$-entry equal to $1$, with diagonal entries $(\lambda_1,\ldots,\lambda_i-1,\ldots,\lambda_n)$ and all other entries equal to zero. Let $I_0=I_0(n,r)$ be the ideal in $\integers\Gamma$ given by evaluating the relations in $I$ at $q=0$.
 
 \begin{theorem*}\cite{su12}[Theorem 7.2]
-The $\integers$-algebra homomorphism $\phi\colon\integers\Sigma/{I_0}to G(n,r)$ given by
+There is an isomorphism of $\integers$-algebras
+\begin{equation*}
+\phi\colon\integers\Sigma/{I_0}\to G(n,r)
+\end{equation*}
+given by
 \begin{align*}
 \phi(k_\lambda + I_0) &= 1_\lambda\\
 \phi(e_{i,\lambda} + I_0) &= E_{i,\lambda}\\
@@ -110,13 +129,17 @@ for $i\in\{1,\ldots,n-1\}$ and $\lambda\in\compositions$.
 \end{theorem*}
 
 \begin{theorem*}\cite{su12}[Theorem 7.3]
-The $\integers$-algebra homomorphism $\psi\colon G(n,r)\to S_0(n,r)$ given by
+There is an isomorphism of $\integers$-algebras
+\begin{equation*}
+\psi\colon G(n,r)\to S_0(n,r)
+\end{equation*}
+given by
 \begin{align*}
 \psi(1_\lambda) &= 1_\lambda\\
 \psi(E_{i,\lambda}) &= E_{i,\lambda}\\
 \psi(F_{i,\lambda}) &= F_{i,\lambda}
 \end{align*}
-is an isomorphism.
+for $i\in\{1,\ldots,n-1\}$ and $\lambda\in\compositions$.
 \end{theorem*}
 
 Thus $S_0(n,r)$ is presented by the bound quiver algebra $\integers\Sigma/{I_0}$ and the image of the standard basis under $\Psi$ is a multiplicative basis in $S_0(n,r)$. This result also leads to a presentation of $q$-Schur algebras over the ring $\qfrac\subset\rationals(q)$ which is the localisation of $\integers[q]$ at $1+q\integers[q]$.
@@ -317,15 +340,18 @@ The first chapter introduces the construction of affine $q$-Schur algebras via a
 
 {\color{red}Add a couple of sentences to say we're giving the Lusztig realisation in more detail.}
 
-\section{The cyclic flags realisation of affine q-Schur algebras}
-% Shorthand notation for polynomial/ laurent polynomial rings.
+\section{Realisation of affine q-Schur algebras}
 \renewcommand{\laurent}{\mathcal{S}}
 \renewcommand{\polys}{\mathcal{R}}
 
 Fix integers $n,r\geq 1$.
 
 \begin{definition}\label{def:compositions}
-A \emph{composition of $r$ into $n$ parts} is an $n$-tuple $\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n$ of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
+A \emph{composition of $r$ into $n$ parts} is an $n$-tuple
+\begin{equation*}
+\lambda=(\lambda_1,\ldots,\lambda_n)\in\integers^n
+\end{equation*}
+of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
 \end{definition}
 
 A composition $\lambda\in\compositions$ is said to be sincere if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is said to be insincere.
@@ -419,14 +445,15 @@ g\cdot(L,L') = (gL,gL')
 for $g\in G$ and $(L,L')\in\dblflags$. Denote the $G$-orbit of $(L,L')$ by $[L,L']$. The set of $G$-orbits in $\dblflags$ admits a combinatorial description as described below.
 
 \begin{definition}\label{def:characteristic-matrix}
-The periodic characteristic matrix of a pair of cyclic flags $(L,L')\in\dblflags$ is the matrix $\type{L}{L'}=(a_{i,j})_{i,j\in\integers}$ with entries
+The periodic characteristic matrix of a pair of flags $(L,L')\in\dblflags$ is the matrix $\type{L}{L'}$ with entries
 \begin{equation*}
 a_{i,j} = \dim\left(\frac{L_i\cap L_j'}{L_i\cap L_{j-1}' + L_{i-1}\cap L_j'}\right)
 \end{equation*}
-for each $i,j\in\integers$.
+for $i,j\in\integers$.
 \end{definition}
 
 The next lemma shows that the characteristic matrix of a pair of flags depends only on the $G$-orbit of the pair.
+
 \begin{lemma}
 Given $(L,L')\in\dblflags$ and $g\in G$,
 \begin{equation*}
@@ -451,6 +478,7 @@ since the action of $g$ commutes with sums and intersections of lattices. Theref
 \end{proof}
 
 The following result gives another useful set of expressions for the characteristic matrix.
+
 \begin{lemma}\label{lemma:characteristic-matrix-alternative}
 For each $i,j\in\integers$,
 \begin{equation*}
@@ -467,7 +495,7 @@ and thus the dimensions of these spaces are both equal to $a_{i,j}$.
 \end{proof}
 
 \begin{lemma}
-For each $(L,L')\in\dblflags$, $\type{L}{L'}\in\matrices$.
+For each $(L,L')\in\dblflags$, $\type{L}{L'}$ is an element of $\matrices$.
 \end{lemma}
 
 \begin{proof}
@@ -632,13 +660,16 @@ Observe that the vector space $L_{i-1}+L_i\cap L_j'$ is the direct sum of those 
 for each $i,j\in\integers$ and therefore $\type{L}{L'}=A$.
 
 \begin{lemma}
-Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ gives a bijection between the set of $G$-orbits in $\dblflags$ and the set $\matrices$.
+Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ induces a bijection
+\begin{equation*}
+\dblflags/{G}\to\matrices: [L,L']\mapsto \type{L}{L'}.
+\end{equation*}
 \end{lemma}
 
 \begin{proof}
 The construction of a pair of flags corresponding to a matrix preceding this lemma shows that this map is surjective.
 
-Suppose $(L,L')$ and $(N,N')$ are pairs of flags with $\type{L}{L'}=\type{N,N'}=A$. There are decompositions of $V$ which are adapted to $(L,L')$ and $(N,N')$ as below:
+Suppose $(L,L')$ and $(N,N')$ are pairs of flags with $\type{L}{L'}=\type{N}{N'}=A$. There are decompositions of $V$ which are adapted to $(L,L')$ and $(N,N')$ as below:
 There are subspaces $U_{i,j}$ of $V$ for $i,j\in\integers$ such that the dimension of $U_{i,j}$ is $a_{i,j}$, $\epsilon U_{i,j}=U_{i-n,j-n}$ and
 \begin{equation*}
 V=\bigoplus_{i,j\in\integers} U_{i,j};
@@ -665,19 +696,33 @@ N_j' = \bigoplus_{i\in\integers,t\le j} V_{i,t}
 \end{equation*}
 for each $j\in\integers$.
 
-There exist $\field$-linear isomorphisms $g_{i,j}\colon U_{i,j}\to V_{i,j}$ for $i,j\in\integers$ such that $g_{i-n,j-n}=\epsilon g_{i,j}\epsilon^{-1}$. Then $g=(g_{i,j})_{i,j\in\integers}$ is a $\laurent$-linear automorphism of $V$ with $g(L_i)=N_i$ and $g(L_i')=N_i'$ for each $i\in\integers$, so $g(L,L')=(N,N')$. Therefore the map sending a $G$-orbit to its characteristic matrix is injective.
+There exist $\field$-linear isomorphisms $g_{i,j}\colon U_{i,j}\to V_{i,j}$ for $i,j\in\integers$ such that
+\begin{equation*}
+g_{i-n,j-n}=\epsilon g_{i,j}\epsilon^{-1}.
+\end{equation*}
+Then $g=(g_{i,j})_{i,j\in\integers}$ is an automorphism of the $\laurent$-module $V$ with $g(L_i)=N_i$ and $g(L_i')=N_i'$ for each $i\in\integers$, so $g(L,L')=(N,N')$. Therefore the map sending a $G$-orbit to its characteristic matrix is injective.
 \end{proof}
 
 \begin{lemma}
-Given $(L,L')\in\flags^2$, $L'\subset L$ if and only if $\type{L}{L'}_{i,j}=0$ for $i,j\in\integers$ with $i>j$.
+Given $A\in\matrices$ and $(L,L')\in\orbit{A}$, $L'\subset L$ if and only if $a_{i,j}=0$ for all $i,j\in\integers$ with $i>j$.
 \end{lemma}
 
 \begin{proof}
-Suppose $L,L'\in\flags$ with $L'\subset L$, meaning $L_j'\subset L_j$ for each $j\in\integers$. Then for $i>j$, $L_i\cap L_j' = L_j'$, $L_{i-1}\cap L_j' = L_j'$ and $L_i\cap L_{j-1}'$, which shows
-\begin{equation*}
-\type{L}{L'}_{i,j} = \dim\left(\frac{L_j'}{L_{j-1}'+L_j'}\right) = 0
-\end{equation*}
-as required. Conversely, suppose $\type{L}{L'}$ is upper triangular, meaning $\type{L}{L'}_{i,j}=0$ when $i>j$. Using Lemma \ref{lemma:hook-codimension-formula},
+Suppose $L,L'\in\flags$ with $L'\subset L$, meaning $L_j'\subset L_j$ for each $j\in\integers$. For $i>j$
+\begin{align*}
+L_i\cap L_j' &= L_j'\\
+L_{i-1}\cap L_j' &= L_j'\\
+L_i\cap L_{j-1}' &= L_{j-1}',
+\end{align*}
+which shows
+\begin{align*}
+a_{i,j}
+&= \dim\left(\frac{L_j'}{L_{j-1}'+L_j'}\right)\\
+&= 0
+\end{align*}
+as required.
+
+Conversely, suppose $a_{i,j}=0$ for all $i>j$. Using Lemma \ref{lemma:hook-codimension-formula},
 \begin{equation*}
 \dim\left(\frac{L_i'}{L_i'\cap L_i}\right) = \sum_{s>i,t\le i} a_{s,t} = 0,
 \end{equation*}
@@ -685,12 +730,13 @@ so $L_i\cap L_i' = L_i'$ and thus $L_i'\subset L_i$ for each $i\in\integers$, as
 \end{proof}
 
 \begin{corollary}\label{corollary:diagonal-orbits}
-Given $L,L'\in\flags$, $L=L'$ if and only if $\type{L}{L'}_{i,j}=0$ whenever $i\neq j$. In particular,
+Given $A\in\matrices$ and $(L,L')\in\orbit{A}$, $L=L'$ if and only if $a_{i,j}=0$ whenever $i\neq j$. In particular,
 \begin{equation*}
 \orbit{\diag{\lambda}} = \{(L,L)\in\flags^2: L\in\flags_\lambda\},
 \end{equation*}
 for each $\lambda\in\compositions$.
 \end{corollary}
+
 
 \subsection{A product of orbits}
 
@@ -727,10 +773,10 @@ Similarly, if $\lambda=\co{A}$, $\yprod{A,\diag{\lambda}}$ is the set of triples
 
 Given $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$, there are spaces $\xprod{A,B,C}$, $\yprod{A,B,C}$ and their respective $L$-slices, defined as follows:
 \begin{equation*}
-\yprod{A,B,C} = \{(L,L',L'',L''')\in\flags^4: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B} \text{ and } (L'',L''')\in\orbit{C}\},
+\yprod{A,B,C} = \{(L,L',L'',L''')\in\flags^4: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}, (L'',L''')\in\orbit{C}\},
 \end{equation*}
 \begin{equation*}
-\xprod{A,B,C} = \{(L,L''')\in\flags^2: \exists (L',L'')\in\orbit{B} \text{ with } (L,L')\in\orbit{A} \text{ and } (L'',L''')\in\orbit{C}\},
+\xprod{A,B,C} = \{(L,L''')\in\flags^2: \exists (L',L'')\in\orbit{B}\text{ s.t. } (L,L')\in\orbit{A}, (L'',L''')\in\orbit{C}\},
 \end{equation*}
 \begin{equation*}
 \yprod[L]{A,B,C} = \{ (L',L'',L''')\in\flags^3: (L,L',L'',L''')\in\yprod{A,B,C}\},
@@ -1232,33 +1278,33 @@ e_A R = e_{A[-1]}.
 \end{lemma}
 
 \begin{proof}
-Let $\mu = \ro{A}$ and $\lambda=\co{A}[-1]$. Observe that
-\begin{equation*}
-\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{[1]\diag{\mu}}, (L',L'')\in\orbit{A}\} = \{(L'[1],L',L''): (L',L'')\in\orbit{A}\},
-\end{equation*}
-and the image under the projection onto the first and last components is
-\begin{equation*}
-\{(L'[1],L''):(L,L'')\in\orbit{A}\} = \orbit{[1]A}.
-\end{equation*}
-The coefficient of $\orbit{[1]A}$ in the product $Re_A$ is $1$ since, for any $(N,N'')\in\orbit{[1]A}$,
-\begin{equation*}
-\{N'\in\flags: (N,N')\in\orbit{[1]\diag{\mu}}, (N',N'')\in\orbit{A}\} = \{N[-1]\},
-\end{equation*}
-so it follows that $Re_A = e_{[1]A}$.
+Let $\mu = \ro{A}$, $\lambda=\co{A}$ and fix $(L,L')\in\orbit{A}$. Firstly, $Re_A=R_\mu e_A$ and the orbit corresponding to $R_\mu$ is $[L[1],L]$. If $(N,N',N'')\in\flags^3$ with $[N,N']=[L[1],L]$ and $[N',N'']=[L,L']$ then there are $g,h\in G$ such that
+\begin{align*}
+(N,N') &= g(L[1],L) \text{ and}\\
+(N',N'') &= h(L,L'),
+\end{align*}
+so
+\begin{align*}
+(N,N'')
+&= (gL[1],h L')\\
+&= h(h^{-1}gL[1],L')\\
+&= h(L[1],L')
+\end{align*}
+since $gL=hL$. The coefficient of $e_{[1]A}$ in $R_\mu e_A$ is $1$ since $N'=gL$, so $R_\mu e_A = e_{[1]A}$ as claimed.
 
-To compute the product $e_A R$, consider
-\begin{equation*}
-\{(L,L',L'')\in\flags^3: (L,L')\in\orbit{A}, (L',L'')\in\orbit{[1]\diag{\lambda}}\} = \{(L,L',L'[-1]):(L,L')\in\orbit{A}\}.
-\end{equation*}
-The image under the projection onto the first and last components is
-\begin{equation*}
-\{(L,L'[-1]):(L,L')\in\orbit{A}\} = \orbit{A[-1]}
-\end{equation*}
-and, for any $(N,N'')\in\orbit{A[-1]}$,
-\begin{equation*}
-\{N'\in\flags:(N,N')\in\orbit{A}, (N',N'')\in\orbit{[1]\diag{\lambda}}\} = \{N''[1]\}.
-\end{equation*}
-Therefore $e_A R = e_{A[-1]}$.
+Secondly, $e_AR = e_A R_{\lambda[-1]}$ and the orbit corresponding to $R_{\lambda[-1]}$ is $[L,L'[-1]]$. If $(N,N',N'')\in\flags^3$ with $[N,N']=[L,L']$ and $[N',N''] = [L',L'[-1]]$ then there are $g,h\in G$ such that
+\begin{align*}
+(N,N') &= g(L,L') \text{ and}\\
+(N',N'') &= h(L',L'[-1]),
+\end{align*}
+so
+\begin{align*}
+(N,N'')
+&= (gL,hL'[-1])\\
+&= g(L,g^{-1}hL'[-1])\\
+&= g(L,L'[-1])
+\end{align*}
+since $gL'=hL'$. The coefficient of $e_{A[-1]}$ in $e_AR_{\lambda[-1]}$ is $1$ since $N'=gL'$, so $e_A R=e_{A[-1]}$ as claimed.
 \end{proof}
 
 \begin{lemma}\label{lemma:R-is-a-unit}
@@ -2195,7 +2241,7 @@ which shows $L'\in\Pi_{N,\lambda}^a(L)$. Therefore $\Pi_{N,\lambda}^a(L)$ is the
 \end{proof}
 
 \begin{lemma}
-Let $\lambda\in\compositions$, $M,N\in\naturals$, $L,\tilde{L}\in\flags$, $0\le a\le 2Nr$, $0\le b\le 2Mr$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{M,\lambda}^b(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$. In particular, if the intersection is nonempty it is a projective algebraic variety.
+Let $\lambda\in\compositions$, $M,N\in\naturals$, $L,\tilde{L}\in\flags$, $0\le a\le 2Nr$, $0\le b\le 2Mr$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{M,\lambda}^b(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$.
 \end{lemma}
 
 \begin{proof}
@@ -2203,11 +2249,23 @@ Observe that $\Pi_{N,\lambda}^a(L)\cap\Pi_{M,\lambda}^b(\tilde{L})$ is the subse
 \end{proof}
 
 \begin{lemma}
-Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the natural map (restriction of the action map) $\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)$ is an isomorphism of projective varieties.
+Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the restriction of the action map
+\begin{equation*}
+g\colon\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)
+\end{equation*}
+is an isomorphism of projective algebraic varieties.
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N,\lambda}^a(L)$, then $\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0$ and so $\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0)$, so $gL'\in\Pi_{N,\lambda}^a(L)$. Thus $g$ and $g^{-1}$ induce mutually inverse morphisms of varieties $g\colon\Pi_{N,\lambda}^a(L)\to\Pi_{N,\lambda}^a(gL)$ and $g^{-1}\colon\Pi_{N,\lambda}^a(gL)\to\Pi_{N,\lambda}^a(L)$.
+If $L'\in\Pi_{N,\lambda}^a(L)$ and $g\in G$, then
+\begin{equation*}
+\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0
+\end{equation*}
+and so
+\begin{equation*}
+\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0),
+\end{equation*}
+which proves that $gL\in\Pi_{N,\lambda}^a(gL)$. Thus the action of $g$ defines a map from $\Pi_{N,\lambda}^a(L)$ to $\Pi_{N,\lambda}^a(gL)$ which is an isomorphism of projective algebraic varieties since $g$ is an automorphism of $V$, with the inverse morphism given by multiplying by $g^{-1}$.
 \end{proof}
 
 \subsection{Action through an algebraic group}
@@ -2218,7 +2276,7 @@ Each element $g\in G_L$ determines an endomorphism $\overline{g}$ of $W$, given 
 \begin{equation*}
 \overline{g}(x+\epsilon^N L_0) = g(x) + \epsilon^N L_0,
 \end{equation*}
-for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$, $\overline{gh}=\overline{g}\overline{h}$ and so $\bar{g}$ is an automorphism of $W$ with $\overline{g}^{-1} = \overline{g^{-1}}$. Therefore the map $\bar{}\colon G_L\mapsto\GL{}{W}$ given by $g\mapsto \overline{g}$ is a group homomorphism with kernel
+for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$, $\overline{gh}=\overline{g}\overline{h}$ and so $\overline{g}$ is an automorphism of $W$ and the inverse of $\overline{g}$ is $\overline{g^{-1}}$. Therefore the map $\bar{}\colon G_L\mapsto\GL{}{W}$ given by $g\mapsto \overline{g}$ is a group homomorphism with kernel
 \begin{equation*}
 H_{N,L}\coloneqq \{g\in G_L:\overline{g}=1\},
 \end{equation*}
@@ -4086,8 +4144,6 @@ This map $\rotation{}$ is related to the Auslander-Reiten translation on the iso
 \section{Combinatorial characterisation of degenerations}
 
 The degeneration order on orbits in $\dblflags$ implies the hook order on $\matrices$. Through examples it seems that these two orders are in fact equivalent, but a proof has so far been elusive.
-
-
 
 \nocite{*}
 \printbibliography

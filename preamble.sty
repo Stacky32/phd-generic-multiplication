@@ -1,70 +1,46 @@
 %\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{preamble}
 
-% Preamble for doctoral thesis "A geometric realisation of affine 0-Schur algebras".
-% Author: Tom Crawley, working at University of Bath.
-% Supervisor: Dr Xiuping Su.
-% Funding: EPSRC grant.
 
-% -------------------------------------------- %
-% 				PACKAGES						 %
-% -------------------------------------------- %
-
+% PACKAGES:
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
-\RequirePackage{enumerate}
-\RequirePackage{xcolor}
+\RequirePackage{enumerate}	% create lists.
+\RequirePackage{xcolor}		% color blocks of text.
 \RequirePackage{mathtools}	% included for use of coloneqq.
 
-\usepackage{tikz} % Diagrams
-\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 
-
-% TIKZ PICTURE CONVENIENCE COMMANDS %
-% produces an arrow for a commutative diagram
-\newcommand{\cdarrow}{\path[->,font=\scriptsize,>=angle 90]}
-% makes a dashed arrow
-\newcommand{\cdarrowdashed}{\path[->,dashed,font=\scriptsize,>=angle 90]}
-% makes a dashed line
-\newcommand{\cdlinedashed}{\path[-,dashed,font=\scriptsize,>=angle 90]}
-% makes a line
-\newcommand{\cdline}{\path[-,font=\scriptsize,>=angle 90]}
-
-
-% BIBLIOGRAPHY
+\usepackage[bottom=4cm,top=3cm,left=4cm,right=3cm]{geometry}
+\geometry{footskip=1cm}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}
 
-% OTHER PACKAGES:
-
 %\usepackage{extpfeil} 	% for interesting arrows.
 \usepackage{hyperref} 	% enable navigation hyperlinks
+%\usepackage{import}		%For importing sections, bibliography etc.
 
-%\usepackage{import}
-%For importing sections, bibliography etc.
-%Usage: \import[path]{filename}
+\usepackage{tikz} % Diagrams
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\newcommand{\cdarrow}{\path[->,font=\scriptsize,>=angle 90]}
+\newcommand{\cdarrowdashed}{\path[->,dashed,font=\scriptsize,>=angle 90]}
+\newcommand{\cdlinedashed}{\path[-,dashed,font=\scriptsize,>=angle 90]}
+\newcommand{\cdline}{\path[-,font=\scriptsize,>=angle 90]}
 
+% FORMATTING AND STYLE
 
-% -------------------------------------------- %
-% 				STYLE AND FORMATTING		   %
-% -------------------------------------------- %
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\textwidth}{463pt} 
+%\setlength{\marginparsep}{0pt}
+%\setlength{\marginparwidth}{60pt}
+%\setlength{\topmargin}{20pt}
+%\setlength{\headheight}{0pt}
+%\setlength{\headsep}{0pt}
+%\setlength{\textheight}{650pt}
+%\setlength{\footskip}{20pt}
 
-\setlength{\oddsidemargin}{0pt}
-\setlength{\textwidth}{463pt}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{60pt}
-\setlength{\topmargin}{20pt}
-\setlength{\headheight}{0pt}
-\setlength{\headsep}{0pt}
-\setlength{\textheight}{650pt}
-\setlength{\footskip}{20pt}
-
-
-% -------------------------------------------- %
-% 				THEOREM ENVIRONMENTS	       %
-% -------------------------------------------- %
+% THEOREM ENVIRONMENTS
 % Plain style theorems:
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -90,9 +66,7 @@
 \numberwithin{figure}{section}
 
 
-% -------------------------------------------- %
-%			 MATHEMATICAL OPERATORS			   %
-% -------------------------------------------- %
+% NOTATION
 
 % cokernel of a morphism
 \DeclareMathOperator{\coker}{coker}
@@ -110,10 +84,6 @@
 \DeclareMathOperator{\IM}{im}
 % rank of a linear map
 \DeclareMathOperator{\rank}{rank}
-
-% --------------------------------------------- %
-% 				NOTATION					 	  %
-% --------------------------------------------- %
 
 % COMMON MATHEMATICAL NOTATION
 \newcommand{\integers}{\mathbb{Z}}
@@ -201,9 +171,3 @@
 % the $\qfrac form of the q-Schur algebra
 \newcommand{\Qqschur}[1][n,r]{\hat{S}_{\qfrac}(#1)}
 
-% -------------------------------------------- %
-%				TITLE PAGE					   %
-% -------------------------------------------- %
-
-\author{Tom Crawley}
-\title{Affine 0-Schur algebras and affine double flag varieties.}
