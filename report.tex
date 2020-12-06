@@ -41,7 +41,7 @@ There are countless people not directly mentioned here who have influenced me an
 
 \chapter{Introduction}
 
-The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su12} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
+The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su15} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
 
 \section{The geometric realisation of 0-Schur algebras}
 
@@ -70,23 +70,23 @@ g_{A,B,C}(\#\field) = \#\left\{ f'\in\flags: (f,f')\in\orbit{A}, (f',f'')\in\orb
 \end{equation*}
 for any finite field $\field$ and $(f,f'')\in\orbit{C}$.
 
-The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng and Yang \cite{deng12} and Jensen and Su \cite{su10,su12,su15,su17} and others. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su12} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen and Su \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them and later considered deformations of $0$-Schur algebras depending on a tuple of parameters which leads to a construction of $0$-Hecke and nil-Hecke algebras as well as a geometric realisation of nil-Temperley-Lieb algebras using double flag varieties.
+The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng, Yang, Jensen, Su and others. Su \cite{su10} defined a generic multiplication in the positive and negative subalgebras of $q$-Schur algebras in terms of generic extensions of quiver representations. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su15} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen, Su and Yang \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them. Jensen, Su and Yang \cite{su20} studied degenerate $0$-Schur algebras using an extended version of the geometric realisation of $0$-Schur algebras and gave a construction of nil-Temperley-Lieb algebras using double flag varieties.
 
-The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su12} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now look at some of the main results from the finite case.
+The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su15} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now recall some of the main results from the finite case.
 
 Assume $\field$ is an algebraically closed field so that $\flags$ is a projective algebraic variety equipped with the algebraic group action of $\GL{}{V}$. Define morphisms
 \begin{align*}
 \pi\colon\flags^3 &\to\flags\times\flags\\
 \delta\colon\flags^3 &\to\flags^4
 \end{align*}
-by $\pi(f,f',f'')=(f,f'')$ and $\delta(f,f',f'')=(f,f',f',f'')$ for each $(f,f',f'')\in\flags^3$. Then $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is the union of the orbits $\orbit{C}$ such that the structure polynomial $g_{A,B,C}$ is nonzero. The $\GL{}{V}$-orbits in $\dblflags$ are locally closed and given orbits $\orbit{A}$ and $\orbit{B}$ such that $e_Ae_B$ is nonzero, the space $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is irreducible, so there is a unique open orbit denoted by $\orbit{A\ast B}$, as in Corollary 6.2 \cite{su12}. The generic algebra $G(n,r)$ is then defined to be the free $\integers$-module on $\dblflags/{\GL{}{V}}$ equipped with $\integers$-bilinear product defined by
+by $\pi(f,f',f'')=(f,f'')$ and $\delta(f,f',f'')=(f,f',f',f'')$ for each $(f,f',f'')\in\flags^3$. Then $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is the union of the orbits $\orbit{C}$ such that the structure polynomial $g_{A,B,C}$ is nonzero. The $\GL{}{V}$-orbits in $\dblflags$ are locally closed and given orbits $\orbit{A}$ and $\orbit{B}$ such that $e_Ae_B$ is nonzero, the space $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ is irreducible, so there is a unique open orbit denoted by $\orbit{A\ast B}$, as in Corollary 6.2 \cite{su15}. The generic algebra $G(n,r)$ is then defined to be the free $\integers$-module on $\dblflags/{\GL{}{V}}$ equipped with $\integers$-bilinear product defined by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
 0 &:\text{ if } e_Ae_B=0\\
 e_{A\ast B} &:\text { if } e_Ae_B\neq 0,
 \end{cases}
 \end{equation*}
-where $\orbit{A\ast B}$ is the unique open orbit in $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ and Proposition 6.3 \cite{su12} proves that $G(n,r)$ is an associative $\integers$-algebra.
+where $\orbit{A\ast B}$ is the unique open orbit in $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ and Proposition 6.3 \cite{su15} proves that $G(n,r)$ is an associative $\integers$-algebra.
 
 Let $\compositions$ be the set of compositions of $r$ into $n$ parts and let $\epsilon_i\in\integers^n$ be the $i$-th coordinate vector. Let $\Sigma=\Sigma(n,r)$ be the quiver with set of vertices $\compositions$ and with arrows
 \begin{align*}
@@ -123,7 +123,7 @@ given by
 \end{align*}
 where $E_{i,\lambda}$ is the basis element corresponding to the matrix with $(i,i+1)$-entry equal to $1$, diagonal entries $(\lambda_1,\ldots,\lambda_{i+1}-1,\ldots,\lambda_n)$ and all other entries equal to zero and $F_{i,\lambda}$ is the basis element corresponding to the matrix with $(i+1,i)$-entry equal to $1$, with diagonal entries $(\lambda_1,\ldots,\lambda_i-1,\ldots,\lambda_n)$ and all other entries equal to zero. Let $I_0=I_0(n,r)$ be the ideal in $\integers\Gamma$ given by evaluating the relations in $I$ at $q=0$.
 
-\begin{theorem*}\cite{su12}[Theorem 7.2]
+\begin{theorem*}\cite{su15}[Theorem 7.2]
 There is an isomorphism of $\integers$-algebras
 \begin{equation*}
 \phi\colon\integers\Sigma/{I_0}\to G(n,r)
@@ -137,7 +137,7 @@ given by
 for $i\in\{1,\ldots,n-1\}$ and $\lambda\in\compositions$.
 \end{theorem*}
 
-\begin{theorem*}\cite{su12}[Theorem 7.3]
+\begin{theorem*}\cite{su15}[Theorem 7.3]
 There is an isomorphism of $\integers$-algebras
 \begin{equation*}
 \psi\colon G(n,r)\to S_0(n,r)
@@ -153,7 +153,7 @@ for $i\in\{1,\ldots,n-1\}$ and $\lambda\in\compositions$.
 
 Thus $S_0(n,r)$ is presented by the bound quiver algebra $\integers\Sigma/{I_0}$ and the image of the standard basis under $\Psi$ is a multiplicative basis in $S_0(n,r)$. This result also leads to a presentation of $q$-Schur algebras over the ring $\qfrac\subset\rationals(q)$ which is the localisation of $\integers[q]$ at $1+q\integers[q]$.
 
-\begin{theorem*}\cite{su12}[Theorem 5.6]
+\begin{theorem*}\cite{su15}[Theorem 5.6]
 The $\qfrac$-algebra homomorphism
 \begin{equation*}
 \qfrac\otimes\phi\colon \qfrac\otimes_{\integers[q]}\integers[q]\Sigma/{I} \to\qfrac\otimes_{\integers[q]} S_q(n,r)
@@ -209,9 +209,8 @@ Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associativ
 \begin{equation*}
 \zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
 \end{equation*}
-called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $q$-Schur algebra and to define a new associative algebra with a modified version of the product in $\qschur$, the generic affine algebra, where the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the corresponding product given by generic extensions of representations.
+called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $0$-Schur algebra $\zeroschur$ and to define a new associative algebra called the generic affine algebra $\generic$, with a modified version of the product in $\zeroschur$ such that the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the corresponding product given by generic extensions of representations.
 
-[Replace lemma with some sentences.]
 \begin{lemma*}
 There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the map
 \begin{equation*}
@@ -341,7 +340,7 @@ such that
 \end{align*}
 \end{conjecture*}
 
-The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in double affine flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su12}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in double affine flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su15}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
 
 
 
@@ -1851,7 +1850,7 @@ for some polynomials $g_B\in\integers[q]$.
 
 \subsection{Change of rings}
 
-The following is based on the change of rings for quiver presentations result, Lemma 5.2 in \cite{su12}. Let $R$ and $S$ be commutative rings and suppose $f\colon R\to S$ is a ring homomorphism with $f(1)=1$. Let $\Sigma$ be a quiver and let $I\subset R\Sigma$ be an ideal of relations in $\Sigma$. The homomorphism $f$ defines an $R$-algebra structure on $S$ with $r\cdot s = f(r)s$ for all $r\in R$ and $s\in S$. Let $\bar{f}\colon R\Sigma\to S\Sigma$ be the $R$-algebra homomorphism induced by $f$, which is given by
+The following is based on the change of rings for quiver presentations result, Lemma 5.2 in \cite{su15}. Let $R$ and $S$ be commutative rings and suppose $f\colon R\to S$ is a ring homomorphism with $f(1)=1$. Let $\Sigma$ be a quiver and let $I\subset R\Sigma$ be an ideal of relations in $\Sigma$. The homomorphism $f$ defines an $R$-algebra structure on $S$ with $r\cdot s = f(r)s$ for all $r\in R$ and $s\in S$. Let $\bar{f}\colon R\Sigma\to S\Sigma$ be the $R$-algebra homomorphism induced by $f$, which is given by
 \begin{equation*}
 \bar{f}(rp)=f(r)p
 \end{equation*}
@@ -1928,7 +1927,7 @@ The morphism $\bar{m}$ is given by the universal property of cokernels and can b
 \end{align*}
 for all $r\in R$, $s\in S$ and paths $p$ in $\Sigma$.
 
-\begin{lemma}\cite{su12}\label{lemma:change-of-rings-presentation}
+\begin{lemma}\cite{su15}\label{lemma:change-of-rings-presentation}
 The morphism
 \begin{equation*}
 \bar{m}\colon S\otimes_R R\Sigma/{I} \to S\Sigma/{S\bar{f}(I)}
