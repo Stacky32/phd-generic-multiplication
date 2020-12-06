@@ -2,17 +2,21 @@
 \usepackage{preamble}
 
 \begin{document}
+
 \input{titlepage}
+\afterpage{\blankpage}
 
 \chapter*{Dedication}
 \begin{center}
 Dedicated to Midnight and Marmite.
 \end{center}
+\afterpage{\blankpage}
 
 \chapter*{Abstract}
 \begin{center}
 Write an abstract.
 \end{center}
+\afterpage{\blankpage}
 
 \chapter*{Acknowledgements}
 
@@ -36,6 +40,7 @@ Thank you to my parents Jane and David, my sister Jessica and the family cats Mi
 
 There are countless people not directly mentioned here who have influenced me and enabled me to reach this point. I am sincerely grateful to everyone in the university ecosystem that makes things work, with special thanks to the administrative staff in the department, to the hospitality team for hundreds of coffees and the occasional meal, to the library staff, to the estates team that maintain a pleasant environment, to the university medical centre and to fellow students in the department.
 
+\afterpage{\blankpage}
 
 \tableofcontents
 
@@ -275,9 +280,9 @@ given by
 \phi(e_{i,\lambda} + \qrelations) &= E_i1_\lambda\\
 \phi(f_{i,\lambda} + \qrelations) &= F_i1_\lambda
 \end{align*}
-and we conjecture that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. Surjectivity is proven in Proposition \ref{proposition:q-schur-presentation} and I believe injectivity will follow once the presentation of $\generic$ is proven to be an isomorphism, which depends on the technical lemma on transforming paths in $\Gamma$ to standard paths.
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. We conjecture that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. Surjectivity is proven in Proposition \ref{proposition:q-schur-presentation}.
 
-In order to gain geometric insight on the product of $G$-orbits in $\dblflags$ we consider finite dimensional slices of the orbits and orbit products together with the action of a finite dimensional quotient of a stabiliser in $G$. For $A,B\in\matrices$ and $L\in\flags_{\ro{A}}$ we consider the spaces
+In order to obtain geometric insight on the product of $G$-orbits in $\dblflags$ we consider finite dimensional slices of the orbits and orbit products together with the action of a finite dimensional quotient of a stabiliser in $G$. For $A,B\in\matrices$ and $L\in\flags_{\ro{A}}$ we consider the spaces
 \begin{equation*}
 \xprod[L]{A} = \{L'\in\flags:(L,L')\in\orbit{A}\},
 \end{equation*}
@@ -301,6 +306,7 @@ e_{A\ast B} &: \text{ if } \co{A}=\ro{B},\\
 0 &: \text{ if } \co{A}\neq\ro{B}.
 \end{cases}
 \end{equation*}
+for $A,B\in\matrices$.
 
 \begin{theorem*}
 The generic affine algebra $\generic$ is an associative $\integers$-algebra with multiplicative identity
@@ -338,9 +344,9 @@ defined by
 \begin{align*}
 \rho(k_\lambda + \zerorelations) &= 1_\lambda\\
 \rho(e_{i,\lambda} + \zerorelations) &= E_i1_\lambda\\
-\rho(f_{i,\lambda} + \zerorelations) &= F_i1_\lambda.
+\rho(f_{i,\lambda} + \zerorelations) &= F_i1_\lambda,
 \end{align*}
-The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
 \end{proposition*}
 
 We conjecture that $\rho$ is an isomorphism of $\integers$-algebras when $r<n$. Injectivity of the map $\rho$ depends on a single technical lemma for which we seem to be close to a proof. Once this result is established we will have proven the following conjecture.
@@ -356,13 +362,13 @@ such that
 \Psi(E_i) &= E_i\\
 \Psi(F_i) &= F_i.
 \end{align*}
+for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
-The first chapter introduces the construction of affine $q$-Schur algebras via a convolution product of orbits in double affine flag varieties, which is due to Lusztig. The second chapter begins to study the structure of affine $q$-Schur algebras, including fundamental multiplication rules, some symmetries and a notion of periodic shifting as well as giving a quiver and a set of relations for the $q$-Schur algebra. In the third chapter, the geometry of affine flag varieties is studied further and is used to establish existence of a \emph{generic product} of orbits, as has been shown in the finite case by Jensen and Su in \cite{su15}. Remarkably, the generic product of orbits is shown to be associative, which leads to the construction of an associative $\integers$-algebra called the \emph{generic affine algebra}. The fourth chapter is dedicated to studying the relationship of the generic affine algebra to the affine $0$-Schur algebra.
+Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebre $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
 
 
-
-\chapter{Geometric approach to affine q-Schur algebras}
+\chapter{Geometric approach to affine q-Schur algebras}\label{chapter:lusztig-realisation}
 
 {\color{red}Add a couple of sentences to say we're giving the Lusztig realisation in more detail.}
 
@@ -888,7 +894,7 @@ e_A\cdot e_B = \sum_{C\in\matrices} \gamma_{A,B,C}{(0)} e_C,
 for each $A,B\in\matrices$.
 
 
-\chapter{Presenting affine q-Schur algebras}
+\chapter{Presenting affine q-Schur algebras}\label{chapter:presenting-q-schur}
 
 {\color{red}A couple of sentences to begin the chapter.}
 
@@ -1497,24 +1503,25 @@ for $i\in\{1,\ldots,n\}$.
 \end{lemma}
 
 \begin{proof}
-Denote $e_A$ by $\left[A\right]$.
-
+Denote $e_A$ by $\left[A\right]$. Using the fundamental multiplication rules,
 \begin{align*}
 E_i E_{i+1}^2 = &\sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
 &+\qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]
 \end{align*}
-
 \begin{align*}
 E_{i+1}E_i E_{i+1} = &\sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+2} +\elem{i+1}{i+2} - 2\elem{i+2}{i+2}\right]\\
 &+\qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{align*}
-
 \begin{equation*}
 E_{i+1}^2 E_i = \sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]
 \end{equation*}
-
+and so
 \begin{equation*}
-E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i = \sum_{\lambda\in\compositions} (\qint{2} -(1+q))\left[X_\lambda\right] + (\qint{2} -(1+q)\qint{2} +q\qint{2})\left[Y_\lambda\right]
+E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i
+\end{equation*}
+equals
+\begin{equation*}
+\sum_{\lambda\in\compositions} (\qint{2} -(1+q))\left[X_\lambda\right] + (\qint{2} -(1+q)\qint{2} +q\qint{2})\left[Y_\lambda\right]
 \end{equation*}
 where
 \begin{equation*}
@@ -1525,7 +1532,7 @@ and
 Y_\lambda=\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}.
 \end{equation*}
 
-It follows
+Therefore
 \begin{equation*}
 E_i E_{i+1}^2 -(1+q)E_{i+1} E_i E_{i+1} +qE_{i+1}^2 E_i = 0
 \end{equation*}
@@ -1535,24 +1542,26 @@ F_{i+1}^2F_i -(1+q)F_{i+1}F_iF_{i+1} +qF_iF_{i+1}^2 = 0,
 \end{equation*}
 by applying the transpose involution to the first relation.
 
+Similarly,
 \begin{align*}
 E_i^2E_{i+1} = &\sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
 &+\qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} - \elem{i+2}{i+2}\right]
 \end{align*}
-
 \begin{align*}
 E_i E_{i+1} E_i = &\sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}\right]\\
 &+\qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
 \end{align*}
-
 \begin{equation*}
 E_{i+1}E_i^2 = \sum_{\lambda\in\compositions} \qint{2}\left[\diag{\lambda} +2\elem{i}{i+1} -2\elem{i+1}{i+1} +\elem{i+1}{i+2} -\elem{i+2}{i+2}\right]
 \end{equation*}
-
-So
-\begin{align*}
-E_i^2E_{i+1} -(1+q)E_iE_{i+1}E_i +qE_{i+1}E_i &= \sum_{\lambda\in\compositions} (\qint{2} -(1+q))A_\lambda + (\qint{2} -(1+q)\qint{2} +q\qint{2})B_\lambda,
-\end{align*}
+and so
+\begin{equation*}
+E_i^2E_{i+1} -(1+q)E_iE_{i+1}E_i +qE_{i+1}E_i
+\end{equation*}
+equals
+\begin{equation*}
+\sum_{\lambda\in\compositions} (\qint{2} -(1+q))A_\lambda + (\qint{2} -(1+q)\qint{2} +q\qint{2})B_\lambda,
+\end{equation*}
 where
 \begin{equation*}
 A_\lambda = \diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i}{i+2} -\elem{i+2}{i+2}
@@ -2110,7 +2119,7 @@ which proves that the first relation holds and hence all the relations hold.
 
 
 
-\chapter{A generic affine algebra}
+\chapter{A generic affine algebra}\label{chapter:generic-affine-algebra}
 
 \section{Introduction}
 
@@ -2889,11 +2898,11 @@ for $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[
 \end{proposition}
 
 \begin{proof}
-The unique open $G_L$-orbit in $\xprod[L]{A\ast B, C}$ is $\xprod[L]{(A\ast B)\ast C}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $p_3^{-1}(\xprod[L]{A\ast B,C})$. Lemma \ref{lemma:yprod-generic-A-B} shows that $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
+The unique open $G_L$-orbit in $\xprod[L]{A\ast B, C}$ is $\xprod[L]{(A\ast B)\ast C}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $p_3^{-1}(\xprod[L]{A\ast B,C})$ and Lemma \ref{lemma:yprod-generic-A-B} shows that $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
-Similarly, $\xprod[L]{A\ast (B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$, so $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $p_3^{-1}(\xprod[L]{A,B\ast C})$. Lemma \ref{lemma:yprod-generic-B-C} shows that $p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so it follows $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $\overline{\yprod[L]{A,B,C}}$.
+Similarly, $\xprod[L]{A\ast (B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$, so $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $p_3^{-1}(\xprod[L]{A,B\ast C})$ and Lemma \ref{lemma:yprod-generic-B-C} shows that $p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so it follows that $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
-Therefore $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ has nonempty intersection with $f^{-1}(\xprod[L]{(A\ast B)\ast C})$, since $\yprod[L]{A,B,C}$ is irreducible by Proposition \ref{proposition:irreducible-y-triple}. It follows that the $G_L$-orbits $\xprod[L]{A\ast (B\ast C)}$ and $\xprod[L]{(A\ast B)\ast C}$ have nonempty intersection and therefore $\xprod[L]{A\ast (B\ast C)}$ equals $\xprod[L]{(A\ast B)\ast C}$.
+Therefore the intersection of $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ with $f^{-1}(\xprod[L]{(A\ast B)\ast C})$ is nonempty since $\yprod[L]{A,B,C}$ is irreducible, by Proposition \ref{proposition:irreducible-y-triple}. It follows that the $G_L$-orbits $\xprod[L]{A\ast (B\ast C)}$ and $\xprod[L]{(A\ast B)\ast C}$ have nonempty intersection and therefore $\xprod[L]{A\ast (B\ast C)}$ equals $\xprod[L]{(A\ast B)\ast C}$.
 \end{proof}
 
 
@@ -2959,7 +2968,7 @@ Then the generic affine algebra $\generic$ may be realised as the $\integers$-al
 
 
 
-\chapter{Towards a realisation of affine zero Schur algebras}
+\chapter{Towards a realisation of affine zero Schur algebras}\label{chapter:affine-0-schur}
 
 The purpose of this chapter is to study the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$.
 
@@ -4244,7 +4253,7 @@ for $i\in\{1,2\}$.
 
 
 
-\chapter{Conclusion}
+\chapter{Conclusion}\label{chapter:conclusion}
 
 \section{The case of large r}
 

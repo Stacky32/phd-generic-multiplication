@@ -11,34 +11,33 @@
 \RequirePackage{mathtools}	% included for use of coloneqq.
 
 
-\usepackage[bottom=4cm,top=3cm,left=4cm,right=3cm]{geometry}
-\geometry{footskip=1cm}
-
-\usepackage{biblatex}
-\addbibresource{references.bib}
-
-%\usepackage{extpfeil} 	% for interesting arrows.
 \usepackage{hyperref} 	% enable navigation hyperlinks
-%\usepackage{import}		%For importing sections, bibliography etc.
-
 \usepackage{tikz} % Diagrams
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage[bottom=4cm,top=3cm,left=4cm,right=3cm]{geometry}
+\usepackage{biblatex}
+\usepackage{afterpage}
+%\usepackage{extpfeil} 	% for interesting arrows.
+%\usepackage{import}	%For importing sections, bibliography etc.
+
+\addbibresource{references.bib}
+
 \newcommand{\cdarrow}{\path[->,font=\scriptsize,>=angle 90]}
 \newcommand{\cdarrowdashed}{\path[->,dashed,font=\scriptsize,>=angle 90]}
 \newcommand{\cdlinedashed}{\path[-,dashed,font=\scriptsize,>=angle 90]}
 \newcommand{\cdline}{\path[-,font=\scriptsize,>=angle 90]}
 
+\newcommand{\blankpage}{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+		
+
 % FORMATTING AND STYLE
 
-%\setlength{\oddsidemargin}{0pt}
-%\setlength{\textwidth}{463pt} 
-%\setlength{\marginparsep}{0pt}
-%\setlength{\marginparwidth}{60pt}
-%\setlength{\topmargin}{20pt}
-%\setlength{\headheight}{0pt}
-%\setlength{\headsep}{0pt}
-%\setlength{\textheight}{650pt}
-%\setlength{\footskip}{20pt}
+\geometry{footskip=1cm}
+
 
 % THEOREM ENVIRONMENTS
 % Plain style theorems:
@@ -47,7 +46,6 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
-% Without numbering:
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{proposition*}{Proposition}
 \newtheorem*{lemma*}{Lemma}
@@ -58,7 +56,6 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{conjecture}[theorem]{Conjecture}
-% Without numbering:
 \newtheorem*{definition*}{Definition}
 \newtheorem*{conjecture*}{Conjecture}
 
