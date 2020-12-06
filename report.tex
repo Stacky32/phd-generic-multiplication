@@ -16,7 +16,6 @@ Write an abstract.
 
 \chapter*{Acknowledgements}
 
-
 To my A-level Maths teacher Mr Stevens, thank you for inspiring me to go further in Mathematics. May you rest in peace.
 
 Professor Fran Burstall, your lectures and talks have always been engaging and I credit you for my interest in pure Mathematics. Thank you for believing in me and encouraging me to apply for a PhD. Absolute legend.
@@ -37,22 +36,12 @@ Thank you to my parents Jane and David, my sister Jessica and the family cats Mi
 
 There are countless people not directly mentioned here who have influenced me and enabled me to reach this point. I am sincerely grateful to everyone in the university ecosystem that makes things work, with special thanks to the administrative staff in the department, to the hospitality team for hundreds of coffees and the occasional meal, to the library staff, to the estates team that maintain a pleasant environment, to the university medical centre and to fellow students in the department.
 
-\tableofcontents
 
+\tableofcontents
 
 \chapter{Introduction}
 
 The work of this thesis follows the geometric realisation of $0$-Schur and $0$-Hecke algebras given by Jensen and Su in \cite{su12} and is based on Lusztig's geometric approach to affine $q$-Schur algebras in \cite{lusztig99}.
-
-
-{\color{gray}
-
-To include in introduction:
-quantum groups
-
-
-The first part of the introduction should discuss the context of the topic and mention references.
-}
 
 \section{The geometric realisation of 0-Schur algebras}
 
@@ -65,11 +54,11 @@ in $V$. The general linear group $\GL{}{V}$ acts on $\flags$ through the natural
 \flags_\lambda = \{f\in\flags:\lambda_i=\dim(f_i)-\dim(f_{i-1})\text{ for all }i\in\{1,\ldots,n\}\}.
 \end{equation*}
 
-The diagonal action of $\GL{}{V}$ on $\dblflags$ has orbits indexed by the set $\Theta(n,r)$ of $n\times n$ matrices with natural number entries which sum to $r$. In particular, the orbit $[L,L']$ of a pair of flags $(f,f')$ is characterised by the matrix $A\in M_n(\naturals)$ with entries
+The diagonal action of $\GL{}{V}$ on $\dblflags$ has orbits indexed by the set $\Theta(n,r)$ of $n\times n$ matrices with natural number entries which sum to $r$. In particular, the orbit $[f,f']$ of a pair of flags $(f,f')$ is characterised by the matrix $A\in M_n(\naturals)$ with entries
 \begin{equation*}
 a_{i,j} = \dim(f_{i-1} + f_i\cap f_j') - \dim(f_{i-1} + f_i\cap f_{j-1}')
 \end{equation*}
-for each $i,j\in\{1,\ldots,n\}$. Let $\orbit{A}\subset\dblflags$ denote the orbit corresponding to $A\in\Theta(n,r)$.
+for each $i,j\in\{1,\ldots,n\}$. Let $\orbit{A}\subset\dblflags$ denote the orbit corresponding to $A\in\Theta(n,r)$, then $\orbit{A}=[L,L']$ for any $(L,L')\in\orbit{A}$.
 
 The $q$-Schur algebra $S_q(n,r)$ is an associative $\integers[q]$-algebra with a basis $\{e_A:A\in\Theta(n,r)\}$ and multiplication given by
 \begin{equation*}
@@ -1665,11 +1654,12 @@ for $s\in\{1,\ldots,h\}$, is a \emph{standard positive path} if
 \alpha_{j,s}\geq \alpha_{j,s+1} \text{ for } s\in\{1,\ldots,h-1\};
 \end{equation*}
 \begin{equation*}
-0\le \alpha_{j,1}\le\lambda_j \text{ for } j\in\{1,\ldots,n\}.
+0\le \alpha_{j,1}\le\lambda_j \text{ for } j\in\{1,\ldots,n\};
 \end{equation*}
 \begin{equation*}
-i = \max\{t:1\le t\le n, \alpha_{t,1} = 0\} - 1;
+i = \max\{t:1\le t\le n, \alpha_{t,1} = 0\} - 1,
 \end{equation*}
+where the index $j$ in $e_j$ and $\alpha_{j,s}$ is taken modulo $n$.
 \end{definition}
 
 \begin{definition}\label{def:standard-negative-path}
@@ -1682,16 +1672,13 @@ for $s\in\{1,\ldots,h\}$, is a \emph{standard negative path} if
 \beta_{j,s}\geq \beta_{j,s+1} \text{ for } s\in\{1,\ldots,h-1\};
 \end{equation*}
 \begin{equation*}
-0\le \beta_{j,1}\le\lambda_{j+1} \text{ for } j\in\{1,\ldots,n\}.
+0\le \beta_{j,1}\le\lambda_{j+1} \text{ for } j\in\{1,\ldots,n\};
 \end{equation*}
 \begin{equation*}
-i = \min\{t:1\le t\le n, \beta_{t-1,1}=0\};
+i = \min\{t:1\le t\le n, \beta_{t-1,1}=0\},
 \end{equation*}
+where the index $j$ in $f_j$ and $\beta_{j,s}$ is taken modulo $n$.
 \end{definition}
-
-\begin{remark}
-The subindex $j$ in $e_j$ and $f_j$ and the subindex $j$ in $\alpha_{j,s}$ is regarded as an element of $\integers/{n\integers}$.
-\end{remark}
 
 \begin{definition}\label{def:standard-paths}
 A path $p=k_\lambda p^{+}k_\mu p^{-}$ is a \emph{standard path} if $k_\lambda p^{+}$ is a standard positive path, $k_\mu p^{-}$ is a standard negative path and the exponents satisfy the conditions
@@ -1702,10 +1689,12 @@ for $j\in\{1,\ldots,n\}$. Call $p^+$ the \emph{positive part} of $p$ and $p^-$ t
 \end{definition}
 
 \begin{remark}
-If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'$ is a standard path.
+If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'$ is a standard path. Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
 \end{remark}
 
-Observe that the definition of standard paths includes the constant paths $k_\lambda$ for $\lambda\in\compositions$.
+\begin{remark}
+Suppose $p$ is a standard path. The exponent of $e_j$ in $p_s^+$ is $\alpha_{j-s+1,s}$ and $\alpha_{j,s}$ is the exponent of $e_{j+s-1}$ in $p_s^+$. Then exponent of $f_j$ in $p_s^-$ is $\beta_{j+s-1,s}$ and $\beta_{j,s}$ is the exponent of $f_{j-s+1}$ in $p_s^-$.
+\end{remark}
 
 \begin{definition}\label{def:std-path-for-matrix}
 Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ p^-$, where $\lambda=\ro{A}$, $p^+$ is the standard positive path given by
@@ -1790,14 +1779,28 @@ Let $A\in\matrices$ and let $p$ be the standard path corresponding to $A$. Then
 \begin{proof}
 Proceed by induction on the length of $p$. If the length of $p$ is zero then $p=k_\lambda$ and $A=\diag{\lambda}$ for some $\lambda\in\compositions$, then \ref{eq:image-of-std-path} holds since $\phi(k_\lambda +\qrelations)=1_\lambda$. Assume $p$ has positive length and the formula holds for standard paths of smaller length.
 
-First suppose $p=p_1^+\cdots p_h^+$ is a standard positive path, where $h=\max\{j-i:a_{i,j}>0\}$. Factoring out the first arrow $p=p'e_j$ and $p'$ is a standard positive path with length less than that of $p$. The exponent of $e_j$ in $p_h^+$ is $\alpha_{j-h+1,h}=a_{j-h+1,j+1}$ and so $a_{j-h,j}=0$ since $e_j$ is the first arrow in $p$ and the exponent of $e_{j-1}$ in $p_h^+$ is zero. Then $p'$ is the standard path corresponding to $B=A+\elem{j+1-h}{j}-\elem{j+1-h}{j+1}$ so
+First suppose $A$ is upper triangular and $p=k_\lambda p_1^+\cdots p_h^+$ is the corresponding standard positive path, where $\lambda=\ro{A}$ and
 \begin{equation*}
-\phi(p'+\qrelations) = \frac{1}{\qint{\alpha_{j-h+1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\right) e_B + \sum_{C\in\matrices:C<B} g_C'e_C,
+h=\max\{j-i:a_{i,j}>0\}.
 \end{equation*}
-using the inductive hypothesis. Using the fundamental multiplication rules
+Factoring out the first arrow in $p$, $p=p'e_j$ and $p'$ is a standard positive path with length less than that of $p$. The exponent of $e_j$ in $p_h^+$ is
+\begin{equation*}
+\alpha_{j-h+1,h}=a_{j-h+1,j+1},
+\end{equation*}
+so $a_{j-h+1,j+1}$ is nonzero. The exponent of $e_{j-1}$ in $p_h^+$ is zero since $e_j$ is the first arrow in $p$, so $a_{j-h,j}=0$. Then $p'$ is the standard path corresponding to
+\begin{equation*}
+B=A+\elem{j+1-h}{j}-\elem{j+1-h}{j+1},
+\end{equation*}
+so by the inductive hypothesis the image of $p'$ is
+\begin{equation*}
+\phi(p'+\qrelations) = \frac{1}{\qint{\alpha_{j-h+1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\right) e_B + \sum_{C\in\matrices:C<B} g_C'e_C.
+\end{equation*}
+
+Using the fundamental multiplication rules,
 \begin{equation*}
 e_BE_j = \qint{\alpha_{j-h+1,h}}e_A + \sum_{s>j+1-h:b_{s,j}>0} q^{\sum_{t<s}b_{t,j+1}}\qint{b_{s,j+1}+1}e_{B+\elem{s}{j+1}-\elem{s}{j}}.
 \end{equation*}
+
 For each $C<B$, $c_{s,t}=0$ if $t-s>h$ and $c_{j-h,j}=0$, so the product $e_CE_j$ is a $\integers[q]$-linear combination of the terms $e_{C+\elem{s}{j+1}-\elem{s}{j}}$ for $s\geq j+1-h$, which are totally ordered with respect to the hook order and the maximum term $C+\elem{j+1-h}{j+1}-\elem{j-h}{j}$ is strictly less than $B+\elem{j+1-h}{j+1}-\elem{j-h}{h}=A$. Therefore
 \begin{align*}
 \phi(p+\qrelations)
@@ -1806,11 +1809,32 @@ For each $C<B$, $c_{s,t}=0$ if $t-s>h$ and $c_{j-h,j}=0$, so the product $e_CE_j
 \end{align*}
 which completes the case where $p$ is a standard positive path.
 
-Now suppose the negative part of $p$ is nontrivial, so $p=p'f_j$ for some $j$ and a standard path $p'=p_1^-\cdots p_h^-$, where $h=\max\{i-j:a_{i,j}>0\}$. Since $f_j$ is the first arrow in $p$ the exponent of $f_{j+1}$ in $p_h^-$ is zero, so $0=\beta_{j+h,h}=a_{j+1+h,j+1}$. The matrix corresponding to the standard path $p'$ is $B=A+\elem{j+h}{j+1}-\elem{j+h}{j}$ so
+Now suppose the negative part of $A$ is nontrivial and let
 \begin{equation*}
-\phi(p'+\qrelations) = \frac{1}{\qint{\beta_{j+h-1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)e_B + \sum_{C\in\matrices:C<B} g_C'e_C
+p = k_\lambda p^+ p_1^-\cdots p_h^-
 \end{equation*}
-by the inductive hypothesis. Using the fundamental multiplication rules
+be the standard path corresponding to $A$, where $\lambda=\ro{A}$ and
+\begin{equation*}
+h = \max\{i-j:a_{i,j}>0\}.
+\end{equation*}
+Factoring out the first arrow in $p$, $p=p'f_j$ and $p'$ is a standard path of length strictly less than that of $p$. The exponent of $f_j$ in $p_h^-$ is \begin{equation*}
+\beta_{j+h-1,h} = a_{j+h,j}
+\end{equation*}
+so $a_{j+h,j}$ is nonzero. The exponent of $f_{j+1}$ in $p_h^-$ is zero since $f_j$ is the first arrow in $p$, so
+\begin{equation*}
+a_{j+1+h,j+1}=\beta_{j+h,h}=0.
+\end{equation*}
+
+The matrix corresponding to the standard path $p'$ is
+\begin{equation*}
+B=A+\elem{j+h}{j+1}-\elem{j+h}{j}
+\end{equation*}
+so by the inductive hypothesis the image of $p'$ is
+\begin{equation*}
+\phi(p'+\qrelations) = \frac{1}{\qint{\beta_{j+h-1,h}}}\left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)e_B + \sum_{C\in\matrices:C<B} g_C'e_C.
+\end{equation*}
+
+Using the fundamental multiplication rules
 \begin{equation*}
 e_BF_j = \qint{\beta_{j+h-1,h}}e_A + \sum_{C<A} g_C''e_C.
 \end{equation*}
@@ -1821,7 +1845,7 @@ For each $C<B$, $c_{s,t}=0$ is $s-t>h$ and $c_{j+h+1,j+1}=0$, so the product $e_
 &= \phi(p'+\zerorelations)F_j\\
 &= \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)e_A + \sum_{B<A} g_Be_B
 \end{align*}
-for some $g_B\in\integers[q]$.
+for some polynomials $g_B\in\integers[q]$.
 \end{proof}
 
 
@@ -2843,7 +2867,7 @@ Therefore $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ has nonempty intersection with $f
 \end{proof}
 
 
-\section{The generic affine algebra}
+\section{The generic affine algebra and a catagorical perspective}
 
 The generic affine algebra of rank $r$ and period $n$, denoted by $\generic$, is a free $\integers$-module with basis $\{e_A:A\in\matrices\}$ and $\integers$-bilinear multiplication given by
 \begin{equation*}
@@ -2892,8 +2916,6 @@ and
 \end{equation*} 
 for each $A\in\matrices$.
 \end{proof}
-
-\subsection{A categorical perspective}
 
 \begin{proposition}\label{prop:generic-category}
 The following constitutes a small category: the set of objects is $\compositions$ and the set of morphisms is $\matrices$. Given compositions $\lambda,\mu\in\compositions$, the morphisms with source $\mu$ and target $\lambda$ are those matrices $A\in\matrices$ with $\co{A}=\mu$ and $\ro{A}=\lambda$. Given $\lambda,\mu,\nu\in\compositions$ and $A,B\in\matrices$ with $\co{B}=\nu$, $\ro{B}=\mu=\co{A}$ and $\ro{A}=\lambda$, their composition is $A\ast B$, with source $\co{A\ast B}=\co{B}=\nu$ and target $\ro{A\ast B}=\ro{A}=\lambda$.
@@ -3697,9 +3719,6 @@ The image of $\rho$ is the subalgebra of $\generic$ generated by $E_i$ and $F_i$
 \end{equation*}
 using Proposition \ref{proposition:generating-aperiodic-elements}. If $r<n$ then every $A\in\matrices$ is aperiodic, since $A$ must contain a zero row or column. Therefore $\rho$ is surjective when $r<n$.
 \end{proof}
-
-
-\subsection{Standard paths}
 
 Recall the definition of standard paths in $\Gamma$, from Definition \ref{def:standard-paths}. There is a bijection between the set of standard paths in $\Gamma$ and the standard monomial basis in $\generic$ indexed by $\matrices$, using Lemma \ref{lemma:correspondence-std-paths-to-basis}.
 
