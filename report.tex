@@ -386,13 +386,13 @@ A \emph{composition of $r$ into $n$ parts} is an $n$-tuple
 of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
 \end{definition}
 
-A composition $\lambda\in\compositions$ is said to be sincere if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is said to be insincere.
+A composition $\lambda\in\compositions$ is \emph{sincere} if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is \emph{insincere}.
 
 For each $i\in\{1,\ldots,n\}$, let
 \begin{equation*}
 \alpha_i = \epsilon_i - \epsilon_{i+1},
 \end{equation*}
-where $\epsilon_{n+1}=\epsilon_1$.
+where the index $i$ is taken modulo $n$.
 
 \begin{definition}\label{def:matrices}
 Let $\matrices$ be the set of matrices $A=(a_{i,j})_{i,j\in\integers}$ with integer entries $a_{i,j}$ satisfying the following conditions: 
@@ -406,7 +406,6 @@ the sum of the entries in any $n$ consecutive rows or columns equals $r$;
 \item
 $a_{i-n,j-n}=a_{i,j}$ for each $i,j\in\integers$.
 \end{enumerate}
-These matrices are referred to as \emph{infinite periodic matrices}.
 \end{definition}
 
 \begin{definition}\label{def:source-target}
@@ -605,9 +604,10 @@ M_{s,j}
 &= L_i\cap L_j' + L_{s-1}.
 \end{align*}
 
-If $t$ is sufficiently large, $L_s\subset L_t'$ and then
+If $t$ is sufficiently large then $L_s\subset L_t'$, so
 \begin{align*}
 M_{s,t}
+&= L_i\cap L_j' + L_{s-1} + L_s\cap L_t'\\
 &= L_i\cap L_j' + L_s\\
 &= M_{s+1,j}.
 \end{align*}
@@ -904,51 +904,60 @@ for each $A,B\in\matrices$.
 
 Recall that $\elem{i}{j}$, for $i,j\in\integers$ is the $\integers\times\integers$ elementary periodic matrix, given by
 \begin{equation*}
-(\elem{i}{j})_{s,t}=1
+(\elem{i}{j})_{s,t} = \begin{cases}
+1 &: (s,t)=(i+cn,j+cn)\text{ for some }c\in\integers\\
+0 &: otherwise
+\end{cases}
 \end{equation*}
-if $(s,t) = (i+cn,j+cn)$ for some $c\in\integers$ and $(\elem{i}{j})_{s,t}=0$ otherwise.
 
-Recall that the diagonal matrix with source and target $\lambda$ is
+The diagonal matrix with row and column vector $\lambda$ is
 \begin{equation*}
 \diag{\lambda} = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n},
 \end{equation*}
 as in Equation \ref{eq:diagonal-matrices}.
 
-The corresponding basis elements $e_{\diag{\lambda}}$, for $\lambda\in\compositions$, are pairwise orthogonal idempotents in $\qschur$ with
+There are pairwise orthogonal idempotents
 \begin{equation*}
-\sum_{\lambda\in\compositions}e_{\diag{\lambda}} = 1,
+1_\lambda = e_{\diag{\lambda}}
+\end{equation*}
+for $\lambda\in\compositions$, such that
+\begin{equation*}
+1 = \sum_{\lambda\in\compositions} 1_\lambda
 \end{equation*}
 as a result of Lemma \ref{lemma:product-with-diagonal-orbits}.
 
-For each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, define
+Define
 \begin{equation*}
-E_{i,\lambda} = e_{\diag{\lambda} + \elem{i}{i+1} - \elem{i+1}{i+1}}
-\end{equation*}
-and define
-\begin{equation*}
-E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}.
-\end{equation*}
-
-Also define, for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$,
-\begin{equation*}
-F_{i,\lambda} = e_{\diag{\lambda} + \elem{i+1}{i} - \elem{i}{i}}
-\end{equation*}
-and define
-\begin{equation*}
-F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}.
-\end{equation*}
-
-For each $i\in\{1,\ldots,n\}$, let $\alpha_i=\epsilon_i-\epsilon_{i+1}$. Then
-\begin{equation*}
-\co{E_{i,\lambda}} = \co{F_{i,\lambda}}=\lambda,
-\end{equation*}
-\begin{equation*}
-\ro{E_{i,\lambda}} = \lambda +\alpha_i
+E_{i,\lambda} = \begin{cases}
+e_{\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1}} &: \lambda_{i+1}>0\\
+0 &: \lambda_{i+1}=0
+\end{cases}
 \end{equation*}
 and
 \begin{equation*}
-\ro{F_{i,\lambda}} = \lambda - \alpha_i.
+F_{i,\lambda} = \begin{cases}
+e_{\diag{\lambda} +\elem{i+1}{i} - \elem{i}{i}} &: \lambda_i>0\\
+0 &: \lambda_i=0
+\end{cases}
 \end{equation*}
+for $i\in\integers_n$ and $\lambda\in\compositions$.
+
+Also define
+\begin{align*}
+E_i &= \sum_{\lambda\in\compositions} E_{i,\lambda}\\
+F_i &= \sum_{\lambda\in\compositions} F_{i,\lambda}
+\end{align*}
+for $i\in\integers_n$.
+
+Write $\alpha_i=\epsilon_i - \epsilon_{i+1}$ for $i\in\integers_n$, where $\epsilon_j\in\integers^n$ is the $j$-th coordinate vector. Then
+\begin{align*}
+\co{E_{i,\lambda}} &= \lambda\\
+\ro{E_{i,\lambda}} &= \lambda +\alpha_i\\
+\co{F_{i,\lambda}} &= \lambda\\
+\ro{F_{i,\lambda}} &= \lambda - \alpha_i
+\end{align*}
+for $i\in\integers_n$ and $\lambda\in\compositions$.
+
 
 \subsection{Transpose involution}
 
@@ -1080,35 +1089,41 @@ and
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:differentials}
-For each $A\in\matrices$ and $i,j\in\integers$, the following equations hold:
+The following equations hold for each $A\in\matrices$ and $i,j\in\integers$:
 \begin{align*}
-d_{i,j}{(A)} - d_{i-1,j}{(A)} &= \sum_{t>j}a_{i,t}\\
-d_{i,j}{(A)}-d_{i,j-1}{(A)} &= - \sum_{s\le i}a_{s,j}
-\end{align*}
-and
-\begin{align*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= -\sum_{t\le j} a_{i,t}\\
+d_{i,j}{(A)} - d_{i-1,j}{(A)} &= \sum_{t>j} a_{i,t}\\
+d_{i,j-1}{(A)}-d_{i,j}{(A)} &= \sum_{s\le i} a_{s,j}\\
+\bar{d}_{i-1,j}{(A)} - \bar{d}_{i,j}{(A)} &= \sum_{t\le j} a_{i,t}\\
 \bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} &= \sum_{s>i} a_{s,j}
 \end{align*}
 \end{lemma}
 
 \begin{proof}
 Let $i,j\in\integers$ and $A\in\matrices$. Then
-\begin{equation*}
-d_{i,j}{(A)} - d_{i-1,j}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i-1,t>j}a_{s,t} = \sum_{t>j}a_{i,t}
-\end{equation*}
+\begin{align*}
+d_{i,j}{(A)} - d_{i-1,j}{(A)}
+&= \sum_{s\le i,t>j} a_{s,t} -\sum_{s\le i-1,t>j} a_{s,t}\\
+&= \sum_{t>j}a_{i,t}
+\end{align*}
 and
-\begin{equation*}
-d_{i,j}{(A)}-d_{i,j-1}{(A)} = \sum_{s\le i,t>j}a_{s,t} - \sum_{s\le i,t>j-1}a_{s,t} = -\sum_{s\le i}a_{s,j}.
-\end{equation*}
+\begin{align*}
+d_{i,j-1}{(A)}-d_{i,j}{(A)}
+&= \sum_{s\le i,t>j-1} a_{s,t} -\sum_{s\le i,t>j} a_{s,t}\\
+&= \sum_{s\le i} a_{s,j}.
+\end{align*}
+
 Similarly,
-\begin{equation*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i-1,j}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i-1,t\le j} a_{s,t} = -\sum_{t\le j} a_{i,t}
-\end{equation*}
+\begin{align*}
+\bar{d}_{i-1,j}{(A)} - \bar{d}_{i,j}{(A)}
+&= \sum_{s>i-1,t\le j} a_{s,t} -\sum_{s>i,t\le j} a_{s,t}\\
+&= \sum_{t\le j} a_{i,t}
+\end{align*}
 and
-\begin{equation*}
-\bar{d}_{i,j}{(A)} - \bar{d}_{i,j-1}{(A)} = \sum_{s>i,t\le j} a_{s,t} - \sum_{s>i,t\le j-1} a_{s,t} = \sum_{s>i} a_{s,j}.
-\end{equation*}
+\begin{align*}
+\bar{d}_{i,j}{(A)} -\bar{d}_{i,j-1}{(A)}
+&= \sum_{s>i,t\le j} a_{s,t} -\sum_{s>i,t\le j-1} a_{s,t}\\
+&= \sum_{s>i} a_{s,j}.
+\end{align*}
 \end{proof}
 
 \begin{lemma}\label{lemma:antisymmetry}
@@ -1125,14 +1140,17 @@ a_{i,j} = \bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \
 \begin{proof}
 As a result of Lemma \ref{lemma:differentials},
 \begin{align*}
-d_{i,j-1}{(A)} - d_{i-1,j-1}{(A)} - d_{i,j}{(A)} + d_{i-1,j}{(A)} &= \sum_{t>j-1} a_{i,t} - \sum_{t>j} a_{i,t}\\
+d_{i,j-1}{(A)} -d_{i-1,j-1}{(A)}  +d_{i,j}{(A)} -d_{i-1,j}{(A)}
+&= \sum_{t>j-1} a_{i,t} - \sum_{t>j} a_{i,t}\\
 &= a_{i,j}
 \end{align*}
 and
 \begin{align*}
-\bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \bar{d}_{i-1,j}{(A)} &= -\sum_{t\le j-1} a_{i,t} + \sum_{t\le j} a_{i,t}\\
+\bar{d}_{i-1,j}{(A)} -\bar{d}_{i,j}{(A)} +\bar{d}_{i,j-1}{(A)} -\bar{d}_{i-1,j-1}{(A)}
+&= \sum_{t\le j} a_{i,t} -\sum_{t\le j-1} a_{i,t}\\
 &= a_{i,j}.
 \end{align*}
+for each $i,j\in\integers$.
 \end{proof}
 
 Define a relation $\le$ on $\matrices$ by $A\le B$ if and only if the following conditions are satisfied:
@@ -1155,7 +1173,7 @@ It is clear that $\le$ is reflexive and transitive.
 Suppose $A,B\in\matrices$ with $A\le B$ and $B\le A$. Then $d_{i,j}{(A)} = d_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\le j$, which shows $a_{s,t}=b_{s,t}$ whenever $s<t$, as a result of Lemma \ref{lemma:antisymmetry}. Similarly, $\bar{d}_{i,j}{(A)} = \bar{d}_{i,j}{(B)}$ for each $i,j\in\integers$ with $i\geq j$, so $a_{s,t}=b_{s,t}$ whenever $s>t$. Moreover, $a_{i,i}=b_{i,i}$ for each $i\in\integers$, since $\co{A}=\co{B}$. Thus $A=B$, which shows $\le$ is antisymmetric and therefore $\le$ is a partial order on $\matrices$.
 \end{proof}
 
-This partial order is sometimes called the hook order. The following lemma will be invoked later in induction arguments.
+This partial order is called the \emph{hook order}. The following lemma will be used later in induction arguments.
 
 \begin{lemma}\label{lemma:finite-descent-hook-order}
 For any $A\in\matrices$, the set $\{B\in\matrices:B\le A\}$ is finite.
@@ -1249,7 +1267,7 @@ for each $i,j\in\integers$.
 
 \subsection{Shifting}
 
-In this subsection it is shown that the operations on $\matrices$ given by shifting up by one row or to the right by one column may be described by the action, on the left or right respectively, of an invertible element $R$ of $\qschur$.
+In this subsection it is shown that the operations on $\matrices$ given by shifting up by one row or to the right by one column may be described by the action on the left or right respectively of an invertible element $R$ of $\qschur$.
 
 For each $A\in\matrices$ and $m\in\integers$, the row shift of $A$ by $m$ is the element $[m]A$ of $\matrices$ given by
 \begin{equation*}
@@ -1289,11 +1307,11 @@ Recall that
 \end{equation*}
 so
 \begin{equation*}
-\orbit{[m]\diag{\lambda}} = \{([m]L,L):L\in\flags_\lambda\}
+\orbit{[m]\diag{\lambda}} = \{(L[m],L):L\in\flags_\lambda\}
 \end{equation*}
 and
 \begin{equation*}
-\orbit{\diag{\lambda} [m]} = \{(L,[m]L):L\in\flags_\lambda\}.
+\orbit{\diag{\lambda}[m]} = \{(L,L[m]):L\in\flags_\lambda\}.
 \end{equation*}
 
 This leads to a simple rule for multiplication by $R$ in terms of these shifts on matrices.
@@ -1453,12 +1471,12 @@ E_iF_j -F_jE_i = 0.
 Again using Lemma \ref{lemma:fundamental-multiplication-rule},
 \begin{align*}
 E_iF_i &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +\elem{i+1}{i} -\elem{i}{i}\right]\\
-&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i+1}{i} -\elem{i}{i} +\elem{i}{i+1} -\elem{i+1}{i+1}\right] + \qint{\lambda_i}\left[\diag{\lambda}\right]
+&= \sum_{\lambda\in\compositions} \qint{\lambda_i}\left[\diag{\lambda}\right] +\left[\diag{\lambda} +\elem{i+1}{i} -\elem{i}{i} +\elem{i}{i+1} -\elem{i+1}{i+1}\right]
 \end{align*}
 and
 \begin{align*}
 F_iE_i &= \sum_{\lambda\in\compositions} F_i\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1}\right]\\
-&= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i+1}{i} -\elem{i}{i}\right] + \qint{\lambda_{i+1}}\left[\diag{\lambda}\right].
+&= \sum_{\lambda\in\compositions} \qint{\lambda_{i+1}}\left[\diag{\lambda}\right] +\left[\diag{\lambda} +\elem{i}{i+1} -\elem{i+1}{i+1} +\elem{i+1}{i} -\elem{i}{i}\right].
 \end{align*}
 Therefore
 \begin{equation*}
@@ -1467,7 +1485,7 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha+i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
 \begin{equation*}
 E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0;
 \end{equation*}
@@ -1489,7 +1507,7 @@ and
 \begin{equation*}
 F_i F_j - F_j F_i = 0
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ such that $j\geq i+2$,
+for $i,j\in\integers_n$ such that $j\neq i+1$,
 \begin{align*}
 E_i E_{i+1}^2 - (1+q)E_{i+1} E_i E_{i+1} + qE_{i+1}^2 E_i &= 0\\
 E_i^2 E_{i+1} - (1+q)E_i E_{i+1} E_i + qE_{i+1} E_i^2 &= 0
@@ -1497,9 +1515,9 @@ E_i^2 E_{i+1} - (1+q)E_i E_{i+1} E_i + qE_{i+1} E_i^2 &= 0
 and
 \begin{align*}
 F_{i+1} F_i^2 - (1+q) F_i F_{i+1} F_i + qF_i^2 F_{i+1} &=0\\
-F_{i+1}^2 F_i - (1+q) F_{i+1} F_i F_{i+1} + q F_i F_{i+1}^2 &= 0.
+F_{i+1}^2 F_i - (1+q) F_{i+1} F_i F_{i+1} + q F_i F_{i+1}^2 &= 0,
 \end{align*}
-for $i\in\{1,\ldots,n\}$.
+for $i\in\integers_n$.
 \end{lemma}
 
 \begin{proof}
@@ -1895,9 +1913,9 @@ of $S$-modules.
 
 Let $m\colon S\otimes_R R\Sigma\to S\Sigma$ be the $S$-algebra homomorphism given by
 \begin{equation*}
-m(s\otimes (rp+I)) = sf(r)p + S\bar{f}{(I)},
+m(s\otimes rp) = sf(r)p,
 \end{equation*}
-for all $r\in R$, $s\in S$ and paths $p$ in $\Gamma$. The $S$-algebra homomorphism $S\Sigma\to S\otimes_R R\Sigma$ given by sending $sp$ to $s\otimes p$ is inverse to $m$, so $m$ is an isomorphism of $S$-algebras. Observe that $m$ is also $R$-linear, so is an isomorphism of $R$-algebras. The image of $m\circ (1\otimes i)\colon S\otimes_R I \to S\Sigma$ is $S\bar{f}{(I)}$ since the image is spanned by elements of the form
+for all paths $p$ in $\Sigma$, $r\in R$ and $s\in S$. The $S$-algebra homomorphism $S\Sigma\to S\otimes_R R\Sigma$ given by sending $sp$ to $s\otimes p$ is inverse to $m$, so $m$ is an isomorphism of $S$-algebras. Observe that $m$ is also $R$-linear, so is an isomorphism of $R$-algebras. The image of $m\circ (1\otimes i)\colon S\otimes_R I \to S\Sigma$ is $S\bar{f}{(I)}$ since the image is spanned by elements of the form
 \begin{align*}
 m((1\otimes i)(s\otimes x))
 &= m(s\otimes x)\\
@@ -2202,7 +2220,7 @@ is a projective algebraic variety, for each $d_1,d_2,a\in\naturals$ with $d_1,d_
 \begin{proof}
 As above, there is a linear map $\Psi\colon\Lambda^{d_1}{V}\oplus\Lambda^{d_2}{V}\to\HOM(V,\Lambda^{d_1+1}(V)\oplus\Lambda^{d_2+1}(V))$ given by $\Psi(\alpha,\beta)(v) = (\alpha\wedge v,\beta\wedge v)$. Given $\alpha\in\Lambda^{d_1}(V)$ and $\beta\in\Lambda^{d_2}(V)$, the kernel of $\Psi(\alpha,\beta)$ is $D_\alpha\cap D_\beta$ and so the rank of $\Psi(\alpha,\beta)$ is $n-\dim(D_\alpha\cap D_\beta)$.
 
-Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$, so $U_i = D_{\alpha_i} = \ker{\phi^{(d_i)}(\alpha)}$. Therefore the kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$ with respect to this basis. Therefore $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}:\dim(U_1\cap U_2)\geq a\}$ is a closed subset of the product of Grassmannians $\GR[d_1]{V}\times\GR[d_2]{V}$, so is a projective variety.
+Let $U_i\in\GR[d_i]{V}$ and suppose $p_i(U_i)=[\alpha_i]$, where $p_i$ is the Pl\"ucker embedding of $\GR[d_i]{V}$ in $\Proj{(\Lambda^{d_i}(V))}$, so $U_i = D_{\alpha_i} = \ker{\phi^{(d_i)}(\alpha)}$. Therefore the kernel of $\Psi(\alpha_1,\alpha_2)$ is $U_1\cap U_2$, so the condition that $\dim(U_1\cap U_2)\geq a$ is equivalent to the condition that $\Psi(\alpha_1,\alpha_2)$ has rank at most $n-a$. After fixing a basis of $V$, this condition is given by the vanishing of the $(n-a+1)\times(n-a+1)$ minors of the matrix of $\Psi(\alpha_1,\alpha_2)$. Therefore $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}:\dim(U_1\cap U_2)\geq a\}$ is a closed subset of the product of Grassmannians $\GR[d_1]{V}\times\GR[d_2]{V}$, so is a projective variety.
 
 More precisely, the entries of a matrix of $\Psi(\alpha_1,\alpha_2)$ are homogeneous polynomials of degree $1$ in the Pl\"ucker coordinates on $\GR[d_1]{V}\times\GR[d_2]{V}$ since $\Psi$ is linear and so the minors of $\Psi(\alpha_1,\alpha_2)$ are also homogeneous polynomials in the Pl\"ucker coordinates.
 \end{proof}
@@ -2304,9 +2322,12 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 
 \begin{proof}
 If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-(1+n)}L_0}{L_0'}\right) = \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = r+a,
-\end{equation*}
+\begin{align*}
+\dim\left(\frac{\epsilon^{-(1+N)}L_0}{L_0'}\right)
+&= \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
+&=\dim\left(\frac{\epsilon^{-(1+N)}L_0}{\epsilon^{-N}L_0}\right) +\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
+&= r+a,
+\end{align*}
 which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
@@ -2446,27 +2467,14 @@ Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group iso
 
 \subsection{Incidence in affine flag varieties}
 
-\begin{lemma}\label{lemma:incidence-varieties-main}
 Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
 \end{equation*}
-is a closed set in the projective variety $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$.
-\end{lemma}
-
-\begin{proof}
-There is $M\geq N$ so that $\epsilon^M L_0\subset L_i'\subset\epsilon^{-M}L_0$ and $\epsilon^M L_0\subset L_j''\subset\epsilon^{-M}L_0$. Let $a'=a+(M-N)r$ and $b'=b+(M-N)r$. Lemma \ref{lemma:nesting-subvarieties} shows that $\Pi_{N,\lambda}^a(L)$ is a subvariety of $\Pi_{M,\lambda}^{a'}(L)$, so $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is a subvariety of $\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L)$.
-
-The fact that
+is a closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ since
 \begin{equation*}
-\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right),
+\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) = \dim\left(\frac{L_i'/{\epsilon^M L_0}}{L_i'/{\epsilon^M L_0}\cap L_j''/{\epsilon^M L_0}}\right).
 \end{equation*}
-together with Lemma \ref{lemma:projective-varieties-of-cyclic-flags} and Lemma \ref{lemma:grassmannian-incidence-varieties}, shows that
-\begin{equation*}
-\left\{(L',L'')\in\Pi_{M,\lambda}^{a'}(L)\times\Pi_{M,\mu}^{b'}(L):\dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
-\end{equation*}
-is closed, so the intersection with $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ is closed.
-\end{proof}
 
 \begin{lemma}\label{lemma:incidence-varieties-consequences}
 Given $N,a,c\in\naturals$, $\lambda\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
@@ -2497,7 +2505,7 @@ Let $A\in\matrices$ and $L\in\flags_{\ro{A}}$ and write $\lambda=\co{A}$. Recall
 \end{equation*}
 
 \begin{lemma}\label{lemma:bounded-orbits}
-There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$.
+There is $N\in\naturals$ such that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{(A)}$.
 \end{lemma}
 
 \begin{proof}
@@ -2558,13 +2566,12 @@ Consequently, $\overline{\xprod[L]{A}}$ is an irreducible projective variety and
 \section{Geometry of orbit products}
 
 Let $A,B\in\matrices$ with $\co{A}=\ro{B}$ and write $\lambda=\co{A}$ and $\mu=\co{B}$. Fix $L\in\flags_{\ro{A}}$. Recall
-
 \begin{equation*}
 \yprod[L]{A,B}=\{(L',L'')\in\flags_{\lambda}\times\flags_{\mu}: L'\in\xprod[L]{A}, L''\in\xprod[L']{B}\}
 \end{equation*}
 and
 \begin{equation*}
-\xprod[L]{A,B}=\{L''\in\flags_{\mu}: \exists L'\in\xprod[L]{A} \text{ with } L''\in\xprod[L']{B}\}
+\xprod[L]{A,B}=\{L''\in\flags_{\mu}: \exists L' \text{ with } (L',L'')\in\yprod[L]{A,B}\}.
 \end{equation*}
 
 \begin{lemma}\label{lemma:embedding-orbit-products}
@@ -2608,7 +2615,7 @@ The conditions
 \dim(L_j'/{L_i\cap L_j'}) &\le\bar{d}_{i,j}{(A)}\\
 \dim(L_j''/{L_i'\cap L_j''}) &\le\bar{d}_{i,j}{(B)}
 \end{align*}
-define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
+define closed subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
 On the other hand, the conditions
 \begin{align*}
@@ -2617,7 +2624,7 @@ On the other hand, the conditions
 \dim(L_j'/{L_i\cap L_j'}) &\geq \bar{d}_{i,j}{(A)}\\
 \dim(L_j''/{L_i'\cap L_j''}) &\geq \bar{d}_{i,j}{(B)}
 \end{align*}
-define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-main} and Lemma \ref{lemma:incidence-varieties-consequences}.
+define open subsets of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ for each $i,j\in\integers$, using Lemma \ref{lemma:incidence-varieties-consequences}.
 
 Therefore $\yprod[L]{A,B}$ is the intersection of finitely many open sets and finitely many closed sets in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$, so $\yprod[L]{A,B}$ is locally closed. In particular, $\yprod[L]{A,B}$ is a quasiprojective variety.
 \end{proof}
@@ -2694,7 +2701,9 @@ In practice it seems that the converse of Proposition \ref{proposition:compare-p
 \end{remark}
 
 \begin{corollary}
-The maximum in $\matrices^{A,B}$ is $A\ast B$.
+\begin{equation*}
+A\ast B = \max\{C\in\matrices: g_{A,B,C}\neq 0\}
+\end{equation*}
 \end{corollary}
 
 
@@ -2748,7 +2757,7 @@ For $i<j$, the conditions
 \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right) &\le d_{i,j}{(B)}\\
 \dim\left(\frac{L_i''}{L_i''\cap L_j'''}\right) &\le d_{i,j}{(C)}
 \end{align*}
-define closed subsets of $\Pi$, by Lemma \ref{lemma:incidence-varieties-main}.
+define closed subsets of $\Pi$.
 
 For $i>j$, the conditions
 \begin{align*}
@@ -2882,27 +2891,27 @@ $p_3^{-1}(\xprod[L]{A,B\ast C})$ is an open subset of $\overline{\yprod[L]{A,B,C
 \begin{proof}
 $p_3^{-1}(\xprod[L]{A,B\ast C})$ consists of those $(L',L'',L''')\in\overline{\yprod[L]{A,B,C}}$ such that
 \begin{equation*}
-\dim\left(L_i'/{L_i'\cap L_j'''}\right)\geq d_{i,j}(B\ast C)
+\dim\left(\frac{L_i'}{L_i'\cap L_j'''}\right)\geq d_{i,j}(B\ast C)
 \end{equation*}
 for $i<j$ and
 \begin{equation*}
-\dim\left(L_j'''/{L_i'\cap L_j'''}\right)\geq\bar{d}_{i,j}(B\ast C)
+\dim\left(\frac{L_j'''}{L_i'\cap L_j'''}\right)\geq\bar{d}_{i,j}(B\ast C)
 \end{equation*}
-for $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[L]{A,B,C}}$ as a result of Lemma \ref{lemma:incidence-varieties-main} and only finitely many conditions are required to determine $p_3^{-1}(\xprod[L]{A,B\ast C})$, as before. Therefore $p_3^{-1}(\xprod[L]{A,B\ast C})$ is the intersection of finitely many open sets in $\overline{\yprod[L]{A,B,C}}$, so is open as claimed.
+for $i,j\in\integers$ with $i>j$. Each of these conditions defines an open subset of $\overline{\yprod[L]{A,B,C}}$and $p_3^{-1}(\xprod[L]{A,B\ast C})$ is determined by only finitely many of the conditions, so is the intersection of finitely many open sets in $\overline{\yprod[L]{A,B,C}}$, so $p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\yprod[L]{A,B,C}$.
 \end{proof}
 
-\begin{proposition}\label{proposition:associativity}
+\begin{theorem}\label{theorem:associativity}
 \begin{equation*}
 \xprod[L]{A\ast (B\ast C)} = \xprod[L]{(A\ast B)\ast C}.
 \end{equation*}
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
 The unique open $G_L$-orbit in $\xprod[L]{A\ast B, C}$ is $\xprod[L]{(A\ast B)\ast C}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $p_3^{-1}(\xprod[L]{A\ast B,C})$ and Lemma \ref{lemma:yprod-generic-A-B} shows that $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
 Similarly, $\xprod[L]{A\ast (B\ast C)}$ is open in $\xprod[L]{A,B\ast C}$, so $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $p_3^{-1}(\xprod[L]{A,B\ast C})$ and Lemma \ref{lemma:yprod-generic-B-C} shows that $p_3^{-1}(\xprod[L]{A,B\ast C})$ is open in $\overline{\yprod[L]{A,B,C}}$, so it follows that $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 
-Therefore the intersection of $f^{-1}(\xprod[L]{A\ast (B\ast C)})$ with $f^{-1}(\xprod[L]{(A\ast B)\ast C})$ is nonempty since $\yprod[L]{A,B,C}$ is irreducible, by Proposition \ref{proposition:irreducible-y-triple}. It follows that the $G_L$-orbits $\xprod[L]{A\ast (B\ast C)}$ and $\xprod[L]{(A\ast B)\ast C}$ have nonempty intersection and therefore $\xprod[L]{A\ast (B\ast C)}$ equals $\xprod[L]{(A\ast B)\ast C}$.
+Therefore the intersection of $p_3^{-1}(\xprod[L]{A\ast (B\ast C)})$ with $p_3^{-1}(\xprod[L]{(A\ast B)\ast C})$ is nonempty since $\yprod[L]{A,B,C}$ is irreducible, by Proposition \ref{proposition:irreducible-y-triple}. It follows that the $G_L$-orbits $\xprod[L]{A\ast (B\ast C)}$ and $\xprod[L]{(A\ast B)\ast C}$ have nonempty intersection and therefore are the same orbit.
 \end{proof}
 
 
@@ -2937,7 +2946,7 @@ Let $A,B,C\in\matrices$. If $\co{A}\neq\ro{B}$ or $\co{B}\neq\ro{C}$, then
 \end{equation*}
 so we may now suppose $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$.
 
-As a result of Proposition \ref{proposition:associativity},
+As a result of Theorem \ref{theorem:associativity},
 \begin{align*}
 (e_A\ast e_B)\ast e_C &= e_{(A\ast B)\ast C}\\
 &= e_{A\ast (B\ast C)}\\
@@ -2961,7 +2970,7 @@ The following constitutes a small category: the set of objects is $\compositions
 \end{proposition}
 
 \begin{proof}
-Proposition \ref{proposition:associativity} shows that the generic product $\ast$ is associative. For each object $\lambda\in\compositions$, the identity morphism $\lambda\to\lambda$ is the diagonal matrix $\diag{\lambda}$.
+Theorem \ref{theorem:associativity} shows that the generic product $\ast$ is associative. For each object $\lambda\in\compositions$, the identity morphism $\lambda\to\lambda$ is the diagonal matrix $\diag{\lambda}$.
 \end{proof}
 
 Then the generic affine algebra $\generic$ may be realised as the $\integers$-algebra of this category. Observe that there are only finitely many objects in this category and distinct objects are non-isomorphic, so the isomorphism classes in this category are in one to one correspondence with $\compositions$. The $\integers$-algebra of this category is the free $\integers$-module on $\matrices$ with $\integers$-bilinear multiplication given by the generic product $\ast$.
@@ -2985,8 +2994,6 @@ for $A,B\in\matrices$ with $\co{A}=\ro{B}$, and
 e_A\ast e_B = 0
 \end{equation*}
 for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$.
-
-\subsection{Elementary basis elements}
 
 For $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
 \begin{equation*}
@@ -3073,7 +3080,7 @@ F_i\cdot e_A = \sum_{j\in\integers:a_{i,j}>0} q^{\sum_{t<j} a_{i+1,t}}\qint{a_{i
 \end{equation*}
 in $\qschur$. 
 
-Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $i\in\{1,\ldots,n\}$ and $j\in\integers$,
+Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $s\in\{1,\ldots,n\}$ and $t\in\integers$,
 \begin{equation*}
 d_{s,t}{(B)} = \begin{cases}
 d_{s,t}{(A)} - 1 &: s=i \text{ and } t<j,\\
@@ -3096,10 +3103,11 @@ so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally
 \begin{equation*}
 F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
 \end{equation*}
-where $q=\min\{j\in\integers:a_{i,j}>0\}$.
+where
+\begin{equation*}
+q=\min\{j\in\integers:a_{i,j}>0\}.
+\end{equation*}
 \end{proof}
-
-\subsection{Transpose involution}
 
 Let $\antipode{}$ be the $\integers$-module automorphism of $\generic$ given by
 \begin{equation*}
@@ -3170,8 +3178,6 @@ This follows immediately on applying the transpose involution to the formulas fo
 
 Equally, this result can be proven directly using the formulas for the action of $E_i$ and $F_i$ on the right in Lemma \ref{corollary:fundamental-right-multiplication-rules}, as in the proof of Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
 \end{proof}
-
-\subsection{Shifting and periodicity}
 
 For each $\lambda\in\compositions$, define
 \begin{equation*}
