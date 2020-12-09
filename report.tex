@@ -180,7 +180,7 @@ is an isomorphism.
 
 Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using double affine flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12book} by Deng, Du and Fu.
 
-Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\laurent$-submodule of $V$ which is a free module of rank $r$ over $\polys$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
+Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
 \flags_\lambda = \left\{L\in\flags:\dim\left(L_i/{L_{i-1}}\right)=\lambda_i \text{ for all }i\in\integers\right\}.
 \end{equation*}
@@ -195,7 +195,7 @@ for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$
 \end{equation*}
 for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
 
-The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$ defined as the endomorphism algebra of a certain module over the Hecke algebra $\hecke{r}$. {\color{red}find citation} proved that $\qschur$ is isomorphic to the $\integers[q]$-algebra with a $\integers[q]$-basis
+The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$ defined as the endomorphism algebra of a certain module over the Hecke algebra $\hecke$. {\color{red}find citation} proved that $\qschur$ is isomorphic to the $\integers[q]$-algebra with a $\integers[q]$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\}
 \end{equation*}
@@ -209,18 +209,18 @@ There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$
 \begin{equation*}
 1=\sum_{\lambda\in\compositions} 1_\lambda,
 \end{equation*}
-where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column vector equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ with all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero. The index $i$ in $E_i$ and $F_i$ is taken modulo $n$.
+where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column vector equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\integers/{n \integers}$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ with all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero.
 
-There are the following multiplication rules for $E_i$ and $F_i$ which allow computations to be done in a clear combinatorial way and are later used to derive a set of relations. For an integer $m\geq 1$, the $q$-integer $\qint{m}$ is the polynomial
+For an integer $m\geq 1$, the $q$-integer $\qint{m}$ is the polynomial
 \begin{equation*}
 \frac{1-q^m}{1-q} = 1 + q +\cdots + q^{m-1}\in\integers[q]
 \end{equation*}
-and $\qint{0}=0$. For $i,j\in\integers$, let $\elem{i}{j}$ be the elementary periodic matrix with entries equal to $1$ in positions $(i+cn,j+cn)$ for $c\in\integers$ and all other entries equal to zero. Given $A\in\matrices$,
+and $\qint{0}=0$. For $i,j\in\integers$, let $\elem{i}{j}$ be the elementary periodic matrix with entries equal to $1$ in positions $(i+cn,j+cn)$ for $c\in\integers$ and all other entries equal to zero. There are the following multiplication rules for $E_i$ and $F_i$ which allow computations to be done in a clear combinatorial way and are later used to derive a set of relations. Given $A\in\matrices$,
 \begin{align*}
 E_ie_A &= \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}\\
 F_ie_A &= \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}
 \end{align*}
-for each $i\in\{1,\ldots,n\}$.
+for each $i\in\integers/{n\integers}$.
 
 
 \section{Main results}
@@ -244,33 +244,38 @@ We define a quiver $\Gamma$ for $\qschur$ and give a set of $\integers[q]$-linea
 e_{i,\lambda}\colon\lambda\to \lambda +\alpha_i &: \lambda_{i+1} > 0\\
 f_{i,\lambda}\colon\lambda\to\lambda -\alpha_i &: \lambda_i > 0,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$, where $\alpha_i=\epsilon_i - \epsilon_{i+1}\in\integers^n$ is the simple root. Let $I=\qrelations$ be the ideal of relations in $\integers[q]\Gamma$ generated by
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$, where $\alpha_i=\epsilon_i - \epsilon_{i+1}\in\integers^n$ is the simple root. 
+
+Write
+\begin{align*}
+e_i &= \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}\\
+f_i &= \sum_{\lambda\in\compositions:\lambda_i>0} f_{i,\lambda}.
+\end{align*}
+and let $I=\qrelations$ be the ideal of relations in $\integers[q]\Gamma$ generated by
 \begin{align*}
 e_ie_j &-e_je_i\\
 f_if_j &-f_jf_i
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ such that $j\neq i\pm 1$ modulo $n$,
+for $i,j\in\integers/{n \integers}$ such that $j\neq i\pm 1$;
 \begin{align*}
 e_ie_{i+1}^2 -&(1+q)e_{i+1}e_ie_{i+1} +qe_{i+1}^2e_i\\
 e_i^2e_{i+1} -&(1+q)e_ie_{i+1}e_i +qe_{i+1}e_i^2\\
 f_{i+1}^2f_i -&(1+q)f_{i+1}f_if_{i+1} +qf_if_{i+1}^2\\
 f_{i+1}f_i^2 -&(1+q)f_if_{i+1}f_i +qf_i^2f_{i+1}
 \end{align*}
-for $i\in\{1,\ldots,n\}$,
+for $i\in\integers/{n \integers}$;
 \begin{equation*}
 e_if_j-f_je_i
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ such that $i\neq j$,
+for $i,j\in\integers/{n \integers}$ such that $i\neq j$;
 \begin{equation*}
 e_if_i-f_ie_i - \sum_{\lambda\in\compositions}(\qint{\lambda_i}-\qint{\lambda_{i+1}})k_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$;
-where
+for $i\in\integers/{n \integers}$, where
 \begin{align*}
 e_i &= \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}\\
 f_i &= \sum_{\lambda\in\compositions:\lambda_i>0} f_{i,\lambda}
 \end{align*}
-and the index $i$ is taken modulo $n$.
 
 There is a unique homomorphism of $\integers[q]$-algebras
 \begin{equation*}
@@ -282,7 +287,7 @@ given by
 \phi(e_{i,\lambda} + \qrelations) &= E_i1_\lambda\\
 \phi(f_{i,\lambda} + \qrelations) &= F_i1_\lambda
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. We conjecture that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. Surjectivity is proven in Proposition \ref{proposition:q-schur-presentation}.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$. We conjecture that if $\qfrac$ is a subring of $\rationals(q)$ such that the $q$-integers are invertible and $q$ is not invertible, then the induced $\qfrac$-algebra homomorphism $\qfrac\otimes\phi$ is an isomorphism. Surjectivity is proven in Proposition \ref{proposition:q-schur-presentation}.
 
 In order to obtain geometric insight on the product of $G$-orbits in $\dblflags$ we consider finite dimensional slices of the orbits and orbit products together with the action of a finite dimensional quotient of a stabiliser in $G$. For $A,B\in\matrices$ and $L\in\flags_{\ro{A}}$ we consider the spaces
 \begin{equation*}
@@ -333,9 +338,9 @@ e_{i,\lambda-\alpha_i}f_{i,\lambda} - f_{i,\lambda+\alpha_i}e_{i,\lambda} &: \la
 e_{i,\lambda-\alpha_i}f_{i,\lambda} - k_\lambda &: \lambda_i>0, \lambda_{i+1}=0\\
 f_{i,\lambda+\alpha_i}e_{i,\lambda} - k_\lambda &: \lambda_i=0, \lambda_{i+1}>0
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ and $\lambda\in\compositions$, where the indices are taken modulo $n$.
+for $i,j\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 
-An element $A\in\matrices$ is said to be aperiodic if for every $s\neq 0$ there is $i\in\{1,\ldots,n\}$ such that $a_{i,i+s}=0$.
+An element $A\in\matrices$ is said to be aperiodic if for every $s\neq 0$ there is $i\in\integers/{n \integers}$ such that $a_{i,i+s}=0$.
 
 \begin{proposition*}
 There is a $\integers$-algebra homomorphism
@@ -348,7 +353,7 @@ defined by
 \rho(e_{i,\lambda} + \zerorelations) &= E_i1_\lambda\\
 \rho(f_{i,\lambda} + \zerorelations) &= F_i1_\lambda,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$. The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
 \end{proposition*}
 
 We conjecture that $\rho$ is an isomorphism of $\integers$-algebras when $r<n$. Injectivity of the map $\rho$ depends on a single technical lemma for which we seem to be close to a proof. Once this result is established we will have proven the following conjecture.
@@ -364,7 +369,7 @@ such that
 \Psi(E_i) &= E_i\\
 \Psi(F_i) &= F_i.
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
 Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
@@ -388,9 +393,9 @@ A \emph{composition of $r$ into $n$ parts} is an $n$-tuple
 of non-negative integers whose sum equals $r$. Denote the set of compositions of $r$ into $n$ parts by $\compositions$.
 \end{definition}
 
-A composition $\lambda\in\compositions$ is \emph{sincere} if $\lambda_i>0$ for each $i\in\{1,\ldots,n\}$ and otherwise $\lambda$ is \emph{insincere}.
+A composition $\lambda\in\compositions$ is \emph{sincere} if $\lambda_i>0$ for each $i\in\integers/{n \integers}$ and otherwise $\lambda$ is \emph{insincere}.
 
-For each $i\in\{1,\ldots,n\}$, let
+For each $i\in\integers/{n \integers}$, let
 \begin{equation*}
 \alpha_i = \epsilon_i - \epsilon_{i+1},
 \end{equation*}
@@ -1001,11 +1006,11 @@ for each $\lambda\in\compositions$,
 \begin{equation*}
 \antipode{(E_{i,\lambda})} = F_{i,\lambda+\alpha_i}
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, and
+for each $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$, and
 \begin{equation*}
 \antipode{(F_{i,\lambda})} = E_{i,\lambda -\alpha_i}
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$.
+for each $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_i>0$.
 
 In particular,
 \begin{align*}
@@ -1013,7 +1018,7 @@ In particular,
 \antipode{(F_i)} &= E_i,\\
 \antipode{(1_\lambda)} &= 1_\lambda
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 
 
 \subsection{Fundamental multiplication rules}
@@ -1038,11 +1043,11 @@ for $m\geq 1$.
 These fundamental multiplication rules for products with $E_i$ and $F_i$ in $\qschur$ are derived from the $v$-form of these expressions, where $q=v^2$, given by Lusztig in Proposition 3.5 \cite{lusztig99}.
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule}
-Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$,
+Given $A\in\matrices$ and $i\in\integers/{n \integers}$ with $\ro{A}_{i+1}>0$,
 \begin{equation*}
 E_ie_A = \sum_{p\in\integers:a_{i+1,p}>0} q^{\sum_{j>p}a_{i,j}} \qint{a_{i,p}+1} e_{A+\elem{i}{p} -\elem{i+1}{p}}.
 \end{equation*}
-Given $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_i>0$,
+Given $A\in\matrices$ and $i\in\integers/{n \integers}$ with $\ro{A}_i>0$,
 \begin{equation*}
 F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+1} e_{A+\elem{i+1}{p} -\elem{i}{p}}.
 \end{equation*}
@@ -1051,11 +1056,11 @@ F_ie_A = \sum_{p\in\integers:a_{i,p}>0} q^{\sum_{j<p}a_{i+1,j}} \qint{a_{i+1,p}+
 These formulas are still valid in the cases $E_ie_A=0$ and $F_ie_A=0$. If the convention that $e_B = 0$ whenever $B$ is not in $\matrices$ is used, then the conditions on $p$ in the above sums may be ignored.
 
 \begin{corollary}\label{corollary:fundamental-right-multiplication-rules}
-Given $A\in\matrices$ and $j\in\{1,\ldots,n\}$ with $\co{A}_{j+1}>0$,
+Given $A\in\matrices$ and $j\in\integers/{n \integers}$ with $\co{A}_{j+1}>0$,
 \begin{equation*}
 e_AF_j = \sum_{p\in\integers: a_{p,j+1}>0} q^{\sum_{i>p}a_{i,j}} \qint{a_{p,j}+1} e_{A+\elem{p}{j}-\elem{p}{j+1}}.
 \end{equation*}
-Given $A\in\matrices$ and $j\in\{1,\ldots,n\}$ with $\co{A}_{j}>0$,
+Given $A\in\matrices$ and $j\in\integers/{n \integers}$ with $\co{A}_{j}>0$,
 \begin{equation*}
 e_AE_j = \sum_{p\in\integers: a_{p,j}>0} q^{\sum_{i<p} a_{i,j+1}} \qint{a_{p,j+1}+1} e_{A+\elem{p}{j+1}-\elem{p}{j}}.
 \end{equation*}
@@ -1237,7 +1242,7 @@ d_{p,q}{(A)} &: \text{otherwise},
 which proves that $B<A$.
 \end{proof}
 
-Let $A\in\matrices$ and $i\in\{1,\ldots,n\}$ with $\ro{A}_{i+1}>0$. Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule} and Lemma \ref{lemma:numerical-degeneration},
+Let $A\in\matrices$ and $i\in\integers/{n \integers}$ with $\ro{A}_{i+1}>0$. Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule} and Lemma \ref{lemma:numerical-degeneration},
 \begin{equation*}
 E_ie_A = \sum_{s=1}^{m} q^{\sum_{t>j_s}a_{i,t}}\qint{a_{i,j_s}+1} e_{A+\elem{i}{j_s}-\elem{i+1}{j_s}}
 \end{equation*}
@@ -1395,7 +1400,7 @@ For each $\lambda\in\compositions$,
 \begin{equation*}
 R 1_\lambda \antipode{(R)} = 1_{[1]\lambda}
 \end{equation*}
-and, for each $i\in\{1,\ldots,n\}$,
+and, for each $i\in\integers/{n \integers}$,
 \begin{equation*}
 R E_i \antipode{(R)} = E_{i-1}
 \end{equation*}
@@ -1444,18 +1449,18 @@ Assume $n$ and $r$ are integers with $n\geq 3$ and $r\geq 1$.
 
 
 \begin{lemma}\label{lemma:q-commutators-E-F}
-If $i,j\in\{1,\ldots,n\}$ and $i\neq j$, then
+If $i,j\in\integers/{n \integers}$ and $i\neq j$, then
 \begin{equation*}
 E_iF_j - F_jE_i = 0.
 \end{equation*}
-For each $i\in\{1,\ldots,n\}$,
+For each $i\in\integers/{n \integers}$,
 \begin{equation*}
 E_iF_i - F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} - \qint{\lambda_{i+1}})1_\lambda.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-Denote $e_A$ by $\left[A\right]$. Fix $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
+Denote $e_A$ by $\left[A\right]$. Fix $i,j\in\integers/{n \integers}$ with $i\neq j$. Then
 \begin{align*}
 E_i F_j &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +\elem{j+1}{j} -\elem{j}{j}\right]\\
 &= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +\elem{j+1}{j} -\elem{j}{j} +\elem{i}{i+1} -\elem{i+1}{i+1}\right].
@@ -1487,7 +1492,7 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\{1,\ldots,n\}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\integers/{n \integers}$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
 \begin{equation*}
 E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0;
 \end{equation*}
@@ -1617,7 +1622,7 @@ Let $\Gamma=\Gamma(n,r)$ be the quiver with set of vertices $\compositions$ and 
 e_{i,\lambda}&\colon\lambda\to\lambda+\alpha_i \quad\text{ if } \lambda_{i+1}>0\\
 f_{i,\lambda}&\colon\lambda\to\lambda-\alpha_i \quad\text{ if } \lambda_i>0,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 
 The path $\integers[q]$-algebra of $\Gamma$ is an associative $\integers[q]$-algebra with a unit, which has a $\integers[q]$-basis consisting of the paths in $\Gamma$, where the multiplication is defined by concatenation of paths. That is, if $p$ and $q$ are paths in $\Gamma$, then the product $pq$ is the path `$q$ followed by $p$' if the target of $q$ equals the source of $p$, or equals zero otherwise. 
 
@@ -1626,7 +1631,7 @@ For each $\lambda\in\compositions$, denote the constant path at $\lambda$ by $k_
 \sum_{\lambda\in\compositions} k_\lambda.
 \end{equation*}
 
-For each $i\in\{1,\ldots,n\}$, define
+For each $i\in\integers/{n \integers}$, define
 \begin{equation*}
 e_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}
 \end{equation*}
@@ -1642,22 +1647,22 @@ Let $I=\qrelations$ be the ideal in $\integers[q]\Gamma$ generated by the follow
 e_ie_j &-e_je_i\\
 f_if_j &-f_jf_i
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ such that $j\neq i\pm 1$,
+for $i,j\in\integers/{n \integers}$ such that $j\neq i\pm 1$,
 \begin{align*}
 e_ie_{i+1}^2 -&(1+q)e_{i+1}e_ie_{i+1} +qe_{i+1}^2e_i\\
 e_i^2e_{i+1} -&(1+q)e_ie_{i+1}e_i +qe_{i+1}e_i^2\\
 f_{i+1}^2f_i -&(1+q)f_{i+1}f_if_{i+1} +qf_if_{i+1}^2\\
 f_{i+1}f_i^2 -&(1+q)f_if_{i+1}f_i +qf_i^2f_{i+1}
 \end{align*}
-for $i\in\{1,\ldots,n\}$,
+for $i\in\integers/{n \integers}$,
 \begin{equation*}
 e_if_j-f_je_i
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ such that $i\neq j$,
+for $i,j\in\integers/{n \integers}$ such that $i\neq j$,
 \begin{equation*}
 e_if_i-f_ie_i - \sum_{\lambda\in\compositions}(\qint{\lambda_i}-\qint{\lambda_{i+1}})k_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$.
+for $i\in\integers/{n \integers}$.
 
 
 
@@ -1675,7 +1680,7 @@ defined by
 \phi(e_{i,\lambda} +\qrelations) &= E_{i,\lambda},\\
 \phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
@@ -1685,7 +1690,7 @@ Lemma \ref{lemma:q-commutators-E-F} and Lemma \ref{lemma:q-serre-relations} show
 \phi(e_{i,\lambda} +\qrelations) &= E_{i,\lambda},\\
 \phi(f_{i,\lambda} +\qrelations) &= F_{i,\lambda},
 \end{align*}
-for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for each $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 \end{proof}
 
 In fact, $\phi$ is determined by its values on $e_1,\ldots,e_n$, $f_1,\ldots,f_n$ and $k_\lambda$ for $\lambda\in\compositions$. In order to describe the image of this map we introduce the notion of standard paths in $\Gamma$.
@@ -1731,7 +1736,7 @@ A path $p=k_\lambda p^{+}k_\mu p^{-}$ is a \emph{standard path} if $k_\lambda p^
 \begin{equation*}
 \alpha_{j,s} + \beta_{j-1,s} \le \lambda_j
 \end{equation*}
-for $j\in\{1,\ldots,n\}$. Call $p^+$ the \emph{positive part} of $p$ and $p^-$ the \emph{negative part} of $p$.
+for $j\in\integers/{n \integers}$. Call $p^+$ the \emph{positive part} of $p$ and $p^-$ the \emph{negative part} of $p$.
 \end{definition}
 
 \begin{remark}
@@ -1751,7 +1756,7 @@ and $p^-$ is the standard negative path given by
 \begin{equation*}
 \beta_{i,s} = \sum_{t\le i-s+1} a_{i+1,t}
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and $s\geq 1$, respectively.
+for $i\in\integers/{n \integers}$ and $s\geq 1$, respectively.
 \end{definition}
 
 \begin{lemma}\label{lemma:correspondence-std-paths-to-basis}
@@ -2049,7 +2054,7 @@ which is given by
 \phi_\qfrac(f_{i,\lambda} +\qfrac\qrelations) &= F_{i,\lambda}\\
 \phi_\qfrac(k_\lambda +\qfrac\qrelations) &= 1_\lambda,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 
 \begin{proposition}\label{proposition:q-schur-presentation}
 If $r<n$ then $\phi_\qfrac$ is surjective.
@@ -2326,8 +2331,8 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
 \begin{align*}
 \dim\left(\frac{\epsilon^{-(1+N)}L_0}{L_0'}\right)
-&= \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &=\dim\left(\frac{\epsilon^{-(1+N)}L_0}{\epsilon^{-N}L_0}\right) +\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
+&= \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &= r+a,
 \end{align*}
 which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
@@ -2997,7 +3002,7 @@ e_A\ast e_B = 0
 \end{equation*}
 for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$.
 
-For $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
+For $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
 \begin{equation*}
 E_{i,\lambda} = e_{\diag{\lambda} + \elem{i}{i+1} - \elem{i+1}{i+1}}
 \end{equation*}
@@ -3005,9 +3010,9 @@ and let
 \begin{equation*}
 E_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} E_{i,\lambda}
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$
+for each $i\in\integers/{n \integers}$
 
-For $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$, define
+For $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ such that $\lambda_i>0$, define
 \begin{equation*}
 F_{i,\lambda} = e_{\diag{\lambda} + \elem{i+1}{i} - \elem{i}{i}}
 \end{equation*}
@@ -3015,10 +3020,10 @@ and let
 \begin{equation*}
 F_i = \sum_{\lambda\in\compositions:\lambda_i>0} F_{i,\lambda}
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$.
+for each $i\in\integers/{n \integers}$.
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule-generic}
-Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\mu=\ro{A}$.
+Let $i\in\integers/{n \integers}$ and $A\in\matrices$ and write $\mu=\ro{A}$.
 
 If $\mu_{i+1}=0$ then $E_i\ast e_A=0$. If $\mu_{i+1}>0$, then
 \begin{equation*}
@@ -3046,7 +3051,7 @@ E_i\cdot e_A = \sum_{j\in\integers:a_{i+1,j}>0} q^{\sum_{t>j} a_{i,t}}\qint{a_{i
 \end{equation*}
 by Lemma \ref{lemma:fundamental-multiplication-rule}.
 
-Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. For $s\in\{1,\ldots,n\}$ and $t\in\integers$,
+Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. For $s\in$ and $t\in\integers$,
 \begin{equation*}
 d_{s,t}{(B)} = \begin{cases}
 d_{s,t}{(A)} + 1 &: s=i \text{ and } t<j,\\
@@ -3139,11 +3144,11 @@ For any $A\in\matrices$,
 \end{equation*}
 so $\antipode{}\circ\antipode{}$ is the identity map on $\qschur$.
 
-For each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
+For each $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
 \begin{equation*}
 \antipode{(E_{i,\lambda})} = F_{i,\lambda+\alpha_i},
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$,
+for each $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_i>0$,
 \begin{equation*}
 \antipode{(F_{i,\lambda})} = E_{i,\lambda - \alpha_i}, \text{ and}
 \end{equation*}
@@ -3154,7 +3159,7 @@ and
 for each $\lambda\in\compositions$.
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule-generic-R}
-Let $i\in\{1,\ldots,n\}$ and $A\in\matrices$ and write $\lambda=\co{A}$.
+Let $i\in\integers/{n \integers}$ and $A\in\matrices$ and write $\lambda=\co{A}$.
 
 If $\lambda_j=0$ then $e_A\ast E_j=0$. If $\lambda_j>0$ then
 \begin{equation*}
@@ -3247,7 +3252,7 @@ for $i\in\{1,\ldots,r\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
 \begin{equation*}
 \rotation{(F_{i,\lambda})} = F_{i-1,[1]\lambda}
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$, and
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_i>0$, and
 \begin{equation*}
 \rotation{(1_\lambda)} = 1_{[1]\lambda}
 \end{equation*}
@@ -3438,7 +3443,7 @@ which equals $1$ if $p>i$ and equals $-1$ if $p\le i$.
 \end{proof}
 
 \begin{lemma}\label{lemma:weight-change-F}
-Let $A\in\matrices$ and $\mu=\ro{A}$. Suppose $i\in\{1,\ldots,n\}$ is such that $\mu_i>0$ and let
+Let $A\in\matrices$ and $\mu=\ro{A}$. Suppose $i\in\integers/{n \integers}$ is such that $\mu_i>0$ and let
 \begin{equation*}
 q = \min\{q'\in\integers:a_{i,q'}>0\}.
 \end{equation*}
@@ -3537,18 +3542,18 @@ It follows that any aperiodic basis element $e_A$ is the product of a word of le
 \end{proof}
 
 \begin{proposition}\label{proposition:generating-aperiodic-elements}
-The subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$ has $\integers$-basis
+The subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\integers/{n \integers}$ and $1_\lambda$ for $\lambda\in\compositions$ has $\integers$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\text{ is aperiodic.}\}.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
-By definition, this subalgebra is spanned by the nonzero products in $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$, which are exactly the aperiodic basis elements, by Lemma \ref{lemma:words-are-aperiodic} and Lemma \ref{lemma:factorising-aperiodic-elements}.
+By definition, this subalgebra is spanned by the nonzero products in $E_i$ and $F_i$ for $i\in\integers/{n \integers}$ and $1_\lambda$ for $\lambda\in\compositions$, which are exactly the aperiodic basis elements, by Lemma \ref{lemma:words-are-aperiodic} and Lemma \ref{lemma:factorising-aperiodic-elements}.
 \end{proof}
 
 \begin{lemma}
-In the case $r<n$, $\generic$ is generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$.
+In the case $r<n$, $\generic$ is generated by $E_i$ and $F_i$ for $i\in\integers/{n \integers}$ and $1_\lambda$ for $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
@@ -3560,18 +3565,18 @@ When $r<n$, any $A\in\matrices$ is aperiodic since $\co{A}$ has a zero entry, so
 
 Let $n$ and $r$ be integers with $n\geq 3$ and $r\geq 1$. Let $\Gamma=\presentationquiver$ be the quiver associated to the affine $q$-Schur algebra $\qschur$, as defined in Section \ref{section:q-quiver}. 
 
-Recall that $\Gamma$ is the quiver with set of vertices $\Gamma_0 = \compositions$ and set of arrows $\Gamma_1=\Gamma_1^+\cup\Gamma_1^-$, where $\Gamma_1^+$ consists of the arrows
+Recall that $\Gamma$ is the quiver with set of vertices $\compositions$ and arrows
 \begin{equation*}
-e_{i,\lambda}\colon\lambda\to\lambda+\alpha_i \text{ for } (i,\lambda)\in\{1,\ldots,n\}\times\compositions \text{ with } \lambda_{i+1}>0,
+e_{i,\lambda}\colon\lambda\to\lambda+\alpha_i \text{ for } (i,\lambda)\in\integers/{n \integers}\times\compositions \text{ with } \lambda_{i+1}>0,
 \end{equation*}
-and $\Gamma_1^-$ consists of the arrows
+and
 \begin{equation*}
-f_{i,\lambda}\colon\lambda\to\lambda-\alpha_i \text{ for } (i,\lambda)\in\{1,\ldots,n\}\times\compositions \text{ with } \lambda_i>0.
+f_{i,\lambda}\colon\lambda\to\lambda-\alpha_i \text{ for } (i,\lambda)\in\integers/{n \integers}\times\compositions \text{ with } \lambda_i>0.
 \end{equation*}
 
 Recall that the path $\integers$-algebra of $\Gamma$ is an associative $\integers$-algebra with a $\integers$-basis consisting of the paths in $\Gamma$ and with multiplication defined by concatenation of paths. If $p$ and $q$ are paths in $\Gamma$ then the product $pq$ is the path $q$ followed by $p$ if the target of $q$ equals the source of $p$, otherwise $pq$ equals zero.
 
-For each $i\in\{1,\ldots,n\}$, define
+For each $i\in\integers/{n \integers}$, define
 \begin{equation*}
 e_i = \sum_{\lambda\in\compositions:\lambda_{i+1}>0} e_{i,\lambda}
 \end{equation*}
@@ -3585,22 +3590,22 @@ Let $\zerorelations$ be the ideal in $\integers\Gamma$ generated by the followin
 e_ie_j &- e_je_i,\\
 f_if_j &- f_jf_i
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ with $j>i+1$;
+for $i,j\in\integers/{n \integers}$ with $j\neq i\pm 1$;
 \begin{align*}
 e_i e_{i+1}^2 &- e_{i+1}e_ie_{i+1},\\
 e_i^2e_{i+1} &- e_ie_{i+1}e_i,\\
 f_{i+1}^2f_i &- f_{i+1}f_i f_{i+1},\\
 f_{i+1}f_i^2 &- f_i f_{i+1} f_i
 \end{align*}
-for $i\in\{1,\ldots,n\}$;
+for $i\in\integers/{n\integers}$;
 \begin{equation*}
 e_if_j -f_je_i
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ with $i<j$;
+for $i,j\in\integers/{n \integers}$ with $i\neq j$;
 \begin{equation*}
 e_if_i - f_ie_i -\sum_{\lambda\in\compositions}c_{i,\lambda}k_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$, where
+for $i\in\integers/{n \integers}$, where
 \begin{equation*}
 c_{i,\lambda} = \begin{cases}
 1 &:\text{ if } \lambda_{i+1}=0,\lambda_i>0\\
@@ -3616,7 +3621,7 @@ The ideal $\zerorelations$ in $\integers\Gamma$ is generated by the following se
 e_{i,\lambda+\alpha_j}e_{j,\lambda} &- e_{j,\lambda+\alpha_i}e_{i,\lambda},\\
 f_{i,\lambda-\alpha_j}f_{j,\lambda} &- f_{j,\lambda-\alpha_i}f_{i,\lambda},
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ with $j>i+1$;
+for $i,j\in\{1,\ldots,n\}$ with $j\neq i\pm 1$;
 \begin{align*}
 e_{i,\lambda+2\alpha_{i+1}}e_{i+1,\lambda+\alpha_{i+1}}e_{i+1,\lambda} &- e_{i+1,\lambda+\alpha_i+\alpha_{i+1}}e_{i,\lambda+\alpha_{i+1}}e_{i+1,\lambda},\\
 e_{i,\lambda+\alpha_i+\alpha_{i+1}}e_{i,\lambda+\alpha_{i+1}}e_{i+1,\lambda} &- e_{i,\lambda+\alpha_i+\alpha_{i+1}}e_{i+1,\lambda+\alpha_i}e_{i,\lambda},\\
@@ -3627,19 +3632,19 @@ for $i\in\{1,\ldots,n\}$;
 \begin{equation*}
 e_{i,\lambda-\alpha_j}f_{j,\lambda} - f_{j,\lambda+\alpha_i}e_{i,\lambda}
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ with $i\neq j$;
+for $i,j\in\integers/{n \integers}$ with $i\neq j$;
 \begin{equation*}
 e_{i,\lambda-\alpha_i}f_{i,\lambda} - f_{i,\lambda+\alpha_i}e_{i,\lambda}
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i>0$ and $\lambda_{i+1}>0$;
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_i>0$ and $\lambda_{i+1}>0$;
 \begin{equation*}
 e_{i,\lambda-\alpha_i}f_{i,\lambda} - k_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ such that $\lambda_i>0$ and $\lambda_{i+1}=0$;
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ such that $\lambda_i>0$ and $\lambda_{i+1}=0$;
 \begin{equation*}
 f_{i,\lambda+\alpha_i}e_{i,\lambda} - k_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$ with $\lambda_i=0$ and $\lambda_{i+1}>0$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$ with $\lambda_i=0$ and $\lambda_{i+1}>0$.
 
 
 \begin{lemma}\label{lemma:generic-algebra-relations}
@@ -3648,26 +3653,26 @@ The following equations hold in the generic affine algebra $\generic$:
 E_iE_j&=E_jE_i\\
 F_iF_j&=F_jF_i
 \end{align*}
-for $i,j\in\{1,\ldots,n\}$ with $|j-i|\neq 1$;
+for $i,j\in\integers/{n \integers}$ with $j\neq i\pm 1$;
 \begin{align*}
 E_iE_{i+1}^2 &= E_{i+1}E_iE_{i+1}\\
 E_i^2E_{i+1} &= E_iE_{i+1}E_i\\
 F_{i+1}^2F_i &= F_{i+1}F_iF_{i+1}\\
 F_{i+1}F_i^2 &= F_iF_{i+1}F_i
 \end{align*}
-for $i\in\{1,\ldots,n\}$;
+for $i\in\integers/{n \integers}$;
 \begin{equation*}
 E_iF_j=F_jE_i
 \end{equation*}
-for $i,j\in\{1,\ldots,n\}$ with $i\neq j$;
+for $i,j\in\integers/{n \integers}$ with $i\neq j$;
 \begin{equation*}
 E_iF_i-F_iE_i = \sum_{\lambda\in\compositions} c_{i,\lambda}1_\lambda
 \end{equation*}
-for $i\in\{1,\ldots,n\}$.
+for $i\in\integers/{n \integers}$.
 \end{lemma}
 
 \begin{proof}
-Suppose $i,j\in\{1,\ldots,n\}$ with $j>i+1$, so $\{i,i+1\}$ and $\{j,j+1\}$ are disjoint, then
+Suppose $i,j\in\integers/{n \integers}$ with $j>i+1$, so $\{i,i+1\}$ and $\{j,j+1\}$ are disjoint, then
 \begin{align*}
 E_iE_j &= \sum_{\lambda\in\compositions} E_i\left[ \diag{\lambda}+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
 &= \sum_{\lambda\in\compositions} \left[ \diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{j}{j+1}-\elem{j+1}{j+1}\right]\\
@@ -3679,7 +3684,7 @@ Then applying the transpose involution yields the second equation:
 F_iF_j-F_jF_i = -\antipode{(\left[E_i,E_j\right])} = 0.
 \end{equation*}
 
-Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:fundamental-multiplication-rule-generic-R}, for each $i\{1,\ldots,n\}$,
+Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:fundamental-multiplication-rule-generic-R}, for each $i\integers/{n \integers}$,
 \begin{align*}
 E_iE_{i+1}^2 &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
 &= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2} +\elem{i}{i+2} -\elem{i+1}{i+2}\right]\\
@@ -3712,7 +3717,7 @@ and
 F_{i+1}F_i^2 = \antipode{(E_i^2E_{i+1})} = \antipode{(E_iE_{i+1}E_i)} = F_iF_{i+1}F_i.
 \end{equation*}
 
-Suppose $i,j\in\{1,\ldots,n\}$ with $i\neq j$. Then
+Suppose $i,j\in\integers/{n \integers}$ with $i\neq j$. Then
 \begin{align*}
 E_iF_j &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda}+\elem{j+1}{j}-\elem{j}{j}\right]\\
 &= \sum_{\lambda\in\compositions} \left[\diag{\lambda}+\elem{j+1}{j}-\elem{j}{j}+\elem{i}{i+1}-\elem{i+1}{i+1}\right]
@@ -3724,7 +3729,7 @@ F_jE_i &= \sum_{\lambda\in\compositions} F_j\left[\diag{\lambda}+\elem{i}{i+1}-\
 \end{align*}
 so $E_iF_j=F_jE_i$.
 
-Finally, for $i\in\{1,\ldots,n\}$,
+Finally, for $i\in\integers/{n \integers}$,
 \begin{equation*}
 E_iF_i = \sum_{\lambda:\lambda_i>0,\lambda_{i+1}=0}1_\lambda +\sum_{\lambda:\lambda_i>0,\lambda_{i+1}>0}\left[\diag{\lambda}+\elem{i}{i+1}-\elem{i+1}{i+1}+\elem{i+1}{i}-\elem{i}{i}\right]
 \end{equation*}
@@ -3749,7 +3754,7 @@ defined by
 \rho(e_{i,\lambda} +\zerorelations) &= E_{i,\lambda}\\
 \rho(f_{i,\lambda} +\zerorelations) &= F_{i,\lambda},
 \end{align*}
-for all $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. Thus $\generic$ may also be regarded as an algebra over $\integers\Gamma$ where the action of a path $p$ is given by
+for all $i\in\integers/{n \integers}$ and $\lambda\in\compositions$. Thus $\generic$ may also be regarded as an algebra over $\integers\Gamma$ where the action of a path $p$ is given by
 \begin{equation*}
 e_A\cdot p = e_A\rho(p+\zerorelations)
 \end{equation*}
@@ -3760,7 +3765,7 @@ The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\
 \end{proposition}
 
 \begin{proof}
-The image of $\rho$ is the subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\{1,\ldots,n\}$ and $1_\lambda$ for $\lambda\in\compositions$, which has $\integers$-basis
+The image of $\rho$ is the subalgebra of $\generic$ generated by $E_i$ and $F_i$ for $i\in\integers/{n \integers}$ and $1_\lambda$ for $\lambda\in\compositions$, which has $\integers$-basis
 \begin{equation*}
 \{e_A:A\in\matrices, A\text{ is aperiodic.}\},
 \end{equation*}
@@ -3923,7 +3928,7 @@ A standard path is reduced.
 \end{lemma}
 
 \begin{proof}
-If $p$ is a standard positive or negative path then $p$ is reduced, since the relations only involving the edges $e_i:i\in\{1,\ldots,n\}$ or $f_i:i\in\{1,\ldots,n\}$ are homogeneous polynomials, so any equivalent path is of the same length.
+If $p$ is a standard positive or negative path then $p$ is reduced, since the relations only involving the edges $e_i:i\in\integers/{n \integers}$ or $f_i:i\in\integers/{n \integers}$ are homogeneous polynomials, so any equivalent path is of the same length.
 
 Now suppose $p=k_\lambda p^+p^- k_\mu$ is a standard path for a standard positive path $k_\lambda p^+$ and a standard negative path $p^- k_\mu$. The number of arrows in $p$ is
 \begin{equation*}
@@ -3970,7 +3975,7 @@ Let $t>s\geq 0$ be integers. Then
 e_i^s e_{i+1}^s e_i - e_i^{s+1}e_{i+1}^s &= 0 \label{eq:higher-serre-1}\\
 e_i^s e_{i+1}^t - e_{i+1}^{t-s} e_i^s e_{i+1}^s &= 0 \label{eq:higher-serre-2}
 \end{align}
-in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
+in $\integers\Gamma/{\zerorelations}$, for each $i\in\integers/{n \integers}$.
 \end{lemma}
 
 \begin{proof}
@@ -4014,7 +4019,7 @@ and
 \begin{equation*}
 f_{i+1}^s f_i^s f_{i+1}^{t-s} - f_{i+1}^t f_i^s = 0
 \end{equation*}
-in $\integers\Gamma/{\zerorelations}$, for each $i\in\{1,\ldots,n\}$.
+in $\integers\Gamma/{\zerorelations}$, for each $i\in\integers/{n \integers}$.
 \end{corollary}
 
 \begin{proof}
@@ -4041,14 +4046,11 @@ so $a_j\le \lambda_j$ for $j\neq i+1$ and $a_{i+1}\le\lambda_{i+1} +a_i$. Then
 contradicting the hypothesis that such a cyclic section exists.
 \end{proof}
 
-\begin{lemma}\label{lemma:extending-standard-paths}
-Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\{1,\ldots,n\}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
-\end{lemma}
+\begin{conjecture}\label{conjecture:extending-standard-paths}
+Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $\Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\integers/{n \integers}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
+\end{conjecture}
 
-\begin{proof}{\color{red}
-IMPORTANT: need to prove this beyond doubt.
-}
-
+\begin{proof}[Idea of proof.]
 First suppose $p$ is a positive standard path
 \begin{equation*}
 p=k_\mu p_1\cdots p_{h^+}k_\lambda,
@@ -4069,38 +4071,34 @@ For the third case, suppose the exponent of $e_{j-1}$ in $p_{h^+}$ is zero and t
 
 \end{proof}
 
-\begin{proposition}\label{proposition:std-paths-span-quiver-algebra}
+\begin{conjecture}\label{conjecture:std-paths-span-quiver-algebra}
 When $r<n$, any path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
-\end{proposition}
+\end{conjecture}
 
-\begin{proof}
-Let $p$ be a path in $\Gamma$ and proceed by induction on the length of $p$. If $p$ has length zero then $p=k_\mu$ for some $\mu\in\compositions$, so $p$ is a standard path. If $p$ has length one then $p=k_\mu e_i$ or $p=k_\mu f_i$ for some $\mu\in\compositions$ and $i\in\{1,\ldots,n\}$.
+\begin{proof}[Idea of proof.]
+Let $p$ be a path in $\Gamma$ and proceed by induction on the length of $p$. If $p$ has length zero then $p=k_\mu$ for some $\mu\in\compositions$, so $p$ is a standard path. If $p$ has length one then $p=k_\mu e_i$ or $p=k_\mu f_i$ for some $\mu\in\compositions$ and $i\in\integers/{n \integers}$.
 
-Suppose $p$ has length at least two and that any strictly shorter path is congruent to a standard path. Pulling out the first arrow, write $p=p'e_i$ or $p=p'f_i$ for some $i\in\{1,\ldots,n\}$. Using the inductive hypothesis we may assume $p'$ is a standard path, so it follows from Lemma \ref{lemma:extending-standard-paths} that $p$ is congruent to a standard path.
-
-{\color{red}
-Note: The lemma on extending standard paths still needs to be proven for this proof to be complete.}
+Suppose $p$ has length at least two and that any strictly shorter path is congruent to a standard path. Pulling out the first arrow, write $p=p'e_i$ or $p=p'f_i$ for some $i\in\{1,\ldots,n\}$. Using the inductive hypothesis we may assume $p'$ is a standard path, so it will follow from Conjecture \ref{conjecture:extending-standard-paths} that $p$ is congruent to a standard path.
 \end{proof}
 
-\begin{theorem}\label{theorem:presentation-generic-algebra}
+\begin{conjecture}\label{conjecture:presentation-generic-algebra}
 If $r<n$ then $\rho$ is a $\integers$-algebra isomorphism. Thus $\generic$ admits a presentation by the quiver $\Gamma$ and the ideal of relations $\zerorelations$ in $\integers\Gamma$.
-\end{theorem}
+\end{conjecture}
 
-\begin{proof}
+\begin{proof}[Idea of proof.]
 Under the assumption $r<n$, $\rho$ is a surjective homomorphism of $\integers$-algebras, by Proposition \ref{proposition:image-of-quiver-algebra-generic}.
 
-Suppose $p$ and $p'$ are paths in $\Gamma$ and $A\in\matrices$ with
+Once Conjecture \ref{conjecture:std-paths-span-quiver-algebra} has been proven, injectivty of $\rho$ will follow. If $p$ and $p'$ are paths in $\Gamma$ with
 \begin{equation*}
-\rho(p+\zerorelations) = \rho(p'+\zerorelations) = e_A.
+\rho(p+\zerorelations) = \rho(p'+\zerorelations) = e_A,
 \end{equation*}
-
-Proposition \ref{proposition:std-paths-span-quiver-algebra} shows that $p$ and $p'$ are both congruent modulo $\zerorelations$ to the standard path corresponding to $A$, so $p$ and $p'$ are congruent modulo $\zerorelations$. Therefore $\rho$ is injective, so is an isomorphism of $\integers$-algebras as claimed. 
+then assuming the result of Conjecture \ref{conjecture:std-paths-span-quiver-algebra}, $p$ and $p'$ are both congruent to the standard path corresponding to $A$ modulo $\zerorelations$. It follows that $\rho$ is injective, so is an isomorphism of $\integers$-algebras.
 \end{proof}
 
 
 \section{The isomorphism result}
 
-This section gives a realisation of the affine $0$-Schur algebra by the generic affine algebra in the case that $r<n$. Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the $\integers$-algebra
+Fix integers $n,r\geq 1$ with $r<n$. This section aims to give a realisation of the affine $0$-Schur algebra by the generic affine algebra in the case that $r<n$. Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the $\integers$-algebra
 \begin{equation*}
 \zeroschur = \integers[q]/{(q)}\otimes_\integers[q]\qschur.
 \end{equation*}
@@ -4111,29 +4109,29 @@ The inclusion of $\integers[q]$ into $\qfrac$ sending $f$ to $f/1$ gives an isom
 \end{equation*}
 and both are isomorphic to $\integers$ itself. Therefore
 \begin{equation*}
-\zeroschur = \qfrac/{q\qfrac}\otimes_\qfrac \Qqschur
+\zeroschur = \qfrac/{q\qfrac}\otimes_\qfrac \Qqschur.
 \end{equation*}
 
-Let $n,r\geq 1$ with $r<n$. Recall
+Recall that there is a homomorphism of $\integers[q]$-algebras
 \begin{equation*}
 \phi\colon\integers[q]\Gamma/\qrelations \to\qschur
 \end{equation*}
-is the homomorphism of $\integers[q]$-algebras defined by
+defined by
 \begin{align*}
 \phi(e_{i,\lambda} +\qrelations)&= E_{i,\lambda}\\
 \phi(f_{i,\lambda} +\qrelations)&= F_{i,\lambda}\\
 \phi(k_\lambda +\qrelations)&= 1_\lambda,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$. Let $\phi_0$ be the $\integers$-algebra homomorphism
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$. Let $\phi_0$ be the $\integers$-algebra homomorphism
 \begin{equation*}
 \phi_0 = \qfrac/{(q)}\otimes_\qfrac \phi_\qfrac \colon \integers\Gamma/{\zerorelations}\to\zeroschur.
 \end{equation*}
 
-Let $\rho$ be the $\integers$-algebra isomorphism
+Let $\rho$ be surjective $\integers$-algebra homomorphism
 \begin{equation*}
 \rho\colon \integers\Gamma/{\zerorelations}\to\generic
 \end{equation*}
-from Theorem \ref{theorem:presentation-generic-algebra}.
+from Proposition \ref{proposition:image-of-quiver-algebra-generic}.
 
 Let $\Psi$ be the $\integers$-algebra homomorphism
 \begin{equation}\label{equation:transfer-map}
@@ -4145,7 +4143,7 @@ with
 \Psi(F_{i,\lambda})&= F_{i,\lambda}\\
 \Psi(1_\lambda)&= 1_\lambda,
 \end{align*}
-for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
+for $i\in\integers/{n \integers}$ and $\lambda\in\compositions$.
 
 \begin{proposition}\label{proposition:transfer-map-surjective}
 The map $\Psi$ is surjective.
@@ -4193,13 +4191,13 @@ g_A(0)
 by Proposition \ref{proposition:image-of-standard-path}.
 \end{proof}
 
-\begin{theorem}
+\begin{conjecture}
 When $r<n$, the map
 \begin{equation*}
 \Psi\colon\generic\to\zeroschur
 \end{equation*}
 is an isomorphism of $\integers$-algebras.
-\end{theorem}
+\end{conjecture}
 
 \begin{proof}
 Proposition \ref{proposition:transfer-map-surjective} shows that $\Psi$ is a surjective $\integers$-algebra homomorphism.
@@ -4273,7 +4271,7 @@ and
 \begin{equation*}
 f_i^2f_{i+1}\cdots f_{i-1}f_i = f_if_{i+1}\cdots f_{i-1}f_i^2
 \end{equation*}
-for $i\in\{1,\ldots,n\}$ and there are likely to be more general relations with arbitrary exponents for $e_{i-1},\ldots,e_{i+1}$ and $f_{i+1},\ldots,f_{i-1}$ respectively.
+for $i\in\integers/{n \integers}$ and there are likely to be more general relations with arbitrary exponents for $e_{i-1},\ldots,e_{i+1}$ and $f_{i+1},\ldots,f_{i-1}$ respectively.
 
 Further research could focus on the relation between the generic affine algebra $\generic$ and the affine zero Schur algebra $\zeroschur$ when $r\geq n$. The case where $n\le r <2n$ appears to be tractable by including the shifting element $R$ in the set of generators for each algebra and in this case I still expect the two algebras to be isomorphic, though the case of general $r$ seems to be very difficult.
 
