@@ -79,7 +79,7 @@ g_{A,B,C}(\#\field) = \#\left\{ f'\in\flags: (f,f')\in\orbit{A}, (f',f'')\in\orb
 \end{equation*}
 for any finite field $\field$ and $(f,f'')\in\orbit{C}$.
 
-The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng, Yang, Jensen, Su and others. Su \cite{su10} defined a generic multiplication in the positive and negative subalgebras of $q$-Schur algebras in terms of generic extensions of quiver representations. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su15} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen, Su and Yang \cite{su15} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them. Jensen, Su and Yang \cite{su20} studied degenerate $0$-Schur algebras using an extended version of the geometric realisation of $0$-Schur algebras and gave a construction of nil-Temperley-Lieb algebras using double flag varieties.
+The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng, Yang, Jensen, Su and others. Su \cite{su10} defined a generic multiplication in the positive and negative subalgebras of $q$-Schur algebras in terms of generic extensions of quiver representations. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su15} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen, Su and Yang \cite{su16} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them. Jensen, Su and Yang \cite{su20} studied degenerate $0$-Schur algebras using an extended version of the geometric realisation of $0$-Schur algebras and gave a construction of nil-Temperley-Lieb algebras using double flag varieties.
 
 The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su15} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now recall some of the main results from the finite case.
 
@@ -193,7 +193,9 @@ for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$
 \begin{equation*}
 \gamma_{A,B,C}(\#\field) = \#\{L'\in\flags: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
-for any finite field $\field$ and $(L,L'')\in\orbit{C}$. The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$, with a $\integers[q]$-basis
+for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
+
+The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$ defined as the endomorphism algebra of a certain module over the Hecke algebra $\hecke{r}$. {\color{red}find citation} proved that $\qschur$ is isomorphic to the $\integers[q]$-algebra with a $\integers[q]$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\}
 \end{equation*}
@@ -201,7 +203,7 @@ and multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}e_C
 \end{equation*}
-for $A,B\in\matrices$.
+for $A,B\in\matrices$. See also Doty and Green \cite{doty07}, Du and Fu \cite{??} and the book by Deng, Du, Parshall and Wang \cite{deng12book}.
 
 There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$ in $\qschur$ with
 \begin{equation*}
@@ -365,7 +367,7 @@ such that
 for $i\in\{1,\ldots,n\}$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
-Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebre $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
+Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
 
 
 \chapter{Geometric approach to affine q-Schur algebras}\label{chapter:lusztig-realisation}
