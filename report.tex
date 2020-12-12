@@ -1403,51 +1403,43 @@ and
 \end{align*}
 \end{proof}
 
-Visually, acting on a basis element $e_A$ on the left by $R$ corresponds to moving the matrix $A$ up by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column. Then conjugating by $R$ corresponds to the composition of a shift to the left by one and a shift up by one, which is a shift by one along the diagonal, so conjugating by $R^n$ leaves $e_A$ invariant. Thus conjugation by $R$ gives a $\integers[q]$-algebra automorphism of $\qschur$ which has order $n$.
+Visually, acting on a basis element $e_A$ on the left by $R^{-1}$ corresponds to moving the matrix $A$ down by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column, so composing these operations is seen as a shift along the diagonal by one position.
+
+Let $\tau$ be the $\integers[q]$-algebra automorphism of $\qschur$ defined by
+\begin{equation*}
+\rotation{e_A} = R^{-1}e_A R
+\end{equation*}
+for $A\in\matrices$.
 
 \begin{lemma}\label{lemma:conjugation-by-R}
-For each $\lambda\in\compositions$,
-\begin{equation*}
-R 1_\lambda \antipode{R} = 1_{\lambda[1]}
-\end{equation*}
-and, for each $i\in\modn$,
-\begin{equation*}
-R E_i \antipode{R} = E_{i-1}
-\end{equation*}
-and
-\begin{equation*}
-R F_i \antipode{R} = F_{i-1}.
-\end{equation*}
+The map $\tau$ is a unipotent automorphism of $\qschur$ of order $n$. Morever,
+\begin{align*}
+\rotation{E_i} &= E_{i+1}\\
+\rotation{F_i} &= F_{i+1}\\
+\rotation{1_\lambda} &= 1_{\lambda[-1]}
+\end{align*}
+for each $i\in\modn$ and $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
-It follows from Lemma \ref{lemma:action-of-R} and Lemma \ref{lemma:R-is-a-unit} that
+It follows from Lemma \ref{lemma:action-of-R} that
 \begin{equation*}
-Re_A\antipode{R} = e_{[1]A[1]},
+\tau^m{(e_A)} = e_{[-m]A[-m]}
 \end{equation*}
-for each $A\in\matrices$. In particular,
-\begin{equation*}
-R1_\lambda \antipode{R} = 1_{\lambda[1]}
-\end{equation*}
-for each $\lambda\in\compositions$,
-\begin{equation*}
-R E_{i,\lambda} \antipode{R} = E_{i-1,\lambda[1]}
-\end{equation*}
-for each $(\lambda,i)\in\compositions\times\integers$ with $\lambda_{i+1}>0$, and
-\begin{equation*}
-R F_{i,\lambda} \antipode{R} = F_{i-1,\lambda[1]}
-\end{equation*}
-for each $(\lambda,i)\in\compositions\times\integers$ with $\lambda_i>0$.
+so $\tau^n$ is the identity morphism on $\qschur$ and $\tau^m\neq 1$ for $0<m<n$. Therefore $\tau$ is unipotent of degree $n$.
 
-It now follows that
-\begin{equation*}
-R E_i \antipode{R} = E_{i-1}
-\end{equation*}
-and
-\begin{equation*}
-R F_i \antipode{R} = F_{i-1}
-\end{equation*}
-as claimed.
+It follows from Lemma \ref{lemma:action-of-R} that
+\begin{align*}
+\rotation{E_{i,\lambda}} &= E_{i+1,\lambda[-1]}\\
+\rotation{F_{i,\lambda}} &= F_{i+1,\lambda[-1]}\\
+\rotation{1_\lambda} &= 1_{\lambda[-1]}
+\end{align*}
+for $i\in\modn$ and $\lambda\in\compositions$, so
+\begin{align*}
+\rotation{E_i} &= E_{i+1}\\
+\rotation{F_i} &= F_{i+1}
+\end{align*}
+for $i\in\modn$ as claimed.
 \end{proof}
 
 
@@ -3005,8 +2997,8 @@ The main result is the construction of an isomorphism of $\integers$-algebras fr
 Recall from Chapter \ref{chapter:generic-affine-algebra} that the generic affine algebra $\generic$ is an associative $\integers$-algebra which is a free $\integers$-module on $\{e_A:A\in\matrices\}$ with multiplication defined by
 \begin{equation*}
 e_A\ast e_B = \begin{cases}
-e_{A\ast B} &: \co{A}=\ro{B}\\
-0 &: \co{A}\neq\ro{B}
+e_{A\ast B} &: \text{ if }\co{A}=\ro{B}\\
+0 &: \text{ if }\co{A}\neq\ro{B}
 \end{cases}
 \end{equation*}
 for $A,B\in\matrices$.
@@ -3118,10 +3110,16 @@ Using Lemma \ref{lemma:transpose-involution}, the transpose defines a bijection
 \begin{equation*}
 \{C\in\matrices:g_{A,B,C}\neq 0\}\to\{D\in\matrices:g_{B^\transpose,A^\transpose,D}\neq 0\}
 \end{equation*}
-which preserves the hook order on $\matrices$, by Lemma \ref{lemma:numerical-degeneration}. Therefore
+which preserves the hook order on $\matrices$, by Lemma \ref{lemma:numerical-degeneration}. Observe that $\co{B^\transpose}=\ro{B}$ and $\ro{A^\transpose}=\co{A}$, so that $\antipode{e_A\ast e_B}$ and $\antipode{e_B}\ast\antipode{e_A}$ are both zero precisely when $\co{A}\neq\ro{B}$. If $\co{A}=\ro{B}$, these sets are nonempty and the maximum elements are related by the transpose, so
 \begin{equation*}
 (A\ast B)^\transpose = B^\transpose \ast A^\transpose.
 \end{equation*}
+
+Therefore
+\begin{equation*}
+\antipode{e_A\ast e_B} = \antipode{e_B}\antipode{e_A}
+\end{equation*}
+for all $A,B\in\matrices$, so $S$ is a $\integers$-algebra anti-automorphism of $\generic$.
 
 The composition $S\circ S$ maps $e_A$ to $\antipode{e_{A^\transpose}}$, so $S\circ S$ is the identity morphism on $\generic$.
 
@@ -3134,7 +3132,7 @@ As in Lemma \ref{lemma:transpose-involution},
 for $i\in\modn$ and $\lambda\in\compositions$.
 \end{proof}
 
-\begin{lemma}\label{lemma:fundamental-multiplication-rule-generic-R}
+\begin{lemma}\label{lemma:multiplication-rule-generic-right}
 Let $i\in\modn$ and $A\in\matrices$ and write $\lambda=\co{A}$.
 
 If $\lambda_j=0$ then $e_A\ast E_j=0$. If $\lambda_j>0$ then
@@ -3214,15 +3212,29 @@ Similarly,
 \end{align*}
 \end{proof}
 
-Let $\rotation{}$ be the $\integers$-algebra automorphism of $\generic$ defined by
+% \tau denotes the morphism \rotation{}.
+Let $\tau$ be the $\integers$-algebra automorphism of $\generic$ defined by
 \begin{equation*}
-\rotation{(e_A)}=R^{-1}e_A R
+\rotation{e_A}=R^{-1}e_A R
 \end{equation*}
-for each $A\in\matrices$. Observe that $\rotation{}$ is unipotent of order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
+for each $A\in\matrices$.
+
+\begin{lemma}
+The automorphism $\tau$ is unipotent of degree $n$. Moreover,
+\begin{align*}
+\rotation{E_i} &= E_{i-1}\\
+\rotation{F_i} &= F_{i-1}\\
+\rotation{1_\lambda} &= 1_{\lambda[1]}
+\end{align*}
+for each $i\in\modn$ and $\lambda\in\compositions$.
+\end{lemma}
+
+\begin{proof}
+Observe that $\rotation{}$ is unipotent of order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
 
 It follows from Lemma \ref{lemma:action-of-R-generic} that
 \begin{equation*}
-\rotation{(E_{i,\lambda})} = E_{i-1,[1]\lambda}
+\rotation{E_{i,\lambda}} = E_{i-1,\lambda[1]}
 \end{equation*}
 for $i\in\{1,\ldots,r\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
 \begin{equation*}
@@ -3238,6 +3250,7 @@ for each $\lambda\in\compositions$, so
 \rotation{(F_i)} &= F_{i-1}
 \end{align*}
 for $i\in\{1,\ldots,r\}$.
+\end{proof}
 
 
 \section{Multiplicative bases in affine zero Schur algebras: example}
@@ -3660,7 +3673,7 @@ Then applying the transpose involution yields the second equation:
 F_iF_j-F_jF_i = -\antipode{\left[E_i,E_j\right]} = 0.
 \end{equation*}
 
-Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:fundamental-multiplication-rule-generic-R}, for each $i\modn$,
+Using the fundamental multiplication rules \ref{lemma:fundamental-multiplication-rule-generic} and \ref{lemma:multiplication-rule-generic-right}, for each $i\modn$,
 \begin{align*}
 E_iE_{i+1}^2 &= \sum_{\lambda\in\compositions} E_i\left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2}\right]\\
 &= \sum_{\lambda\in\compositions} \left[\diag{\lambda} +2\elem{i+1}{i+2} -2\elem{i+2}{i+2} +\elem{i}{i+2} -\elem{i+1}{i+2}\right]\\
@@ -3793,7 +3806,7 @@ for each $s\in\{1,\ldots,h\}$.
 \end{lemma}
 
 \begin{proof}
-Let $B=A(s-1)\cdot p_s^+$. Using the fundamental multiplication rules in $\generic$, Lemma \ref{lemma:fundamental-multiplication-rule-generic-R}, it follows that
+Let $B=A(s-1)\cdot p_s^+$. Using the fundamental multiplication rules in $\generic$, Lemma \ref{lemma:multiplication-rule-generic-right}, it follows that
 \begin{equation*}
 B = A(s-1) + \sum_{i\in\{1,\ldots,n\}} \alpha_{i,s}(\elem{i}{i+s} -\elem{i}{i+s-1}).
 \end{equation*}
@@ -3810,7 +3823,7 @@ b_{i,i+s} = \alpha_{i,s},
 \end{equation*}
 which proves that $B=A(s)$.
 
-Similarly, let $B=(s-1)A\cdot p_s^-$. Using Lemma \ref{lemma:fundamental-multiplication-rule-generic-R} it follows that
+Similarly, let $B=(s-1)A\cdot p_s^-$. Using Lemma \ref{lemma:multiplication-rule-generic-right} it follows that
 \begin{equation*}
 B = (s-1)A + \sum_{i\in\{1,\ldots,n\}} \beta_{i-1,s}(\elem{i}{i-s} - \elem{i}{i-s+1}).
 \end{equation*}
