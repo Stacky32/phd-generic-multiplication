@@ -3222,34 +3222,30 @@ for each $A\in\matrices$.
 \begin{lemma}
 The automorphism $\tau$ is unipotent of degree $n$. Moreover,
 \begin{align*}
-\rotation{E_i} &= E_{i-1}\\
-\rotation{F_i} &= F_{i-1}\\
-\rotation{1_\lambda} &= 1_{\lambda[1]}
+\rotation{E_i} &= E_{i+1}\\
+\rotation{F_i} &= F_{i+1}\\
+\rotation{1_\lambda} &= 1_{\lambda[-1]}
 \end{align*}
 for each $i\in\modn$ and $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
-Observe that $\rotation{}$ is unipotent of order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
+The automorphism $\rotation{}$ is unipotent of order $n$, by the $(n,n)$-periodicity condition on $\matrices$.
 
 It follows from Lemma \ref{lemma:action-of-R-generic} that
 \begin{equation*}
-\rotation{E_{i,\lambda}} = E_{i-1,\lambda[1]}
-\end{equation*}
-for $i\in\{1,\ldots,r\}$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
-\begin{equation*}
-\rotation{(F_{i,\lambda})} = F_{i-1,[1]\lambda}
-\end{equation*}
-for $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_i>0$, and
-\begin{equation*}
-\rotation{(1_\lambda)} = 1_{[1]\lambda}
-\end{equation*}
-for each $\lambda\in\compositions$, so
+\rotation{E_{i,\lambda}} = E_{i+1,\lambda[-1]}
+
+\rotation{(F_{i,\lambda})} = F_{i+1,\lambda[-1]}
+
+\rotation{(1_\lambda)} = 1_{\lambda[-1]}
+\end{align*}
+for each $\lambda\in\compositions$. In particular,
 \begin{align*}
 \rotation{(E_i)} &= E_{i-1}\\
 \rotation{(F_i)} &= F_{i-1}
 \end{align*}
-for $i\in\{1,\ldots,r\}$.
+for $i\in\modn$.
 \end{proof}
 
 
