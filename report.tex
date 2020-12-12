@@ -980,11 +980,7 @@ The map $S$ is an idempotent $\integers[q]$-algebra anti-automorphism of $\qschu
 \begin{equation*}
 \antipode{e_Ae_B}=\antipode{e_A}\antipode{e_B}
 \end{equation*}
-and
-\begin{equation*}
-\antipode{\antipode{e_A}}=e_A
-\end{equation*}
-for all $A,B\in\matrices$. Moreover,
+for all $A,B\in\matrices$ and $S\circ S$ is the identity morphism on $\qschur$. Moreover,
 \begin{align*}
 \antipode{E_i} &= F_i\\
 \antipode{F_i} &= E_i\\
@@ -1110,7 +1106,7 @@ and
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:differentials}
-The following equations hold for each $A\in\matrices$ and $i,j\in\integers$:
+The following identities hold for each $A\in\matrices$ and $i,j\in\integers$:
 \begin{align*}
 d_{i,j}{(A)} - d_{i-1,j}{(A)} &= \sum_{t>j} a_{i,t}\\
 d_{i,j-1}{(A)}-d_{i,j}{(A)} &= \sum_{s\le i} a_{s,j}\\
@@ -2107,7 +2103,7 @@ I hope to deduce this from the presentation of the affine generic algebra by ten
 In this section we give relations in $\qschur[2,r]$ which are modified from the relations in the presentation of the affine quantum loop algebra $U(\hat{\mathfrak{gl}}_n)$, as in Definition 1.3.3 \cite{deng12book} for example.
 
 \begin{lemma}\label{lemma:period-2-q-relations}
-The following equations hold in $\qschur[2,r]$:
+The following identities hold in $\qschur[2,r]$:
 \begin{align*}
 qE_1 E_2^3 -\qint{3}E_2 E_1 E_2^2 +\qint{3}E_2^2 E_1 E_2 -qE_2^3 E_1 &= 0\\
 qE_1^3 E_2 -\qint{3}E_1^2 E_2 E_1 +\qint{3}E_1 E_2 E_1^2 -qE_2 E_1^3 &= 0\\
@@ -3006,15 +3002,14 @@ The main result is the construction of an isomorphism of $\integers$-algebras fr
 
 \section{Preliminary results on the generic affine algebra}
 
-Recall that the generic affine algebra $\generic$ is an associative $\integers$-algebra with a multiplicative basis $\{e_A:A\in\matrices\}$ over $\integers$, where
+Recall from Chapter \ref{chapter:generic-affine-algebra} that the generic affine algebra $\generic$ is an associative $\integers$-algebra which is a free $\integers$-module on $\{e_A:A\in\matrices\}$ with multiplication defined by
 \begin{equation*}
-e_A\ast e_B = e_{A\ast B}
+e_A\ast e_B = \begin{cases}
+e_{A\ast B} &: \co{A}=\ro{B}\\
+0 &: \co{A}\neq\ro{B}
+\end{cases}
 \end{equation*}
-for $A,B\in\matrices$ with $\co{A}=\ro{B}$, and
-\begin{equation*}
-e_A\ast e_B = 0
-\end{equation*}
-for $A,B\in\matrices$ with $\co{A}\neq\ro{B}$.
+for $A,B\in\matrices$.
 
 For $i\in\modn$ and $\lambda\in\compositions$ such that $\lambda_{i+1}>0$, define
 \begin{equation*}
@@ -3050,128 +3045,94 @@ p=\max\{j\in\integers:a_{i+1,j}>0\}.
 
 If $\mu_i=0$ then $F_i\ast e_A=0$. If $\mu_i>0$ then
 \begin{equation*}
-F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
+F_i\ast e_A = e_{A+\elem{i+1}{p}-\elem{i}{p}},
 \end{equation*}
 where
 \begin{equation*}
-q=\min\{j\in\integers: a_{i,j}>0\}.
+p=\min\{j\in\integers: a_{i,j}>0\}.
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-Suppose $\mu_{i+1}>0$. Recall that the corresponding product in the affine $q$-Schur algebra $\qschur$ is
+The corresponding product in the affine $q$-Schur algebra $\qschur$ is
 \begin{equation*}
 E_i\cdot e_A = \sum_{j\in\integers:a_{i+1,j}>0} q^{\sum_{t>j} a_{i,t}}\qint{a_{i,j}+1}e_{A+\elem{i}{j}-\elem{i+1}{j}},
 \end{equation*}
 by Lemma \ref{lemma:fundamental-multiplication-rule}.
 
-Suppose $B\in\matrices$ with $B=A+\elem{i}{j}-\elem{i+1}{j}$ for some $j\in\integers$. For $s\in\{1,\ldots,n\}$ and $t\in\integers$,
+If $\mu_{i+1}=0$ then $E_i\ast e_A=0$ by definition. Suppose $\mu_{i+1}>0$ and let
 \begin{equation*}
-d_{s,t}{(B)} = \begin{cases}
-d_{s,t}{(A)} + 1 &: s=i \text{ and } t<j,\\
-d_{s,t}{(A)} &: \text{ otherwise,}
-\end{cases}
+p = \max\{j\in\integers: a_{i+1,J}>0\},
 \end{equation*}
-and
+then
 \begin{equation*}
-\bar{d}_{s,t}{(B)} = \begin{cases}
-\bar{d}_{s,t}{(A)} - 1 &: s=i \text{ and } t\geq j,\\
-\bar{d}_{s,t}{(A)} &: \text{ otherwise.}
-\end{cases}
+A+\elem{i}{j}-\elem{i+1}{j} < A+\elem{i}{p}-\elem{i+1}{p}
+\end{equation*}
+when $j<p$, using Lemma \ref{lemma:numerical-degeneration}. Therefore
+\begin{equation*}
+E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}}.
 \end{equation*}
 
-It follows that if $j'<j$, then
-\begin{equation*}
-A+\elem{i}{j'}-\elem{i+1}{j'} < A+\elem{i}{j}-\elem{i+1}{j}.
-\end{equation*}
-Therefore, the product in $\generic$ is given by
-\begin{equation*}
-E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}},
-\end{equation*}
-where
-\begin{equation*}
-p=\max\{j\in\integers:a_{i+1,j}>0\}.
-\end{equation*}
-
-The argument for the action of $F_i$ is similar, but there is a pleasing symmetry in the two proofs.
-
-Now suppose $\mu_{i}>0$. Using Lemma \ref{lemma:fundamental-multiplication-rule},
+Similarly, the corresponding product in $\qschur$ for $F_i$ is
 \begin{equation*}
 F_i\cdot e_A = \sum_{j\in\integers:a_{i,j}>0} q^{\sum_{t<j} a_{i+1,t}}\qint{a_{i+1,j}+1} e_{A+\elem{i+1}{j}-\elem{i}{j}},
 \end{equation*}
-in $\qschur$. 
+by Lemma \ref{lemma:fundamental-multiplication-rule}.
 
-Suppose $B\in\matrices$ with $B=A+\elem{i+1}{j}-\elem{i}{j}$, for some $j\in\integers$. Then for $s\in\{1,\ldots,n\}$ and $t\in\integers$,
+If $\mu_i=0$ then $F_i\ast e_A = 0$ by definition. Suppose $\mu_i>0$ and let
 \begin{equation*}
-d_{s,t}{(B)} = \begin{cases}
-d_{s,t}{(A)} - 1 &: s=i \text{ and } t<j,\\
-d_{s,t}{(A)} &: \text{ otherwise,}
-\end{cases}
+p = \min\{j\in\integers:a_{i,j}>0\}
 \end{equation*}
-and
+then
 \begin{equation*}
-\bar{d}_{s,t}{(B)} = \begin{cases}
-\bar{d}_{s,t}{(A)} + 1 &: s=i \text{ and } t\geq j,\\
-\bar{d}_{s,t}{(A)} &: \text{ otherwise.}
-\end{cases}
+A+\elem{i+1}{j}-\elem{i}{j} < A+\elem{i+1}{p}-\elem{i}{p}
 \end{equation*}
-
-Then if $j'<j$ it follows
+for $j>p$, using Lemma \ref{lemma:numerical-degeneration}. Therefore
 \begin{equation*}
-A+\elem{i+1}{j'}-\elem{i}{j'} > A+\elem{i+1}{j}-\elem{i}{j},
-\end{equation*}
-so the terms with nonzero coefficients in the product $F_i\cdot e_A$ are totally ordered and the maximum is
-\begin{equation*}
-F_i\ast e_A = e_{A+\elem{i+1}{q}-\elem{i}{q}},
-\end{equation*}
-where
-\begin{equation*}
-q=\min\{j\in\integers:a_{i,j}>0\}.
+F_i\ast e_A = e_{A+\elem{i+1}{p}-\elem{i}{p}}
 \end{equation*}
 \end{proof}
 
-
-Let $S$ be the $\integers$-module automorphism of $\generic$ given by
+Let $S$ be the $\integers$-module automorphism of $\generic$ defined by
 \begin{equation*}
 \antipode{e_A}=e_{A^\transpose}
 \end{equation*}
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:transpose-involution-generic}
-The map $S$ is an idempotent $\integers$-algebra antihomomorphism. In particular,
+The map $S$ is an idempotent $\integers$-algebra anti-automorphism of $\generic$. In particular,
 \begin{equation*}
 \antipode{e_A\ast e_B} = \antipode{e_B}\ast \antipode{e_A}
 \end{equation*}
-for each $A,B\in\matrices$ and $S\circ S$ is the identity morphism on $\generic$.
+for each $A,B\in\matrices$ and $S\circ S$ is the identity morphism on $\generic$. Moreover,
+\begin{align*}
+\antipode{E_i} &= F_i\\
+\antipode{F_i} &= E_i\\
+\antipode{1_\lambda} &= 1_\lambda
+\end{align*}
+for $i\in\modn$ and $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:transpose-preserves-order} show that the transpose preserves the partial order on $\matrices$ and so
+Using Lemma \ref{lemma:transpose-involution}, the transpose defines a bijection
 \begin{equation*}
-(B\ast A)^\transpose = A^\transpose\ast B^\transpose,
+\{C\in\matrices:g_{A,B,C}\neq 0\}\to\{D\in\matrices:g_{B^\transpose,A^\transpose,D}\neq 0\}
 \end{equation*}
-using Lemma \ref{lemma:transpose-involution}.
+which preserves the hook order on $\matrices$, by Lemma \ref{lemma:numerical-degeneration}. Therefore
+\begin{equation*}
+(A\ast B)^\transpose = B^\transpose \ast A^\transpose.
+\end{equation*}
+
+The composition $S\circ S$ maps $e_A$ to $\antipode{e_{A^\transpose}}$, so $S\circ S$ is the identity morphism on $\generic$.
+
+As in Lemma \ref{lemma:transpose-involution},
+\begin{align*}
+\antipode{E_{i,\lambda}} &= F_{i,\lambda+\alpha_i}\\
+\antipode{F_{i,\lambda}} &= E_{i,\lambda-\alpha_i}\\
+\antipode{1_\lambda} &= 1_\lambda
+\end{align*}
+for $i\in\modn$ and $\lambda\in\compositions$.
 \end{proof}
-
-For any $A\in\matrices$,
-\begin{equation*}
-\antipode{\antipode{(e_A)}} = e_{(A^\transpose)^\transpose} = e_A,
-\end{equation*}
-so $S\circ S$ is the identity map on $\qschur$.
-
-For each $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_{i+1}>0$,
-\begin{equation*}
-\antipode{E_{i,\lambda}} = F_{i,\lambda+\alpha_i},
-\end{equation*}
-for each $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_i>0$,
-\begin{equation*}
-\antipode{F_{i,\lambda}} = E_{i,\lambda - \alpha_i}
-\end{equation*}
-and
-\begin{equation*}
-\antipode{1_\lambda} = 1_\lambda,
-\end{equation*}
-for each $\lambda\in\compositions$.
 
 \begin{lemma}\label{lemma:fundamental-multiplication-rule-generic-R}
 Let $i\in\modn$ and $A\in\matrices$ and write $\lambda=\co{A}$.
@@ -3663,7 +3624,7 @@ for $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_i=0$ and $\lambda_{i
 
 
 \begin{lemma}\label{lemma:generic-algebra-relations}
-The following equations hold in the generic affine algebra $\generic$:
+The following identities hold in the generic affine algebra $\generic$:
 \begin{align*}
 E_iE_j&=E_jE_i\\
 F_iF_j&=F_jF_i
@@ -4242,10 +4203,10 @@ by Lemma \ref{lemma:transfer-map-leading-term}, so $\Psi(x)\neq 0$, which proves
 
 In the case $n=2$ the quiver $\Gamma=\presentationquiver[2,r]$ associated to $\generic[2,r]$ consists of $r+1$ vertices (totally ordered) with two pairs of edges between adjacent vertices, $(e_1,f_1)$ and $(e_2,f_2)$.
 
-The following equations are a $q=0$ form of the $q$-Serre relations in Lemma \ref{lemma:period-2-q-relations}:
+The following identities are a $q=0$ form of the $q$-Serre relations in Lemma \ref{lemma:period-2-q-relations}:
 
 \begin{lemma}\label{lemma:period-2-0-relations}
-The following equations hold in $\generic[2,r]$, for $i\in\integers/{2\integers}$:
+The following identities hold in $\generic[2,r]$, for $i\in\modn[2]$:
 \begin{align*}
 E_iE_{i+1}E_i^2 &= E_i^2E_{i+1}E_i\\
 F_iF_{i+1}F_i^2 &= F_i^2F_{i+1}F_i.
@@ -4271,13 +4232,13 @@ Recall that conjugation by $R$ defines an automorphism $\rotation{}$ of $\generi
 E_2E_1E_2^2 - E_2^2E_1E_2 = \rotation{(E_1E_2E_1^2-E_1^2E_2E_1)} = 0.
 \end{equation*}
 
-Finally, the equations involving $F_i$ and $F_{i+1}$ follow by applying the transpose involution, since
+Finally, the identities involving $F_i$ and $F_{i+1}$ follow by applying the transpose involution, since
 \begin{align*}
 F_iF_{i+1}F_i^2 - F_i^2F_{i+1}F_i
 &= \antipode{(E_i^2E_{i+1}E_i-E_iE_{i+1}E_i^2)}\\
 &= 0
 \end{align*}
-for $i\in\modn{2}$.
+for $i\in\modn[2]$.
 \end{proof}
 
 
