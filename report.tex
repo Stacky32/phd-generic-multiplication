@@ -6,22 +6,35 @@
 \input{titlepage}
 \afterpage{\blankpage}
 
-\chapter*{Dedication}
-\vspace*{4cm}
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
 \begin{center}
-\huge
-To Midnight and Marmite
+\textbf{Declaration of Authorship}
+\end{center}
+I, Tom Crawley, declare that I am the sole author of this thesis and the work described within was carried out by myself personally, under the supervision of Dr Xiuping Su.
+
+The material presented here for examination for the award of a higher degree by research has not been incorporated into any previous submission for another degree.
+\vspace{0.7cm}
+\begin{center}
+Signed: ..............................
 \end{center}
 \vspace*{\fill}
-\afterpage{\blankpage}
+\afterpage{\blankpage} 
 
-\chapter*{Abstract}
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
 \begin{center}
-Write an abstract.
+\Large
+\emph{To Midnight and Marmite}
+\vspace*{\fill}
 \end{center}
+\normalsize
 \afterpage{\blankpage}
 
-\chapter*{Acknowledgements}
+
+\chapter*{\centering Acknowledgements}
 
 To my A-level Maths teacher Mr Stevens, thank you for inspiring me to go further in Mathematics. May you rest in peace.
 
@@ -42,6 +55,13 @@ Thank you to my supervisor Dr Xiuping Su for introducing me to the project and f
 Thank you to my parents Jane and David, my sister Jessica and the family cats Midnight, Marmite, Misty, Loki and Dora for their unconditional love and support and for believing in me when I did not. My long time friend Omar, thank you for being there in times of stress.
 
 There are countless people not directly mentioned here who have influenced me and enabled me to reach this point. I am sincerely grateful to everyone in the university ecosystem that makes things work, with special thanks to the administrative staff in the department, to the hospitality team for hundreds of coffees and the occasional meal, to the library staff, to the estates team that maintain a pleasant environment, to the university medical centre and to fellow students in the department.
+
+Finally, I would like to thank the EPSRC for funding this project.
+\afterpage{\blankpage}
+
+\chapter*{\centering Abstract}
+
+Affine $q$-Schur algebras admit a geometric construction as a convolution algebra on the space of functions with constructible support on double affine flag varieties, due to Ginzburg and Vasserot \cite{ginzburg93}, Varagnolo and Vasserot \cite{varagnolo99} and Lusztig \cite{lusztig99}. Using the geometry of affine flag varieties we define a generic product of orbits in the double flag varieties which leads to the construction of a new associative $\integers$-algebra $\generic$, called the \emph{generic affine algebra}. We then study the link between $\generic$ and the affine $0$-Schur algebra $\zeroschur$ and we conjecture that these two algebras are isomorphic when $r<n$. This conjecture will give a monomial basis in $\zeroschur$ and a presentation by a quiver with relations. This work generalises the work of Jensen and Su \cite{su15} in the type $\mathbb{A}$ case, which gives a geometric realisation of $0$-Schur algebras.
 
 \afterpage{\blankpage}
 
@@ -181,11 +201,11 @@ is an isomorphism.
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and were defined by Green \cite{green99} as the endomorphism algebra of a certain module over the affine Hecke algebra $\hecke$. The approach used in this thesis is based on a construction of quantum affine $\mathfrak{gl}_n$ using double affine flag varieties due to Lusztig \cite{lusztig99} and Ginzburg and Vasserot \cite{ginzburg93}, which is an extension of a similar construction of quantum $\mathfrak{gl}_n$ given by Beilinson, Lusztig and MacPherson in \cite{blm90}. Varagnolo and Vasserot proved \cite{varagnolo99}[Proposition 7.4] that the convolution algebras on affine double flag varieties described by Ginzburg and Vasserot are naturally isomorphic to the affine $q$-Schur algebra defined by Green \cite{green99}.
+Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and were defined by Green \cite{green99} as the endomorphism algebra of a certain module over the affine Hecke algebra $\hecke$. The approach used in this thesis is based on a construction of quantum affine $\mathfrak{gl}_n$ using double affine flag varieties due to Lusztig \cite{lusztig99} and Ginzburg and Vasserot \cite{ginzburg93}, which is an extension of a similar construction of quantum $\mathfrak{gl}_n$ given by Beilinson, Lusztig and MacPherson in \cite{blm90}. Varagnolo and Vasserot proved \cite{varagnolo99}[Proposition 7.4] that the convolution algebras on affine double flag varieties described by Ginzburg and Vasserot are naturally isomorphic to the affine $q$-Schur algebras defined by Green \cite{green99}.
 
-For more one the two realisations of affine $q$-Schur algebras, refer to the book \cite{deng12book} by Deng, Du and Fu, and work by Doty and Green \cite{doty07} or by Du and Fu \cite{du15}. We now describe the double affine flag variety construction of affine $q$-Schur algebras.
+For more on the two realisations of affine $q$-Schur algebras, refer to the book \cite{deng12book} by Deng, Du and Fu, and work by Doty and Green \cite{doty07} or by Du and Fu \cite{du15}. We now describe the double affine flag variety construction of affine $q$-Schur algebras.
 
-Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
+Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
 \flags_\lambda = \left\{L\in\flags:\dim\left(L_i/{L_{i-1}}\right)=\lambda_i \text{ for all }i\in\integers\right\}.
 \end{equation*}
@@ -235,6 +255,8 @@ Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associativ
 \zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
 \end{equation*}
 called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $0$-Schur algebra $\zeroschur$ and to define a new associative algebra called the generic affine algebra $\generic$, with a modified version of the product in $\zeroschur$ such that the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the product given by generic extensions of representations.
+
+The affine case is more technical both in terms of geometry and algebra. On the geometric side, the difficulty is that the affine flag variety $\flags$ is infinite dimensional, so we cover $\flags$ with a family of finite dimensional projective algebraic varieties which contain all the spaces of interest. On the algebraic side, the difficulty is due to the cyclic phenomenon. Unlike the finite case, the elements $E_i$, $F_i$ and $1_\lambda$ typically generate a proper subalgebra of $\generic$, which is spanned by the aperiodic basis elements. The problem of transforming paths to a standard form is significantly more difficult due to the existence of cycles in the quiver.
 
 \begin{lemma*}\ref{lemma:conjugation-by-R}
 There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the $\integers[q]$-algebra homomorphism
@@ -385,7 +407,7 @@ The remaining part of the conjecture to be proven is injectivity of $\rho$, whic
 Assume $r<n$. Every path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
 \end{conjecture*}
 
-Once we have proven this technical result we will also have proven the following conjecture:
+Once we have proven this technical result we will also have proven the following conjecture.
 
 \begin{conjecture*}\ref{conjecture:generic-to-zero-schur}
 Suppose $r<n$. There is an isomorphism of $\integers$-algebras
@@ -401,7 +423,7 @@ such that
 for $i\in\modn$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
-We now describe the structure of the remainder of the thesis. Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver and detailed proofs are given for some known results. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
+We now describe the structure of the remainder of the thesis. Chapter \ref{chapter:lusztig-realisation} describes the double affine flag variety realisation of affine $q$-Schur algebras, due to Ginzburg and Vasserot \cite{ginzburg93}, Varagnolo and Vasserot \cite{varagnolo99} and Lusztig \cite{lusztig99}. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and establishes surjectivity of the morphism from the path algebra to $\qschur$ over an enlarged ground ring $\qfrac$. We also exhibit an idempotent anti-automorphism of $\qschur$ defined by the transpose and a unipotent automorphism of $\qschur$ of order $n$ which corresponds to a rotation of the quiver. Detailed proofs are given for some known results. Chapter \ref{chapter:generic-affine-algebra} defines the generic product of orbits in $\dblflags$ and proves associativity of this new product, leading to the definition of the affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and highlights some open questions and possible further directions.
 
 
 \chapter{Geometric approach to affine q-Schur algebras}\label{chapter:lusztig-realisation}
@@ -912,7 +934,7 @@ Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers
 \end{equation*}
 
 
-\section{Affine zero-Schur algebras}
+\section{Affine 0-Schur algebras}
 
 Fix integers $n,r\geq 1$.
 
@@ -1523,18 +1545,24 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\modn$, say that $\lambda$ is internal with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is initial with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is final with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$: if $\lambda$ is internal with respect to $i$ then
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\modn$, say that $\lambda$ is \emph{internal} with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is \emph{initial} with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is \emph{final} with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
+\begin{enumerate}[i.]
+\item
+if $\lambda$ is internal with respect to $i$ then
 \begin{equation*}
 E_{i,\lambda-\alpha_i}F_{i,\lambda} -F_{i,\lambda+\alpha_i}E_{i,\lambda} = 0;
 \end{equation*}
+\item
 if $\lambda$ is initial with respect to $i$ then
 \begin{equation*}
 F_{i,\lambda+\alpha_i}E_{i,\lambda} - 1_{\lambda} = 0;
 \end{equation*}
+\item
 if $\lambda$ is final with respect to $i$ then
 \begin{equation*}
 E_{i,\lambda-\alpha_i}F_{i,\lambda} - 1_{\lambda} = 0.
 \end{equation*}
+\end{enumerate}
 
 \begin{lemma}\label{lemma:q-serre-relations}
 The following relations hold in $\qschur$, when $n\geq 3$:
@@ -1637,13 +1665,6 @@ F_{i+1}F_i^2 -(1+q)F_iF_{i+1}F_i +qF_i^2F_{i+1} = 0,
 \end{equation*}
 where the second relation follows from the first by applying the transpose involution.
 \end{proof}
-
-Recall the result of Lemma \ref{lemma:conjugation-by-R}, which gives relations involving $R$:
-\begin{align*}
-R1_\lambda R^{-1} &= 1_{\lambda[1]}\\
-RE_{i,\lambda}R^{-1} &= E_{i-1,\lambda[1]}\\
-RF_{i,\lambda}R^{-1} &= F_{i-1,\lambda[1]}.
-\end{align*}
 
 
 \subsection{A quiver algebra}\label{section:q-quiver}
@@ -1808,24 +1829,33 @@ for all $i\in\{1,\ldots,n\}$ and $s\geq 1$.
 
 \begin{definition}\label{def:matrix-pos-neg-parts}
 Let $A\in\matrices$. The \emph{positive part} of $A$ is the element $A^+\in\matrices$ with $\ro{A^+}=\ro{A}$ and off diagonal entries
-\begin{align*}
-a_{i,j}^+ &= a_{i,j} \text{ if } i<j;\\
-a_{i,j}^+ &= 0 \text{ if } i>j,
-\end{align*}
+\begin{equation*}
+a_{i,j}^+ = \begin{cases}
+a_{i,j} &: \text{ if } i<j\\
+0 &: \text{ if } i>j,
+\end{cases}
+\end{equation*}
 for $i,j\in\integers$.
 
 The negative part of $A$ is the element $A^-\in\matrices$ with $\co{A^-}=\co{A}$ and off-diagonal entries
-\begin{align*}
-a_{i,j}^- &= 0 \text{ if } i<j;\\
-a_{i,j}^- &= a_{i,j} \text{ if } i>j,
-\end{align*}
+\begin{equation*}
+a_{i,j}^- = \begin{cases}
+a_{i,j} &: \text{ if } i>j\\
+0 &: \text{ if } i<j,
+\end{cases}
+\end{equation*}
 for $i,j\in\integers$.
 \end{definition}
 
 Recall that the $G$-orbit of a pair of flags $(L,L')$ is denoted by $[L,L']$.
 
 \begin{lemma}\label{lemma:pos-neg-orbits}
-Let $A\in\matrices$. If $(L,L')\in\orbit{A}$, then $[L,L\cap L']=\orbit{A^+}$ and $[L\cap L',L']=\orbit{A^-}$.
+Let $A\in\matrices$. Then
+\begin{align*}
+\orbit{A^+} &= [L,L\cap L']\\
+\orbit{A^-} &= [L\cap L',L]
+\end{align*}
+for any $(L,L')\in\orbit{A}$.
 \end{lemma}
 
 \begin{proof}
@@ -2559,7 +2589,7 @@ which shows $\epsilon^N L_0\subset L_0'$. Moreover,
 as a result of Lemma \ref{lemma:hook-codimension-formula}. 
 \end{proof}
 
-Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{A}$, as in Lemma \ref{lemma:bounded-orbits}.
+Assume $N\in\naturals$ is chosen so that $\xprod[L]{A}\subset\Pi_{N,\lambda}^a(L)$, where $a=d_{nN,0}{(A)}$, as in Lemma \ref{lemma:bounded-orbits}.
 
 \begin{lemma}\label{lemma:orbits-are-quasiprojective}
 $\xprod[L]{A}$ is a locally closed subset of $\Pi_{N,\lambda}^a(L)$. In particular, $\xprod[L]{A}$ is a quasiprojective variety.
@@ -2570,17 +2600,17 @@ If $L'\in\Pi_{N,\lambda}^a(L)$ then
 \begin{equation*}
 L_{-Nn}=\epsilon^N L_0\subset L_0'\subset L_1'\subset L_n'\subset \epsilon^{-1-N}L_0 = L_{(N+1)n}.
 \end{equation*}
-Therefore $\xprod[L]{A}$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}{A}$ for $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{A}$ for $i:j<i\le(N+1)n$, for $j=1,\ldots,n$.
+Therefore $\xprod[L]{A}$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the conditions $\dim(L_i/{L_i\cap L_j'})=d_{i,j}{(A)}$ for $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})=\bar{d}_{i,j}{(A)}$ for $i:j<i\le(N+1)n$, for $j=1,\ldots,n$.
 
-The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{A}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{A}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a closed subset of $\Pi_{N,\lambda}^a(L)$, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
+The set of $L'\in\Pi_{N,\lambda}^a(L)$ with $\dim(L_i/{L_i\cap L_j'})\le d_{i,j}{(A)}$ for $j=1,\ldots,n$ and $i:-Nn\le i<j$ and $\dim(L_j'/{L_i\cap L_j'})\le\bar{d}_{i,j}{(A)}$ for $j=1,\ldots,n$ and $i:j<i\le(N+1)n$ is a closed subset of $\Pi_{N,\lambda}^a(L)$, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
 On the other hand, the set of $L'\in\Pi_{N,\lambda}^a(L)$ satisfying the conditions
 \begin{equation*}
-\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{A}
+\dim(L_i/{L_i\cap L_j'})\geq d_{i,j}{(A)}
 \end{equation*}
 for $i<j$ and
 \begin{equation*}
-\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{A}
+\dim(L_j'/{L_i\cap L_j'})\geq\bar{d}_{i,j}{(A)}
 \end{equation*}
 for $i>j$ is open in $\Pi_{N,\lambda}^a(L)$ since the complement is closed, as a result of Lemma \ref{lemma:incidence-varieties-consequences}.
 
@@ -2736,8 +2766,9 @@ In practice it seems that the converse of Proposition \ref{proposition:compare-p
 \end{remark}
 
 \begin{corollary}
+Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Then
 \begin{equation*}
-A\ast B = \max\{C\in\matrices: g_{A,B,C}\neq 0\}
+A\ast B = \max\{C\in\matrices: g_{A,B,C}\neq 0\}.
 \end{equation*}
 \end{corollary}
 
@@ -2862,7 +2893,7 @@ as required.
 \end{proof}
 
 \begin{proposition}\label{proposition:irreducible-y-triple}
-$\yprod[L]{A,B,C}$ is irreducible.
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$. Then $\yprod[L]{A,B,C}$ is irreducible.
 \end{proposition}
 
 \begin{proof}
@@ -2883,10 +2914,13 @@ Let $L'\in\xprod[L]{A}$. As a result of Lemma \ref{lemma:y-triple-stabilisers}
 Proposition \ref{prop:irreducible-y-prod} shows that $\yprod[L']{B,C}$ is irreducible, so $\{L'\}\times\yprod[L']{B,C}$ is irreducible. The image of $\{L'\}\times\yprod[L']{B,C}$ under the action of $G_L/{H_{3N,L}}$ is irreducible, since $G_L/{H_{3N,L}}$ is connected and therefore irreducible. Therefore $\yprod[L]{A,B,C}$ is irreducible.
 \end{proof}
 
-Let $p_3$ be the projection of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$ onto the third factor. By the completeness property of projective varieties, $p_3$ is a closed morphism. The image of $\yprod[L]{A,B,C}$ under $p_3$ is $\xprod[L]{A,B,C}$, so $p_3(\overline{\yprod[L]{A,B,C}}) = \overline{\xprod[L]{A,B,C}}$.
+Let $p_3$ be the projection of $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L)$ onto the third factor. By the completeness property of projective varieties, $p_3$ is a closed morphism. The image of $\yprod[L]{A,B,C}$ under $p_3$ is $\xprod[L]{A,B,C}$, so
+\begin{equation*}
+p_3(\overline{\yprod[L]{A,B,C}}) = \overline{\xprod[L]{A,B,C}}.
+\end{equation*}
 
 \begin{lemma}\label{lemma:irreducible-x-triple}
-$\xprod[L]{A,B,C}$ is irreducible and constructible.
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$. Then $\xprod[L]{A,B,C}$ is irreducible and constructible.
 \end{lemma}
 
 \begin{proof}
@@ -2894,7 +2928,7 @@ Lemma \ref{lemma:y-triple-is-quasiprojective} and Proposition \ref{proposition:i
 \end{proof}
 
 \begin{lemma}\label{lemma:generic-triple-product}
-There is a unique open and dense $G_L$-orbit in $\xprod[L]{A,B,C}$.
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$. Then there is a unique open and dense $G_L$-orbit in $\xprod[L]{A,B,C}$.
 \end{lemma}
 
 \begin{proof}
@@ -2912,7 +2946,7 @@ If $\xprod[L]{D}$ and $\xprod[L]{D'}$ are open in $\xprod[L]{A,B,C}$, then $\xpr
 \end{proof}
 
 \begin{lemma}\label{lemma:yprod-generic-A-B}
-$p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$. Then $p_3^{-1}(\xprod[L]{A\ast B,C})$ is open in $\overline{\yprod[L]{A,B,C}}$.
 \end{lemma}
 
 \begin{proof}
@@ -2920,7 +2954,7 @@ Projection onto the second component is a closed morphism of varieties $p_2\colo
 \end{proof}
 
 \begin{lemma}\label{lemma:yprod-generic-B-C}
-$p_3^{-1}(\xprod[L]{A,B\ast C})$ is an open subset of $\overline{\yprod[L]{A,B,C}}$.
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$. Then $p_3^{-1}(\xprod[L]{A,B\ast C})$ is an open subset of $\overline{\yprod[L]{A,B,C}}$.
 \end{lemma}
 
 \begin{proof}
@@ -2936,6 +2970,7 @@ for $i,j\in\integers$ with $i>j$. Each of these conditions defines an open subse
 \end{proof}
 
 \begin{theorem}\label{theorem:associativity}
+Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\flags_{\ro{A}}$. Then
 \begin{equation*}
 \xprod[L]{A\ast (B\ast C)} = \xprod[L]{(A\ast B)\ast C}.
 \end{equation*}
@@ -4105,7 +4140,7 @@ then assuming the result of Conjecture \ref{conjecture:std-paths-span-quiver-alg
 \end{proof}
 
 
-\section{The isomorphism result}
+\section{The isomorphism conjecture}
 
 Fix integers $n,r\geq 1$ with $r<n$. This section aims to give a realisation of the affine $0$-Schur algebra by the generic affine algebra in the case that $r<n$. Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the $\integers$-algebra
 \begin{equation*}
@@ -4294,30 +4329,25 @@ for $i\in\modn[2]$.
 
 \section{The case of large r}
 
-When $r\geq n$ extra relations are needed in order to transform any path to a standard path using the relations, thus proving injectivity of the quiver presentation. These are thought to be of the form
-\begin{equation*}
-e_i^2e_{i-1}\cdots e_{i+1}e_i = e_ie_{i-1}\cdots e_{i+1}e_i^2
-\end{equation*}
-and
-\begin{equation*}
-f_i^2f_{i+1}\cdots f_{i-1}f_i = f_if_{i+1}\cdots f_{i-1}f_i^2
-\end{equation*}
-for $i\in\modn$ and there are likely to be more general relations with arbitrary exponents for $e_{i-1},\ldots,e_{i+1}$ and $f_{i+1},\ldots,f_{i-1}$ respectively.
-
-Further research could focus on the relation between the generic affine algebra $\generic$ and the affine zero Schur algebra $\zeroschur$ when $r\geq n$. The case where $n\le r <2n$ appears to be tractable by including the shifting element $R$ in the set of generators for each algebra and in this case I still expect the two algebras to be isomorphic, though the case of general $r$ seems to be very difficult.
-
+When $r\geq n$ the elements $E_i$, $F_i$ and $1_\lambda$ in $\generic$ generate the subalgebra spanned by the aperiodic basis elements, so more elements will be required in a generating set. Additional relations will be required and it seems that the problem of finding generating relations becomes progressively more difficult as $r$ increases by multiples of $n$. For instance, when $n\le r<2n$, the elements $E_i$, $F_i$, $1_\lambda$ and $R^{\pm 1}$ generate $\generic$ and we have the additional relations
+\begin{align*}
+R^{-1}E_i R - E_{i+1} &= 0\\
+R^{-1}F_i R - F_{i+1} &= 0\\
+R^{-1}1_\lambda R - 1_{\lambda[-1]} &= 0,
+\end{align*} 
+but it is not clear whether these are generating relations for $\generic$. When $r\geq 2n$, yet more generators and relations will be needed. Since Lusztig's construction of quantum affine $\mathfrak{gl}_n$ is based on taking a limit in $r$, it will be interesting to understand the case of arbitrarily large $r$.
 
 \section{Further results on affine zero Schur algebras}
 
-Investigate link between this generic product and the generic extension of representations. Shifting to the non-negative subalgebra to do computations purely in terms of generic extensions of quiver representations.
+An interesting problem would be to relate the non-negative subalgebra of $\generic$ to the composition monoid of a cyclic quiver, studied by \cite{hubery04} and Deng, Du and Mah \cite{deng13}. Using the element $R$ we may shift elements into the non-negative subalgebra of $\generic$ and understand the product in terms of generic extensions of quiver representations. The automorphism $\tau$ of generic is then consistent with the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cylic quiver on $n$ vertices.
 
+The degeneration order on orbits in $\dblflags$ implies the hook order on $\matrices$, by Lemma compare partial orders. We conjecture that these two orders are equivalent, so that $A\le B$ if and only if
+\begin{equation*}
+\xprod[L]{A}\subset\overline{\xprod[L]{B}}
+\end{equation*}
+for any $L\in\flags_{\ro{B}}$.
 
-This map $\tau$ is related to the Auslander-Reiten translation on the isomorphism classes of nilpotent representations of the cyclic quiver on $n$ vertices. The result that $\rotation{E_i}=  E_{i+1}$ is consistent with the fact the A.R translation sends the simple representation at vertex $i$ to the simple representation at vertex $i-1$. More generally in terms of nilpotent representations...
-
-
-\section{Combinatorial characterisation of degenerations}
-
-The degeneration order on orbits in $\dblflags$ implies the hook order on $\matrices$. Through examples it seems that these two orders are in fact equivalent, but a proof has so far been elusive.
+It is expected that there are interesting links between the generic affine algebra $\generic$, the affine 0-Hecke algebra $\zerohecke$ and affine nil-Temperley-Lieb algebras, generalising the results in the finite type case by Jensen, Su and Yang \cite{su20}.
 
 \nocite{*}
 \printbibliography
