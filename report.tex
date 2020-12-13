@@ -7,10 +7,10 @@
 \afterpage{\blankpage}
 
 \chapter*{Dedication}
-\vspace*{\fill}
+\vspace*{4cm}
 \begin{center}
 \huge
-To Midnight and Marmite.
+To Midnight and Marmite
 \end{center}
 \vspace*{\fill}
 \afterpage{\blankpage}
@@ -181,7 +181,9 @@ is an isomorphism.
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and as such are defined as the endomorphism algebra of a certain module over the affine Hecke algebra. The approach used in this thesis is based on Lusztig's construction using double affine flag varieties, which is itself an extension of a similar construction of finite type $q$-Schur algebras given by Beilinson, Lusztig and MacPherson in \cite{blm90}. A good account of these two different realisations of affine $q$-Schur algebras can be found in the book \cite{deng12book} by Deng, Du and Fu.
+Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and were defined by Green \cite{green99} as the endomorphism algebra of a certain module over the affine Hecke algebra $\hecke$. The approach used in this thesis is based on a construction of quantum affine $\mathfrak{gl}_n$ using double affine flag varieties due to Lusztig \cite{lusztig99} and Ginzburg and Vasserot \cite{ginzburg93}, which is an extension of a similar construction of quantum $\mathfrak{gl}_n$ given by Beilinson, Lusztig and MacPherson in \cite{blm90}. Varagnolo and Vasserot proved \cite{varagnolo99}[Proposition 7.4] that the convolution algebras on affine double flag varieties described by Ginzburg and Vasserot are naturally isomorphic to the affine $q$-Schur algebra defined by Green \cite{green99}.
+
+For more one the two realisations of affine $q$-Schur algebras, refer to the book \cite{deng12book} by Deng, Du and Fu, and work by Doty and Green \cite{doty07} or by Du and Fu \cite{du15}. We now describe the double affine flag variety construction of affine $q$-Schur algebras.
 
 Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set  of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
@@ -198,7 +200,7 @@ for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$
 \end{equation*}
 for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
 
-The affine $q$-Schur algebra $\qschur$ is an associative algebra over $\integers[q]$ defined as the endomorphism algebra of a certain module over the Hecke algebra $\hecke$. {\color{red}find citation} proved that $\qschur$ is isomorphic to the $\integers[q]$-algebra with a $\integers[q]$-basis
+The affine $q$-Schur algebra $\qschur$ is an associative $\integers[q]$-algebra which is a free $\integers[q]$-module with a $\integers[q]$-basis
 \begin{equation*}
 \{e_A:A\in\matrices\}
 \end{equation*}
@@ -206,7 +208,7 @@ and multiplication given by
 \begin{equation*}
 e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}e_C
 \end{equation*}
-for $A,B\in\matrices$. See also Doty and Green \cite{doty07}, Du and Fu \cite{??} and the book by Deng, Du, Parshall and Wang \cite{deng12book}.
+for $A,B\in\matrices$. The basis element $e_A$ can be identified with the indicator function of the orbit $\orbit{A}$ in $\dblflags$, then the product in $\qschur$ is given by convolution. 
 
 There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$ in $\qschur$ with
 \begin{equation*}
@@ -232,14 +234,24 @@ Specialising the affine $q$-Schur algebra $\qschur$ at $q=0$ gives an associativ
 \begin{equation*}
 \zeroschur = \integers[q]/{(q)}\otimes_{\integers[q]}\qschur
 \end{equation*}
-called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $0$-Schur algebra $\zeroschur$ and to define a new associative algebra called the generic affine algebra $\generic$, with a modified version of the product in $\zeroschur$ such that the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the corresponding product given by generic extensions of representations.
+called the affine $0$-Schur algebra. The ultimate goal of the project is to study the structure of the affine $0$-Schur algebra $\zeroschur$ and to define a new associative algebra called the generic affine algebra $\generic$, with a modified version of the product in $\zeroschur$ such that the standard basis elements $e_A$ form a multiplicative basis and to finally investigate the link between the generic affine algebra and the affine $0$-Schur algebra. Interestingly, this product may be understood geometrically in terms of degenerations of orbits, by a purely combinatorial approach and from a representation theoretic viewpoint by considering the Hall algebra for a cyclic quiver and the product given by generic extensions of representations.
 
-\begin{lemma*}
-There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the map
+\begin{lemma*}\ref{lemma:conjugation-by-R}
+There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the $\integers[q]$-algebra homomorphism
 \begin{equation*}
-e_A\mapsto R^{-1}e_A R
+\tau\colon\qschur\to\qschur
 \end{equation*}
-is a unipotent automorphism of $\qschur$ of order $n$.
+defined by
+\begin{equation*}
+\rotation{e_A} = R^{-1}e_AR
+\end{equation*}
+for $A\in\matrices$ is a unipotent automorphism of $\qschur$ of order $n$. Moreover,
+\begin{align*}
+\rotation{E_i} &= E_{i+1}\\
+\rotation{F_i} &= F_{i+1}\\
+\rotation{1_\lambda} &= 1_{\lambda[-1]},
+\end{align*}
+where $(\lambda[-1])_i =\lambda_{i-1}$, for $i\in\modn$ and $\lambda\in\compositions$.
 \end{lemma*}
 
 We define a quiver $\Gamma$ for $\qschur$ and give a set of $\integers[q]$-linear relations with the aim of giving a presentation of $\qschur$ over an extended ground ring and later use the same quiver with the $q=0$ form of the relations to study both the affine zero Schur algebra $\zeroschur$ and the generic affine algebra $\generic$. Let $\Gamma$ be the quiver with set of vertices $\compositions$ and arrows
@@ -299,9 +311,9 @@ and
 \begin{equation*}
 \yprod[L]{A,B} = \{(L',L'')\in\dblflags:(L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
-together with the action of the stabiliser $G_L$. It is proven that the $G_L$-orbit $\xprod[L]{A}$ is an irreducible quasiprojective algebraic variety in Lemmas \ref{lemma:orbits-are-irreducible} and \ref{lemma:orbits-are-quasiprojective}. It is shown that $\yprod[L]{A,B}$ is an irreducible quasiprojective variety in Lemma \ref{lemma:y-prod-is-quasiprojective} and then $\xprod[L]{A,B}$ is irreducible and constructible, thus establishing existence and uniqueness generic orbits.
+together with the action of the stabiliser $G_L$. It is proven that the $G_L$-orbit $\xprod[L]{A}$ is an irreducible quasiprojective algebraic variety in Lemmas \ref{lemma:orbits-are-irreducible} and \ref{lemma:orbits-are-quasiprojective}. It is shown that $\yprod[L]{A,B}$ is an irreducible quasiprojective variety in Lemma \ref{lemma:y-prod-is-quasiprojective} and then $\xprod[L]{A,B}$ is irreducible and constructible, thus establishing existence and uniqueness of generic orbits.
 
-\begin{proposition*}
+\begin{proposition*}\ref{prop:open-orbit-x-prod}
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, there is a unique element $A\ast B\in\matrices$ such that $\xprod[L]{A\ast B}$ is open in $\xprod[L]{A,B}$ for any $L\in\flags_{\ro{A}}$.
 \end{proposition*}
 
@@ -314,7 +326,7 @@ e_{A\ast B} &: \text{ if } \co{A}=\ro{B},\\
 \end{equation*}
 for $A,B\in\matrices$.
 
-\begin{theorem*}
+\begin{theorem*}\ref{theorem:generic-algebra-associative}
 The generic affine algebra $\generic$ is an associative $\integers$-algebra with multiplicative identity
 \begin{equation*}
 1=\sum_{\lambda\in\compositions} 1_\lambda,
@@ -341,7 +353,7 @@ for $i,j\in\modn$ and $\lambda\in\compositions$.
 
 An element $A\in\matrices$ is said to be aperiodic if for every $s\neq 0$ there is $i\in\modn$ such that $a_{i,i+s}=0$.
 
-\begin{proposition*}
+\begin{proposition*}\ref{proposition:image-of-quiver-algebra-generic}
 There is a $\integers$-algebra homomorphism
 \begin{equation*}
 \rho\colon\integers\Gamma/{\zerorelations}\to\generic
@@ -352,12 +364,24 @@ defined by
 \rho(e_{i,\lambda} + \zerorelations) &= E_i1_\lambda\\
 \rho(f_{i,\lambda} + \zerorelations) &= F_i1_\lambda,
 \end{align*}
-for $i\in\modn$ and $\lambda\in\compositions$. The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
+for $i\in\modn$ and $\lambda\in\compositions$.
+
+The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\rho$ is surjective.
 \end{proposition*}
 
-We conjecture that $\rho$ is an isomorphism of $\integers$-algebras when $r<n$. Injectivity of the map $\rho$ depends on a single technical lemma for which we seem to be close to a proof. Once this result is established we will have proven the following conjecture.
+We conjecture that $\rho$ is an isomorphism of $\integers$-algebras when $r<n$.
 
-\begin{conjecture*}
+\begin{conjecture*}\ref{conjecture:presentation-generic-algebra}
+Assume $r<n$. The map
+\begin{equation*}
+\rho\colon\integers\Gamma/{\zerorelations}\to\generic
+\end{equation*}
+is an isomorphism of $\integers$-algebras.
+\end{conjecture*}
+
+The remaining part of the conjecture to be proven is injectivity of $\rho$, which depends on a single technical result which we expect to prove in the future. Once we have proven this technical result we will also have proven the following conjecture:
+
+\begin{conjecture*}\ref{conjecture:generic-to-zero-schur}
 Suppose $r<n$. There is an isomorphism of $\integers$-algebras
 \begin{equation*}
 \Psi\colon\generic\to\zeroschur
@@ -371,7 +395,7 @@ such that
 for $i\in\modn$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
-Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
+We now describe the structure of the remainder of the thesis. Chapter \ref{chapter:lusztig-realisation} describes Lusztig's \cite{lusztig99} double affine flag variety realisation of affine $q$-Schur algebras. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and a unipotent automorphism of $\qschur$ which corresponds to a rotation of the quiver. Chapter \ref{chapter:generic-affine-algebra} gives the construction of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and describes some open questions and possible further directions.
 
 
 \chapter{Geometric approach to affine q-Schur algebras}\label{chapter:lusztig-realisation}
