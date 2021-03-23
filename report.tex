@@ -73,7 +73,7 @@ The work of this thesis follows the geometric realisation of $0$-Schur and $0$-H
 
 \section{The geometric realisation of 0-Schur algebras}
 
-Fix integers $n,r\geq 1$ and let $\field$ be a finite or algebraically closed field. Let $V$ be an $r$ dimensional vector space over $\field$ and let $\flags$ denote the space of partial $n$-step flags
+Fix integers $n,r\geq 1$ and let $\field$ be a finite or algebraically closed field. Let $V$ be an $r$ dimensional vector space over $\field$ and let $\flags$ denote the set of partial $n$-step flags
 \begin{equation*}
 f\colon 0=f_0\subset f_1\subset\cdots\subset f_n=V
 \end{equation*}
@@ -205,7 +205,7 @@ Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl du
 
 For more on the two realisations of affine $q$-Schur algebras, refer to the book \cite{deng12book} by Deng, Du and Fu, and work by Doty and Green \cite{doty07} or by Du and Fu \cite{du15}. We now describe the double affine flag variety construction of affine $q$-Schur algebras.
 
-Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The space of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
+Let $\field$ be a finite or algebraically closed field and let $n,r\geq 1$ be integers. Fix a free $\laurent$-module $V$ of rank $r$ and let $G$ be its automorphism group. A lattice in $V$ is a $\polys$-submodule of $V$ which is a free module of rank $r$ over $\laurent$. The set of $n$-periodic flags in $V$ is denoted by $\flags$ and consists of chains of lattices $L=(L_i)_{i\in\integers}$ in $V$ such that $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The group $G$ acts naturally on $\flags$ and the orbits are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts. Given a composition $\lambda=(\lambda_1,\ldots,\lambda_n)$ of $r$ into $n$ parts, the corresponding $G$-orbit in $\flags$ is
 \begin{equation*}
 \flags_\lambda = \left\{L\in\flags:\dim\left(L_i/{L_{i-1}}\right)=\lambda_i \text{ for all }i\in\integers\right\}.
 \end{equation*}
@@ -214,9 +214,9 @@ The diagonal action of $G$ on $\dblflags$ has orbits indexed by the set $\matric
 \begin{equation*}
 \dim\left(\frac{L_i\cap L_j'}{L_{i-1}\cap L_j' + L_i\cap L_{j-1}'}\right) = a_{i,j}
 \end{equation*}
-for all $i,j\in\integers$. There are polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that
+for all $i,j\in\integers$. There are polynomials $g_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that
 \begin{equation*}
-\gamma_{A,B,C}(\#\field) = \#\{L'\in\flags: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
+g_{A,B,C}(\#\field) = \#\{L'\in\flags: (L,L')\in\orbit{A}, (L',L'')\in\orbit{B}\}
 \end{equation*}
 for any finite field $\field$ and $(L,L'')\in\orbit{C}$.
 
@@ -226,7 +226,7 @@ The affine $q$-Schur algebra $\qschur$ is an associative $\integers[q]$-algebra 
 \end{equation*}
 and multiplication given by
 \begin{equation*}
-e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}e_C
+e_A e_B = \sum_{C\in\matrices} g_{A,B,C}e_C
 \end{equation*}
 for $A,B\in\matrices$. The basis element $e_A$ can be identified with the indicator function of the orbit $\orbit{A}$ in $\dblflags$, then the product in $\qschur$ is given by convolution. 
 
@@ -541,7 +541,7 @@ g(L\cap L') &= g(L)\cap g(L')
 for each $g\in G$.
 
 \begin{definition}\label{definition:cyclic-flags}
-A \emph{cyclic flag} in $V$ is a collection $(L_i)_{i\in\integers}$ of lattices in $V$ with $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The space of cyclic flags in $V$ is denoted by $\flags=\flags(n,r)$.
+A \emph{cyclic flag} in $V$ is a collection $(L_i)_{i\in\integers}$ of lattices in $V$ with $L_i\subset L_{i+1}$ and $\epsilon L_i = L_{i-n}$ for each $i\in\integers$. The set of cyclic flags in $V$ is denoted by $\flags=\flags(n,r)$.
 \end{definition}
 
 The group $G=\AUT{(V)}$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\in\integers$, $g\in G$ and $L\in\flags$. The $G$-orbits in $\flags$ are indexed by the set $\compositions$ of compositions of $r$ into $n$ parts. In particular, the $G$-orbit in $\flags$ corresponding to $\lambda\in\compositions$ is
@@ -549,7 +549,7 @@ The group $G=\AUT{(V)}$ acts on $\flags$ by $(g\cdot L)_i = g(L_i)$ for each $i\
 \flags_\lambda = \left\{L\in\flags: \dim\left(\frac{L_i}{L_{i-1}}\right) = \lambda_i \text{ for each } i\in\integers\right\}.
 \end{equation*}
 
-Consider the space $\dblflags$ of pairs of flags with the diagonal action of $G$, given by
+Consider the set $\dblflags$ of pairs of flags with the diagonal action of $G$, given by
 \begin{equation*}
 g\cdot(L,L') = (gL,gL')
 \end{equation*}
@@ -945,12 +945,12 @@ for any $(L,L'')\in\orbit{C}$.
 
 \subsection{Affine q-Schur algebras}
 
-There exist polynomials $\gamma_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $\gamma_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following Lusztig \cite[section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
+There exist polynomials $g_{A,B,C}\in\integers[q]$ for $A,B,C\in\matrices$ such that $g_{A,B,C}(\mathrm{q}) = \gamma_{A,B,C;\mathrm{q}}$ for any prime power $\mathrm{q}$, following Lusztig \cite[Section 4]{lusztig99}. The affine $q$-Schur algebra $\qschur$ is a $\integers[q]$-algebra which is a free $\integers[q]$-module with basis $\{e_A:A\in\matrices\}$ and with multiplication given by
 \begin{equation*}
-e_A e_B = \sum_{C} \gamma_{A,B,C}e_C.
+e_A e_B = \sum_{C} g_{A,B,C}e_C.
 \end{equation*}
 
-Given the existence of these `universal polynomials' $\gamma_{A,B,C}\in\integers[q]$, it follows from Lemma \ref{lemma:convolution-algebra} that $\qschur$ is an associative $\integers[q]$-algebra with multiplicative identity given by
+Given the existence of these `universal polynomials' $g_{A,B,C}\in\integers[q]$, it follows from Lemma \ref{lemma:convolution-algebra} that $\qschur$ is an associative $\integers[q]$-algebra with multiplicative identity given by
 \begin{equation*}
 1 = \sum_{\lambda\in\compositions} e_{\diag{\lambda}}.
 \end{equation*}
@@ -969,7 +969,7 @@ The affine zero Schur algebra $\zeroschur$ is the $\integers$-algebra
 
 Observe that $\zeroschur$ is a free $\integers$-module, since $\qschur$ is a free $\integers[q]$-module. Moreover, $\zeroschur$ has a $\integers$-basis $\{e_A:A\in\matrices\}$ with multiplication given by
 \begin{equation*}
-e_A\cdot e_B = \sum_{C\in\matrices} \gamma_{A,B,C}{(0)} e_C,
+e_A\cdot e_B = \sum_{C\in\matrices} g_{A,B,C}{(0)} e_C,
 \end{equation*}
 for each $A,B\in\matrices$.
 
@@ -994,7 +994,7 @@ The diagonal matrix with row and column vector $\lambda$ is
 \begin{equation*}
 \diag{\lambda} = \lambda_1\elem{1}{1} +\cdots + \lambda_n\elem{n}{n},
 \end{equation*}
-as in Equation \ref{eq:diagonal-matrices}.
+as in Equation \eqref{eq:diagonal-matrices}.
 
 There are pairwise orthogonal idempotents
 \begin{equation*}
@@ -1065,7 +1065,7 @@ for $i\in\modn$ and $\lambda\in\compositions$.
 \begin{proof}
 Let $A,B\in\matrices$ and $(L,L'')\in\xprod{A,B}$. The set of flags $L'\in\flags$ such that $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$ consists precisely of those flags $L'$ such that $(L'',L')\in\orbit{B^\transpose}$ and $(L',L)\in\orbit{B^\transpose}$ so it follows that
 \begin{equation*}
-\gamma_{A,B,C} = \gamma_{B^\transpose, A^\transpose, C^\transpose}
+g_{A,B,C} = g_{B^\transpose, A^\transpose, C^\transpose}
 \end{equation*}
 for all $C\in\matrices$. Therefore
 \begin{align*}
@@ -1567,7 +1567,9 @@ E_iF_i -F_iE_i = \sum_{\lambda\in\compositions} (\qint{\lambda_i} -\qint{\lambda
 as required.
 \end{proof}
 
-An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\modn$, say that $\lambda$ is \emph{internal} with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is \emph{initial} with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is \emph{final} with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
+An explicit version of these relations will be given after defining some terminology. Given $\lambda\in\compositions$ and $i\in\modn$, say that $\lambda$ is \emph{internal} with respect to $i$ if $\lambda-\alpha_i,\lambda+\alpha_i\in\compositions$. Say that $\lambda$ is \emph{initial} with respect to $i$ if $\lambda-\alpha_i\notin\compositions$ and that $\lambda$ is \emph{final} with respect to $i$ if $\lambda+\alpha_i\notin\compositions$. If $\lambda$ is sincere, then $\lambda$ is internal with respect to each $i\in\modn$. For example, $\lambda=(2,1,0)$ is initial with respect to $3$, final with respect to $2$ and internal with respect to $1$. On the other hand, $\mu=(1,1,1)$ is sincere, so is internal with respect to $1$, $2$ and $3$.
+
+The expression for the commutator $\left[E_i,F_i\right]$ in Lemma \ref{lemma:q-commutators-E-F} gives the following relations in $\qschur$:
 \begin{enumerate}[i.]
 \item
 if $\lambda$ is internal with respect to $i$ then
@@ -1909,7 +1911,7 @@ Let $A\in\matrices$ and let $p$ be the standard path corresponding to $A$. Then
 \end{proposition}
 
 \begin{proof}
-Proceed by induction on the length of $p$. If the length of $p$ is zero then $p=k_\lambda$ and $A=\diag{\lambda}$ for some $\lambda\in\compositions$, then \ref{eq:image-of-std-path} holds since $\phi(k_\lambda +\qrelations)=1_\lambda$. Assume $p$ has positive length and the formula holds for standard paths of smaller length.
+Proceed by induction on the length of $p$. If the length of $p$ is zero then $p=k_\lambda$ and $A=\diag{\lambda}$ for some $\lambda\in\compositions$, then Equation \eqref{eq:image-of-std-path} holds since $\phi(k_\lambda +\qrelations)=1_\lambda$. Assume $p$ has positive length and the formula holds for standard paths of smaller length.
 
 First suppose $A$ is upper triangular and $p=k_\lambda p_1^+\cdots p_h^+$ is the corresponding standard positive path, where $\lambda=\ro{A}$ and
 \begin{equation*}
@@ -2331,7 +2333,7 @@ Given $U_2\in\GR[d_2]{V}$, $\{U_1\in\GR[d_1]{V}: U_2\subset U_1\}$ is a projecti
 \end{lemma}
 
 \begin{proof}
-Let $X_i$ denote the space in $i$-th statement of the lemma and write $X_{i,a}$ to emphasise the dependence of $a$.
+Let $X_i$ denote the set in $i$-th statement of the lemma and write $X_{i,a}$ to emphasise the dependence of $a$.
 
 $X_1$ is a quasiprojective variety since it is equal to the intersection of the projective variety $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\geq a\}$ with the open set $\{(U_1,U_2)\in\GR[d_1]{V}\times\GR[d_2]{V}: \dim(U_1\cap U_2)\le a\}$.
 
@@ -2385,7 +2387,7 @@ Let $W$ be the $\field[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$, 
 \end{equation*}
 with $\rho(L')=(L_1'/{\epsilon^N L_0},\ldots,L_n'/{\epsilon^N L_0})$.
 
-Let $\mathcal{X}$ be the space of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{X}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{X}$ is a projective algebraic variety.
+Let $\mathcal{X}$ be the set of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{X}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{X}$ is a projective algebraic variety.
 
 The image of $\rho$ is contained in $\mathcal{X}$ since
 \begin{equation*}
@@ -2506,7 +2508,7 @@ the maps
 \end{equation*}
 for $i,j\in\integers$ with $1\le i,j\le (2N+1)r$, given by
 \begin{equation*}
-g(y_j) = \sum_i \gamma_{ij}(g)y_i,
+g(y_j) = \sum_i \gamma_{i,j}(g)y_i,
 \end{equation*}
 for each $j=1,\ldots,(2N+1)r$.
 
@@ -2750,7 +2752,7 @@ There is a unique open $G_L$-orbit in $\xprod[L]{A,B}$.
 \end{proposition}
 
 \begin{proof}
-$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices^{A,B}$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
+$\xprod[L]{A,B}$ consists of finitely many $G_L$-orbits and is an irreducible topological space, by Lemma \ref{lemma:irreducible-x-prod}. Consequently, $\xprod[L]{C}$ is dense in $\xprod[L]{A,B}$ for some $C\in\matrices$ such that $g_{A,B,C}\neq 0$. Lemma \ref{lemma:orbits-are-quasiprojective} shows that $\xprod[L]{C}$ is locally closed in $\xprod[L]{A,B}$, so $\xprod[L]{C}$ is open in $\overline{\xprod[L]{C}}=\xprod[L]{A,B}$. Irreducibility of $\xprod[L]{A,B}$ shows that there is a unique open $G_L$-orbit, since two nonempty open sets in $\xprod[L]{A,B}$ intersect nontrivially, thus any two open $G_L$ orbits in $\xprod[L]{A,B}$ coincide.
 \end{proof}
 
 Let $A\ast B\in\matrices$ denote the matrix corresponding to the dense open $G_L$-orbit in $\xprod[L]{A,B}$, so $\overline{\xprod[L]{A\ast B}}=\overline{\xprod[L]{A,B}}$.
@@ -2924,7 +2926,7 @@ Write
 \Pi=\Pi_{N,\lambda}^{a}(L)\times\Pi_{2N,\mu}^{a+b}(L)\times\Pi_{3N,\nu}^{a+b+c}(L).
 \end{equation*}
 
-Lemma $\ref{lemma:projective-varieties-of-cyclic-flags}$ shows that $\Pi$ is a projective algebraic variety and Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{3N,L}}$ is a connected algebraic group acting algebraically on $\Pi$ by the diagonal action.
+Lemma \ref{lemma:projective-varieties-of-cyclic-flags} shows that $\Pi$ is a projective algebraic variety and Lemma \ref{lemma:connected-algebraic-group} shows that $G_L/{H_{3N,L}}$ is a connected algebraic group acting algebraically on $\Pi$ by the diagonal action.
 
 Let $L'\in\xprod[L]{A}$. As a result of Lemma \ref{lemma:y-triple-stabilisers} 
 \begin{align*}
@@ -2956,11 +2958,11 @@ Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$ and $L\in\f
 \begin{proof}
 There are only finitely many $G_L$-orbits in $\xprod[L]{A,B,C}$. In particular,
 \begin{equation*}
-\xprod[L]{A,B,C}=\bigcup_{D\in\matrices^{A,B}}\xprod[L]{D,C}=\bigcup_{D\in\matrices^{A,B}}\bigcup_{D'\in\matrices^{D,C}}\xprod[L]{D'}
+\xprod[L]{A,B,C}=\bigcup_{D\in\matrices:g_{A,B,D}\neq 0}\xprod[L]{D,C}=\bigcup_{D\in\matrices:g_{A,B,D}\neq 0}\bigcup_{D'\in\matrices: g_{D,C,D'}\neq 0}\xprod[L]{D'}
 \end{equation*}
 and
 \begin{equation*}
-\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices^{A,B}}\bigcup_{D'\in\matrices^{D,C}}\overline{\xprod[L]{D'}}.
+\overline{\xprod[L]{A,B,C}} = \bigcup_{D\in\matrices: g_{A,B,D}\neq 0}\bigcup_{D'\in\matrices: g_{D,C,D'}\neq 0}\overline{\xprod[L]{D'}}.
 \end{equation*}
 There is $D\in\matrices$ such that $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, since $\xprod[L]{A,B,C}$ is irreducible, by Lemma \ref{lemma:irreducible-x-triple}. By Lemma \ref{lemma:orbits-are-quasiprojective}, $\xprod[L]{D}$ is open in $\overline{\xprod[L]{D}}=\overline{\xprod[L]{A,B,C}}$, so $\xprod[L]{D}$ is open in $\xprod[L]{A,B,C}$.
 
@@ -3345,9 +3347,9 @@ In particular, $\zeroschur$ has a $\integers$-basis
 \end{equation*}
 with $\integers$-bilinear product given by
 \begin{equation*}
-e_A e_B = \sum_{C\in\matrices} \gamma_{A,B,C}(0) e_C
+e_A e_B = \sum_{C\in\matrices} g_{A,B,C}(0) e_C
 \end{equation*}
-for $A,B,C\in\matrices$, where the polynomials $\gamma_{A,B,C}\in\integers[q]$ are the structure constants in $\qschur$.
+for $A,B,C\in\matrices$, where the polynomials $g_{A,B,C}\in\integers[q]$ are the structure constants in $\qschur$.
 
 The multiplicative identity in $\zeroschur$ is
 \begin{equation*}
@@ -4056,7 +4058,7 @@ in $\integers\Gamma/{\zerorelations}$, for each $i\in\modn$.
 \end{lemma}
 
 \begin{proof}
-First we prove \ref{eq:higher-serre-1}. If $s=0$ the result is a tautology and if $s=1$ this is the usual $0$-Serre relation. Suppose $s>1$ and equation \ref{eq:higher-serre-1} holds for smaller values. By repeatedly using the $0$-Serre relations
+First we prove Equation \eqref{eq:higher-serre-1} holds. If $s=0$ the result is a tautology and if $s=1$ this is the usual $0$-Serre relation. Suppose $s>1$ and Equation \eqref{eq:higher-serre-1} holds for smaller values. By repeatedly using the $0$-Serre relations
 \begin{equation*}
 e_i^2e_{i+1} - e_ie_{i+1}e_i = 0
 \end{equation*}
@@ -4067,22 +4069,22 @@ e_i^se_{i+1} = e_i e_{i+1} e_i^{s-1} \label{eq:iterated-serre-1}
 and so
 \begin{align*}
 e_i^se_{i+1}^se_i
-&= e_ie_{i+1}e_i^{s-1}e_{i+1}^{s-1}e_i \quad\text{ (by \ref{eq:iterated-serre-1}.)}\\
+&= e_ie_{i+1}e_i^{s-1}e_{i+1}^{s-1}e_i \quad\text{ (by \eqref{eq:iterated-serre-1}.)}\\
 &= e_ie_{i+1}e_i^s e_{i+1}^{s-1} \quad\text{ (by induction.)}\\
-&= e_i^{s+1}e_{i+1}e_{i+1}^{s-1} \quad\text{ (by \ref{eq:iterated-serre-1}.})\\
+&= e_i^{s+1}e_{i+1}e_{i+1}^{s-1} \quad\text{ (by \eqref{eq:iterated-serre-1}.})\\
 &= e_i^{s+1}e_{i+1}^s.
 \end{align*}
 
-Now we prove \ref{eq:higher-serre-2}. If $s=0$ the result is clear. Suppose $s>0$ and the result of \ref{eq:higher-serre-2} holds for smaller values. Using the $0$-Serre relations repeatedly gives
+Now we prove Equation \eqref{eq:higher-serre-2} holds. If $s=0$ the result is clear. Suppose $s>0$ and Equation \eqref{eq:higher-serre-2} holds for smaller values. Using the $0$-Serre relations repeatedly gives
 \begin{equation}
 e_ie_{i+1}^t = e_{i+1}^{t-1}e_ie_{i+1} \label{eq:iterated-serre-2}
 \end{equation}
 and so
 \begin{align*}
 e_i^se_{i+1}^t
-&= e_i^{s-1}e_{i+1}^{t-1}e_ie_{i+1} \quad\text{ (by \ref{eq:iterated-serre-2}.)}\\
+&= e_i^{s-1}e_{i+1}^{t-1}e_ie_{i+1} \quad\text{ (by \eqref{eq:iterated-serre-2}.)}\\
 &= e_{i+1}^{t-s}e_i^{s-1}e_{i+1}^{s-1}e_ie_{i+1} \quad\text{ (by induction.)}\\
-&= e_{i+1}^{t-s}e_i^se_{i+1}^{s-1}e_{i+1} \quad\text{ (by \ref{eq:higher-serre-1}.)}\\
+&= e_{i+1}^{t-s}e_i^se_{i+1}^{s-1}e_{i+1} \quad\text{ (by \eqref{eq:higher-serre-1}.)}\\
 &= e_{i+1}^{t-s} e_i^se_{i+1}^s.
 \end{align*}
 \end{proof}
