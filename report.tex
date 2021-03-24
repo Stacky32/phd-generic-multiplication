@@ -1787,6 +1787,16 @@ i = \max\{t:1\le t\le n, \alpha_{t,1} = 0\} - 1,
 where the index $j$ in $e_j$ and $\alpha_{j,s}$ is taken modulo $n$.
 \end{definition}
 
+\begin{example}
+\begin{enumerate}[(i)]
+\item
+Suppose $n=3$ and $r=2$. The following paths are standard positive paths: $k_{110}e_2e_1e_2$, $k_{110}e_2e_1e_3e_2e_1e_3$, $k_{110}e_2e_1e_3e_2e_3e_1e_2$. The path $k_{200}e_1^2e_2e_3e_1$ is a standard positive path, but $k_{200}e_1e_2e_3e_1^2$ is not a standard positive path.
+
+\item
+Suppose $n=4$ and $r=3$. The following paths are standard positive paths: $k_{0300}e_2^3e_3^2e_4^2e_1e_2$, $k_{1110}e_3e_2e_1e_4e_3e_2e_1e_4e_3$, $k_{2010}e_3e_1^2e_4e_2^2e_1e_3^2$.
+\end{enumerate}
+\end{example}
+
 \begin{definition}\label{def:standard-negative-path}
 A path $p=k_\lambda p_1^-\cdots p_h^-$ with
 \begin{equation*}
@@ -1805,6 +1815,16 @@ i = \min\{t:1\le t\le n, \beta_{t-1,1}=0\},
 where the index $j$ in $f_j$ and $\beta_{j,s}$ is taken modulo $n$.
 \end{definition}
 
+\begin{example}
+\begin{enumerate}[(i)]
+\item
+Suppose $n=3$ and $r=2$. The following paths are standard negative paths: $k_{011}f_1f_2f_3f_1f_2f_3$, $k_{020}f_1^2f_3^2f_2^2f_1f_3$, $k_{011}f_1f_2f_1f_3f_2f_1f_3f_2$.
+
+\item
+Suppose $n=4$ and $r=3$. The following paths are standard negative paths: $k_{0003}f_3^3f_2^3f_1^2f_3^2f_2f_1$, $k_{0111}f_1f_2f_3f_4f_2$, $k_{0111}f_1f_2f_3f_4f_1f_2f_3$.
+\end{enumerate}
+\end{example}
+
 \begin{definition}\label{def:standard-paths}
 A path $p=k_\lambda p^{+}k_\mu p^{-}$ is a \emph{standard path} if $k_\lambda p^{+}$ is a standard positive path, $k_\mu p^{-}$ is a standard negative path and the exponents satisfy the conditions
 \begin{equation*}
@@ -1821,6 +1841,19 @@ If $p$ is a standard path with $p=p'p''$ for some paths $p'$ and $p''$, then $p'
 Suppose $p$ is a standard path. The exponent of $e_j$ in $p_s^+$ is $\alpha_{j-s+1,s}$ and $\alpha_{j,s}$ is the exponent of $e_{j+s-1}$ in $p_s^+$. Then exponent of $f_j$ in $p_s^-$ is $\beta_{j+s-1,s}$ and $\beta_{j,s}$ is the exponent of $f_{j-s+1}$ in $p_s^-$.
 \end{remark}
 
+\begin{example}
+\begin{enumerate}[(i)]
+\item
+Suppose $n=3$ and $r=2$. The path $k_{101}e_1e_2f_2f_1$ is a standard path.
+
+\item
+Suppose $n=4$ and $r=3$. The path $k_{1101}e_2e_1e_3e_2f_3f_2f_1$ is a standard path.
+\end{enumerate}
+
+\item
+Suppose $n=4$ and $r=6$. The path $k_{2103}e_2e_1^2e_3e_2^2e_3f_3^3f_2^3f_1^2$ is a standard path.
+\end{example}
+
 \begin{definition}\label{def:std-path-for-matrix}
 Let $A\in\matrices$. The \emph{standard path for $A$} is the standard path $p_A=k_\lambda p^+ p^-$, where $\lambda=\ro{A}$, $p^+$ is the standard positive path given by
 \begin{equation*}
@@ -1832,6 +1865,10 @@ and $p^-$ is the standard negative path given by
 \end{equation*}
 for $i\in\modn$ and $s\geq 1$, respectively.
 \end{definition}
+
+\begin{example}
+The path $k_{2103}e_2e_1^2e_3e_2^2e_3f_3^3f_2^3f_1^2$ from the previous example is the standard path for the matrix $\elem{1}{3}+\elem{1}{4}+\elem{2}{4}+\elem{4}{2}+2\elem{4}{1}$.
+\end{example}
 
 \begin{lemma}\label{lemma:correspondence-std-paths-to-basis}
 If $p$ is a standard path then there is a unique element $A\in\matrices$ such that $p=p_A$. Thus there is a bijection between the set of standard paths in $\Gamma$ and $\matrices$.
