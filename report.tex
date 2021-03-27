@@ -734,17 +734,21 @@ To deduce the second formula observe that $(L',L)\in\orbit{A^\transpose}$, by Le
 \end{align*}
 \end{proof}
 
-The following is a construction of a pair of flags corresponding to a matrix $A\in\matrices$. Recall that $V$ is the free $\laurent$-module $\laurent^r$ and let $V_\field$ be the underlying vector space together with the linear operator $\epsilon\colon V_\field\to V_\field$.
+The following is a construction of a pair of flags corresponding to a matrix $A\in\matrices$. Recall that $V$ is the free $\laurent$-module $\laurent^r$ and let $V_\field$ denote the underlying vector space together with the linear operator $\epsilon\colon V_\field\to V_\field$.
 
 Fix an $r$-dimensional subspace $U$ of $V_\field$ such that
 \begin{equation*}
 \laurent\otimes_{\field}U = V_\field
 \end{equation*}
-and write
+and fix a direct sum decomposition
 \begin{equation*}
 U = \bigoplus_{i\in\{1,\ldots,n\},j\in\integers} M_{i,j},
 \end{equation*}
-given subspaces $M_{i,j}$ of dimension $a_{i,j}$. Then as vector spaces
+such that
+\begin{equation*}
+\dim\left(M_{i,j}\right) = a_{i,j}
+\end{equation*}
+for all $i\in\{1,\ldots,n\}$ and $j\in\integers$. Then, as a vector space
 \begin{equation*}
 V_\field = \bigoplus_{i\in\{1,\ldots,n\},j\in\integers}\bigoplus_{h\in\integers} \epsilon^hM_{i,j}.
 \end{equation*}
@@ -782,27 +786,27 @@ Mapping a pair of flags $(L,L')$ to the characteristic matrix $\type{L}{L'}$ ind
 The construction of a pair of flags corresponding to a matrix preceding this lemma shows that this map is surjective.
 
 Suppose $(L,L')$ and $(N,N')$ are pairs of flags with $\type{L}{L'}=\type{N}{N'}=A$. There are decompositions of $V$ which are adapted to $(L,L')$ and $(N,N')$ as below:
-There are subspaces $U_{i,j}$ of $V$ for $i,j\in\integers$ such that the dimension of $U_{i,j}$ is $a_{i,j}$, $\epsilon U_{i,j}=U_{i-n,j-n}$ and
+There are subspaces $U_{i,j}$ of $V$ for $i,j\in\integers$ such that the dimension of $U_{i,j}$ is $a_{i,j}$, $\epsilon U_{i,j}=U_{i-n,j-n}$,
 \begin{equation*}
-V=\bigoplus_{i,j\in\integers} U_{i,j};
+V=\bigoplus_{i,j\in\integers} U_{i,j},
 \end{equation*}
 \begin{equation*}
 L_i = \bigoplus_{s\le i,j\in\integers} U_{s,j}
 \end{equation*}
-for each $i\in\integers$;
+for each $i\in\integers$ and
 \begin{equation*}
 L_j' = \bigoplus_{i\in\integers,t\le j} U_{i,t}
 \end{equation*}
 for each $j\in\integers$.
 
-There are subspaces $V_{i,j}$ of $V$ for each $i,j\in\integers$ such that the dimension of $V_{i,j}$ is $a_{i,j}$, $\epsilon V_{i,j} = V_{i-n,j-n}$ and
+There are subspaces $V_{i,j}$ of $V$ for each $i,j\in\integers$ such that the dimension of $V_{i,j}$ is $a_{i,j}$, $\epsilon V_{i,j} = V_{i-n,j-n}$,
 \begin{equation*}
-V = \bigoplus_{i,j\in\integers} V_{i,j};
+V = \bigoplus_{i,j\in\integers} V_{i,j},
 \end{equation*}
 \begin{equation*}
 N_i = \bigoplus_{s\le i,j\in\integers} V_{s,j}
 \end{equation*}
-for each $i\in\integers$;
+for each $i\in\integers$ and
 \begin{equation*}
 N_j' = \bigoplus_{i\in\integers,t\le j} V_{i,t}
 \end{equation*}
@@ -1041,19 +1045,19 @@ for $i\in\integers_n$ and $\lambda\in\compositions$.
 
 \subsection{Transpose involution}
 
-%S = \antipode{}
-Let $S$ be the $\integers[q]$-module automorphism of $\qschur$ defined by
+%\mathfrak{S} = \antipode{}
+The transpose of an infinite periodic matrix $A\in\matrices$ is denoted by $A^\transpose$ and the $(i,j)$ entry of $A^\transpose$ is the $(j,i)$ entry of $A$, for each $i,j\in\integers$. Let $\mathfrak{S}$ be the $\integers[q]$-module automorphism of $\qschur$ defined by
 \begin{equation*}
 \antipode{e_A} = e_{A^\transpose},
 \end{equation*}
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:transpose-involution}
-The map $S$ is an idempotent $\integers[q]$-algebra anti-automorphism of $\qschur$. In particular,
+The map $\mathfrak{S}$ is an idempotent $\integers[q]$-algebra anti-automorphism of $\qschur$. In particular,
 \begin{equation*}
-\antipode{e_Ae_B}=\antipode{e_A}\antipode{e_B}
+\antipode{e_Ae_B}=\antipode{e_B}\antipode{e_A}
 \end{equation*}
-for all $A,B\in\matrices$ and $S\circ S$ is the identity morphism on $\qschur$. Moreover,
+for all $A,B\in\matrices$ and $\mathfrak{S}\circ \mathfrak{S}$ is the identity morphism on $\qschur$. Moreover,
 \begin{align*}
 \antipode{E_i} &= F_i\\
 \antipode{F_i} &= E_i\\
@@ -1063,7 +1067,7 @@ for $i\in\modn$ and $\lambda\in\compositions$.
 \end{lemma}
 
 \begin{proof}
-Let $A,B\in\matrices$ and $(L,L'')\in\xprod{A,B}$. The set of flags $L'\in\flags$ such that $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$ consists precisely of those flags $L'$ such that $(L'',L')\in\orbit{B^\transpose}$ and $(L',L)\in\orbit{B^\transpose}$ so it follows that
+Let $A,B\in\matrices$ and $(L,L'')\in\xprod{A,B}$. The set of flags $L'\in\flags$ such that $(L,L')\in\orbit{A}$ and $(L',L'')\in\orbit{B}$ consists precisely of those flags $L'$ such that $(L'',L')\in\orbit{B^\transpose}$ and $(L',L)\in\orbit{A^\transpose}$ so it follows that
 \begin{equation*}
 g_{A,B,C} = g_{B^\transpose, A^\transpose, C^\transpose}
 \end{equation*}
@@ -1075,7 +1079,7 @@ for all $C\in\matrices$. Therefore
 &= \sum_{D\in\matrices} g_{B^\transpose,A^\transpose,D}e_D\\
 &= \antipode{e_B}\antipode{e_A},
 \end{align*}
-so $S$ is an anti-automorphism of $\qschur$. The composition $S\circ S$ is the identity morphism on $\qschur$ since
+so $\mathfrak{S}$ is an anti-automorphism of $\qschur$. The composition $\mathfrak{S}\circ \mathfrak{S}$ is the identity morphism on $\qschur$ since
 \begin{align*}
 \antipode{\antipode{e_C}}
 &= \antipode{e_{C^\transpose}}\\
@@ -1102,7 +1106,7 @@ Finally,
 \begin{equation*}
 \antipode{F_{i,\lambda}} = E_{i,\lambda -\alpha_i}
 \end{equation*}
-for $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_i>0$, since $S\circ S$ is the identity map.
+for $i\in\modn$ and $\lambda\in\compositions$ with $\lambda_i>0$, since $\mathfrak{S}\circ \mathfrak{S}$ is the identity map.
 \end{proof}
 
 
@@ -1357,7 +1361,7 @@ for each $i,j\in\integers$.
 
 \subsection{Shifting}
 
-In this subsection it is shown that the operations on $\matrices$ given by shifting up by one row or to the right by one column may be described by the action on the left or right respectively of an invertible element $R$ of $\qschur$.
+In this subsection it is shown that there is an invertible element $R\in\qschur$ such that acting on a basis element on the left by $R$ corresponds to shifting all entries of the matrix up by one row and acting on the right by $R$ corresponds to shifting all entries to the right by one column. In particular, acting on the left or right of a basis element by $R$ repeatedly produces an upper triangular matrix.
 
 For each $A\in\matrices$ and $m\in\integers$, the row shift of $A$ by $m$ is the element $[m]A$ of $\matrices$ given by
 \begin{equation*}
@@ -1477,6 +1481,21 @@ and
 \end{proof}
 
 Visually, acting on a basis element $e_A$ on the left by $R^{-1}$ corresponds to moving the matrix $A$ down by one row, while acting on the right by $R$ corresponds to moving the matrix to the right by one column, so composing these operations is seen as a shift along the diagonal by one position.
+
+\begin{example}
+Suppose $n=3$ and $r=2$. Then
+\begin{equation*}
+Re_{\elem{2}{1}+\elem{3}{2}} = e_{\elem{1}{1}+\elem{2}{2}}
+\end{equation*}
+and
+\begin{equation*}
+e_{\elem{2}{1}+\elem{3}{2}}R = e_{\elem{2}{2}+\elem{3}{3}}.
+\end{equation*}
+Consequently,
+\begin{equation*}
+Re_{\elem{2}{2}+\elem{3}{3}}R^{-1} = e_{\elem{1}{1}+\elem{2}{2}}.
+\end{equation*}
+\end{example}
 
 Let $\tau$ be the $\integers[q]$-algebra automorphism of $\qschur$ defined by
 \begin{equation*}
@@ -2232,7 +2251,7 @@ qF_2^3 F_1 -\qint{3}F_2^2 F_1 F_2 +\qint{3}F_2 F_1 F_2^2 -qF_1 F_2^3 &= 0.
 \end{lemma}
 
 \begin{proof}
-It suffices to prove the first of these relations holds, since the second relation is obtained by applying the shifting automorphism of $\qschur$ given by conjugation by $R$, which sends $E_1$ to $E_2$ and $E_2$ to $E_1$, and then the last two relations are obtained by applying the transpose anti-automorphism $S$ on $\qschur$, which sends $E_i$ to $F_i$ (for $i=1,2$) and reverses the order of multplication.
+It suffices to prove the first of these relations holds, since the second relation is obtained by applying the shifting automorphism of $\qschur$ given by conjugation by $R$, which sends $E_1$ to $E_2$ and $E_2$ to $E_1$, and then the last two relations are obtained by applying the transpose anti-automorphism $\mathfrak{S}$ on $\qschur$, which sends $E_i$ to $F_i$ (for $i=1,2$) and reverses the order of multplication.
 
 Next, the first relation will be established by an explicit computation using the fundamental multiplication rules \ref{corollary:fundamental-right-multiplication-rules}.
 
@@ -2835,7 +2854,7 @@ for each $i,j\in\integers$, for any $L'\in\xprod[L]{B}$. So $B\le A$ if $\xprod[
 In practice it seems that the converse of Proposition \ref{proposition:compare-partial-orders} is true, so that the closure order and the hook order are the same, although I have not been able to find a proof.
 \end{remark}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:generic-is-max}
 Suppose $A,B\in\matrices$ with $\co{A}=\ro{B}$. Then
 \begin{equation*}
 A\ast B = \max\{C\in\matrices: g_{A,B,C}\neq 0\}.
@@ -3191,8 +3210,9 @@ A+\elem{i}{j}-\elem{i+1}{j} < A+\elem{i}{p}-\elem{i+1}{p}
 \end{equation*}
 when $j<p$, using Lemma \ref{lemma:numerical-degeneration}. Therefore
 \begin{equation*}
-E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}}.
+E_i\ast e_A = e_{A+\elem{i}{p}-\elem{i+1}{p}},
 \end{equation*}
+using Corollary \ref{corollary:generic-is-max}.
 
 Similarly, the corresponding product in $\qschur$ for $F_i$ is
 \begin{equation*}
@@ -3210,22 +3230,23 @@ A+\elem{i+1}{j}-\elem{i}{j} < A+\elem{i+1}{p}-\elem{i}{p}
 \end{equation*}
 for $j>p$, using Lemma \ref{lemma:numerical-degeneration}. Therefore
 \begin{equation*}
-F_i\ast e_A = e_{A+\elem{i+1}{p}-\elem{i}{p}}
+F_i\ast e_A = e_{A+\elem{i+1}{p}-\elem{i}{p}},
 \end{equation*}
+using Corollary \ref{corollary:generic-is-max}.
 \end{proof}
 
-Let $S$ be the $\integers$-module automorphism of $\generic$ defined by
+Let $\mathfrak{S}$ be the $\integers$-module automorphism of $\generic$ defined by
 \begin{equation*}
 \antipode{e_A}=e_{A^\transpose}
 \end{equation*}
 for each $A\in\matrices$.
 
 \begin{lemma}\label{lemma:transpose-involution-generic}
-The map $S$ is an idempotent $\integers$-algebra anti-automorphism of $\generic$. In particular,
+The map $\mathfrak{S}$ is an idempotent $\integers$-algebra anti-automorphism of $\generic$. In particular,
 \begin{equation*}
 \antipode{e_A\ast e_B} = \antipode{e_B}\ast \antipode{e_A}
 \end{equation*}
-for each $A,B\in\matrices$ and $S\circ S$ is the identity morphism on $\generic$. Moreover,
+for each $A,B\in\matrices$ and $\mathfrak{S}\circ \mathfrak{S}$ is the identity morphism on $\generic$. Moreover,
 \begin{align*}
 \antipode{E_i} &= F_i\\
 \antipode{F_i} &= E_i\\
@@ -3241,16 +3262,17 @@ Using Lemma \ref{lemma:transpose-involution}, the transpose defines a bijection
 \end{equation*}
 which preserves the hook order on $\matrices$, by Lemma \ref{lemma:numerical-degeneration}. Observe that $\co{B^\transpose}=\ro{B}$ and $\ro{A^\transpose}=\co{A}$, so that $\antipode{e_A\ast e_B}$ and $\antipode{e_B}\ast\antipode{e_A}$ are both zero precisely when $\co{A}\neq\ro{B}$. If $\co{A}=\ro{B}$, these sets are nonempty and the maximum elements are related by the transpose, so
 \begin{equation*}
-(A\ast B)^\transpose = B^\transpose \ast A^\transpose.
+(A\ast B)^\transpose = B^\transpose \ast A^\transpose,
 \end{equation*}
+by Corollary \ref{corollary:generic-is-max}.
 
 Therefore
 \begin{equation*}
-\antipode{e_A\ast e_B} = \antipode{e_B}\antipode{e_A}
+\antipode{e_A\ast e_B} = \antipode{e_B}\ast\antipode{e_A}
 \end{equation*}
-for all $A,B\in\matrices$, so $S$ is a $\integers$-algebra anti-automorphism of $\generic$.
+for all $A,B\in\matrices$, so $\mathfrak{S}$ is a $\integers$-algebra anti-automorphism of $\generic$.
 
-The composition $S\circ S$ maps $e_A$ to $\antipode{e_{A^\transpose}}$, so $S\circ S$ is the identity morphism on $\generic$.
+The composition $\mathfrak{S}\circ \mathfrak{S}$ maps $e_A$ to $\antipode{e_{A^\transpose}}$, so $\mathfrak{S}\circ \mathfrak{S}$ is the identity morphism on $\generic$.
 
 As in Lemma \ref{lemma:transpose-involution},
 \begin{align*}
@@ -3286,7 +3308,7 @@ p'=\max\{i\in\integers:a_{i,j+1}>0\}.
 \begin{proof}
 This follows immediately on applying the transpose involution to the formulas for the action of $E_i$ and $F_i$ on the left given in Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
 
-Equally, this result can be proven directly using the formulas for the action of $E_i$ and $F_i$ on the right in Lemma \ref{corollary:fundamental-right-multiplication-rules}, as in the proof of Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
+Equally, this result can be proven directly using the formulas for the action of $E_i$ and $F_i$ on the right in Lemma \ref{corollary:fundamental-right-multiplication-rules} and Corollary \ref{corollary:generic-is-max}, as in the proof of Lemma \ref{lemma:fundamental-multiplication-rule-generic}.
 \end{proof}
 
 For each $\lambda\in\compositions$, define
@@ -4313,11 +4335,11 @@ Fix $A\in\matrices$ and let $p$ be the standard path for $A$ as in Definition \r
 \begin{equation*}
 \rho(p+\zerorelations)=e_A,
 \end{equation*}
-using Lemma \ref{lemma:image-of-standard-path-generic}. Then
+using Lemma \ref{lemma:image-of-standard-path-generic}. Using Proposition \ref{proposition:image-of-standard-path} and Corollary \ref{corollary:generic-is-max},
 \begin{align*}
 \Psi(e_A)
 &= \phi_0(p+\zerorelations)\\
-&= \sum_{B\in\matrices:B\le A} g_B(0) e_B,
+&= \sum_{B\in\matrices:B\le A} g_B(0) e_B
 \end{align*}
 for some $g_B\in\integers[q]$, where
 \begin{align*}
@@ -4325,7 +4347,7 @@ g_A(0)
 &= \left(\prod_{i\in\{1,\ldots,n\},s\geq 1} \qfact{\alpha_{i,s}}\qfact{\beta_{i,s}}\right)_{q=0}\\
 &= 1,
 \end{align*}
-by Proposition \ref{proposition:image-of-standard-path}, so
+so
 \begin{equation*}
 \Psi(e_A) = e_A +\sum_{B:B<A} g_B(0)e_B.
 \end{equation*}
