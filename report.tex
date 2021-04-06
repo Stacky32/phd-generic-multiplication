@@ -50,7 +50,7 @@ Thank you to my tutees for giving me an audience and for the most part seeming i
 
 For moral support and advice, I am grateful to Karsten Matthies, Gunnar Traustason, Peter Mörters and Alastair Craw.
 
-Thank you to my supervisor Dr Xiuping Su for introducing me to the project and for many helpful discussions. To my second supervisor Professor Alastair King, thank you for our discussions on algebraic geometry which helped get me through a difficult part of the project.  
+Thank you to my supervisor Dr Xiuping Su for introducing me to the project and for many helpful discussions. To my second supervisor Professor Alastair King, thank you for our discussions on algebraic geometry which helped get me through a difficult part of the project.
 
 Thank you to my parents Jane and David, my sister Jessica and the family cats Midnight, Marmite, Misty, Loki and Dora for their unconditional love and support and for believing in me when I did not. My long time friend Omar, thank you for being there in times of stress.
 
@@ -102,11 +102,11 @@ g_{A,B,C}(\#\field) = \#\left\{ f'\in\flags: (f,f')\in\orbit{A}, (f',f'')\in\orb
 \end{equation*}
 for any finite field $\field$ and $(f,f'')\in\orbit{C}$.
 
-The affine $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng, Yang, Jensen, Su and others. Su \cite{su10} defined a generic multiplication in the positive and negative subalgebras of $q$-Schur algebras in terms of generic extensions of quiver representations. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su15} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen, Su and Yang \cite{su16} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them. Jensen, Su and Yang \cite{su20} studied degenerate $0$-Schur algebras using an extended version of the geometric realisation of $0$-Schur algebras and gave a construction of nil-Temperley-Lieb algebras using double flag varieties.
+The $0$-Schur algebra $S_0(n,r)$ is the associative $\integers$-algebra obtained by specialising $S_q(n,r)$ at $q=0$. These algebras have been studied by Donkin, Deng, Yang, Jensen, Su and others. Su \cite{su10} defined a generic multiplication in the positive and negative subalgebras of $q$-Schur algebras in terms of generic extensions of quiver representations. Presentations of $S_0(n,r)$ have been given independently by Deng and Yang \cite{deng12} and by Jensen and Su \cite{su15} and in the latter work $S_0(n,r)$ is presented by a quiver with relations and gives a new realisation of $0$-Schur algebras in terms of the generic multiplication of orbits in $\dblflags$, which gives a multiplicative basis in $S_0(n,r)$. Using this realisation Jensen, Su and Yang \cite{su16} studied the structure of $0$-Schur algebras, including classifying the indecomposable projective modules and giving bases for the spaces of homomorphisms between them. Jensen, Su and Yang \cite{su20} studied degenerate $0$-Schur algebras using an extended version of the geometric realisation of $0$-Schur algebras and gave a construction of nil-Temperley-Lieb algebras using double flag varieties.
 
-The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su15} to the affine case using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras, so we now recall some of the main results from the finite case.
+The work of this thesis can be seen as a generalisation of the geometric realisation of $0$-Schur algebras \cite{su15} to the affine case, using Lusztig's double affine flag variety realisation of affine $q$-Schur algebras. We now recall some of the main results from the finite case.
 
-Assume $\field$ is an algebraically closed field so that $\flags$ is a projective algebraic variety equipped with the algebraic group action of $\GL{}{V}$. Define morphisms
+Assume $\field$ is an algebraically closed field, so that $\flags$ is a projective algebraic variety equipped with the algebraic group action of $\GL{}{V}$. Define morphisms
 \begin{align*}
 \pi\colon\flags^3 &\to\flags\times\flags\\
 \delta\colon\flags^3 &\to\flags^4
@@ -118,7 +118,7 @@ e_A\ast e_B = \begin{cases}
 e_{A\ast B} &:\text { if } e_Ae_B\neq 0,
 \end{cases}
 \end{equation*}
-where $\orbit{A\ast B}$ is the unique open orbit in $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$ and Proposition 6.3 \cite{su15} proves that $G(n,r)$ is an associative $\integers$-algebra.
+where $\orbit{A\ast B}$ is the unique open orbit in $\pi(\delta^{-1}(\orbit{A}\times\orbit{B}))$. Proposition 6.3 \cite{su15} proves that $G(n,r)$ is an associative $\integers$-algebra.
 
 Let $\compositions$ be the set of compositions of $r$ into $n$ parts. Let $\epsilon_i\in\integers^n$ denote the $i$-th coordinate vector and write $\alpha_i=\epsilon_i - \epsilon_{i+1}$ for the $i$-th simple root. Let $\Sigma=\Sigma(n,r)$ be the quiver with set of vertices $\compositions$ and with arrows
 \begin{align*}
@@ -188,7 +188,7 @@ given by
 for $i\in\{1,\ldots,n-1\}$ and $\lambda\in\compositions$.
 \end{theorem*}
 
-Thus $S_0(n,r)$ is presented by the bound quiver algebra $\integers\Sigma/{I_0}$ and the image of the standard basis under $\psi$ is a multiplicative basis in $S_0(n,r)$. This result also leads to a presentation of $q$-Schur algebras over the ring $\qfrac\subset\rationals(q)$ which is the localisation of $\integers[q]$ at $1+q\integers[q]$.
+Thus $S_0(n,r)$ is presented by the bound quiver algebra $\integers\Sigma/{I_0}$ and the image of the standard basis of $G(n,r)$ under $\psi$ is a multiplicative basis in $S_0(n,r)$. This result also leads to a presentation of $q$-Schur algebras over the ring $\qfrac\subset\rationals(q)$, which is the localisation of $\integers[q]$ at $1+q\integers[q]$.
 
 \begin{theorem*}\cite{su15}[Theorem 5.6]
 The $\qfrac$-algebra homomorphism
@@ -201,7 +201,7 @@ is an isomorphism.
 
 \section{The cyclic flags approach to affine q-Schur algebras}
 
-Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and were defined by Green \cite{green99} as the endomorphism algebra of a certain module over the affine Hecke algebra $\hecke$. The approach used in this thesis is based on a construction of quantum affine $\mathfrak{gl}_n$ using double affine flag varieties due to Lusztig \cite{lusztig99} and Ginzburg and Vasserot \cite{ginzburg93}, which is an extension of a similar construction of quantum $\mathfrak{gl}_n$ given by Beilinson, Lusztig and MacPherson in \cite{blm90}. Varagnolo and Vasserot proved \cite{varagnolo99}[Proposition 7.4] that the convolution algebras on affine double flag varieties described by Ginzburg and Vasserot are naturally isomorphic to the affine $q$-Schur algebras defined by Green \cite{green99}.
+Affine $q$-Schur algebras arise from an affine analogue of quantum Schur-Weyl duality and were defined by Green \cite{green99} as the endomorphism algebra of a certain module over the affine Hecke algebra $\hecke$. The approach used in this thesis is based on a construction of quantum affine $\mathfrak{gl}_n$ using double affine flag varieties, due to Lusztig \cite{lusztig99} and Ginzburg and Vasserot \cite{ginzburg93}, which is an extension of a similar construction of quantum $\mathfrak{gl}_n$ given by Beilinson, Lusztig and MacPherson in \cite{blm90}. Varagnolo and Vasserot proved \cite{varagnolo99}[Proposition 7.4] that the convolution algebras on affine double flag varieties described by Ginzburg and Vasserot are naturally isomorphic to the affine $q$-Schur algebras defined by Green \cite{green99}.
 
 For more on the two realisations of affine $q$-Schur algebras, refer to the book \cite{deng12book} by Deng, Du and Fu, and work by Doty and Green \cite{doty07} or by Du and Fu \cite{du15}. We now describe the double affine flag variety construction of affine $q$-Schur algebras.
 
@@ -238,7 +238,7 @@ There is a set of orthogonal idempotents $\{1_\lambda:\lambda\in\compositions\}$
 \begin{equation*}
 1=\sum_{\lambda\in\compositions} 1_\lambda,
 \end{equation*}
-where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column vector equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\modn$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ with all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero.
+where $1_\lambda$ is the basis element corresponding to the diagonal matrix with column vector equal to $\lambda$. There are distinguished elements $E_i$ and $F_i$ for $i\in\modn$, where $E_i$ is the sum of those basis elements $e_A$ such that $a_{j,j+1}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero, and $F_i$ is the sum of those $e_A$ such that $a_{j+1,j}=1$ when $j=i$ modulo $n$ and all other off-diagonal entries are zero.
 
 For an integer $m\geq 1$, the $q$-integer $\qint{m}$ is the polynomial
 \begin{equation*}
@@ -262,7 +262,7 @@ called the affine $0$-Schur algebra. The ultimate goal of the project is to stud
 
 The affine case is more technical both in terms of geometry and algebra. On the geometric side, the difficulty is that the affine flag variety $\flags$ is infinite dimensional, so we cover $\flags$ with a family of finite dimensional projective algebraic varieties which contain all the spaces of interest. On the algebraic side, the difficulty is due to the cyclic phenomenon. Unlike the finite case, the elements $E_i$, $F_i$ and $1_\lambda$ typically generate a proper subalgebra of $\generic$, which is spanned by the aperiodic basis elements. The problem of transforming paths to a standard form is significantly more difficult due to the existence of cycles in the quiver.
 
-\begin{lemma*}\ref{lemma:conjugation-by-R}
+\begin{lemma*}[\ref{lemma:conjugation-by-R}]
 There is an invertible element $R$ in $\qschur$ such that acting on a basis element $e_A$ on the left corresponds to shifting all entries up by one row and acting on the right by $R$ corresponds to shifting all entries of $A$ to the right by one column. Moreover, the $\integers[q]$-algebra homomorphism
 \begin{equation*}
 \tau\colon\qschur\to\qschur
@@ -339,7 +339,7 @@ and
 \end{equation*}
 together with the action of the stabiliser $G_L$. It is proven that the $G_L$-orbit $\xprod[L]{A}$ is an irreducible quasiprojective algebraic variety in Lemmas \ref{lemma:orbits-are-irreducible} and \ref{lemma:orbits-are-quasiprojective}. It is shown that $\yprod[L]{A,B}$ is an irreducible quasiprojective variety in Lemma \ref{lemma:y-prod-is-quasiprojective} and then $\xprod[L]{A,B}$ is irreducible and constructible, thus establishing existence and uniqueness of generic orbits.
 
-\begin{proposition*}\ref{prop:open-orbit-x-prod}
+\begin{proposition*}[\ref{prop:open-orbit-x-prod}]
 Given $A,B\in\matrices$ with $\co{A}=\ro{B}$, there is a unique element $A\ast B\in\matrices$ such that $\xprod[L]{A\ast B}$ is open in $\xprod[L]{A,B}$ for any $L\in\flags_{\ro{A}}$.
 \end{proposition*}
 
@@ -352,7 +352,7 @@ e_{A\ast B} &: \text{ if } \co{A}=\ro{B},\\
 \end{equation*}
 for $A,B\in\matrices$.
 
-\begin{theorem*}\ref{theorem:generic-algebra-associative}
+\begin{theorem*}[\ref{theorem:generic-algebra-associative}]
 The generic affine algebra $\generic$ is an associative $\integers$-algebra with multiplicative identity
 \begin{equation*}
 1=\sum_{\lambda\in\compositions} 1_\lambda,
@@ -377,9 +377,9 @@ f_{i,\lambda+\alpha_i}e_{i,\lambda} - k_\lambda &: \lambda_i=0, \lambda_{i+1}>0
 \end{align*}
 for $i,j\in\modn$ and $\lambda\in\compositions$.
 
-An element $A\in\matrices$ is said to be aperiodic if for every $s\neq 0$ there is $i\in\modn$ such that $a_{i,i+s}=0$.
+An element $A\in\matrices$ is said to be \emph{aperiodic} if for every $s\neq 0$ there is $i\in\modn$ such that $a_{i,i+s}=0$.
 
-\begin{proposition*}\ref{proposition:image-of-quiver-algebra-generic}
+\begin{proposition*}[\ref{proposition:image-of-quiver-algebra-generic}]
 There is a $\integers$-algebra homomorphism
 \begin{equation*}
 \rho\colon\integers\Gamma/{\zerorelations}\to\generic
@@ -397,7 +397,7 @@ The image of $\rho$ is spanned by the aperiodic basis elements. If $r<n$ then $\
 
 We conjecture that $\rho$ is an isomorphism of $\integers$-algebras when $r<n$.
 
-\begin{conjecture*}\ref{conjecture:presentation-generic-algebra}
+\begin{conjecture*}[\ref{conjecture:presentation-generic-algebra}]
 Assume $r<n$. The map
 \begin{equation*}
 \rho\colon\integers\Gamma/{\zerorelations}\to\generic
@@ -405,15 +405,21 @@ Assume $r<n$. The map
 is an isomorphism of $\integers$-algebras.
 \end{conjecture*}
 
-The remaining part of the conjecture to be proven is injectivity of $\rho$, which depends on a single technical result which we expect to prove in the future. The idea is to define a set of standard paths in $\Gamma$ which correspond bijectively to the basis elements $e_A$ and to show that each path in $\Gamma$ is equivalent to a unique standard path. See Definition \ref{def:standard-paths} for the definition of standard paths. Using an induction argument the problem is reduced to proving the following technical result.
+The remaining part of the conjecture to be proven is injectivity of $\rho$, which depends on a single technical result which we expect to prove in the future. The idea is to define a set of standard paths in $\Gamma$ which correspond bijectively to the basis elements $e_A$ and to show that each path in $\Gamma$ is equivalent to a unique standard path. See Definition \ref{def:standard-paths} for the definition of standard paths.
 
-\begin{conjecture*}\ref{conjecture:std-paths-span-quiver-algebra}
+\begin{conjecture*}[\ref{conjecture:std-paths-span-quiver-algebra}]
 Assume $r<n$. Every path in $\Gamma$ is congruent to a standard path modulo $\zerorelations$.
+\end{conjecture*}
+
+Using an induction argument the problem is reduced to proving the following technical result.
+
+\begin{conjecture*}[\ref{conjecture:extending-standard-paths}]
+Let $p$ be a standard path in $\Gamma$. If $q$ is a path in $Gamma$ with $q=pe_i$ or $q=pf_i$ for some $i\in\{1,\ldots,n\}$, then $q$ is congruent to a standard path modulo $\zerorelations$.
 \end{conjecture*}
 
 Once we have proven this technical result we will also have proven the following conjectures.
 
-\begin{conjecture*}\ref{conjecture:generic-to-zero-schur}
+\begin{conjecture*}[\ref{conjecture:generic-to-zero-schur}]
 Suppose $r<n$. There is an isomorphism of $\integers$-algebras
 \begin{equation*}
 \Psi\colon\generic\to\zeroschur
@@ -449,7 +455,7 @@ given by
 for $i\in\modn$ and $\lambda\in\compositions$.
 \end{conjecture*}
 
-We now describe the structure of the remainder of the thesis. Chapter \ref{chapter:lusztig-realisation} describes the double affine flag variety realisation of affine $q$-Schur algebras, due to Ginzburg and Vasserot \cite{ginzburg93}, Varagnolo and Vasserot \cite{varagnolo99} and Lusztig \cite{lusztig99}. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and establishes surjectivity of the morphism from the path algebra to $\qschur$ over an enlarged ground ring $\qfrac$. We also exhibit an idempotent anti-automorphism of $\qschur$ defined by the transpose and a unipotent automorphism of $\qschur$ of order $n$ which corresponds to a rotation of the quiver. Detailed proofs are given for some known results. Chapter \ref{chapter:generic-affine-algebra} defines the generic product of orbits in $\dblflags$ and proves associativity of this new product, leading to the definition of the affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and highlights some open questions and possible further directions.
+We now describe the structure of the remainder of the thesis. Chapter \ref{chapter:lusztig-realisation} describes the double affine flag variety realisation of affine $q$-Schur algebras, due to Ginzburg and Vasserot \cite{ginzburg93}, Varagnolo and Vasserot \cite{varagnolo99} and Lusztig \cite{lusztig99}. Chapter \ref{chapter:presenting-q-schur} gives a quiver and relations for the affine $q$-Schur algebra and establishes surjectivity of the morphism from the path algebra to $\qschur$ over an enlarged ground ring $\qfrac$. We also exhibit an idempotent anti-automorphism of $\qschur$ defined by the transpose and a unipotent automorphism of $\qschur$ of order $n$ which corresponds to a rotation of the quiver. Detailed proofs are given for some known results. Chapter \ref{chapter:generic-affine-algebra} defines the generic product of orbits in $\dblflags$ and proves associativity of this new product, leading to the definition of the generic affine algebra $\generic$. Chapter \ref{chapter:affine-0-schur} gives a quiver and relations for $\generic$ and investigates the link between the generic affine algebra $\generic$ and the affine $0$-Schur algebra $\zeroschur$. Chapter \ref{chapter:conclusion} concludes the thesis and highlights some open questions and possible further directions.
 
 
 \chapter{Geometric approach to affine q-Schur algebras}\label{chapter:lusztig-realisation}
@@ -720,7 +726,7 @@ For each $s,t\in\integers$ define a lattice
 M_{s,t} = L_i\cap L_j'+ L_{s-1} + L_s\cap L_t'.
 \end{equation*}
 
-Observe that $L_i\cap L_j'$ is a sublattice of each $M_{s,t}$ and when $s\le i$, $L_s$ is contained in $L_i$, so $M_{s,t}$ is a sublattice of $L_i$. The collection  of lattices ${(M_{s,t})}_{s\le i, t>j}$ are totally ordered by subset inclusion, as will be shown below, so give a chain of lattices each containing $L_i\cap L_j'$ and contained in $L_i$. This chain of lattices induces a filtration of $L_i/{L_i\cap L_j'}$ and it will be shown that the dimensions of the quotients are precisely $a_{s,t}$ for $s\le i$ and $t>j$.
+Observe that $L_i\cap L_j'$ is a sublattice of each $M_{s,t}$ and when $s\le i$, $L_s$ is contained in $L_i$, so $M_{s,t}$ is a sublattice of $L_i$. The collection of lattices ${(M_{s,t})}_{s\le i, t>j}$ are totally ordered by subset inclusion, as will be shown below, so give a chain of lattices each containing $L_i\cap L_j'$ and contained in $L_i$. This chain of lattices induces a filtration of $L_i/{L_i\cap L_j'}$ and it will be shown that the dimensions of the quotients are precisely $a_{s,t}$ for $s\le i$ and $t>j$.
 
 Let $s\le i$ and $t\geq j$.
 \begin{equation*}
@@ -1283,7 +1289,7 @@ a_{i,j} = \bar{d}_{i,j-1}{(A)} - \bar{d}_{i-1,j-1}{(A)} - \bar{d}_{i,j}{(A)} + \
 \begin{proof}
 As a result of Lemma \ref{lemma:differentials},
 \begin{align*}
-d_{i,j-1}{(A)} -d_{i-1,j-1}{(A)}  +d_{i,j}{(A)} -d_{i-1,j}{(A)}
+d_{i,j-1}{(A)} -d_{i-1,j-1}{(A)} +d_{i,j}{(A)} -d_{i-1,j}{(A)}
 &= \sum_{t>j-1} a_{i,t} - \sum_{t>j} a_{i,t}\\
 &= a_{i,j}
 \end{align*}
@@ -2514,34 +2520,42 @@ If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N
 \end{equation*}
 \end{proof}
 
-Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-(1+N)}L_0/{\epsilon^{N}L_0}$. Observe that $\epsilon^{2N+1}$ acts as zero on $W$ and
+Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^{N}L_0}$. Observe that $\epsilon^{2N+1}$ acts as zero on $W$ and
 \begin{equation*}
 \complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}\otimes_{\complex[\epsilon]}W
 \end{equation*}
 is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$, so the dimension of $W$ as a $\complex$-vector space is $(2N+1)r$.
 
-Each element $g\in G_L$ determines an endomorphism $\overline{g}$ of $W$, given by
+Each element $g\in G_L$ defines an endomorphism $\overline{g}$ of $W$, given by
 \begin{equation*}
 \overline{g}(x+\epsilon^N L_0) = g(x) + \epsilon^N L_0,
 \end{equation*}
-for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$, $\overline{gh}=\overline{g}\overline{h}$ and so $\overline{g}$ is an automorphism of $W$ and the inverse of $\overline{g}$ is $\overline{g^{-1}}$. Therefore the map $\bar{}\colon G_L\mapsto\GL{}{W}$ given by $g\mapsto \overline{g}$ is a group homomorphism with kernel
+for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$ and $x\in\epsilon^{-1-N}L_0$,
+\begin{align*}
+\overline{gh}(x+\epsilon^N L_0)
+&= g(h(x))+\epsilon^N L_0\\
+&= \overline{g}(h(x)+\epsilon^N L_0)\\
+&= (\overline{g}\circ\overline{h})(x+\epsilon^N L_0),
+\end{align*}
+so $\overline{g}$ is an automorphism of $W$ with inverse $\overline{g^{-1}}$. This defines a group homomorphism
 \begin{equation*}
-H_{N,L}\coloneqq \{g\in G_L:\overline{g}=1\},
+\bar{\cdot}\colon G_L\to \GL{}{W}: g\mapsto\overline{g}
 \end{equation*}
-which consists of those $g\in G_L$ such that
+with kernel
 \begin{equation*}
-g(x) - x\in \epsilon^N L_0
+H_{N,L}\coloneqq \{g\in G_L:g(x)\in x+\epsilon^NL_0 \text{ for all } x\in\epsilon^{-1-N}L_0\},
 \end{equation*}
-for each $x\in\epsilon^{-1-N}L_0$. Thus $G_L/{H_{N,L}}$ may be identified with a subgroup of $\GL{}{W}$.
+so that $G_L/{H_{N,L}}$ is isomorphic to a subgroup of $\GL{}{W}$.
+
 
 \begin{lemma}\label{lemma:connected-algebraic-group}
 $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
 
 \begin{proof}
-As a result of the first isomorphism theorem, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly by equations in the coordinate functions on $\GL{}{W}$, with respect to a fixed basis of $W$.
+As a result of the first isomorphism theorem for groups, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly by homogeneous polynomial equations in the coordinate functions on $\GL{}{W}$, with respect to a fixed basis of $W$.
 
-Let $\{\tilde{x}_1,\ldots,\tilde{x}_r\}$ be a basis of $L_n/{L_0}$ over $\complex$ which is adapted to the flag
+Let $\{\tilde{x}_1,\ldots,\tilde{x}_r\}$ be a basis of $L_n/{L_0}$ over $\complex$ adapted to the flag
 \begin{equation*}
 L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0},
 \end{equation*}
@@ -2549,20 +2563,19 @@ so that
 \begin{equation*}
 L_i/{L_0} = \left\langle \tilde{x}_1,\ldots,\tilde{x}_{\lambda_1+\cdots\lambda_i}\right\rangle
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$. Fix $x_1,\ldots,x_r\in L_n$ such that $\tilde{x}_i=x_i+L_0$ for each $i=1,\ldots,r$, then
+for each $i\in\{1,\ldots,n\}$. Choose $x_1,\ldots,x_r\in L_n$ with $\tilde{x}_i=x_i+L_0$ so that
 \begin{equation*}
-L_i = L_0 + \left\langle x_1,\ldots,x_{\lambda_1+\cdots +\lambda_i}\right\rangle
+L_i = L_0 + \left\langle x_1,\ldots,x_{\lambda_1+\cdots +\lambda_i}\right\rangle,
 \end{equation*}
-for $i=1,\ldots,r$.
+for each $i\in\{1,\ldots,r\}$.
 
-Then $W$ has a $\complex$-basis $\{y_j:1\le j\le (2N+1)r\}$ given by
+Then $W$ has a $\complex$-basis $\{y_j:1\le j\le (2N+1)r\}$, given by
 \begin{equation*}
 y_{i+cr} = \epsilon^{-c+N}x_i
 \end{equation*}
 for each $i\in\{1,\ldots,r\}$ and $c\in\{0,\ldots,2N\}$. Observe that $\epsilon y_i = 0$ for $i\in\{1,\ldots,r\}$ and $\epsilon y_i = y_{i-r}$ for $r<i\le (2N+1)r$.
 
-The coordinate functions on $\GL{}{W}$ with respect to this choice of basis are
-the maps
+The coordinate functions on $\GL{}{W}$ with respect to this basis are the maps
 \begin{equation*}
 \gamma_{i,j}\colon\GL{}{W}\to\complex
 \end{equation*}
@@ -2570,17 +2583,17 @@ for $i,j\in\integers$ with $1\le i,j\le (2N+1)r$, given by
 \begin{equation*}
 g(y_j) = \sum_i \gamma_{i,j}(g)y_i,
 \end{equation*}
-for each $j=1,\ldots,(2N+1)r$.
+for each $j\in\{1,\ldots,(2N+1)r\}$.
 
-The image of $G_L$ in $\GL{}{W}$ is the subgroup defined by the conditions
+The image of $G_L$ in $\GL{}{W}$ is the subgroup defined by the equations
 \begin{equation*}
 \gamma_{i,j} = \gamma_{i-r,j-r}
 \end{equation*}
-for each $i,j\in\{r+1,\ldots, (2N+1)r\}$ and
+for $i,j\in\{r+1,\ldots, (2N+1)r\}$ and
 \begin{equation*}
 \gamma_{i,j} = 0
 \end{equation*}
-for each $i,j\in\{1,\ldots,(2N+1)r\}$ with $i>\lambda_1+\cdots +\lambda_s$ and $j\le \lambda_1+\cdots +\lambda_s$ for some $s\in\{1,\ldots,r\}$. With respect to the basis $\{y_i:i\in\{1,\ldots,(2N+1)r\}\}$, the image of $G_L$ in $\GL{}{W}$ consists of matrices of the form
+for $i,j\in\{1,\ldots,(2N+1)r\}$ such that $i>\lambda_1+\cdots +\lambda_s$ and $j\le \lambda_1+\cdots +\lambda_s$ for some $s\in\{1,\ldots,r\}$. With respect to the basis $\{y_i:i\in\{1,\ldots,(2N+1)r\}\}$, the image of $G_L$ in $\GL{}{W}$ consists of matrices of the form
 \begin{equation*}
 \begin{pmatrix}
 A_0 & A_1 & A_2 & \cdots & A_{2N} \\
@@ -2590,11 +2603,12 @@ A_0 & A_1 & A_2 & \cdots & A_{2N} \\
 0 & 0 & 0 & \cdots & A_0
 \end{pmatrix}
 \end{equation*}
-where $A_0\in\mathcal{P}_\lambda$ and $A_1,\ldots,A_{2N}\in M_{r}(\complex)$, where $\mathcal{P}_\lambda$ is the parabolic subgroup of $\GL{r}{\complex}$ which is the stabiliser of the flag
+for $A_0\in\mathcal{P}_\lambda\subset\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in M_{r}(\complex)$, where $\mathcal{P}_\lambda$ is the stabiliser of the flag
 \begin{equation*}
 L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0}.
 \end{equation*}
-This shows that the image of $G_L$ in $\GL{}{W}$ is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
+
+The parabolic subgroup $\mathcal{P}_\lambda$ in $\GL{r}{\complex}$ is a connected algebraic group and $M_r(\complex)$ is an irreducible affine variety, so the image of $G_L$ in $\GL{}{W}$ is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{proof}
 
 \begin{lemma}\label{lemma:projective-varieties-of-cyclic-flags}
@@ -2602,7 +2616,7 @@ The set $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety for each $L\in\
 \end{lemma}
 
 \begin{proof}
-Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots, n$. The correspondence between $\complex[\epsilon]$-submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and $\complex[\epsilon]$-submodules of $\epsilon^{-1-N}L_0/{\epsilon^N L_0}$ defines an injective map
+Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots, n$. The correspondence between $\complex[\epsilon]$-submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and $\complex[\epsilon]$-submodules of $W$ defines an injective map
 \begin{equation*}
 \rho\colon\Pi_{N,\lambda}^a(L)\to\GR[d_1]{W}\times\cdots\times\GR[d_n]{W},
 \end{equation*}
@@ -2634,18 +2648,18 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 \end{lemma}
 
 \begin{proof}
-If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-(N+1)}L_0$ and
+If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-N-1}L_0$ and
 \begin{align*}
-\dim\left(\frac{\epsilon^{-(1+N)}L_0}{L_0'}\right)
-&=\dim\left(\frac{\epsilon^{-(1+N)}L_0}{\epsilon^{-N}L_0}\right) +\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
+\dim\left(\frac{\epsilon^{-1-N}L_0}{L_0'}\right)
+&=\dim\left(\frac{\epsilon^{-1-N}L_0}{\epsilon^{-N}L_0}\right) +\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &= \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
 &= r+a,
 \end{align*}
 which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
 \begin{equation*}
-\dim\left(\frac{\epsilon^{-(N+1)}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
+\dim\left(\frac{\epsilon^{-N-1}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
 \end{equation*}
-which shows $L'\in\Pi_{N,\lambda}^a(L)$. Therefore $\Pi_{N,\lambda}^a(L)$ is the subspace of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the  two closed conditions $\epsilon^N L_0\subset L_0'$ and $L_0'\subset\epsilon^{-N}L_0$, using Lemma \ref{lemma:grassmannian-incidence-lemmas}.
+which shows $L'\in\Pi_{N,\lambda}^a(L)$. Therefore $\Pi_{N,\lambda}^a(L)$ is the closed subset of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the conditions $\epsilon^N L_0\subset L_0'$ and $L_0'\subset\epsilon^{-N}L_0$, using Lemma \ref{lemma:grassmannian-incidence-lemmas}.
 \end{proof}
 
 \begin{lemma}
@@ -2879,14 +2893,17 @@ $\yprod[L]{A,B}$ is irreducible.
 Let $L'\in\xprod[L]{A}$. $G_L/{H_{2N,L}}$ is a connected algebraic group acting algebraically on $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$ by Lemma \ref{lemma:connected-algebraic-group}. $\xprod[L']{B}$ is an irreducible locally closed subset of $\Pi_{2N,\mu}^{a+b}(L)$, so $\{L'\}\times\xprod[L']{B}$ is an irreducible locally closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)$. $\yprod[L]{A,B}=G_L\cdot (\{L'\}\times\xprod[L']{B}) = G_L/{H_{2N,L}}\cdot (\{L'\}\times\xprod[L']{B})$, by Lemma \ref{lemma:yprod-as-a-saturation}, so it follows that $\yprod[L]{A,B}$ is irreducible.
 \end{proof}
 
-Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{2N,\mu}^{a+b}(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. Therefore $p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}$, since $p_2(\yprod[L]{A,B})=\xprod[L]{A,B}$.
+Let $p_2$ be the projection onto the second factor $\Pi_{N,\lambda}^a(L)\times\Pi_{2N,\mu}^{a+b}(L)\to\Pi_{2N,\mu}^{a+b}(L)$. $p_2$ is a closed morphism since $\Pi_{N,\lambda}^a(L)$ is a projective variety and therefore complete, by Lemma \ref{lemma:projective-varieties-of-cyclic-flags}. The image of $\yprod[L]{A,B}$ under the morphism $p_2$ is $\xprod[L]{A,B}$, so it follows that
+\begin{equation*}
+p_2(\overline{\yprod[L]{A,B}})=\overline{\xprod[L]{A,B}}.
+\end{equation*}
 
 \begin{lemma}\label{lemma:irreducible-x-prod}
 $\xprod[L]{A,B}$ is irreducible and constructible.
 \end{lemma}
 
 \begin{proof}
-Proposition \ref{prop:irreducible-y-prod} shows that $\yprod[L]{A,B}$ is irreducible and locally closed, so it follows $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B}=p_2(\yprod[L]{A,B})$.
+Proposition \ref{prop:irreducible-y-prod} shows that $\yprod[L]{A,B}$ is irreducible and locally closed. The image of an irreducible topological space under a continuous map is irreducible and, by Chevalley's Theorem on constructible sets, the image of a locally closed set under a morphism of varieties is constructible, so it follows that $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B}=p_2(\yprod[L]{A,B})$.
 \end{proof}
 
 \begin{proposition}\label{prop:open-orbit-x-prod}
@@ -3090,7 +3107,7 @@ Suppose $A,B,C\in\matrices$ with $\co{A}=\ro{B}$ and $\co{B}=\ro{C}$. Then $\xpr
 \end{lemma}
 
 \begin{proof}
-Lemma \ref{lemma:y-triple-is-quasiprojective} and Proposition \ref{proposition:irreducible-y-triple} show that $\yprod[L]{A,B,C}$ is locally closed and irreducible. It follows $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the morphism $p_3$.
+Lemma \ref{lemma:y-triple-is-quasiprojective} and Proposition \ref{proposition:irreducible-y-triple} show that $\yprod[L]{A,B,C}$ is locally closed and irreducible. The image of an irreducible topological space under a continuous map is irreducible and, by Chevalley's Theorem on constructible sets, the image of a locally closed set under a morphism of varieties is constructible. It follows that $\xprod[L]{A,B}$ is irreducible and constructible, since $\xprod[L]{A,B,C}$ is the image of $\yprod[L]{A,B,C}$ under the morphism $p_3$.
 \end{proof}
 
 \begin{lemma}\label{lemma:generic-triple-product}
@@ -3479,7 +3496,7 @@ for $i\in\modn$.
 \end{proof}
 
 
-\section{Multiplicative bases in affine zero Schur algebras: example}
+\section{The rank one case}
 
 Recall that the affine $0$-Schur algebra $\zeroschur$ is defined to be the associative $\integers$-algebra
 \begin{equation*}
