@@ -2151,25 +2151,26 @@ Thus we have a commuting diagram of $S$-modules with exact rows and columns:
 \node (M) at (2,0) {$0$};
 \node (N) at (3,0) {$\coker{\bar{m}}$};
 
-\cdarrow (C) edge node[above]{$1\otimes i$} (D);
-\cdarrow (D) edge (E);
-\cdarrow (E) edge (F);
+\path[->,font=\scriptsize,>=angle 90]
+(C) edge node[above]{$1\otimes i$} (D)
+(D) edge (E)
+(E) edge (F)
 
-\cdarrow (G) edge (H);
-\cdarrow (H) edge (I);
-\cdarrow (I) edge (J);
-\cdarrow (J) edge (K);
+(G) edge (H)
+(H) edge (I)
+(I) edge (J)
+(J) edge (K)
 
-\cdarrow (C) edge (H);
-\cdarrow (H) edge (L);
+(C) edge (H)
+(H) edge (L)
 
-\cdarrow (A) edge (D);
-\cdarrow (D) edge node[right]{$m$} (I);
-\cdarrow (I) edge (M);
+(A) edge (D)
+(D) edge node[right] {$m$} (I)
+(I) edge (M)
 
-\cdarrow (B) edge (E);
-\cdarrow (E) edge node[right]{$\bar{m}$} (J);
-\cdarrow (J) edge (N);
+(B) edge (E)
+(E) edge node[right] {$\bar{m}$} (J)
+(J) edge (N);
 
 \end{tikzpicture}
 \end{equation*}
@@ -2497,7 +2498,7 @@ $X_4$ is a quasiprojective variety since it is the complement of the closed subs
 
 \section{Geometry of affine flag varieties}
 
-Given $L\in\flags$, $N,a\in\naturals$ and $\lambda\in\compositions$ define
+Given $L\in\flags$, $\lambda\in\compositions$ and $N,a\in\naturals$ define
 \begin{equation*}
 \Pi_{N,\lambda}(L) = \{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0\}.
 \end{equation*}
@@ -2506,7 +2507,7 @@ and
 \Pi_{N,\lambda}^a(L) = \left\{L'\in\flags_\lambda: \epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0, \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) = a\right\}.
 \end{equation*}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:decomposition-of-Pi-N-lambda}
 Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
 \begin{equation*}
 \Pi_{N,\lambda}(L) = \bigcup_{a:0\le a\le 2Nr} \Pi_{N,\lambda}^a(L).
@@ -2514,6 +2515,8 @@ Given $L\in\flags$, $N\in\naturals$ and $\lambda\in\compositions$,
 \end{lemma}
 
 \begin{proof}
+Clearly, $\Pi_{N,\lambda}(L)$ is the union of the sets $\Pi_{N,\lambda}^a(L)$ for various $a\in\naturals$, so it remains to determine the possible values for $a$.
+
 If $L'\in\Pi_{N,\lambda}(L)$ then $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N} L_0$ and the $\complex[\epsilon]$-module $\epsilon^{-N} L_0/{L_0'}$ is naturally isomorphic to $(\epsilon^{-N}L_0/{\epsilon^N L_0})/{(L_0'/{\epsilon^N L_0})}$, so
 \begin{equation*}
 \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) \le \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right) = 2Nr.
@@ -2526,26 +2529,26 @@ Let $W$ be the $\complex[\epsilon]$-module $\epsilon^{-1-N}L_0/{\epsilon^{N}L_0}
 \end{equation*}
 is a free $\complex[\epsilon]/{\langle\epsilon^{2N+1}\rangle}$-module of rank $r$, so the dimension of $W$ as a $\complex$-vector space is $(2N+1)r$.
 
-Each element $g\in G_L$ defines an endomorphism $\overline{g}$ of $W$, given by
+Each element $g\in G_L$ defines a linear endomorphism $\kappa(g)$ of $W$, given by
 \begin{equation*}
-\overline{g}(x+\epsilon^N L_0) = g(x) + \epsilon^N L_0,
+\kappa(g)(x+\epsilon^N L_0) = g(x) + \epsilon^N L_0,
 \end{equation*}
 for each $x\in\epsilon^{-1-N}L_0$. Given $g,h\in G_L$ and $x\in\epsilon^{-1-N}L_0$,
 \begin{align*}
-\overline{gh}(x+\epsilon^N L_0)
+\kappa(gh)(x+\epsilon^N L_0)
 &= g(h(x))+\epsilon^N L_0\\
-&= \overline{g}(h(x)+\epsilon^N L_0)\\
-&= (\overline{g}\circ\overline{h})(x+\epsilon^N L_0),
+&= \kappa(g)(h(x)+\epsilon^N L_0)\\
+&= (\kappa(g)\circ\kappa(h))(x+\epsilon^N L_0),
 \end{align*}
-so $\overline{g}$ is an automorphism of $W$ with inverse $\overline{g^{-1}}$. This defines a group homomorphism
+so $\kappa(g)$ is a linear automorphism of $W$ with inverse $\kappa(g^{-1})$. This defines a group homomorphism
 \begin{equation*}
-\bar{\cdot}\colon G_L\to \GL{}{W}: g\mapsto\overline{g}
+\kappa\colon G_L\to \GL{}{W}: g\mapsto\kappa(g)
 \end{equation*}
 with kernel
 \begin{equation*}
 H_{N,L}\coloneqq \{g\in G_L:g(x)\in x+\epsilon^NL_0 \text{ for all } x\in\epsilon^{-1-N}L_0\},
 \end{equation*}
-so that $G_L/{H_{N,L}}$ is isomorphic to a subgroup of $\GL{}{W}$.
+so that $G_L/{H_{N,L}}$ is isomorphic to the subgroup $\IM{\kappa}$ of $\GL{}{W}$.
 
 
 \begin{lemma}\label{lemma:connected-algebraic-group}
@@ -2553,17 +2556,21 @@ $G_L/{H_{N,L}}$ is a connected algebraic group.
 \end{lemma}
 
 \begin{proof}
-As a result of the first isomorphism theorem for groups, $G_L/{H_{N,L}}$ is isomorphic to the image of $G_L$ in $\GL{}{W}$, which will be described explicitly by homogeneous polynomial equations in the coordinate functions on $\GL{}{W}$, with respect to a fixed basis of $W$.
+As a result of the first isomorphism theorem for groups, the induced map
+\begin{equation*}
+\bar{\kappa}\colon G_L/{H_{N,L}}\to\IM{\kappa}
+\end{equation*}
+is an isomorphism of groups, which is a homeomorphism with respect to the initial topology for $\bar{\kappa}$ on $G_L/H_{N,L}$. The image of $\bar{\kappa}$ will now be described explicitly by homogeneous polynomial equations in the coordinate functions on $\GL{}{W}$, with respect to a fixed basis of $W$.
 
-Let $\{\tilde{x}_1,\ldots,\tilde{x}_r\}$ be a basis of $L_n/{L_0}$ over $\complex$ adapted to the flag
+Let $\{\hat{x}_1,\ldots,\hat{x}_r\}$ be a basis of $L_n/{L_0}$ over $\complex$ adapted to the flag
 \begin{equation*}
 L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0},
 \end{equation*}
 so that
 \begin{equation*}
-L_i/{L_0} = \left\langle \tilde{x}_1,\ldots,\tilde{x}_{\lambda_1+\cdots\lambda_i}\right\rangle
+L_i/{L_0} = \left\langle \hat{x}_1,\ldots,\hat{x}_{\lambda_1+\cdots\lambda_i}\right\rangle
 \end{equation*}
-for each $i\in\{1,\ldots,n\}$. Choose $x_1,\ldots,x_r\in L_n$ with $\tilde{x}_i=x_i+L_0$ so that
+for each $i\in\{1,\ldots,n\}$. Choose $x_1,\ldots,x_r\in L_n$ with $\hat{x}_i=x_i+L_0$ so that
 \begin{equation*}
 L_i = L_0 + \left\langle x_1,\ldots,x_{\lambda_1+\cdots +\lambda_i}\right\rangle,
 \end{equation*}
@@ -2608,40 +2615,66 @@ for $A_0\in\mathcal{P}_\lambda\subset\GL{r}{\complex}$ and $A_1,\ldots,A_{2N}\in
 L_1/{L_0}\subset\cdots\subset L_{n-1}/{L_0}\subset L_n/{L_0}.
 \end{equation*}
 
-The parabolic subgroup $\mathcal{P}_\lambda$ in $\GL{r}{\complex}$ is a connected algebraic group and $M_r(\complex)$ is an irreducible affine variety, so the image of $G_L$ in $\GL{}{W}$ is a connected algebraic group and therefore $G_L/{H_{N,L}}$ is a connected algebraic group.
+The parabolic subgroup $\mathcal{P}_\lambda$ in $\GL{r}{\complex}$ is a connected algebraic group and $M_r(\complex)$ is an irreducible affine variety, so the product $\mathcal{P}_\lambda\times M_r(\complex)^{2N}$ is an irreducible affine variety. Therefore, the image of $\bar{\kappa}$ is a connected algebraic group and so $G_L/{H_{N,L}}$ is a connected algebraic group, with the algebraic variety structure induced by $\bar{\kappa}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:projective-varieties-of-cyclic-flags}
-The set $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety for each $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$
+The set $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety for each $L\in\flags$, $\lambda\in\compositions$ and $N,a\in\naturals$ with $0\le a\le 2Nr$.
 \end{lemma}
 
 \begin{proof}
-Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots, n$. The correspondence between $\complex[\epsilon]$-submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and $\complex[\epsilon]$-submodules of $W$ defines an injective map
+Let $d_i = 2Nr -a +\lambda_1 +\cdots +\lambda_i$ for each $i=1,\ldots, n$. For each $L'\in\Pi_{N,\lambda}^a(L)$,
 \begin{equation*}
-\rho\colon\Pi_{N,\lambda}^a(L)\to\GR[d_1]{W}\times\cdots\times\GR[d_n]{W},
+\epsilon^N L_0\subset L_0'\subset L_1'\subset\cdots\subset L_n'\subset \epsilon^{-1-N}L_0
 \end{equation*}
-with
+and for $i\in\{1,\ldots,n\}$,
+\begin{align*}
+\dim\left(\frac{L_i'}{\epsilon^N L_0}\right)
+&= \dim\left(\frac{L_0'}{\epsilon^N L_0}\right) + \dim\left(\frac{L_i'}{L_0'}\right)\\
+&= \dim\left(\frac{\epsilon^{-N}L_0}{\epsilon^N L_0}\right) - \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) + \dim\left(\frac{L_i'}{L_0'}\right)\\
+&= 2Nr - a + \sum_{j=1}^i \lambda_j\\
+&= d_i,
+\end{align*}
+so $L_i'/{\epsilon^N L_0}\in\GR[d_i]{W}$.
+
+The correspondence between $\complex[\epsilon]$-submodules of $\epsilon^{-1-N}L_0$ which contain $\epsilon^N L_0$ and $\complex[\epsilon]$-submodules of $W$ defines an injective map
+\begin{equation*}
+\rho\colon\Pi_{N,\lambda}^a(L)\to\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}
+\end{equation*}
+given by
 \begin{equation*}
 \rho(L')=(L_1'/{\epsilon^N L_0},\ldots,L_n'/{\epsilon^N L_0}).
 \end{equation*}
 
-Let $\mathcal{X}$ be the set of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these conditions is closed, so $\mathcal{X}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{X}$ is a projective algebraic variety.
+Let $\mathcal{X}$ be the set of $(U_1,\ldots, U_n)\in\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$ with $U_i\subset U_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon U_n\subset U_1$. Lemma \ref{lemma:grassmannian-incidence-lemmas} shows that each of these inclusion relations defines a closed subset of the product of Grassmanians, so $\mathcal{X}$ is a closed subset of $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$, therefore $\mathcal{X}$ is a projective algebraic variety.
 
 The image of $\rho$ is contained in $\mathcal{X}$ since
 \begin{equation*}
-\epsilon L_n'/{\epsilon^N L_0} = L_0'/{\epsilon^N L_0} \subset L_1'/{\epsilon^N L_0}\subset\cdots\subset L_n'/{\epsilon^N L_0}.
+\epsilon L_n'/{\epsilon^N L_0} = L_0'/{\epsilon^N L_0} \subset L_1'/{\epsilon^N L_0}\subset\cdots\subset L_n'/{\epsilon^N L_0},
+\end{equation*}
+for each $L'\in\Pi_{N,\lambda}^a(L)$.
+
+Suppose $(U_1,\ldots,U_n)\in\mathcal{X}$. Each $U_i$ is a $\complex[\epsilon]$-module, since
+\begin{equation*}
+\epsilon U_i\subset \epsilon U_n\subset U_1\subset U_i,
+\end{equation*}
+for each $i\in\{1,\ldots,n\}$, so $U_i$ lifts uniquely to a $\complex[\epsilon]$-module $L_i'$ with
+\begin{equation*}
+\epsilon^N L_0\subset L_i'\subset\epsilon^{-1-N}L_0.
 \end{equation*}
 
-Suppose $(U_1,\ldots,U_n)\in\mathcal{X}$. Then $U_i$ is a $\complex[\epsilon]$-module, since $\epsilon U_i\subset \epsilon U_n\subset U_1\subset U_i$, for each $i=1,\ldots,n$, so $U_i$ lifts uniquely to a $\complex[\epsilon]$-module $L_i'$ with $\epsilon^N L_0\subset L_i'\subset\epsilon^{-1-N}L_0$. Therefore $L_1',\ldots,L_n'$ are $\complex[\epsilon]$-lattices with $L_i\subset L_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon L_n'\subset L_1'$, with
+Then $L_1',\ldots,L_n'$ are $\complex[\epsilon]$-lattices such that $L_i\subset L_{i+1}$ for $i=1,\ldots,n-1$ and $\epsilon L_n'\subset L_1'$, with
 \begin{equation*}
 \dim\left(\epsilon^{-1-N}L_0/{L_n'}\right) = \dim\left(W/{U_n}\right) = (2N+1)r - d_n = a
 \end{equation*}
 and
 \begin{equation*}
-\dim\left(L_i'/{L_{i-1}'}\right) = \dim\left(U_i/{U_{i-1}}\right) = d_i - d_{i-1} = \lambda_i,
+\dim\left(L_{i+1}'/{L_i'}\right) = \dim\left(U_{i+1}/{U_i}\right) = d_{i+1} - d_i = \lambda_{i+1},
 \end{equation*}
-for each $i=2,\ldots,n$. Therefore there is a unique $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, where $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. It follows that $\IM{\rho}=\mathcal{X}$, which is a projective variety, so $\Pi_{N,\lambda}^a(L)$ is a projective variety.
+for each $i\in\{1,\ldots,n-1\}$. Therefore there is a unique $L'\in\Pi_{N,\lambda}^a(L)$ such that $\rho(L')=(W_1,\ldots, W_n)$, where $L'$ is given by $L_{i+cn}'=\epsilon^{-c}L_i'$ for $i=1,\ldots,n$ and $c\in\integers$. It follows that $\IM{\rho}=\mathcal{X}$, so $\Pi_{N,\lambda}^a(L)$ is a projective algebraic variety with the variety structure from $\mathcal{X}$ induced by $\rho$.
 \end{proof}
+
+The result of Lemma \ref{lemma:projective-varieties-of-cyclic-flags} shows that the decomposition of $\Pi_{N,\lambda}(L)$ in Lemma \ref{lemma:decomposition-of-Pi-N-lambda} is irredundant and that $\Pi_{N,\lambda}(L)$ is a disjoint union of projective algebraic varieties. The next two results, Lemma \ref{lemma:nesting-subvarieties} and Lemma \ref{lemma:consistent-topologies}, show that the induced topologies on the sets $\Pi_{N,\lambda}(L)$ are all consistent, so that the topology on a bounded subset of $\flags$ does not depend on the chosen covering.
 
 \begin{lemma}\label{lemma:nesting-subvarieties}
 Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\naturals$ with $0\le a\le 2Nr$, $\Pi_{N,\lambda}^a(L)$ is closed in $\Pi_{N+1,\lambda}^{a+r}(L)$.
@@ -2651,68 +2684,92 @@ Given $L\in\flags$, $N\in\naturals$, $\lambda\in\compositions$ and $a\in\natural
 If $L'\in\Pi_{N,\lambda}^{a}(L)$, then $\epsilon^{N+1}L_0\subset \epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0\subset\epsilon^{-N-1}L_0$ and
 \begin{align*}
 \dim\left(\frac{\epsilon^{-1-N}L_0}{L_0'}\right)
-&=\dim\left(\frac{\epsilon^{-1-N}L_0}{\epsilon^{-N}L_0}\right) +\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
-&= \dim\left(\frac{L_0}{\epsilon L_0}\right) + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)\\
-&= r+a,
+&= \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) + \dim\left(\frac{\epsilon^{-1-N}L_0}{\epsilon^{-N}L_0}\right)\\
+&= \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right) + \dim\left(\frac{L_0}{\epsilon L_0}\right)\\
+&= a+r,
 \end{align*}
 which shows that $\Pi_{N,\lambda}^a(L)\subset \Pi_{N+1,\lambda}^{a+r}(L)$. For $L'\in\Pi_{N+1,\lambda}^{a+r}(L)$, if additionally $\epsilon^N L_0\subset L_0'\subset\epsilon^{-N}L_0$, then
-\begin{equation*}
-\dim\left(\frac{\epsilon^{-N-1}L_0}{L_0'}\right) = r + \dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right),
-\end{equation*}
-which shows $L'\in\Pi_{N,\lambda}^a(L)$. Therefore $\Pi_{N,\lambda}^a(L)$ is the closed subset of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the conditions $\epsilon^N L_0\subset L_0'$ and $L_0'\subset\epsilon^{-N}L_0$, using Lemma \ref{lemma:grassmannian-incidence-lemmas}.
+\begin{align*}
+\dim\left(\frac{\epsilon^{-N}L_0}{L_0'}\right)
+&= \dim\left(\frac{\epsilon^{-1-N}L_0}{L_0'}\right) - \dim\left(\frac{\epsilon^{-1-N}L_0}{\epsilon^{-N}L_0}\right)\\
+&= (a+r) - r\\
+&= a,
+\end{align*}
+so $L'\in\Pi_{N,\lambda}^a(L)$. Therefore $\Pi_{N,\lambda}^a(L)$ is the closed subset of $\Pi_{N+1,\lambda}^{a+r}(L)$ defined by the conditions $\epsilon^N L_0\subset L_0'$ and $L_0'\subset\epsilon^{-N}L_0$, using Lemma \ref{lemma:grassmannian-incidence-lemmas}.
 \end{proof}
 
-\begin{lemma}
-Let $\lambda\in\compositions$, $M,N\in\naturals$, $L,\tilde{L}\in\flags$, $0\le a\le 2Nr$, $0\le b\le 2Mr$. $\Pi_{N,\lambda}^a(L)\cap \Pi_{M,\lambda}^b(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$.
+\begin{lemma}\label{lemma:consistent-topologies}
+Let $L,\tilde{L}\in\flags$, $\lambda\in\compositions$ and $M,N,a,b\in\naturals$ with $0\le a\le 2Nr$ and $0\le b\le 2Mr$. Then $\Pi_{N,\lambda}^a(L)\cap \Pi_{M,\lambda}^b(\tilde{L})$ is a closed set in $\Pi_{N,\lambda}^a(L)$.
 \end{lemma}
 
 \begin{proof}
-Observe that $\Pi_{N,\lambda}^a(L)\cap\Pi_{M,\lambda}^b(\tilde{L})$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the additional conditions that $\epsilon^M \tilde{L}_0\subset L_0'$ and $L_0'\subset\epsilon^{-M}\tilde{L}_0$, so is a closed subset of $\Pi_{N,\lambda}^a(L)$, using \ref{lemma:grassmannian-incidence-lemmas}.
-\end{proof}
-
-\begin{lemma}
-Suppose $L\in\flags$, $N,a \in\naturals$ and $\lambda\in\compositions$ with $a\le 2Nr$. For each $g\in G$, the restriction of the action map
-\begin{equation*}
-g\colon\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL)
-\end{equation*}
-is an isomorphism of projective algebraic varieties.
-\end{lemma}
-
-\begin{proof}
-If $L'\in\Pi_{N,\lambda}^a(L)$ and $g\in G$, then
-\begin{equation*}
-\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0
-\end{equation*}
-and so
-\begin{equation*}
-\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0),
-\end{equation*}
-which proves that $gL\in\Pi_{N,\lambda}^a(gL)$. Thus the action of $g$ defines a map from $\Pi_{N,\lambda}^a(L)$ to $\Pi_{N,\lambda}^a(gL)$ which is an isomorphism of projective algebraic varieties since $g$ is an automorphism of $V$, with the inverse morphism given by multiplying by $g^{-1}$.
+Observe that $\Pi_{N,\lambda}^a(L)\cap\Pi_{M,\lambda}^b(\tilde{L})$ is the subset of $\Pi_{N,\lambda}^a(L)$ defined by the additional conditions $\epsilon^M \tilde{L}_0\subset L_0'$ and $L_0'\subset\epsilon^{-M}\tilde{L}_0$, so is a closed subset of $\Pi_{N,\lambda}^a(L)$, using Lemma \ref{lemma:grassmannian-incidence-lemmas}.
 \end{proof}
 
 \subsection{Algebraic group action}
 
+As illustrated in the commuting diagram below of morphisms of varieties, the action of $G_L/{H_{N,L}}$ on $\Pi_{N,\lambda}^a(L)$ is an algebraic group action, since the action of $\IM{\kappa}$ on $\mathcal{X}$ is a restriction of the algebraic group action of $\GL{}{W}$ on $\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$.
 
+\begin{equation*}
+\begin{tikzpicture}[scale=1.5, baseline=-0.5ex]
+\node (A0) at (0,2) {$G_L/{H_{N,L}}\times\Pi_{N,\lambda}^a(L)$};
+\node (A1) at (5,2) {$\Pi_{N,\lambda}^a(L)$};
+\node (B0) at (0,1) {$\IM{\kappa}\times\mathcal{X}$};
+\node (B1) at (5,1) {$\mathcal{X}$};
+\node (C0) at (0,0) {$\GL{}{W}\times\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$};
+\node (C1) at (5,0) {$\GR[d_1]{W}\times\cdots\times\GR[d_n]{W}$};
+
+\path[->,font=\scriptsize,>=angle 90]
+(A0) edge (A1)
+(B0) edge (B1)
+(C0) edge (C1)
+(A0) edge node[left] {$(\bar{\kappa},\rho)$} node[right] {$\cong$} (B0)
+(A1) edge node[left] {$\rho$} node[right] {$\cong$} (B1)
+(B0) edge[right hook->] (C0)
+(B1) edge[right hook->] (C1);
+\end{tikzpicture}
+\end{equation*}
+
+\begin{lemma}\label{lemma:G-translation-of-Pi}
+Suppose $L\in\flags$, $\lambda\in\compositions$ and $N,a \in\naturals$ with $a\le 2Nr$. For each $g\in G$, the restriction of the action of $g$ on $\flags_\lambda$ induces an isomorphism of projective algebraic varieties
+\begin{equation*}
+g\colon\Pi_{N,\lambda}^a(L)\to \Pi_{N,\lambda}^a(gL).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $g\in G$. For each $L'\in\Pi_{N,\lambda}^a(L)$,
+\begin{equation*}
+\epsilon^N L_0\subset L_0'\subset \epsilon^{-N}L_0,
+\end{equation*}
+so
+\begin{equation*}
+\epsilon^N g(L_0)\subset g(L_0')\subset \epsilon^{-N}g(L_0),
+\end{equation*}
+which proves that $gL\in\Pi_{N,\lambda}^a(gL)$. Thus the action of $g$ defines a map from $\Pi_{N,\lambda}^a(L)$ to $\Pi_{N,\lambda}^a(gL)$, which is a morphism of projective algebraic varieties, since $g$ is a linear automorphism of $V$. The morphisms defined by $g$ and $g^{-1}$ are mutually inverse, so $g$ defines an isomorphism of projective algebraic varieties as claimed.
+\end{proof}
 
 Given $g\in G$, the map $G_L\to G_{gL}$ sending $h$ to $ghg^{-1}$ is a group isomorphism which descends to an isomorphism of algebraic groups $G_L/{H_{N,L}}\to G_{gL}/{H_{N,gL}}$. Thus we have a commuting diagram of morphisms of varieties, where the vertical arrows are isomorphisms:
 
 \begin{equation*}
-\begin{tikzpicture}[scale=1.5, baseline = -0.5ex]
+\begin{tikzpicture}[scale=1.5, baseline=-0.5ex]
 \node (A) at (0,1) {$G_L/{H_{N,L}}\times\Pi_{N,\lambda}^a(L)$};
 \node (B) at (3,1) {$\Pi_{N,\lambda}^a(L)$};
 \node (C) at (0,0) {$G_{gL}/{H_{N,gL}}\times\Pi_{N,\lambda}^a(gL)$};
 \node (D) at (3,0) {$\Pi_{N,\lambda}^a(gL)$};
 
-\cdarrow (A) edge (B);
-\cdarrow (A) edge (C);
-\cdarrow (B) edge (D);
-\cdarrow (C) edge (D);
+\path[->,font=\scriptsize,>=angle 90]
+(A) edge (B)
+(A) edge (C)
+(B) edge (D)
+(C) edge (D);
 \end{tikzpicture}
 \end{equation*}
 
+
 \subsection{Incidence in affine flag varieties}
 
-Given $N,a,b,c\in\naturals$, $\lambda,\mu\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
+Given $L\in\flags$, $\lambda,\mu\in\compositions$, $N,a,b,c\in\naturals$ and $i,j\in\integers$,
 \begin{equation*}
 \left\{(L',L'')\in\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L): \dim\left(\frac{L_i'}{L_i'\cap L_j''}\right)\le c\right\}
 \end{equation*}
@@ -2722,7 +2779,7 @@ is a closed set in $\Pi_{N,\lambda}^a(L)\times\Pi_{N,\mu}^b(L)$ since
 \end{equation*}
 
 \begin{lemma}\label{lemma:incidence-varieties-consequences}
-Given $N,a,c\in\naturals$, $\lambda\in\compositions$, $L\in\flags$ and $i,j\in\integers$,
+Given $L\in\flags$, $\lambda\in\compositions$, $N,a,c\in\naturals$ and $i,j\in\integers$,
 \begin{equation*}
 \left\{L'\in\Pi_{N,\lambda}^a(L):\dim\left(\frac{L_i}{L_i\cap L_j'}\right)\le c\right\}
 \end{equation*}
